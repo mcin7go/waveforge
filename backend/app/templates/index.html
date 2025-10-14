@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}WaveBulk - {{ _('Analiza i Konwersja Audio') }}{% endblock %}
+{% block body_content %}
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>{{ _('Studyjna Jakość Konwersji i') }} <span>{{ _('Analizy') }}</span>. {{ _('W Twojej Przeglądarce.') }}</h1>
+                <p class="subtitle">{{ _('Przetwarzaj, analizuj i konwertuj pliki audio jak profesjonalista. Bez instalacji, z dowolnego miejsca. Uzyskaj wgląd w swoją muzykę, jakiego nie da Ci żadne inne narzędzie online.') }}</p>
+                <a href="{{ url_for('audio_processing.upload_and_process_audio') }}" class="btn btn-primary">{{ _('Rozpocznij darmowy projekt') }}</a>
+                <p class="trust-signal">{{ _('Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej.') }}</p>
+            </div>
+        </section>
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>{{ _('Wszystko, Czego Potrzebujesz w Jednym Miejscu') }}</h2>
+                    <p>{{ _('Od prostej konwersji po zaawansowaną analizę techniczną.') }}</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg></div>
+                        <h3>{{ _('Profesjonalna Analiza Audio') }}</h3>
+                        <p>{{ _('Sprawdź głośność LUFS, True Peak, zakres dynamiki i zgodność mono, aby Twoja muzyka brzmiała perfekcyjnie na każdej platformie streamingowej.') }}</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" /></svg></div>
+                        <h3>{{ _('Wysokiej Jakości Konwersja') }}</h3>
+                        <p>{{ _('Konwertuj pliki do formatów bezstratnych jak FLAC czy stratnych jak MP3 320kbps z użyciem najlepszych dostępnych kodeków, zachowując maksymalną jakość.') }}</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <h3>{{ _('Wsadowe Przetwarzanie') }}</h3>
+                        <p>{{ _('Oszczędzaj godziny pracy. Przeciągnij cały album lub folder z plikami, ustaw parametry raz i pozwól naszej aplikacji zająć się resztą.') }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="pricing" class="features">
+             <div class="container">
+                <div class="section-header">
+                    <h2>{{ _('Prosty i Przejrzysty Cennik') }}</h2>
+                    <p>{{ _('Wybierz plan, który rośnie razem z Tobą.') }}</p>
+                </div>
+                <div class="text-center"><a href="{{ url_for('main.pricing') }}" class="btn btn-primary btn-lg">{{ _('Zobacz Pełne Porównanie Planów') }}</a></div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

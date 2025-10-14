@@ -1,0 +1,72 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: waveforge_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=waveforgepro
+      - POSTGRES_PASSWORD=bNE0Q!CI
+      - POSTGRES_DB=waveforgepro
+    ports:
+      - "5432:5432"
+    networks:
+      - waveforge-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: waveforge_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - waveforge-net
+
+  web:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: waveforge_web
+    command: ./start.sh
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    # --- POCZĄTEK ZMIANY ---
+    environment:
+      - PYTHONPATH=/app
+    # --- KONIEC ZMIANY ---
+    depends_on:
+      - db
+      - redis
+    networks:
+      - waveforge-net
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: waveforge_worker
+    # ZMIANA: Zmieniono punkt wejściowy na nowy, dedykowany skrypt `celery_worker.py`
+    command: celery -A celery_worker:celery worker --loglevel=info
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    # --- POCZĄTEK ZMIANY ---
+    environment:
+      - PYTHONPATH=/app
+    # --- KONIEC ZMIANY ---
+    depends_on:
+      - redis
+      - db
+    networks:
+      - waveforge-net
+
+networks:
+  waveforge-net:
+    driver: bridge
+
+volumes:
+  postgres_data:

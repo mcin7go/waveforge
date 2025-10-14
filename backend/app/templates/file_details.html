@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% block title %}{{ file.original_filename }} - {{ _('Szczegóły') }} - WaveBulk{% endblock %}
+{% block body_content %}
+<main class="container" style="padding-top: 2rem;">
+    <div class="breadcrumb mb-4">
+        <a href="{{ url_for('audio_processing.dashboard') }}">{{ _('Dashboard') }}</a> / 
+        <a href="{{ url_for('audio_processing.get_processing_history') }}">{{ _('Historia') }}</a> / 
+        <span>{{ file.original_filename }}</span>
+    </div>
+
+    <section class="file-details-container">
+        <!-- File Header -->
+        <div class="file-details-header">
+            <div class="file-title-section">
+                <h1 class="file-title">{{ file.original_filename }}</h1>
+                <div class="file-metadata">
+                    <span class="metadata-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+                        {{ file.upload_date.strftime('%Y-%m-%d %H:%M') }}
+                    </span>
+                    <span class="metadata-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+                        {{ (file.file_size_bytes / 1024 / 1024)|round(2) }} MB
+                    </span>
+                    {% if task %}
+                    <span class="metadata-item">
+                        {% if task.status == 'COMPLETED' %}
+                            <span class="badge bg-success">{{ _('Ukończono') }}</span>
+                        {% elif task.status in ['PENDING', 'QUEUED', 'PROCESSING'] %}
+                            <span class="badge bg-warning">{{ _('W trakcie...') }}</span>
+                        {% elif task.status == 'FAILED' %}
+                            <span class="badge bg-danger">{{ _('Błąd') }}</span>
+                        {% endif %}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            {% if processed_file_url %}
+            <div class="file-actions">
+                <a href="{{ processed_file_url }}" class="btn btn-primary" download>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    {{ _('Pobierz plik') }}
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Audio Analysis Stats -->
+        {% if file.loudness_lufs or file.true_peak_db or file.duration_seconds %}
+        <div class="analysis-section">
+            <h2 class="analysis-title">{{ _('Analiza techniczna') }}</h2>
+            <div class="analysis-grid">
+                {% if file.loudness_lufs %}
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                        </svg>
+                    </div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">{{ _('Głośność (LUFS)') }}</div>
+                        <div class="analysis-value">{{ "%.1f"|format(file.loudness_lufs) }}</div>
+                        <div class="analysis-description">{{ _('Zintegrowana głośność') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if file.true_peak_db %}
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                        </svg>
+                    </div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">True Peak (dBTP)</div>
+                        <div class="analysis-value">{{ "%.1f"|format(file.true_peak_db) }} dB</div>
+                        <div class="analysis-description">{{ _('Maksymalny szczyt') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if file.duration_seconds %}
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">{{ _('Czas trwania') }}</div>
+                        <div class="analysis-value">{{ "%.1f"|format(file.duration_seconds) }}s</div>
+                        <div class="analysis-description">{{ _('Długość utworu') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if result_data.get('loudness_range') %}
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                        </svg>
+                    </div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">{{ _('Zakres dynamiki (LRA)') }}</div>
+                        <div class="analysis-value">{{ "%.1f"|format(result_data.loudness_range) }} LU</div>
+                        <div class="analysis-description">{{ _('Loudness Range') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- File Info Table -->
+        <div class="info-section">
+            <h2 class="info-title">{{ _('Informacje o pliku') }}</h2>
+            <div class="info-table">
+                <div class="info-row">
+                    <span class="info-label">{{ _('Nazwa oryginalna') }}:</span>
+                    <span class="info-value">{{ file.original_filename }}</span>
+                </div>
+                {% if file.processed_filename %}
+                <div class="info-row">
+                    <span class="info-label">{{ _('Nazwa przetworzona') }}:</span>
+                    <span class="info-value">{{ file.processed_filename }}</span>
+                </div>
+                {% endif %}
+                <div class="info-row">
+                    <span class="info-label">{{ _('Rozmiar pliku') }}:</span>
+                    <span class="info-value">{{ (file.file_size_bytes / 1024 / 1024)|round(2) }} MB</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">{{ _('Data przesłania') }}:</span>
+                    <span class="info-value">{{ file.upload_date.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                </div>
+                {% if task %}
+                <div class="info-row">
+                    <span class="info-label">{{ _('Status przetwarzania') }}:</span>
+                    <span class="info-value">{{ task.status }}</span>
+                </div>
+                {% if task.completed_at %}
+                <div class="info-row">
+                    <span class="info-label">{{ _('Data ukończenia') }}:</span>
+                    <span class="info-value">{{ task.completed_at.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- LUFS Visualization -->
+        {% if file.loudness_lufs %}
+        <div class="visualization-section">
+            <h2 class="visualization-title">{{ _('Wizualizacja głośności') }}</h2>
+            <div class="lufs-meter-container">
+                <div class="lufs-meter">
+                    <div class="lufs-scale">
+                        <span class="scale-mark" data-value="0">0</span>
+                        <span class="scale-mark" data-value="-5">-5</span>
+                        <span class="scale-mark" data-value="-10">-10</span>
+                        <span class="scale-mark streaming-target" data-value="-14">-14 (Spotify/YouTube)</span>
+                        <span class="scale-mark streaming-target" data-value="-16">-16 (Apple Music)</span>
+                        <span class="scale-mark" data-value="-20">-20</span>
+                        <span class="scale-mark" data-value="-23">-23 (Broadcast)</span>
+                    </div>
+                    <div class="lufs-bar-container">
+                        <div class="lufs-bar" style="height: {{ ((file.loudness_lufs + 30) / 30 * 100)|round|int }}%;">
+                            <span class="lufs-label">{{ "%.1f"|format(file.loudness_lufs) }} LUFS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lufs-info">
+                    <h4>{{ _('Interpretacja wyniku') }}:</h4>
+                    {% if file.loudness_lufs > -10 %}
+                        <p class="text-warning">⚠️ {{ _('Bardzo głośny materiał - może być przesterowany') }}</p>
+                    {% elif file.loudness_lufs > -14 %}
+                        <p class="text-success">✓ {{ _('Dobry poziom dla muzyki pop/rock') }}</p>
+                    {% elif file.loudness_lufs > -18 %}
+                        <p class="text-success">✓ {{ _('Optymalny dla platform streamingowych') }}</p>
+                    {% else %}
+                        <p class="text-info">ℹ️ {{ _('Cichy materiał - rozważ normalizację') }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Processing Details -->
+        {% if result_data %}
+        <div class="processing-section">
+            <h2 class="processing-title">{{ _('Szczegóły przetwarzania') }}</h2>
+            <div class="processing-details">
+                <pre>{{ result_data|tojson(indent=2) }}</pre>
+            </div>
+        </div>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
+

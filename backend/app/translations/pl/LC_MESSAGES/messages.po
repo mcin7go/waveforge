@@ -1,0 +1,827 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-10-14 11:41+0200\n"
+"PO-Revision-Date: 2025-09-22 12:20+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pl\n"
+"Language-Team: pl <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: app/blueprints/admin/routes.py:22
+msgid "Nowy plan został pomyślnie utworzony."
+msgstr "Nowy plan został pomyślnie utworzony."
+
+#: app/blueprints/admin/routes.py:24
+#, python-format
+msgid "Wystąpił błąd: %(error)s"
+msgstr "Wystąpił błąd: %(error)s"
+
+#: app/blueprints/admin/routes.py:39
+#, python-format
+msgid "Plan \"%(plan_name)s\" został zarchiwizowany."
+msgstr ""
+
+#: app/blueprints/admin/routes.py:41
+#, python-format
+msgid "Błąd podczas archiwizacji w Stripe: %(error)s"
+msgstr "Błąd podczas archiwizacji w Stripe: %(error)s"
+
+#: app/blueprints/admin/routes.py:43
+msgid "Nie znaleziono aktywnego planu o podanym ID."
+msgstr "Nie znaleziono aktywnego planu o podanym ID."
+
+#: app/blueprints/auth/routes.py:21 app/blueprints/auth/routes.py:97
+msgid "Hasła nie pasują do siebie."
+msgstr "Hasła nie pasują do siebie."
+
+#: app/blueprints/auth/routes.py:24
+msgid "Musisz zaakceptować regulamin i politykę prywatności."
+msgstr "Musisz zaakceptować regulamin i politykę prywatności."
+
+#: app/blueprints/auth/routes.py:28
+msgid "Ten adres e-mail jest już zajęty."
+msgstr "Ten adres e-mail jest już zajęty."
+
+#: app/blueprints/auth/routes.py:34
+msgid "Konto zostało utworzone pomyślnie! Możesz się teraz zalogować."
+msgstr "Konto zostało utworzone pomyślnie! Możesz się teraz zalogować."
+
+#: app/blueprints/auth/routes.py:48
+msgid "Błędny email lub hasło. Spróbuj ponownie."
+msgstr "Błędny email lub hasło. Spróbuj ponownie."
+
+#: app/blueprints/auth/routes.py:58
+msgid "Zostałeś wylogowany."
+msgstr "Zostałeś wylogowany."
+
+#: app/blueprints/auth/routes.py:73
+msgid "Na Twój adres e-mail został wysłany link do zresetowania hasła."
+msgstr "Na Twój adres e-mail został wysłany link do zresetowania hasła."
+
+#: app/blueprints/auth/routes.py:75
+msgid "Podany adres e-mail nie istnieje."
+msgstr "Podany adres e-mail nie istnieje."
+
+#: app/blueprints/auth/routes.py:87
+msgid "Link do zresetowania hasła jest nieprawidłowy lub wygasł."
+msgstr "Link do zresetowania hasła jest nieprawidłowy lub wygasł."
+
+#: app/blueprints/auth/routes.py:91
+msgid "Użytkownik nie znaleziony."
+msgstr "Użytkownik nie znaleziony."
+
+#: app/blueprints/auth/routes.py:101
+msgid "Twoje hasło zostało zresetowane! Możesz się teraz zalogować."
+msgstr "Twoje hasło zostało zresetowane! Możesz się teraz zalogować."
+
+#: app/blueprints/auth/routes.py:116
+#, python-format
+msgid "Wystąpił błąd podczas autoryzacji przez Google: %(error)s"
+msgstr "Wystąpił błąd podczas autoryzacji przez Google: %(error)s"
+
+#: app/blueprints/auth/routes.py:120
+msgid "Nie udało się uzyskać identyfikatora użytkownika od Google."
+msgstr "Nie udało się uzyskać identyfikatora użytkownika od Google."
+
+#: app/blueprints/auth/routes.py:125
+msgid "Zalogowano pomyślnie przez Google!"
+msgstr "Zalogowano pomyślnie przez Google!"
+
+#: app/blueprints/auth/routes.py:132
+msgid "Twoje istniejące konto zostało połączone z kontem Google!"
+msgstr "Twoje istniejące konto zostało połączone z kontem Google!"
+
+#: app/blueprints/auth/routes.py:138
+msgid "Konto zostało utworzone i zalogowano pomyślnie przez Google!"
+msgstr "Konto zostało utworzone i zalogowano pomyślnie przez Google!"
+
+#: app/blueprints/billing/routes.py:13
+msgid "Nie znaleziono aktywnej subskrypcji."
+msgstr "Nie znaleziono aktywnej subskrypcji."
+
+#: app/templates/admin_plans.html:2 app/templates/admin_users.html:7
+msgid "Zarządzaj Planami"
+msgstr "Zarządzaj Planami"
+
+#: app/templates/admin_plans.html:2 app/templates/admin_users.html:2
+#: app/templates/admin_users.html:26
+msgid "Admin"
+msgstr "Admin"
+
+#: app/templates/admin_plans.html:6 app/templates/admin_users.html:6
+msgid "Panel Administratora"
+msgstr "Panel Administratora"
+
+#: app/templates/admin_plans.html:6
+msgid "Plany Subskrypcji"
+msgstr "Plany Subskrypcji"
+
+#: app/templates/admin_plans.html:7 app/templates/admin_users.html:2
+msgid "Zarządzaj Użytkownikami"
+msgstr "Zarządzaj Użytkownikami"
+
+#: app/templates/admin_plans.html:11
+msgid "Istniejące Plany"
+msgstr "Istniejące Plany"
+
+#: app/templates/admin_plans.html:14
+msgid "Nazwa"
+msgstr "Nazwa"
+
+#: app/templates/admin_plans.html:14
+msgid "Cena"
+msgstr "Cena"
+
+#: app/templates/admin_plans.html:14
+msgid "Okres"
+msgstr "Okres"
+
+#: app/templates/admin_plans.html:14 app/templates/history.html:17
+msgid "Status"
+msgstr "Status"
+
+#: app/templates/admin_plans.html:14 app/templates/history.html:21
+msgid "Akcje"
+msgstr "Akcje"
+
+#: app/templates/admin_plans.html:22
+msgid "Aktywny"
+msgstr "Aktywny"
+
+#: app/templates/admin_plans.html:23
+msgid "Zarchiwizowany"
+msgstr "Zarchiwizowany"
+
+#: app/templates/admin_plans.html:27
+msgid "Czy na pewno chcesz zarchiwizować ten plan?"
+msgstr "Czy na pewno chcesz zarchiwizować ten plan?"
+
+#: app/templates/admin_plans.html:28
+msgid "Archiwizuj"
+msgstr "Archiwizuj"
+
+#: app/templates/admin_plans.html:36
+msgid "Brak zdefiniowanych planów."
+msgstr "Brak zdefiniowanych planów."
+
+#: app/templates/admin_plans.html:39
+msgid "Stwórz Nowy Plan w Stripe"
+msgstr "Stwórz Nowy Plan w Stripe"
+
+#: app/templates/admin_plans.html:41
+msgid "Nazwa Planu (np. PRO)"
+msgstr "Nazwa Planu (np. PRO)"
+
+#: app/templates/admin_plans.html:42
+msgid "Cena (np. 49.00)"
+msgstr "Cena (np. 49.00)"
+
+#: app/templates/admin_plans.html:43
+msgid "Waluta"
+msgstr "Waluta"
+
+#: app/templates/admin_plans.html:44
+msgid "Okres Rozliczeniowy"
+msgstr "Okres Rozliczeniowy"
+
+#: app/templates/admin_plans.html:44
+msgid "Miesiąc"
+msgstr "Miesiąc"
+
+#: app/templates/admin_plans.html:44
+msgid "Rok"
+msgstr "Rok"
+
+#: app/templates/admin_plans.html:45
+msgid "Stwórz Plan"
+msgstr "Stwórz Plan"
+
+#: app/templates/admin_users.html:6
+msgid "Użytkownicy"
+msgstr "Użytkownicy"
+
+#: app/templates/admin_users.html:14
+msgid "Data Rejestracji"
+msgstr "Data Rejestracji"
+
+#: app/templates/admin_users.html:15
+msgid "Rola"
+msgstr "Rola"
+
+#: app/templates/admin_users.html:16
+msgid "Status Subskrypcji"
+msgstr "Status Subskrypcji"
+
+#: app/templates/admin_users.html:27
+msgid "Użytkownik"
+msgstr "Użytkownik"
+
+#: app/templates/admin_users.html:30
+msgid "Aktywna"
+msgstr "Aktywna"
+
+#: app/templates/admin_users.html:31
+msgid "Zaległa"
+msgstr "Zaległa"
+
+#: app/templates/admin_users.html:32
+msgid "Anulowana"
+msgstr "Anulowana"
+
+#: app/templates/admin_users.html:33 app/templates/upload_audio.html:52
+msgid "Brak"
+msgstr "Brak"
+
+#: app/templates/base.html:16
+msgid "Home"
+msgstr "Home"
+
+#: app/templates/base.html:18
+msgid "Historia"
+msgstr "Historia"
+
+#: app/templates/base.html:20
+msgid "Cennik"
+msgstr "Cennik"
+
+#: app/templates/base.html:33
+msgid "Panel Admina"
+msgstr "Panel Admina"
+
+#: app/templates/base.html:35
+msgid "Zarządzaj Subskrypcją"
+msgstr "Zarządzaj Subskrypcją"
+
+#: app/templates/base.html:37
+msgid "Prześlij pliki"
+msgstr "Prześlij pliki"
+
+#: app/templates/base.html:38
+msgid "Wyloguj"
+msgstr "Wyloguj"
+
+#: app/templates/base.html:40
+msgid "Zaloguj się"
+msgstr "Zaloguj się"
+
+#: app/templates/base.html:41
+msgid "Zarejestruj się"
+msgstr "Zarejestruj się"
+
+#: app/templates/base.html:58
+msgid "Wszelkie prawa zastrzeżone."
+msgstr "Wszelkie prawa zastrzeżone."
+
+#: app/templates/history.html:2 app/templates/history.html:6
+msgid "Moja Historia Przetwarzania"
+msgstr "Moja Historia Przetwarzania"
+
+#: app/templates/history.html:7
+msgid "Lista wszystkich Twoich przetworzonych plików audio."
+msgstr "Lista wszystkich Twoich przetworzonych plików audio."
+
+#: app/templates/history.html:16
+msgid "Nazwa pliku"
+msgstr "Nazwa pliku"
+
+#: app/templates/history.html:18
+msgid "Głośność LUFS"
+msgstr "Głośność LUFS"
+
+#: app/templates/history.html:20
+msgid "Data"
+msgstr "Data"
+
+#: app/templates/history.html:30
+msgid "Ukończono"
+msgstr "Ukończono"
+
+#: app/templates/history.html:31
+msgid "W trakcie..."
+msgstr "W trakcie..."
+
+#: app/templates/history.html:32
+msgid "Błąd"
+msgstr "Błąd"
+
+#: app/templates/history.html:33
+msgid "Brak statusu"
+msgstr "Brak statusu"
+
+#: app/templates/history.html:39
+msgid "Pobierz"
+msgstr "Pobierz"
+
+#: app/templates/history.html:46
+msgid "Usuń zaznaczone"
+msgstr "Usuń zaznaczone"
+
+#: app/templates/history.html:49
+msgid "Nie masz jeszcze żadnych przetworzonych plików."
+msgstr "Nie masz jeszcze żadnych przetworzonych plików."
+
+#: app/templates/index.html:2
+msgid "Analiza i Konwersja Audio"
+msgstr "Analiza i Konwersja Audio"
+
+#: app/templates/index.html:7
+msgid "Studyjna Jakość Konwersji i"
+msgstr "Studyjna Jakość Konwersji i"
+
+#: app/templates/index.html:7
+msgid "Analizy"
+msgstr "Analizy"
+
+#: app/templates/index.html:7
+msgid "W Twojej Przeglądarce."
+msgstr "W Twojej Przeglądarce."
+
+#: app/templates/index.html:8
+msgid ""
+"Przetwarzaj, analizuj i konwertuj pliki audio jak profesjonalista. Bez "
+"instalacji, z dowolnego miejsca. Uzyskaj wgląd w swoją muzykę, jakiego "
+"nie da Ci żadne inne narzędzie online."
+msgstr ""
+
+#: app/templates/index.html:9
+msgid "Rozpocznij darmowy projekt"
+msgstr "Rozpocznij darmowy projekt"
+
+#: app/templates/index.html:10
+msgid "Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej."
+msgstr "Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej."
+
+#: app/templates/index.html:16
+msgid "Wszystko, Czego Potrzebujesz w Jednym Miejscu"
+msgstr "Wszystko, Czego Potrzebujesz w Jednym Miejscu"
+
+#: app/templates/index.html:17
+msgid "Od prostej konwersji po zaawansowaną analizę techniczną."
+msgstr "Od prostej konwersji po zaawansowaną analizę techniczną."
+
+#: app/templates/index.html:22
+msgid "Profesjonalna Analiza Audio"
+msgstr "Profesjonalna Analiza Audio"
+
+#: app/templates/index.html:23
+msgid ""
+"Sprawdź głośność LUFS, True Peak, zakres dynamiki i zgodność mono, aby "
+"Twoja muzyka brzmiała perfekcyjnie na każdej platformie streamingowej."
+msgstr ""
+
+#: app/templates/index.html:27
+msgid "Wysokiej Jakości Konwersja"
+msgstr "Wysokiej Jakości Konwersja"
+
+#: app/templates/index.html:28
+msgid ""
+"Konwertuj pliki do formatów bezstratnych jak FLAC czy stratnych jak MP3 "
+"320kbps z użyciem najlepszych dostępnych kodeków, zachowując maksymalną "
+"jakość."
+msgstr ""
+
+#: app/templates/index.html:32
+msgid "Wsadowe Przetwarzanie"
+msgstr "Wsadowe Przetwarzanie"
+
+#: app/templates/index.html:33
+msgid ""
+"Oszczędzaj godziny pracy. Przeciągnij cały album lub folder z plikami, "
+"ustaw parametry raz i pozwól naszej aplikacji zająć się resztą."
+msgstr ""
+
+#: app/templates/index.html:41
+msgid "Prosty i Przejrzysty Cennik"
+msgstr "Prosty i Przejrzysty Cennik"
+
+#: app/templates/index.html:42
+msgid "Wybierz plan, który rośnie razem z Tobą."
+msgstr "Wybierz plan, który rośnie razem z Tobą."
+
+#: app/templates/index.html:44
+msgid "Zobacz Pełne Porównanie Planów"
+msgstr "Zobacz Pełne Porównanie Planów"
+
+#: app/templates/language_test.html:85 app/templates/login.html:5
+msgid "Welcome back!"
+msgstr "Welcome back!"
+
+#: app/templates/language_test.html:86 app/templates/login.html:2
+msgid "Login"
+msgstr "Login"
+
+#: app/templates/language_test.html:87 app/templates/login.html:7
+#: app/templates/register.html:7
+msgid "Email address"
+msgstr "Email address"
+
+#: app/templates/language_test.html:88 app/templates/login.html:8
+#: app/templates/register.html:8
+msgid "Password"
+msgstr "Password"
+
+#: app/templates/language_test.html:89 app/templates/login.html:10
+#: app/templates/register.html:15
+msgid "Sign In"
+msgstr "Sign In"
+
+#: app/templates/login.html:9
+msgid "Remember me"
+msgstr "Remember me"
+
+#: app/templates/login.html:9
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+#: app/templates/login.html:12 app/templates/register.html:13
+msgid "OR"
+msgstr "OR"
+
+#: app/templates/login.html:13 app/templates/register.html:14
+msgid "Sign in with Google"
+msgstr "Sign in with Google"
+
+#: app/templates/login.html:14
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: app/templates/login.html:14
+msgid "Sign up"
+msgstr "Sign up"
+
+#: app/templates/pricing.html:2
+msgid "Plany i Cennik"
+msgstr "Plany i Cennik"
+
+#: app/templates/pricing.html:6
+msgid "Wybierz plan dopasowany do Ciebie"
+msgstr "Wybierz plan dopasowany do Ciebie"
+
+#: app/templates/pricing.html:7
+msgid "Zacznij za darmo i przejdź na wyższy plan, gdy potrzebujesz więcej mocy."
+msgstr "Zacznij za darmo i przejdź na wyższy plan, gdy potrzebujesz więcej mocy."
+
+#: app/templates/pricing.html:12
+msgid "Darmowy"
+msgstr "Darmowy"
+
+#: app/templates/pricing.html:13
+msgid "miesiąc"
+msgstr "miesiąc"
+
+#: app/templates/pricing.html:14
+msgid "Idealny do testowania aplikacji i sporadycznych konwersji."
+msgstr "Idealny do testowania aplikacji i sporadycznych konwersji."
+
+#: app/templates/pricing.html:15
+msgid "Zacznij za darmo"
+msgstr "Zacznij za darmo"
+
+#: app/templates/pricing.html:22
+msgid "Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi."
+msgstr "Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi."
+
+#: app/templates/pricing.html:23
+msgid "Dla małych studiów i profesjonalistów z dużymi potrzebami."
+msgstr "Dla małych studiów i profesjonalistów z dużymi potrzebami."
+
+#: app/templates/pricing.html:24
+msgid "Niestandardowy plan dostosowany do Twoich potrzeb."
+msgstr "Niestandardowy plan dostosowany do Twoich potrzeb."
+
+#: app/templates/pricing.html:26
+msgid "Wybierz plan"
+msgstr "Wybierz plan"
+
+#: app/templates/register.html:2
+msgid "Register"
+msgstr "Register"
+
+#: app/templates/register.html:5
+msgid "Create a free account"
+msgstr "Create a free account"
+
+#: app/templates/register.html:9
+msgid "Confirm password"
+msgstr "Confirm password"
+
+#: app/templates/register.html:10
+msgid "I accept the"
+msgstr "I accept the"
+
+#: app/templates/register.html:10
+msgid "terms of service"
+msgstr "terms of service"
+
+#: app/templates/register.html:10
+msgid "and"
+msgstr "and"
+
+#: app/templates/register.html:10
+msgid "privacy policy"
+msgstr "privacy policy"
+
+#: app/templates/register.html:11
+msgid "Create account"
+msgstr "Create account"
+
+#: app/templates/register.html:15
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+#: app/templates/reset_password.html:2
+msgid "Ustaw Nowe Hasło"
+msgstr "Ustaw Nowe Hasło"
+
+#: app/templates/reset_password.html:6
+msgid "Ustaw nowe hasło"
+msgstr "Ustaw nowe hasło"
+
+#: app/templates/reset_password.html:6
+msgid "Twoje nowe hasło musi być inne niż poprzednie."
+msgstr "Twoje nowe hasło musi być inne niż poprzednie."
+
+#: app/templates/reset_password.html:8
+msgid "Nowe hasło"
+msgstr "Nowe hasło"
+
+#: app/templates/reset_password.html:9
+msgid "Powtórz nowe hasło"
+msgstr "Powtórz nowe hasło"
+
+#: app/templates/reset_password.html:10
+msgid "Zapisz i zaloguj się"
+msgstr "Zapisz i zaloguj się"
+
+#: app/templates/reset_password_request.html:2
+msgid "Zresetuj Hasło"
+msgstr "Zresetuj Hasło"
+
+#: app/templates/reset_password_request.html:5
+msgid "Zresetuj hasło"
+msgstr "Zresetuj hasło"
+
+#: app/templates/reset_password_request.html:5
+msgid "Podaj swój adres e-mail, a wyślemy Ci link do ustawienia nowego hasła."
+msgstr "Podaj swój adres e-mail, a wyślemy Ci link do ustawienia nowego hasła."
+
+#: app/templates/reset_password_request.html:7
+msgid "Adres e-mail"
+msgstr "Adres e-mail"
+
+#: app/templates/reset_password_request.html:8
+msgid "Wyślij link"
+msgstr "Wyślij link"
+
+#: app/templates/reset_password_request.html:10
+msgid "Wróć do logowania"
+msgstr "Wróć do logowania"
+
+#: app/templates/subscribe.html:2
+msgid "Subskrypcja"
+msgstr "Subskrypcja"
+
+#: app/templates/subscribe.html:6
+msgid "Dokonaj Subskrypcji"
+msgstr "Dokonaj Subskrypcji"
+
+#: app/templates/subscribe.html:7
+msgid "Wprowadź dane płatności, aby uzyskać dostęp do planu"
+msgstr "Wprowadź dane płatności, aby uzyskać dostęp do planu"
+
+#: app/templates/subscribe.html:11
+msgid "Karta Kredytowa lub Debetowa"
+msgstr "Karta Kredytowa lub Debetowa"
+
+#: app/templates/subscribe.html:15
+msgid "Zasubskrybuj Teraz"
+msgstr "Zasubskrybuj Teraz"
+
+#: app/templates/subscribe.html:27
+msgid "Błąd konfiguracji płatności."
+msgstr "Błąd konfiguracji płatności."
+
+#: app/templates/upload_audio.html:2
+msgid "Prześlij i Przetwórz Pliki Audio"
+msgstr "Prześlij i Przetwórz Pliki Audio"
+
+#: app/templates/upload_audio.html:6
+msgid "Przetwarzanie Wsadowe"
+msgstr "Przetwarzanie Wsadowe"
+
+#: app/templates/upload_audio.html:7
+msgid "WYBIERZ LUB UPUŚĆ WIELE PLIKÓW .WAV NARAZ."
+msgstr "WYBIERZ LUB UPUŚĆ WIELE PLIKÓW .WAV NARAZ."
+
+#: app/templates/upload_audio.html:15
+msgid "Przeciągnij i upuść pliki tutaj"
+msgstr "Przeciągnij i upuść pliki tutaj"
+
+#: app/templates/upload_audio.html:16
+msgid "lub"
+msgstr "lub"
+
+#: app/templates/upload_audio.html:17
+msgid "Wybierz pliki"
+msgstr "Wybierz pliki"
+
+#: app/templates/upload_audio.html:20
+msgid "Opcje Przetwarzania"
+msgstr "Opcje Przetwarzania"
+
+#: app/templates/upload_audio.html:23
+msgid "Format wyjściowy"
+msgstr "Format wyjściowy"
+
+#: app/templates/upload_audio.html:24
+msgid "Bitrate MP3"
+msgstr "Bitrate MP3"
+
+#: app/templates/upload_audio.html:24
+msgid "320 kbps (Najwyższa jakość)"
+msgstr "320 kbps (Najwyższa jakość)"
+
+#: app/templates/upload_audio.html:24
+msgid "192 kbps (Dobra jakość)"
+msgstr "192 kbps (Dobra jakość)"
+
+#: app/templates/upload_audio.html:26
+msgid "Głębia bitowa (WAV/FLAC)"
+msgstr "Głębia bitowa (WAV/FLAC)"
+
+#: app/templates/upload_audio.html:29
+msgid "24-bit (Domyślnie)"
+msgstr "24-bit (Domyślnie)"
+
+#: app/templates/upload_audio.html:30
+msgid "16-bit (Jakość CD)"
+msgstr "16-bit (Jakość CD)"
+
+#: app/templates/upload_audio.html:31
+msgid "32-bit float (Maksymalna)"
+msgstr "32-bit float (Maksymalna)"
+
+#: app/templates/upload_audio.html:36
+msgid "Platforma docelowa (Preset LUFS)"
+msgstr "Platforma docelowa (Preset LUFS)"
+
+#: app/templates/upload_audio.html:39
+msgid "Nie normalizuj"
+msgstr "Nie normalizuj"
+
+#: app/templates/upload_audio.html:40
+msgid "Własne ustawienia"
+msgstr "Własne ustawienia"
+
+#: app/templates/upload_audio.html:41
+msgid "Spotify (-14 LUFS)"
+msgstr "Spotify (-14 LUFS)"
+
+#: app/templates/upload_audio.html:42
+msgid "Apple Music (-16 LUFS)"
+msgstr "Apple Music (-16 LUFS)"
+
+#: app/templates/upload_audio.html:43
+msgid "YouTube (-14 LUFS)"
+msgstr "YouTube (-14 LUFS)"
+
+#: app/templates/upload_audio.html:48
+msgid "Dithering (dla 16-bit)"
+msgstr "Dithering (dla 16-bit)"
+
+#: app/templates/upload_audio.html:51
+msgid "Shibata (Zalecany)"
+msgstr "Shibata (Zalecany)"
+
+#: app/templates/upload_audio.html:58
+msgid "Jakość resamplingu"
+msgstr "Jakość resamplingu"
+
+#: app/templates/upload_audio.html:61
+msgid "Standardowa (Szybka)"
+msgstr "Standardowa (Szybka)"
+
+#: app/templates/upload_audio.html:62
+msgid "Wysoka - SoX (Wolniejsza)"
+msgstr "Wysoka - SoX (Wolniejsza)"
+
+#: app/templates/upload_audio.html:70
+msgid "Normalizuj głośność (prosta)"
+msgstr "Normalizuj głośność (prosta)"
+
+#: app/templates/upload_audio.html:73
+msgid "Docelowa głośność (LUFS)"
+msgstr "Docelowa głośność (LUFS)"
+
+#: app/templates/upload_audio.html:79
+msgid "Aktywuj True Peak Limiter (Zalecane)"
+msgstr "Aktywuj True Peak Limiter (Zalecane)"
+
+#: app/templates/upload_audio.html:82
+msgid "Metadane Plików (Opcjonalnie)"
+msgstr "Metadane Plików (Opcjonalnie)"
+
+#: app/templates/upload_audio.html:85
+msgid "Wykonawca"
+msgstr "Wykonawca"
+
+#: app/templates/upload_audio.html:86
+msgid "Album"
+msgstr "Album"
+
+#: app/templates/upload_audio.html:87
+msgid "Tytuł Utworu"
+msgstr "Tytuł Utworu"
+
+#: app/templates/upload_audio.html:88
+msgid "Numer Utworu"
+msgstr "Numer Utworu"
+
+#: app/templates/upload_audio.html:90
+msgid "Okładka Albumu"
+msgstr "Okładka Albumu"
+
+#: app/templates/upload_audio.html:90
+msgid "Wybierz obraz"
+msgstr "Wybierz obraz"
+
+#: app/templates/upload_audio.html:95
+msgid "Kolejka Plików"
+msgstr "Kolejka Plików"
+
+#: app/templates/upload_audio.html:99
+msgid "Rozpocznij Przetwarzanie"
+msgstr "Rozpocznij Przetwarzanie"
+
+#: app/utils/decorators.py:21
+msgid "Ta funkcja wymaga aktywnej subskrypcji."
+msgstr "Ta funkcja wymaga aktywnej subskrypcji."
+
+#~ msgid "Welcome back!"
+#~ msgstr "Witaj z powrotem!"
+
+#~ msgid "Login"
+#~ msgstr "Logowanie"
+
+#~ msgid "Email address"
+#~ msgstr "Adres e-mail"
+
+#~ msgid "Password"
+#~ msgstr "Hasło"
+
+#~ msgid "Remember me"
+#~ msgstr "Zapamiętaj mnie"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Nie pamiętasz hasła?"
+
+#~ msgid "Sign In"
+#~ msgstr "Zaloguj się"
+
+#~ msgid "OR"
+#~ msgstr "LUB"
+
+#~ msgid "Sign in with Google"
+#~ msgstr "Zaloguj się przez Google"
+
+#~ msgid "Don't have an account?"
+#~ msgstr "Nie masz konta?"
+
+#~ msgid "Sign up"
+#~ msgstr "Zarejestruj się"
+
+#~ msgid "Register"
+#~ msgstr "Rejestracja"
+
+#~ msgid "Create a free account"
+#~ msgstr "Stwórz darmowe konto"
+
+#~ msgid "Confirm password"
+#~ msgstr "Powtórz hasło"
+
+#~ msgid "I accept the"
+#~ msgstr "Akceptuję"
+
+#~ msgid "terms of service"
+#~ msgstr "regulamin"
+
+#~ msgid "and"
+#~ msgstr "i"
+
+#~ msgid "privacy policy"
+#~ msgstr "politykę prywatności"
+
+#~ msgid "Create account"
+#~ msgstr "Stwórz konto"
+
+#~ msgid "Already have an account?"
+#~ msgstr "Masz już konto?"
+

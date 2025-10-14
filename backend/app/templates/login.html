@@ -1,0 +1,16 @@
+{% extends "auth_base.html" %}
+{% block title %}{{ _('Login') }} - WaveBulk{% endblock %}
+{% block auth_content %}
+    <div class="auth-card">
+        <div class="auth-header"><div class="logo">WaveBulk</div><h1>{{ _('Welcome back!') }}</h1></div>
+        <form method="POST" action="{{ url_for('auth.login') }}">
+            <div class="form-group"><label for="login-email">{{ _('Email address') }}</label><input type="email" id="login-email" name="email" class="form-input" required></div>
+            <div class="form-group"><label for="login-password">{{ _('Password') }}</label><input type="password" id="login-password" name="password" class="form-input" required></div>
+            <div class="form-actions"><div class="checkbox-group"><input type="checkbox" id="remember_me" name="remember_me"><label for="remember_me">{{ _('Remember me') }}</label></div><a href="{{ url_for('auth.reset_password_request') }}">{{ _('Forgot your password?') }}</a></div>
+            <button type="submit" class="btn-submit">{{ _('Sign In') }}</button>
+        </form>
+        <div class="divider"><span>{{ _('OR') }}</span></div>
+        <a href="{{ url_for('auth.google_login') }}" class="btn-google">{{ _('Sign in with Google') }}</a>
+        <div class="auth-footer">{{ _('Don\'t have an account?') }} <a href="{{ url_for('auth.register') }}">{{ _('Sign up') }}</a></div>
+    </div>
+{% endblock %}

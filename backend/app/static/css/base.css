@@ -1,0 +1,117 @@
+/* ============================================
+   WaveBulk - Main Stylesheet
+   Modular CSS Architecture
+   ============================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Core */
+@import url('variables.css');
+@import url('utilities.css');
+@import url('layout.css');
+
+/* Components */
+@import url('components/buttons.css');
+@import url('components/forms.css');
+@import url('components/cards.css');
+@import url('components/tables.css');
+@import url('components/alerts.css');
+@import url('components/upload.css');
+@import url('components/hero.css');
+@import url('components/google-button.css');
+@import url('components/dashboard.css');
+@import url('components/file-details.css');
+@import url('components/upload-enhanced.css');
+
+/* ============================================
+   Additional Global Styles
+   ============================================ */
+
+/* Links */
+a {
+    color: var(--accent-color);
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--accent-light);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+/* Paragraph */
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Selection */
+::selection {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+/* Focus Visible */
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-lighter);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color);
+}
+
+/* Print Styles */
+@media print {
+    .main-header,
+    .main-footer,
+    .btn,
+    .header-actions {
+        display: none;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
+}

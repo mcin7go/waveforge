@@ -1,0 +1,175 @@
+/* ============================================
+   Enhanced Upload Component Styles
+   ============================================ */
+
+/* Upload Stats */
+.upload-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+    padding: var(--spacing-lg);
+    background-color: var(--bg-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.upload-stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.upload-stat-item .stat-icon {
+    font-size: var(--font-size-xl);
+}
+
+/* Enhanced Drop Area */
+#drop-area {
+    position: relative;
+    overflow: hidden;
+}
+
+#drop-area::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
+    border-radius: var(--radius-lg);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+#drop-area.is-dragover::before {
+    opacity: 0.2;
+}
+
+/* File Queue Summary */
+#queue-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+#queue-summary::before {
+    content: '📦';
+    font-size: var(--font-size-2xl);
+}
+
+/* Enhanced File Card */
+.file-card {
+    position: relative;
+}
+
+.file-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--text-secondary);
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    transition: background-color var(--transition-base);
+}
+
+.file-card.status-processing::before {
+    background-color: var(--accent-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.file-card.status-completed::before {
+    background-color: var(--color-success);
+}
+
+.file-card.status-failed::before {
+    background-color: var(--color-danger);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Processing Options Accordion */
+.options-accordion {
+    margin-top: var(--spacing-md);
+}
+
+.accordion-header {
+    background-color: var(--bg-dark);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-base);
+}
+
+.accordion-header:hover {
+    background-color: var(--bg-lighter);
+}
+
+.accordion-icon {
+    transition: transform var(--transition-base);
+}
+
+.accordion-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+}
+
+.accordion-content.expanded {
+    max-height: 2000px;
+}
+
+/* Help Text */
+.help-text {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+}
+
+.help-text svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .upload-stats {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-buttons {
+        width: 100%;
+    }
+    
+    .filter-btn {
+        flex: 1;
+        padding: 0.4rem 0.6rem;
+    }
+}
+

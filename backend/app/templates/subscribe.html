@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Subskrypcja') }} - WaveBulk{% endblock %}
+{% block body_content %}
+<main class="container" style="padding-top: 2rem;">
+  <section class="section-title text-center">
+    <h2>{{ _('Dokonaj Subskrypcji') }}</h2>
+    <p>{{ _('Wprowadź dane płatności, aby uzyskać dostęp do planu') }} <strong>{{ plan.name }}</strong> ({{ "%.2f"|format(plan.price / 100) }} PLN / {{ _(plan.interval) }}).</p>
+  </section>
+  <form id="payment-form" class="payment-form mx-auto max-w-md" data-price-id="{{ plan.stripe_price_id }}">
+    <div class="form-group mb-4">
+      <label for="card-element" class="mb-2">{{ _('Karta Kredytowa lub Debetowa') }}</label>
+      <div id="card-element" class="form-input"></div>
+      <div id="card-errors" role="alert" class="text-danger mt-2"></div>
+    </div>
+    <button id="submit-button" class="btn btn-primary w-100" style="padding: 1rem;">{{ _('Zasubskrybuj Teraz') }}</button>
+  </form>
+</main>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const paymentForm = document.getElementById('payment-form');
+      const stripePublishableKey = "{{ stripe_publishable_key }}";
+      const priceId = paymentForm.dataset.priceId;
+      if (!Stripe || !stripePublishableKey || !priceId) { document.getElementById('card-errors').textContent = '{{ _('Błąd konfiguracji płatności.') }}'; return; }
+      const stripe = Stripe(stripePublishableKey);
+      const elements = stripe.elements();
+      const cardElement = elements.create('card', { style: { base: { color: '#FFFFFF', '::placeholder': { color: '#A0A0A0' } } } });
+      cardElement.mount('#card-element');
+      paymentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitButton = document.getElementById('submit-button');
+        const cardErrors = document.getElementById('card-errors');
+        submitButton.disabled = true;
+        cardErrors.textContent = '';
+        const { paymentMethod, error } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
+        if (error) {
+          cardErrors.textContent = error.message;
+          submitButton.disabled = false;
+        } else {
+          const response = await fetch('/create-subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ paymentMethodId: paymentMethod.id, priceId: priceId }), });
+          const subscriptionResult = await response.json();
+          if (subscriptionResult.error) {
+            cardErrors.textContent = subscriptionResult.error;
+            submitButton.disabled = false;
+          } else { window.location.href = "{{ url_for('audio_processing.get_processing_history') }}"; }
+        }
+      });
+    });
+  </script>
+{% endblock %}

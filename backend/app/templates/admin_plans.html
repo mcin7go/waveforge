@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Zarządzaj Planami') }} - {{ _('Admin') }}{% endblock %}
+{% block body_content %}
+<main class="container" style="padding-top: 2rem;">
+    <section class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="section-title mb-0">{{ _('Panel Administratora') }} - {{ _('Plany Subskrypcji') }}</h2>
+        <a href="{{ url_for('admin.manage_users') }}" class="btn btn-secondary">{{ _('Zarządzaj Użytkownikami') }}</a>
+    </section>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>{{ _('Istniejące Plany') }}</h3>
+            {% if plans %}
+            <table class="table">
+                <thead><tr><th>{{ _('Nazwa') }}</th><th>{{ _('Cena') }}</th><th>{{ _('Okres') }}</th><th>{{ _('Status') }}</th><th>{{ _('Akcje') }}</th></tr></thead>
+                <tbody>
+                    {% for plan in plans %}
+                    <tr>
+                        <td>{{ plan.name }}</td>
+                        <td>{{ "%.2f"|format(plan.price / 100) }} PLN</td>
+                        <td>/ {{ _(plan.interval) }}</td>
+                        <td>
+                            {% if plan.is_active %}<span class="badge bg-success">{{ _('Aktywny') }}</span>
+                            {% else %}<span class="badge bg-secondary">{{ _('Zarchiwizowany') }}</span>{% endif %}
+                        </td>
+                        <td>
+                            {% if plan.is_active %}
+                            <form action="{{ url_for('admin.archive_plan', plan_id=plan.id) }}" method="POST" onsubmit="return confirm('{{ _('Czy na pewno chcesz zarchiwizować ten plan?') }}');">
+                                <button type="submit" class="btn btn-warning btn-sm">{{ _('Archiwizuj') }}</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}<p>{{ _('Brak zdefiniowanych planów.') }}</p>{% endif %}
+        </div>
+        <div class="col-md-4">
+            <h3>{{ _('Stwórz Nowy Plan w Stripe') }}</h3>
+            <form method="POST" action="{{ url_for('admin.manage_plans') }}">
+                <div class="form-group mb-3"><label>{{ _('Nazwa Planu (np. PRO)') }}</label><input type="text" name="name" class="form-control" required></div>
+                <div class="form-group mb-3"><label>{{ _('Cena (np. 49.00)') }}</label><input type="number" step="0.01" name="price" class="form-control" required></div>
+                <div class="form-group mb-3"><label>{{ _('Waluta') }}</label><select name="currency" class="form-control"><option value="pln">PLN</option><option value="eur">EUR</option><option value="usd">USD</option></select></div>
+                <div class="form-group mb-3"><label>{{ _('Okres Rozliczeniowy') }}</label><select name="interval" class="form-control"><option value="month">{{ _('Miesiąc') }}</option><option value="year">{{ _('Rok') }}</option></select></div>
+                <button type="submit" class="btn btn-primary w-100">{{ _('Stwórz Plan') }}</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Zarządzaj Użytkownikami') }} - {{ _('Admin') }}{% endblock %}
+{% block body_content %}
+<main class="container" style="padding-top: 2rem;">
+    <section class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="section-title mb-0">{{ _('Panel Administratora') }} - {{ _('Użytkownicy') }}</h2>
+        <a href="{{ url_for('admin.manage_plans') }}" class="btn btn-secondary">{{ _('Zarządzaj Planami') }}</a>
+    </section>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>{{ _('Data Rejestracji') }}</th>
+                    <th>{{ _('Rola') }}</th>
+                    <th>{{ _('Status Subskrypcji') }}</th>
+                    <th>Stripe Customer ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>
+                        {% if user.is_admin %}<span class="badge bg-primary">{{ _('Admin') }}</span>
+                        {% else %}<span class="badge bg-secondary">{{ _('Użytkownik') }}</span>{% endif %}
+                    </td>
+                    <td>
+                        {% if user.subscription_status == 'active' %}<span class="badge bg-success">{{ _('Aktywna') }}</span>
+                        {% elif user.subscription_status == 'past_due' %}<span class="badge bg-warning">{{ _('Zaległa') }}</span>
+                        {% elif user.subscription_status == 'canceled' %}<span class="badge bg-danger">{{ _('Anulowana') }}</span>
+                        {% else %}<span class="badge bg-secondary">{{ _('Brak') }}</span>{% endif %}
+                    </td>
+                    <td><code>{{ user.stripe_customer_id or 'N/A' }}</code></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}
