@@ -14,37 +14,21 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
-                    {% if current_user.is_authenticated %}
-                        <li><a href="{{ url_for('audio_processing.dashboard') }}">{{ _('Dashboard') }}</a></li>
-                        <li><a href="{{ url_for('audio_processing.get_processing_history') }}">{{ _('Historia') }}</a></li>
-                        <li><a href="{{ url_for('audio_processing.upload_and_process_audio') }}">{{ _('Upload') }}</a></li>
-                    {% endif %}
                     <li><a href="{{ url_for('main.pricing') }}">{{ _('Cennik') }}</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                {# --- NOWY PRZEŁĄCZNIK JĘZYKÓW --- #}
                 <div class="language-switcher">
                     <a href="{{ url_for('main.set_language', lang='en') }}" class="lang-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
                     <span style="color: var(--border-color);">|</span>
                     <a href="{{ url_for('main.set_language', lang='pl') }}" class="lang-link {% if g.locale == 'pl' %}active{% endif %}">PL</a>
                 </div>
-
-                {% if current_user.is_authenticated %}
-                    {% if current_user.is_admin %}
-                        <a href="{{ url_for('admin.manage_plans') }}" class="btn btn-secondary">{{ _('Panel Admina') }}</a>
-                    {% elif current_user.subscription_status == 'active' %}
-                        <a href="{{ url_for('billing.customer_portal') }}" class="btn btn-secondary">{{ _('Zarządzaj Subskrypcją') }}</a>
-                    {% endif %}
-                    <a href="{{ url_for('audio_processing.upload_and_process_audio') }}" class="btn btn-primary">{{ _('Prześlij pliki') }}</a>
-                    <a href="{{ url_for('auth.logout') }}" class="btn btn-secondary">{{ _('Wyloguj') }} ({{ current_user.email }})</a>
-                {% else %}
-                    <a href="{{ url_for('auth.login') }}" class="btn btn-secondary">{{ _('Zaloguj się') }}</a>
-                    <a href="{{ url_for('auth.register') }}" class="btn btn-primary">{{ _('Zarejestruj się') }}</a>
-                {% endif %}
+                <a href="{{ url_for('auth.login') }}" class="btn btn-secondary">{{ _('Zaloguj się') }}</a>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary">{{ _('Zarejestruj się') }}</a>
             </div>
         </div>
     </header>
+    
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             <div class="flash-messages-container">
@@ -54,12 +38,21 @@
             </div>
         {% endif %}
     {% endwith %}
-    {% block body_content %}{% endblock %}
+    
+    {% block content %}{% endblock %}
+    
     <footer class="main-footer">
         <div class="container">
             <p>&copy; {{ current_year or '2025' }} WaveBulk. {{ _('Wszelkie prawa zastrzeżone.') }}</p>
         </div>
     </footer>
+    
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/timeline.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/spectrogram.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/regions.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/minimap.min.js"></script>
+    
     {% block scripts %}{% endblock %}
 </body>
 </html>

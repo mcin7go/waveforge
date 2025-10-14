@@ -1,7 +1,6 @@
-{% extends "base.html" %}
+{% extends "base_sidebar.html" %}
 {% block title %}{{ file.original_filename }} - {{ _('Szczegóły') }} - WaveBulk{% endblock %}
-{% block body_content %}
-<main class="container" style="padding-top: 2rem;">
+{% block content %}
     <div class="breadcrumb mb-4">
         <a href="{{ url_for('audio_processing.dashboard') }}">{{ _('Dashboard') }}</a> / 
         <a href="{{ url_for('audio_processing.get_processing_history') }}">{{ _('Historia') }}</a> / 
@@ -47,6 +46,70 @@
             </div>
             {% endif %}
         </div>
+
+        <!-- Input Format Info -->
+        {% if result_data and result_data.get('input_format') %}
+        <div class="info-section mb-4">
+            <h2 class="info-title">{{ _('Format wejściowy') }}</h2>
+            <div class="analysis-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="analysis-card">
+                    <div class="analysis-icon">🎵</div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">{{ _('Codec') }}</div>
+                        <div class="analysis-value">{{ result_data.input_format.codec|upper }}</div>
+                        <div class="analysis-description">{{ result_data.input_format.codec_long_name }}</div>
+                    </div>
+                </div>
+                
+                {% if result_data.input_format.bitrate %}
+                <div class="analysis-card">
+                    <div class="analysis-icon">📊</div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">{{ _('Bitrate') }}</div>
+                        <div class="analysis-value">{{ (result_data.input_format.bitrate / 1000)|round|int }} kbps</div>
+                        <div class="analysis-description">{{ _('Oryginalny bitrate') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if result_data.input_format.sample_rate %}
+                <div class="analysis-card">
+                    <div class="analysis-icon">📡</div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">Sample Rate</div>
+                        <div class="analysis-value">{{ (result_data.input_format.sample_rate / 1000)|round(1) }} kHz</div>
+                        <div class="analysis-description">{{ _('Częstotliwość próbkowania') }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        {% if result_data.input_format.is_lossless %}💎{% else %}📦{% endif %}
+                    </div>
+                    <div class="analysis-data">
+                        <div class="analysis-label">{{ _('Typ') }}</div>
+                        <div class="analysis-value">
+                            {% if result_data.input_format.is_lossless %}
+                                <span class="badge bg-success">Lossless</span>
+                            {% else %}
+                                <span class="badge bg-info">Lossy</span>
+                            {% endif %}
+                        </div>
+                        <div class="analysis-description">{{ _('Kompresja') }}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quality Warning -->
+            {% if result_data.get('quality_warning') %}
+            <div class="alert alert-{{ result_data.quality_warning.level }} mt-3">
+                {% if result_data.quality_warning.level == 'warning' %}⚠️{% elif result_data.quality_warning.level == 'info' %}ℹ️{% elif result_data.quality_warning.level == 'caution' %}⚡{% else %}✅{% endif %}
+                {{ _(result_data.quality_warning.message) }}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
 
         <!-- Audio Analysis Stats -->
         {% if file.loudness_lufs or file.true_peak_db or file.duration_seconds %}
@@ -112,6 +175,203 @@
                     </div>
                 </div>
                 {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Professional Audio Player -->
+        {% if processed_file_url %}
+        <div class="audio-player-section">
+            <div class="audio-player-header">
+                <h2>{{ _('Profesjonalny Odtwarzacz Audio') }}</h2>
+                <div class="player-mode-switch">
+                    <button class="mode-btn active" data-mode="single">{{ _('Pojedynczy') }}</button>
+                    <button class="mode-btn" data-mode="comparison">{{ _('Porównanie A/B') }}</button>
+                </div>
+            </div>
+
+            <!-- Feature Toggles -->
+            <div class="feature-toggles">
+                <button class="toggle-btn" id="toggle-spectrogram">
+                    <span class="toggle-icon">📊</span>
+                    {{ _('Spectrogram') }}
+                </button>
+                <button class="toggle-btn" id="toggle-analyzer">
+                    <span class="toggle-icon">📈</span>
+                    {{ _('Analizer częstotliwości') }}
+                </button>
+                <button class="toggle-btn" id="toggle-phase">
+                    <span class="toggle-icon">🎯</span>
+                    {{ _('Korelacja fazy') }}
+                </button>
+                <button class="toggle-btn" id="toggle-markers">
+                    <span class="toggle-icon">📍</span>
+                    {{ _('Markery') }}
+                </button>
+            </div>
+
+            <!-- Single View -->
+            <div id="single-player-view">
+                <div class="audio-player-column active">
+                    <div class="player-column-header">
+                        <div class="player-column-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                            </svg>
+                            {{ file.processed_filename or file.original_filename }}
+                            <span class="player-badge badge-after">{{ _('Przetworzony') }}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Waveform -->
+                    <div class="waveform-container">
+                        <div id="waveform"></div>
+                        <div id="waveform-minimap"></div>
+                        <div id="spectrogram"></div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="player-controls">
+                        <div class="control-group">
+                            <button class="control-btn play-pause" id="play-pause">
+                                <span id="play-icon">▶</span>
+                            </button>
+                            <button class="control-btn secondary" id="stop-btn">⏹</button>
+                        </div>
+
+                        <div class="time-display" id="time-display">0:00 / 0:00</div>
+
+                        <div class="volume-control">
+                            <label>🔊</label>
+                            <input type="range" class="volume-slider" id="volume" min="0" max="100" value="75">
+                        </div>
+
+                        <div class="speed-control">
+                            <label>{{ _('Prędkość') }}:</label>
+                            <select class="speed-select" id="playback-speed">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </select>
+                        </div>
+
+                        <div class="zoom-control">
+                            <label>🔍 {{ _('Zoom') }}:</label>
+                            <input type="range" class="zoom-slider" id="zoom" min="1" max="500" value="1">
+                            <span id="zoom-value">1x</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison View -->
+            <div id="comparison-player-view" style="display: none;">
+                <div class="audio-comparison-container">
+                    <!-- Before -->
+                    <div class="audio-player-column" id="player-before">
+                        <div class="player-column-header">
+                            <div class="player-column-title">
+                                {{ _('Przed') }}
+                                <span class="player-badge badge-before">{{ _('Oryginalny') }}</span>
+                            </div>
+                        </div>
+                        <div class="waveform-container">
+                            <div id="waveform-before"></div>
+                            <div id="spectrogram-before"></div>
+                        </div>
+                    </div>
+
+                    <!-- After -->
+                    <div class="audio-player-column active" id="player-after">
+                        <div class="player-column-header">
+                            <div class="player-column-title">
+                                {{ _('Po') }}
+                                <span class="player-badge badge-after">{{ _('Przetworzony') }}</span>
+                            </div>
+                        </div>
+                        <div class="waveform-container">
+                            <div id="waveform-after"></div>
+                            <div id="spectrogram-after"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Controls -->
+                <div class="player-controls">
+                    <button class="control-btn play-pause" id="play-pause-comparison">
+                        <span>▶</span>
+                    </button>
+                    <button class="control-btn" id="switch-ab">
+                        🔄 {{ _('Przełącz A/B') }}
+                    </button>
+                    <div class="time-display" id="time-display-comparison">0:00 / 0:00</div>
+                </div>
+            </div>
+
+            <!-- Analyzers -->
+            <div class="analyzers-container" id="analyzers-container" style="display: none;">
+                <!-- Frequency Analyzer -->
+                <div class="analyzer-card">
+                    <div class="analyzer-header">
+                        <div class="analyzer-title">
+                            <span class="analyzer-icon">📈</span>
+                            {{ _('Analizer częstotliwości') }}
+                        </div>
+                    </div>
+                    <canvas id="frequency-canvas" class="analyzer-canvas"></canvas>
+                    <div class="analyzer-info">
+                        <span>20Hz</span>
+                        <span>1kHz</span>
+                        <span>20kHz</span>
+                    </div>
+                </div>
+
+                <!-- Phase Correlation Meter -->
+                <div class="analyzer-card">
+                    <div class="analyzer-header">
+                        <div class="analyzer-title">
+                            <span class="analyzer-icon">🎯</span>
+                            {{ _('Korelacja fazy') }}
+                        </div>
+                    </div>
+                    <canvas id="phase-canvas" class="analyzer-canvas"></canvas>
+                    <div class="analyzer-info">
+                        <span>{{ _('Mono') }} (-1)</span>
+                        <span class="analyzer-value" id="phase-value">0.00</span>
+                        <span>{{ _('Stereo') }} (+1)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Markers Legend -->
+            <div class="markers-legend" id="markers-legend" style="display: none;">
+                <div class="marker-item">
+                    <span class="marker-dot peak"></span>
+                    <span>{{ _('True Peaks > -1dB') }}</span>
+                </div>
+                <div class="marker-item">
+                    <span class="marker-dot clipping"></span>
+                    <span>{{ _('Clipping Detected') }}</span>
+                </div>
+                <div class="marker-item">
+                    <span class="marker-dot silence"></span>
+                    <span>{{ _('Silence Sections') }}</span>
+                </div>
+                <div class="marker-item">
+                    <span class="marker-dot lufs-ok"></span>
+                    <span>{{ _('LUFS OK (-23 do -14)') }}</span>
+                </div>
+                <div class="marker-item">
+                    <span class="marker-dot lufs-border"></span>
+                    <span>{{ _('LUFS Border (-14 do -10)') }}</span>
+                </div>
+                <div class="marker-item">
+                    <span class="marker-dot lufs-high"></span>
+                    <span>{{ _('LUFS High (> -10)') }}</span>
+                </div>
             </div>
         </div>
         {% endif %}
@@ -200,6 +460,10 @@
         </div>
         {% endif %}
     </section>
-</main>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/audio-player.js') }}"></script>
 {% endblock %}
 
