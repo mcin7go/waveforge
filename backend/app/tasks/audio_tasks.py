@@ -13,6 +13,7 @@ from datetime import datetime, UTC
 from app import celery, db
 from app.models import AudioFile, ProcessingTask
 from flask import current_app
+import tempfile
 
 PRESET_LUFS = {
     'spotify': -14.0,
@@ -24,6 +25,107 @@ BIT_DEPTH_PARAMS = {
     '24': ['-acodec', 'pcm_s24le'],
     '32f': ['-acodec', 'pcm_f32le'],
 }
+BITRATE_PARAMS = {
+    'v0': ['-q:a', '0'],  # VBR V0 (245 kbps avg)
+    'v2': ['-q:a', '2'],  # VBR V2 (190 kbps avg)
+}
+LOSSLESS_FORMATS = ['wav', 'flac', 'aiff', 'alac']
+LOSSY_FORMATS = ['mp3', 'aac', 'm4a', 'ogg', 'wma', 'opus']
+
+def _detect_audio_format(filepath):
+    """Detect audio format using ffprobe and return detailed info"""
+    try:
+        cmd = [
+            'ffprobe', '-v', 'quiet', '-print_format', 'json',
+            '-show_format', '-show_streams', filepath
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        data = json.loads(result.stdout)
+        
+        format_info = data.get('format', {})
+        stream_info = data.get('streams', [{}])[0]
+        
+        # Determine if lossy or lossless
+        codec_name = stream_info.get('codec_name', '').lower()
+        format_name = format_info.get('format_name', '').lower()
+        
+        is_lossless = any(fmt in codec_name or fmt in format_name 
+                         for fmt in LOSSLESS_FORMATS)
+        
+        return {
+            'codec': stream_info.get('codec_name', 'unknown'),
+            'codec_long_name': stream_info.get('codec_long_name', 'Unknown'),
+            'format_name': format_info.get('format_name', 'unknown'),
+            'bitrate': int(stream_info.get('bit_rate', 0)) if stream_info.get('bit_rate') else None,
+            'sample_rate': int(stream_info.get('sample_rate', 0)) if stream_info.get('sample_rate') else None,
+            'channels': stream_info.get('channels', 0),
+            'duration': float(format_info.get('duration', 0)),
+            'is_lossless': is_lossless,
+            'file_extension': os.path.splitext(filepath)[1].lower()
+        }
+    except Exception as e:
+        current_app.logger.error(f"Format detection failed: {e}")
+        return None
+
+def _convert_to_wav(input_path, output_path):
+    """Convert any audio format to WAV using ffmpeg"""
+    try:
+        cmd = [
+            'ffmpeg', '-y', '-i', input_path,
+            '-acodec', 'pcm_s16le',  # 16-bit PCM
+            '-ar', '44100',  # 44.1kHz
+            '-ac', '2',  # Stereo
+            output_path
+        ]
+        subprocess.run(cmd, capture_output=True, text=True, check=True)
+        return True
+    except Exception as e:
+        current_app.logger.error(f"Conversion to WAV failed: {e}")
+        return False
+
+def _get_quality_warning(input_format_info, output_format):
+    """Generate quality warning message based on conversion"""
+    if not input_format_info:
+        return None
+    
+    input_lossless = input_format_info.get('is_lossless', False)
+    output_lossless = output_format in LOSSLESS_FORMATS
+    
+    if not input_lossless and not output_lossless:
+        return {
+            'level': 'warning',
+            'message': 'Converting lossy to lossy format - quality may degrade'
+        }
+    elif not input_lossless and output_lossless:
+        return {
+            'level': 'info',
+            'message': 'Converting lossy to lossless - no quality improvement'
+        }
+    elif input_lossless and not output_lossless:
+        return {
+            'level': 'caution',
+            'message': 'Converting lossless to lossy - quality will be reduced'
+        }
+    else:
+        return {
+            'level': 'ok',
+            'message': 'Lossless to lossless conversion - quality preserved'
+        }
+
+def _get_bitrate_param(format_type, bitrate):
+    """Get bitrate parameters for given format and bitrate setting"""
+    if format_type == 'mp3':
+        if bitrate in BITRATE_PARAMS:
+            return BITRATE_PARAMS[bitrate]
+        return ['-b:a', bitrate]
+    elif format_type == 'aac':
+        if bitrate in ['v0', 'v2']:
+            # AAC VBR: v0=~256k, v2=~192k
+            vbr_map = {'v0': '5', 'v2': '3'}
+            return ['-q:a', vbr_map.get(bitrate, '4')]
+        # AAC CBR
+        return ['-b:a', bitrate]
+    return None
 
 def _run_ffmpeg_loudnorm(input_path, output_path, target_lufs, bit_depth_params, bitrate_param, options):
     try:
@@ -129,11 +231,29 @@ def process_audio_file(self, processing_task_id, filepath, original_filename, us
         db.session.commit()
 
         try:
+            # Detect input format
+            input_format_info = _detect_audio_format(filepath)
+            current_app.logger.info(f"Input format detected: {input_format_info}")
+            
+            # Convert to WAV if not already WAV
             if not original_filename.lower().endswith('.wav'):
-                raise ValueError("Only WAV files are supported.")
+                current_app.logger.info(f"Converting {original_filename} to WAV...")
+                temp_wav = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
+                temp_wav_path = temp_wav.name
+                temp_wav.close()
+                
+                if not _convert_to_wav(filepath, temp_wav_path):
+                    raise ValueError(f"Failed to convert {original_filename} to WAV format")
+                
+                # Replace filepath with converted WAV
+                os.remove(filepath)
+                filepath = temp_wav_path
+                current_app.logger.info(f"Conversion successful: {temp_wav_path}")
             
             output_format = options.get('format', 'mp3').lower()
-            output_filename = f"{os.path.splitext(original_filename)[0]}.{output_format}"
+            # Handle AAC -> m4a extension
+            file_extension = 'm4a' if output_format == 'aac' else output_format
+            output_filename = f"{os.path.splitext(original_filename)[0]}.{file_extension}"
             output_filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], output_filename)
             
             target_lufs = None
@@ -146,8 +266,8 @@ def process_audio_file(self, processing_task_id, filepath, original_filename, us
             limit_true_peak = options.get('limit_true_peak', False)
             
             if limit_true_peak and target_lufs is not None:
-                bit_depth_params = BIT_DEPTH_PARAMS.get(options.get('bit_depth')) if output_format != 'mp3' else None
-                bitrate_param = ['-b:a', options.get('bitrate', '320k')] if output_format == 'mp3' else None
+                bit_depth_params = BIT_DEPTH_PARAMS.get(options.get('bit_depth')) if output_format not in ['mp3', 'aac'] else None
+                bitrate_param = _get_bitrate_param(output_format, options.get('bitrate', '320k')) if output_format in ['mp3', 'aac'] else None
                 success = _run_ffmpeg_loudnorm(filepath, output_filepath, target_lufs, bit_depth_params, bitrate_param, options)
                 if not success: raise Exception("FFmpeg loudnorm processing failed.")
             else:
@@ -157,14 +277,34 @@ def process_audio_file(self, processing_task_id, filepath, original_filename, us
                     loudness_difference = target_lufs - initial_lufs
                     audio = audio.apply_gain(loudness_difference)
                 
-                export_params = {'format': output_format, 'parameters': ['-ar', '44100']}
+                # Sample rate
+                sample_rate = options.get('sample_rate', '44100')
+                if sample_rate == 'original':
+                    sample_rate = str(audio.frame_rate)
+                
+                export_params = {'format': output_format, 'parameters': ['-ar', sample_rate]}
                 if options.get('resampler') == 'soxr':
                     export_params['parameters'].extend(['-swr_engine', 'soxr'])
                 if options.get('dither_method') and options['dither_method'] != 'none' and options.get('bit_depth') == '16':
                     export_params['parameters'].extend(['-dither_method', options['dither_method']])
                 
-                if output_format == 'mp3':
-                    export_params['bitrate'] = options.get('bitrate', '320k')
+                # Trim silence
+                if options.get('trim_silence'):
+                    audio = audio.strip_silence(silence_thresh=-50, padding=100)
+                
+                # Fade in/out
+                fade_in = options.get('fade_in')
+                fade_out = options.get('fade_out')
+                if fade_in:
+                    audio = audio.fade_in(int(float(fade_in) * 1000))
+                if fade_out:
+                    audio = audio.fade_out(int(float(fade_out) * 1000))
+                
+                if output_format in ['mp3', 'aac']:
+                    bitrate = options.get('bitrate', '320k')
+                    if bitrate not in ['v0', 'v2']:
+                        export_params['bitrate'] = bitrate
+                    # For VBR, pydub doesn't support -q:a, use ffmpeg directly
                 else:
                     bit_depth = options.get('bit_depth')
                     if bit_depth in BIT_DEPTH_PARAMS:
@@ -188,14 +328,20 @@ def process_audio_file(self, processing_task_id, filepath, original_filename, us
                 audio_file_entry.duration_seconds = round(duration_seconds, 2)
                 audio_file_entry.true_peak_db = round(float(final_peak_dbfs), 2)
 
+            # Generate quality warning
+            quality_warning = _get_quality_warning(input_format_info, output_format)
+            
             task_entry.status = 'COMPLETED'
-            task_entry.result_json = json.dumps({
+            result_data = {
                 "loudness_lufs": round(float(final_lufs), 2),
                 "true_peak_db": round(float(final_peak_dbfs), 2),
                 "processed_filename": output_filename,
                 "duration_seconds": round(duration_seconds, 2),
-                "processed_file_url": f"/uploads/{output_filename}"
-            })
+                "processed_file_url": f"/uploads/{output_filename}",
+                "input_format": input_format_info,
+                "quality_warning": quality_warning
+            }
+            task_entry.result_json = json.dumps(result_data)
             task_entry.completed_at = datetime.now(UTC)
             db.session.commit()
 

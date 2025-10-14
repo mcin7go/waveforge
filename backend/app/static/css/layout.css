@@ -26,12 +26,18 @@ body {
     flex-direction: column;
 }
 
-/* Container */
+/* Container - Legacy (used for auth pages and public pages) */
 .container {
     width: 100%;
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 var(--container-padding);
+}
+
+/* Full Width Container (for sidebar layout) */
+.container-full {
+    width: 100%;
+    padding: 0;
 }
 
 /* Header */
@@ -131,10 +137,20 @@ body {
     background-color: var(--bg-light);
 }
 
-/* Main Content */
+/* Main Content - Legacy */
 main {
     flex: 1;
     width: 100%;
+}
+
+/* Hide old header when using sidebar layout */
+.has-sidebar .main-header {
+    display: none;
+}
+
+/* Hide old footer in sidebar pages (optional) */
+.has-sidebar .main-footer {
+    margin-top: 0;
 }
 
 /* Footer */

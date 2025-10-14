@@ -12,6 +12,7 @@
 @import url('layout.css');
 
 /* Components */
+@import url('components/sidebar.css');
 @import url('components/buttons.css');
 @import url('components/forms.css');
 @import url('components/cards.css');
@@ -23,6 +24,7 @@
 @import url('components/dashboard.css');
 @import url('components/file-details.css');
 @import url('components/upload-enhanced.css');
+@import url('components/waveform-player.css');
 
 /* ============================================
    Additional Global Styles

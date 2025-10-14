@@ -1,0 +1,506 @@
+/**
+ * WaveBulk - Professional Waveform Audio Player
+ * Advanced audio visualization with spectrogram, frequency analyzer, phase correlation
+ */
+
+/* ============================================
+   AUDIO PLAYER CONTAINER
+   ============================================ */
+
+.audio-player-section {
+    margin: 2rem 0;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.audio-player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.audio-player-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.player-mode-switch {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    padding: 0.25rem;
+    border-radius: var(--border-radius);
+}
+
+.mode-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all var(--transition);
+    font-size: 0.9rem;
+}
+
+.mode-btn.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.mode-btn:hover:not(.active) {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   DUAL VIEW (A/B COMPARISON)
+   ============================================ */
+
+.audio-comparison-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.audio-player-column {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 2px solid transparent;
+    transition: border-color var(--transition);
+}
+
+.audio-player-column.active {
+    border-color: var(--accent-color);
+}
+
+.player-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.player-column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.badge-before {
+    background: var(--warning-color);
+    color: var(--bg-primary);
+}
+
+.badge-after {
+    background: var(--success-color);
+    color: white;
+}
+
+/* ============================================
+   WAVEFORM CONTAINER
+   ============================================ */
+
+.waveform-container {
+    position: relative;
+    margin-bottom: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+#waveform, #waveform-before, #waveform-after {
+    min-height: 120px;
+}
+
+#waveform-minimap {
+    height: 60px;
+    margin-top: 0.5rem;
+    opacity: 0.7;
+}
+
+#spectrogram, #spectrogram-before, #spectrogram-after {
+    min-height: 200px;
+    display: none;
+}
+
+.spectrogram-visible #spectrogram,
+.spectrogram-visible #spectrogram-before,
+.spectrogram-visible #spectrogram-after {
+    display: block;
+}
+
+/* ============================================
+   PLAYER CONTROLS
+   ============================================ */
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    font-size: 1.2rem;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.control-btn.play-pause {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+.control-btn.secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.control-btn.secondary:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.time-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    min-width: 100px;
+}
+
+/* Volume & Speed Controls */
+.volume-control, .speed-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.volume-control label, .speed-control label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.volume-slider, .speed-select {
+    width: 100px;
+}
+
+.zoom-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.zoom-control label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.zoom-slider {
+    width: 150px;
+}
+
+/* ============================================
+   ANALYZER VISUALIZATIONS
+   ============================================ */
+
+.analyzers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.analyzer-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.analyzer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.analyzer-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.analyzer-icon {
+    font-size: 1.2rem;
+}
+
+.analyzer-canvas {
+    width: 100%;
+    height: 200px;
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Frequency Analyzer specific */
+#frequency-canvas {
+    background: linear-gradient(to bottom, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+}
+
+/* Phase Correlation specific */
+#phase-canvas {
+    background: radial-gradient(circle, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+}
+
+.analyzer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.analyzer-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.analyzer-value.good {
+    color: var(--success-color);
+}
+
+.analyzer-value.warning {
+    color: var(--warning-color);
+}
+
+.analyzer-value.danger {
+    color: var(--danger-color);
+}
+
+/* ============================================
+   MARKERS & REGIONS
+   ============================================ */
+
+.markers-legend {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.marker-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.marker-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.marker-dot.peak {
+    background: var(--danger-color);
+}
+
+.marker-dot.clipping {
+    background: #ff6b6b;
+    animation: pulse 1s infinite;
+}
+
+.marker-dot.silence {
+    background: var(--text-tertiary);
+}
+
+.marker-dot.lufs-ok {
+    background: var(--success-color);
+}
+
+.marker-dot.lufs-border {
+    background: var(--warning-color);
+}
+
+.marker-dot.lufs-high {
+    background: var(--danger-color);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ============================================
+   FEATURE TOGGLES
+   ============================================ */
+
+.feature-toggles {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.toggle-btn {
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toggle-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.toggle-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.toggle-icon {
+    font-size: 1rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .analyzers-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .audio-comparison-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .player-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .control-group {
+        justify-content: center;
+    }
+    
+    .feature-toggles {
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.player-loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.player-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   COMPARISON SYNC INDICATOR
+   ============================================ */
+
+.sync-indicator {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.sync-indicator.active {
+    opacity: 1;
+}
+
+.sync-icon {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+

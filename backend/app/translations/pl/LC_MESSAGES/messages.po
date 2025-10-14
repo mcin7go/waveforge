@@ -825,3 +825,168 @@ msgstr "Ta funkcja wymaga aktywnej subskrypcji."
 #~ msgid "Already have an account?"
 #~ msgstr "Masz już konto?"
 
+
+# New Quick Wins translations (PL base)
+msgid "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
+msgstr "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
+
+msgid "Bitrate"
+msgstr "Bitrate"
+
+msgid "320 kbps (Najwyższa)"
+msgstr "320 kbps (Najwyższa)"
+
+msgid "256 kbps (Bardzo dobra)"
+msgstr "256 kbps (Bardzo dobra)"
+
+msgid "192 kbps (Dobra)"
+msgstr "192 kbps (Dobra)"
+
+msgid "128 kbps (Streaming)"
+msgstr "128 kbps (Streaming)"
+
+msgid "VBR V0 (Variable, najlepsza)"
+msgstr "VBR V0 (Variable, najlepsza)"
+
+msgid "VBR V2 (Variable, dobra)"
+msgstr "VBR V2 (Variable, dobra)"
+
+msgid "VBR = zmienny bitrate, lepsza jakość/rozmiar"
+msgstr "VBR = zmienny bitrate, lepsza jakość/rozmiar"
+
+msgid "Sample Rate"
+msgstr "Sample Rate"
+
+msgid "Oryginalna"
+msgstr "Oryginalna"
+
+msgid "44.1 kHz (CD)"
+msgstr "44.1 kHz (CD)"
+
+msgid "48 kHz (Video)"
+msgstr "48 kHz (Video)"
+
+msgid "88.2 kHz (Hi-Res)"
+msgstr "88.2 kHz (Hi-Res)"
+
+msgid "96 kHz (Studio)"
+msgstr "96 kHz (Studio)"
+
+msgid "48 kHz dla video, 44.1 kHz dla muzyki"
+msgstr "48 kHz dla video, 44.1 kHz dla muzyki"
+
+msgid "Auto-trim ciszy (początek/koniec)"
+msgstr "Auto-trim ciszy (początek/koniec)"
+
+msgid "Fade In/Out"
+msgstr "Fade In/Out"
+
+msgid "Fade In (sekundy)"
+msgstr "Fade In (sekundy)"
+
+msgid "Fade Out (sekundy)"
+msgstr "Fade Out (sekundy)"
+
+
+# Professional Audio Player translations (PL)
+msgid "Profesjonalny Odtwarzacz Audio"
+msgstr "Profesjonalny Odtwarzacz Audio"
+
+msgid "Pojedynczy"
+msgstr "Pojedynczy"
+
+msgid "Porównanie A/B"
+msgstr "Porównanie A/B"
+
+msgid "Spectrogram"
+msgstr "Spectrogram"
+
+msgid "Analizer częstotliwości"
+msgstr "Analizer częstotliwości"
+
+msgid "Korelacja fazy"
+msgstr "Korelacja fazy"
+
+msgid "Markery"
+msgstr "Markery"
+
+msgid "Przetworzony"
+msgstr "Przetworzony"
+
+msgid "Przed"
+msgstr "Przed"
+
+msgid "Po"
+msgstr "Po"
+
+msgid "Oryginalny"
+msgstr "Oryginalny"
+
+msgid "Przełącz A/B"
+msgstr "Przełącz A/B"
+
+msgid "Prędkość"
+msgstr "Prędkość"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "True Peaks > -1dB"
+msgstr "True Peaks > -1dB"
+
+msgid "Clipping Detected"
+msgstr "Wykryto clipping"
+
+msgid "Silence Sections"
+msgstr "Sekcje ciszy"
+
+msgid "LUFS OK (-23 do -14)"
+msgstr "LUFS OK (-23 do -14)"
+
+msgid "LUFS Border (-14 do -10)"
+msgstr "LUFS Border (-14 do -10)"
+
+msgid "LUFS High (> -10)"
+msgstr "LUFS High (> -10)"
+
+msgid "Mono"
+msgstr "Mono"
+
+msgid "Stereo"
+msgstr "Stereo"
+
+
+# Universal Audio Converter translations (PL)
+msgid "Obsługiwane formaty"
+msgstr "Obsługiwane formaty"
+
+msgid "Format wejściowy"
+msgstr "Format wejściowy"
+
+msgid "Codec"
+msgstr "Codec"
+
+msgid "Oryginalny bitrate"
+msgstr "Oryginalny bitrate"
+
+msgid "Częstotliwość próbkowania"
+msgstr "Częstotliwość próbkowania"
+
+msgid "Typ"
+msgstr "Typ"
+
+msgid "Kompresja"
+msgstr "Kompresja"
+
+msgid "Converting lossy to lossy format - quality may degrade"
+msgstr "Konwersja stratny → stratny - jakość może się pogorszyć"
+
+msgid "Converting lossy to lossless - no quality improvement"
+msgstr "Konwersja stratny → bezstratny - brak poprawy jakości"
+
+msgid "Converting lossless to lossy - quality will be reduced"
+msgstr "Konwersja bezstratny → stratny - jakość zostanie obniżona"
+
+msgid "Lossless to lossless conversion - quality preserved"
+msgstr "Konwersja bezstratny → bezstratny - jakość zachowana"
+

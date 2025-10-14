@@ -20,6 +20,8 @@ main() {
         db:shell) db_shell ;;
         db:init) db_init ;;
         seed:users) seed_users ;;
+        seed:plans) seed_plans ;;
+        seed) seed_all ;;
         i18n:init) i18n_init "$2" ;;
         i18n:update) i18n_update ;;
         i18n:compile) i18n_compile ;;
@@ -47,7 +49,9 @@ show_help() {
     echo -e "  ${YELLOW}test [path]${NC}         Uruchamia testy Pytest. Opcjonalnie podaj ścieżkę."
     echo -e "  ${YELLOW}db:shell${NC}            Otwiera konsolę 'psql' do bazy danych."
     echo -e "  ${YELLOW}db:init${NC}             Niszczy i odtwarza bazę danych od zera."
-    echo -e "  ${YELLOW}seed:users${NC}          Dodaje 10 losowych użytkowników do bazy."
+    echo -e "  ${YELLOW}seed${NC}                Seeduje całą bazę (plany + użytkownicy)."
+    echo -e "  ${YELLOW}seed:users${NC}          Dodaje 10 testowych użytkowników (hasło: Marcin123!)."
+    echo -e "  ${YELLOW}seed:plans${NC}          Dodaje 5 planów subskrypcji."
     echo -e "  ${YELLOW}i18n:update${NC}         Aktualizuje pliki tłumaczeń (.po)."
     echo -e "  ${YELLOW}i18n:compile${NC}        Kompiluje pliki .po do formatu .mo."
     echo -e "  ${YELLOW}i18n:init <lang>${NC}    Tworzy nowy katalog tłumaczeń dla języka."
@@ -82,6 +86,20 @@ db_init() {
     fi
 }
 seed_users() { docker-compose exec web flask seed-users; }
+seed_plans() { docker-compose exec web flask seed-plans; }
+seed_all() {
+    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "${CYAN}🌱 SEEDING COMPLETE DATABASE${NC}"
+    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo ""
+    seed_plans
+    seed_users
+    echo -e "${GREEN}✅ Database fully seeded!${NC}"
+    echo -e "${GREEN}   • Plans: 5${NC}"
+    echo -e "${GREEN}   • Users: 10${NC}"
+    echo -e "${GREEN}   • Files: 115+ (dummy data)${NC}"
+    echo ""
+}
 i18n_init() {
     if [ -z "$1" ]; then
         echo "Error: Language code is required. Example: ./manage.sh i18n:init de"; return 1;

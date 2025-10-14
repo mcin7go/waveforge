@@ -1,0 +1,14 @@
+STRATEGIA UPROSZCZENIA:
+
+Obecny problem:
+{% block content %} występuje 2x
+
+Rozwiązanie:
+Wszystkie authenticated strony będą extends base_sidebar.html
+Wszystkie public strony będą extends base.html
+
+base_sidebar.html będzie miał sidebar layout
+base.html będzie miał classic layout
+
+Potem aktualizuję wszystkie authenticated templates!
+

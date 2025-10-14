@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const ditherSelect = document.getElementById('dither-select');
     const resamplerContainer = document.getElementById('resampler-container');
     const resamplerSelect = document.getElementById('resampler-select');
+    const sampleRateSelect = document.getElementById('sample-rate-select');
+    const trimSilenceToggle = document.getElementById('trim-silence-toggle');
+    const fadeToggle = document.getElementById('fade-toggle');
+    const fadeDurationContainer = document.getElementById('fade-duration-container');
+    const fadeInInput = document.getElementById('fade-in-input');
+    const fadeOutInput = document.getElementById('fade-out-input');
     const artistInput = document.getElementById('artist-input');
     const albumInput = document.getElementById('album-input');
     const titleInput = document.getElementById('title-input');
@@ -67,7 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configuration
     const MAX_FILE_SIZE_MB = 100;
-    const ALLOWED_MIME_TYPES = ['audio/wav', 'audio/x-wav'];
+    const ALLOWED_MIME_TYPES = [
+        'audio/wav', 'audio/x-wav',          // WAV
+        'audio/mpeg', 'audio/mp3',           // MP3
+        'audio/mp4', 'audio/x-m4a',          // M4A/AAC
+        'audio/aac', 'audio/aacp',
+        'audio/flac', 'audio/x-flac',        // FLAC
+        'audio/ogg', 'audio/vorbis',         // OGG
+        'audio/x-ms-wma',                     // WMA
+        'audio/aiff', 'audio/x-aiff'         // AIFF
+    ];
     const POLLING_INTERVAL = 2500; // ms
     
     // State
@@ -94,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         truePeakToggle.disabled = !isCustom;
     });
     normalizeToggle.addEventListener('change', () => { targetLufsContainer.style.display = normalizeToggle.checked ? 'block' : 'none'; });
+    fadeToggle.addEventListener('change', () => { fadeDurationContainer.style.display = fadeToggle.checked ? 'block' : 'none'; });
     dropArea.addEventListener('click', () => fileInput.click());
     browseButton.addEventListener('click', () => fileInput.click());
     fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
@@ -172,12 +188,16 @@ document.addEventListener('DOMContentLoaded', function() {
             format: formatSelect.value,
             bitrate: bitrateContainer.style.display !== 'none' ? bitrateSelect.value : null,
             bit_depth: bitDepthContainer.style.display !== 'none' ? bitDepthSelect.value : null,
+            sample_rate: sampleRateSelect.value,
             lufs_preset: presetSelect.value,
             normalize: customNormalizationSection.style.display !== 'none' ? normalizeToggle.checked : false,
             target_lufs: targetLufsContainer.style.display !== 'none' ? targetLufsInput.value : null,
             limit_true_peak: truePeakToggle.checked,
             dither_method: ditherContainer.style.display !== 'none' ? ditherSelect.value : 'none',
             resampler: resamplerContainer.style.display !== 'none' ? resamplerSelect.value : 'swr',
+            trim_silence: trimSilenceToggle.checked,
+            fade_in: fadeToggle.checked ? fadeInInput.value : null,
+            fade_out: fadeToggle.checked ? fadeOutInput.value : null,
             artist: artistInput.value,
             album: albumInput.value,
             title: titleInput.value,
