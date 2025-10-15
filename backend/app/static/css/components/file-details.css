@@ -293,23 +293,26 @@
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 300px;
     gap: var(--spacing-2xl);
+    align-items: start;
 }
 
 .lufs-meter {
     display: flex;
     gap: var(--spacing-lg);
     align-items: flex-end;
+    margin-left: var(--spacing-xl);
 }
 
 .lufs-scale {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
-    padding: var(--spacing-md) var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-2xl);
     height: 400px;
-    min-width: 160px;
+    min-width: 180px;
+    margin-right: var(--spacing-lg);
 }
 
 .scale-mark {
@@ -321,9 +324,9 @@
 .scale-mark::before {
     content: '';
     position: absolute;
-    left: -60px;
+    left: -70px;
     top: 50%;
-    width: 50px;
+    width: 60px;
     height: 1px;
     background-color: var(--border-color);
 }
@@ -384,10 +387,12 @@
 }
 
 .lufs-info {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     background-color: var(--bg-light);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
+    max-width: 280px;
+    margin-left: auto;
 }
 
 .lufs-info h4 {
@@ -435,6 +440,13 @@
 @media (max-width: 1024px) {
     .lufs-meter-container {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .lufs-info {
+        max-width: none;
+        margin-left: 0;
+        margin-top: var(--spacing-lg);
     }
 }
 

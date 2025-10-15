@@ -1,0 +1,314 @@
+{% extends "base_sidebar.html" %}
+{% block title %}{{ _('Pomoc') }} - WaveBulk{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
+
+{% block content %}
+<div class="container-full">
+    <div class="help-container">
+        <!-- Header -->
+        <div class="help-header">
+            <h1 class="help-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px; display: inline-block; vertical-align: middle; margin-right: 12px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {{ _('Centrum Pomocy WaveBulk') }}
+            </h1>
+            <p class="help-subtitle">{{ _('Kompleksowy przewodnik po funkcjach profesjonalnej konwersji audio') }}</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="help-nav">
+            <a href="#overview" class="help-nav-link">{{ _('Przegląd') }}</a>
+            <a href="#formats" class="help-nav-link">{{ _('Formaty') }}</a>
+            <a href="#features" class="help-nav-link">{{ _('Funkcje') }}</a>
+            <a href="#analysis" class="help-nav-link">{{ _('Analiza') }}</a>
+            <a href="#wavesurfer" class="help-nav-link">{{ _('WaveSurfer') }}</a>
+        </div>
+
+        <!-- Overview Section -->
+        <section id="overview" class="help-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎵</span>
+                {{ _('Co to jest WaveBulk?') }}
+            </h2>
+            <div class="help-content">
+                <p class="lead">{{ _('WaveBulk to profesjonalna aplikacja do konwersji i analizy plików audio, zaprojektowana dla muzyków, producentów i audiofilów.') }}</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>{{ _('Szybka konwersja') }}</h3>
+                        <p>{{ _('Przetwarzanie w tle za pomocą Celery - możesz opuścić stronę podczas konwersji') }}</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>{{ _('Normalizacja LUFS') }}</h3>
+                        <p>{{ _('Automatyczna analiza głośności zgodna ze standardami streaming (Spotify, YouTube, Apple Music)') }}</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>{{ _('Analiza techniczna') }}</h3>
+                        <p>{{ _('Szczegółowe informacje o bitrate, sample rate, kanałach i jakości audio') }}</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>{{ _('Profesjonalne narzędzia') }}</h3>
+                        <p>{{ _('Spectrogram, analiza częstotliwości, korelacja fazy i markery audio') }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formats Section -->
+        <section id="formats" class="help-section">
+            <h2 class="section-title">
+                <span class="section-icon">📁</span>
+                {{ _('Obsługiwane formaty audio') }}
+            </h2>
+            <div class="help-content">
+                <div class="formats-container">
+                    <div class="format-category">
+                        <h3>{{ _('Formaty bezstratne (Lossless)') }}</h3>
+                        <div class="format-list">
+                            <div class="format-item">
+                                <span class="format-name">WAV</span>
+                                <span class="format-desc">{{ _('Standardowy format bezstratny, najlepsza jakość') }}</span>
+                            </div>
+                            <div class="format-item">
+                                <span class="format-name">FLAC</span>
+                                <span class="format-desc">{{ _('Kompresja bezstratna, mniejszy rozmiar niż WAV') }}</span>
+                            </div>
+                            <div class="format-item">
+                                <span class="format-name">AIFF</span>
+                                <span class="format-desc">{{ _('Format Apple bezstratny, wysokiej jakości') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="format-category">
+                        <h3>{{ _('Formaty stratne (Lossy)') }}</h3>
+                        <div class="format-list">
+                            <div class="format-item">
+                                <span class="format-name">MP3</span>
+                                <span class="format-desc">{{ _('Najpopularniejszy format, uniwersalna kompatybilność') }}</span>
+                            </div>
+                            <div class="format-item">
+                                <span class="format-name">M4A/AAC</span>
+                                <span class="format-desc">{{ _('Format Apple, lepsza jakość niż MP3 przy tym samym bitrate') }}</span>
+                            </div>
+                            <div class="format-item">
+                                <span class="format-name">OGG</span>
+                                <span class="format-desc">{{ _('Format open-source, dobra jakość przy niskim bitrate') }}</span>
+                            </div>
+                            <div class="format-item">
+                                <span class="format-name">WMA</span>
+                                <span class="format-desc">{{ _('Format Microsoft, alternatywa dla MP3') }}</span>
+                            </div>
+                            <div class="format-item">
+                                <span class="format-name">OPUS</span>
+                                <span class="format-desc">{{ _('Nowoczesny format, optymalny dla streaming') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ {{ _('Ostrzeżenie o jakości') }}</h4>
+                    <p>{{ _('Konwersja z formatu stratnego na stratny może pogorszyć jakość audio. Zalecamy używanie formatów bezstratnych jako źródła.') }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="help-section">
+            <h2 class="section-title">
+                <span class="section-icon">🚀</span>
+                {{ _('Główne funkcje aplikacji') }}
+            </h2>
+            <div class="help-content">
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <h3>{{ _('Upload i przetwarzanie') }}</h3>
+                            <span class="feature-badge">{{ _('Podstawowe') }}</span>
+                        </div>
+                        <ul>
+                            <li>{{ _('Drag & drop upload plików audio') }}</li>
+                            <li>{{ _('Przetwarzanie w tle - możesz opuścić stronę') }}</li>
+                            <li>{{ _('Automatyczna detekcja formatu i metadanych') }}</li>
+                            <li>{{ _('Historia przetwarzania z statusami') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <h3>{{ _('Analiza głośności (LUFS)') }}</h3>
+                            <span class="feature-badge">{{ _('Zaawansowane') }}</span>
+                        </div>
+                        <ul>
+                            <li>{{ _('Pomiar zintegrowanej głośności w LUFS') }}</li>
+                            <li>{{ _('Wizualizacja na skali streaming (Spotify, YouTube, Apple Music)') }}</li>
+                            <li>{{ _('Ostrzeżenia o zbyt głośnym lub cichym materiale') }}</li>
+                            <li>{{ _('True Peak measurement (dBTP)') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <h3>{{ _('Profesjonalny odtwarzacz') }}</h3>
+                            <span class="feature-badge">{{ _('Premium') }}</span>
+                        </div>
+                        <ul>
+                            <li>{{ _('Waveform z zoom i nawigacją') }}</li>
+                            <li>{{ _('Kontrola prędkości odtwarzania (0.5x - 2x)') }}</li>
+                            <li>{{ _('Regulacja głośności i zoom') }}</li>
+                            <li>{{ _('Tryb porównania A/B (przed/po)') }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section id="analysis" class="help-section">
+            <h2 class="section-title">
+                <span class="section-icon">📈</span>
+                {{ _('Analiza techniczna audio') }}
+            </h2>
+            <div class="help-content">
+                <div class="analysis-grid">
+                    <div class="analysis-item">
+                        <h3>{{ _('LUFS (Loudness Units Full Scale)') }}</h3>
+                        <p>{{ _('Standardowy pomiar głośności używany w broadcast i streaming.') }}</p>
+                        <ul>
+                            <li><strong>-23 LUFS:</strong> {{ _('Broadcast standard (TV, radio)') }}</li>
+                            <li><strong>-16 LUFS:</strong> {{ _('Apple Music standard') }}</li>
+                            <li><strong>-14 LUFS:</strong> {{ _('Spotify, YouTube standard') }}</li>
+                            <li><strong>-10 LUFS:</strong> {{ _('Bardzo głośny materiał (może być przesterowany)') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analysis-item">
+                        <h3>{{ _('True Peak (dBTP)') }}</h3>
+                        <p>{{ _('Maksymalny szczyt sygnału audio, ważny dla unikania clipping.') }}</p>
+                        <ul>
+                            <li><strong>-1 dBTP:</strong> {{ _('Bezpieczny poziom dla streaming') }}</li>
+                            <li><strong>-3 dBTP:</strong> {{ _('Zalecany margines bezpieczeństwa') }}</li>
+                            <li><strong>0 dBTP:</strong> {{ _('Ryzyko clipping i zniekształceń') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analysis-item">
+                        <h3>{{ _('Parametry techniczne') }}</h3>
+                        <p>{{ _('Podstawowe informacje o pliku audio.') }}</p>
+                        <ul>
+                            <li><strong>Bitrate:</strong> {{ _('Ilość danych na sekundę (kbps)') }}</li>
+                            <li><strong>Sample Rate:</strong> {{ _('Częstotliwość próbkowania (Hz)') }}</li>
+                            <li><strong>Channels:</strong> {{ _('Liczba kanałów (mono/stereo)') }}</li>
+                            <li><strong>Duration:</strong> {{ _('Czas trwania utworu') }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WaveSurfer Section -->
+        <section id="wavesurfer" class="help-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎧</span>
+                {{ _('Funkcje WaveSurfer v7') }}
+            </h2>
+            <div class="help-content">
+                <p class="lead">{{ _('WaveBulk wykorzystuje najnowszą wersję WaveSurfer.js v7 - zaawansowanej biblioteki do wizualizacji i analizy audio.') }}</p>
+                
+                <div class="wavesurfer-features">
+                    <div class="wavesurfer-feature">
+                        <div class="feature-header">
+                            <span class="feature-icon">📊</span>
+                            <h3>{{ _('Spectrogram') }}</h3>
+                        </div>
+                        <p>{{ _('Wizualizacja częstotliwości w czasie - pokazuje spektrum audio jako kolorową mapę.') }}</p>
+                        <ul>
+                            <li>{{ _('Analiza widma częstotliwości') }}</li>
+                            <li>{{ _('Identyfikacja instrumentów i tonów') }}</li>
+                            <li>{{ _('Wykrywanie problemów z jakością') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="wavesurfer-feature">
+                        <div class="feature-header">
+                            <span class="feature-icon">📈</span>
+                            <h3>{{ _('Frequency Analyzer') }}</h3>
+                        </div>
+                        <p>{{ _('Analiza częstotliwości w czasie rzeczywistym - pokazuje intensywność różnych częstotliwości.') }}</p>
+                        <ul>
+                            <li>{{ _('Real-time spectrum analysis') }}</li>
+                            <li>{{ _('Wizualizacja EQ w czasie rzeczywistym') }}</li>
+                            <li>{{ _('Identyfikacja dominantnych częstotliwości') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="wavesurfer-feature">
+                        <div class="feature-header">
+                            <span class="feature-icon">🎯</span>
+                            <h3>{{ _('Phase Correlation') }}</h3>
+                        </div>
+                        <p>{{ _('Analiza fazy sygnału audio - pokazuje zmiany fazy w czasie.') }}</p>
+                        <ul>
+                            <li>{{ _('Wykrywanie problemów z fazą') }}</li>
+                            <li>{{ _('Analiza mono/stereo compatibility') }}</li>
+                            <li>{{ _('Identyfikacja problemów z miksowaniem') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="wavesurfer-feature">
+                        <div class="feature-header">
+                            <span class="feature-icon">📍</span>
+                            <h3>{{ _('Smart Markers') }}</h3>
+                        </div>
+                        <p>{{ _('Inteligentne markery na waveform - oznaczanie fragmentów audio.') }}</p>
+                        <ul>
+                            <li>{{ _('Automatyczne wykrywanie peaków') }}</li>
+                            <li>{{ _('Oznaczanie sekcji ciszy') }}</li>
+                            <li>{{ _('Markery na podstawie LUFS') }}</li>
+                            <li>{{ _('Ręczne dodawanie markerów') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="wavesurfer-feature">
+                        <div class="feature-header">
+                            <span class="feature-icon">🔄</span>
+                            <h3>{{ _('A/B Comparison') }}</h3>
+                        </div>
+                        <p>{{ _('Porównanie przed i po przetwarzaniu - analiza różnic w jakości.') }}</p>
+                        <ul>
+                            <li>{{ _('Side-by-side waveform comparison') }}</li>
+                            <li>{{ _('Synchronizowane odtwarzanie') }}</li>
+                            <li>{{ _('Analiza różnic w spektrum') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="wavesurfer-feature">
+                        <div class="feature-header">
+                            <span class="feature-icon">⏱️</span>
+                            <h3>{{ _('Timeline & Minimap') }}</h3>
+                        </div>
+                        <p>{{ _('Zaawansowana nawigacja w pliku audio.') }}</p>
+                        <ul>
+                            <li>{{ _('Precyzyjna nawigacja w czasie') }}</li>
+                            <li>{{ _('Minimap dla szybkiego przeglądania') }}</li>
+                            <li>{{ _('Zoom i scroll controls') }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="help-footer">
+            <p>{{ _('Ta strona będzie regularnie aktualizowana o nowe funkcje i ulepszenia.') }}</p>
+            <p><strong>{{ _('Potrzebujesz pomocy?') }}</strong> {{ _('Skontaktuj się z nami przez formularz kontaktowy.') }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -35,6 +35,185 @@
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>{{ _('Zaufali Nam Profesjonaliści') }}</h2>
+                    <p>{{ _('Poznaj opinie producentów, muzyków i inżynierów dźwięku') }}</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">"</div>
+                            <p>{{ _('WaveBulk zrewolucjonizował mój workflow. Wcześniej spędzałem godziny na konwersji albumów - teraz robię to w kilka minut. Analiza LUFS pomogła mi zoptymalizować głośność dla wszystkich platform streamingowych.') }}</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <h4>Marcin Kowalski</h4>
+                                <span>{{ _('Producent muzyczny, Studio SoundWave') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">"</div>
+                            <p>{{ _('Jako inżynier dźwięku potrzebuję precyzyjnych narzędzi. WaveSurfer v7 w WaveBulk daje mi wszystko czego potrzebuję - od spectrogramu po analizę fazy. To jak mieć studio w przeglądarce!') }}</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <h4>Anna Nowak</h4>
+                                <span>{{ _('Inżynier dźwięku, Radio Polskie') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">"</div>
+                            <p>{{ _('Przetwarzanie w tle to game-changer! Mogę wrzucić cały album, przejść do innych zadań, a WaveBulk zrobi resztę. True Peak analysis uratował mnie przed clippingiem na wielu projektach.') }}</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">P</div>
+                            <div class="author-info">
+                                <h4>Piotr Wiśniewski</h4>
+                                <span>{{ _('Muzyk, zespół Echo Valley') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack Section -->
+        <section class="technology">
+            <div class="container">
+                <div class="section-header">
+                    <h2>{{ _('Zaawansowana Technologia') }}</h2>
+                    <p>{{ _('Zbudowane na najnowszych standardach audio i web technologies') }}</p>
+                </div>
+                <div class="tech-diagram">
+                    <div class="tech-flow">
+                        <div class="tech-step">
+                            <div class="tech-icon">📁</div>
+                            <h3>{{ _('Upload') }}</h3>
+                            <p>{{ _('Drag & Drop<br>Wszystkie formaty') }}</p>
+                        </div>
+                        <div class="tech-arrow">→</div>
+                        <div class="tech-step">
+                            <div class="tech-icon">⚡</div>
+                            <h3>{{ _('Przetwarzanie') }}</h3>
+                            <p>{{ _('Celery + Redis<br>Background Tasks') }}</p>
+                        </div>
+                        <div class="tech-arrow">→</div>
+                        <div class="tech-step">
+                            <div class="tech-icon">🎧</div>
+                            <h3>{{ _('Analiza') }}</h3>
+                            <p>{{ _('WaveSurfer v7<br>Web Audio API') }}</p>
+                        </div>
+                        <div class="tech-arrow">→</div>
+                        <div class="tech-step">
+                            <div class="tech-icon">📊</div>
+                            <h3>{{ _('Wyniki') }}</h3>
+                            <p>{{ _('LUFS, True Peak<br>Spectrogram') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-category">
+                        <h3>{{ _('Audio Processing') }}</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">FFmpeg</span>
+                            <span class="tech-badge">pydub</span>
+                            <span class="tech-badge">pyloudnorm</span>
+                            <span class="tech-badge">soundfile</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>{{ _('Web Technologies') }}</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">WaveSurfer v7</span>
+                            <span class="tech-badge">Web Audio API</span>
+                            <span class="tech-badge">Celery</span>
+                            <span class="tech-badge">Redis</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>{{ _('Infrastructure') }}</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Nginx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics">
+            <div class="container">
+                <div class="section-header">
+                    <h2>{{ _('Liczby, Które Mówią Same Za Siebie') }}</h2>
+                    <p>{{ _('WaveBulk w liczbach - sprawdź nasze osiągnięcia') }}</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">{{ _('Plików Przetworzonych') }}</div>
+                        <div class="stat-description">{{ _('Każdego miesiąca') }}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">{{ _('Uptime') }}</div>
+                        <div class="stat-description">{{ _('Dostępność serwisu') }}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">{{ _('Formatów Audio') }}</div>
+                        <div class="stat-description">{{ _('Obsługiwanych') }}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5s</div>
+                        <div class="stat-label">{{ _('Średni Czas') }}</div>
+                        <div class="stat-description">{{ _('Przetwarzania pliku') }}</div>
+                    </div>
+                </div>
+                <div class="performance-chart">
+                    <h3>{{ _('Wydajność Przetwarzania') }}</h3>
+                    <div class="chart-container">
+                        <div class="chart-bar">
+                            <div class="bar-label">{{ _('WAV → MP3') }}</div>
+                            <div class="bar-fill" style="width: 95%">
+                                <span class="bar-value">0.8s</span>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">{{ _('FLAC → AAC') }}</div>
+                            <div class="bar-fill" style="width: 88%">
+                                <span class="bar-value">1.2s</span>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">{{ _('M4A → WAV') }}</div>
+                            <div class="bar-fill" style="width: 92%">
+                                <span class="bar-value">1.0s</span>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-label">{{ _('OGG → FLAC') }}</div>
+                            <div class="bar-fill" style="width: 85%">
+                                <span class="bar-value">1.5s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="pricing" class="features">
              <div class="container">
                 <div class="section-header">

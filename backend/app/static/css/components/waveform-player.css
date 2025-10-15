@@ -125,8 +125,8 @@
     border-radius: var(--border-radius);
     overflow: hidden;
     padding: 0.5rem;
-    height: 200px !important;
-    max-height: 200px !important;
+    height: 400px !important;
+    max-height: 400px !important;
 }
 
 #waveform, #waveform-before, #waveform-after {
@@ -171,6 +171,11 @@
     background-color: var(--bg-light);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-color);
+    min-height: 350px;
+}
+
+.spectrogram-section:not([style*="display: none"]) {
+    display: block !important;
 }
 
 .spectrogram-section .section-title {
@@ -184,6 +189,30 @@
     min-height: 300px;
     height: 300px;
     width: 100%;
+}
+
+/* Show/hide automatic spectrogram that WaveSurfer creates in waveform container */
+.waveform-container canvas[data-spectrogram] {
+    transition: opacity 0.3s ease;
+}
+
+.waveform-container .spectrogram {
+    transition: opacity 0.3s ease;
+}
+
+/* Show spectrogram by default with larger height */
+.waveform-container canvas[data-spectrogram] {
+    opacity: 1;
+    pointer-events: auto;
+    height: 200px !important;
+    min-height: 200px !important;
+}
+
+.waveform-container .spectrogram {
+    opacity: 1;
+    pointer-events: auto;
+    height: 200px !important;
+    min-height: 200px !important;
 }
 
 .spectrogram-visible #spectrogram,

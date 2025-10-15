@@ -336,6 +336,9 @@
     gap: var(--spacing-lg);
     position: absolute;
     left: var(--spacing-xl);
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
 }
 
 .mobile-menu-toggle {
@@ -356,6 +359,12 @@
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .top-bar-right {
@@ -364,6 +373,9 @@
     gap: var(--spacing-md);
     position: absolute;
     right: var(--spacing-xl);
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
 }
 
 /* Language Switcher in Top Bar */
@@ -462,14 +474,19 @@
     
     .top-bar-left {
         left: var(--spacing-md);
+        top: 50%;
+        transform: translateY(-50%);
     }
     
     .top-bar-right {
         right: var(--spacing-md);
+        top: 50%;
+        transform: translateY(-50%);
     }
     
     .top-bar-title {
         font-size: var(--font-size-lg);
+        line-height: 1;
     }
     
     .main-content {

@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('[SETUP] RegionsPlugin not available');
             console.log('[SETUP] Available plugins:', Object.keys(window).filter(k => k.includes('Plugin') || k.includes('Regions')));
         }
+
         
         wavesurfer = WaveSurfer.create({
             container: '#waveform',
@@ -601,7 +602,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const togglePhase = document.getElementById('toggle-phase');
     const toggleMarkers = document.getElementById('toggle-markers');
     
-    const spectrogramSection = document.getElementById('spectrogram-section');
     const spectrogramContainer = document.getElementById('spectrogram');
     const analyzersContainer = document.getElementById('analyzers-container');
     const markersLegend = document.getElementById('markers-legend');
@@ -612,46 +612,27 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
             const isActive = this.classList.contains('active');
             
-            console.log('[SPECTRO] Toggle clicked, active:', isActive);
-            
-            // Use existing spectrogram container if spectrogram-section doesn't exist
-            const targetContainer = spectrogramSection || spectrogramContainer;
-            console.log('[SPECTRO] Target container:', targetContainer?.id);
-            
-            if (targetContainer) {
-                // Show/hide container
-                if (isActive) {
-                    targetContainer.style.display = 'block';
-                    console.log('[SPECTRO] Showing spectrogram');
-                } else {
-                    targetContainer.style.display = 'none';
-                    targetContainer.style.visibility = 'hidden';
-                    targetContainer.style.height = '0px';
-                    targetContainer.style.overflow = 'hidden';
-                    console.log('[SPECTRO] Hiding spectrogram');
-                    console.log('[SPECTRO] Container styles:', {
-                        display: targetContainer.style.display,
-                        visibility: targetContainer.style.visibility,
-                        height: targetContainer.style.height
+            if (isActive && wavesurfer && !window.spectrogramPluginInstance) {
+                // Add spectrogram plugin dynamically
+                try {
+                    window.spectrogramPluginInstance = WaveSurfer.Spectrogram.create({
+                        container: '#spectrogram',
+                        labels: true,
+                        height: 200,
+                        fftSamples: 512,
                     });
-                }
-                
-                // Create plugin if needed (only on first activation)
-                if (isActive && wavesurfer && (window.SpectrogramPlugin || WaveSurfer.Spectrogram) && !window.spectrogramPluginInstance) {
-                    try {
-                        const SpectrogramClass = window.SpectrogramPlugin || WaveSurfer.Spectrogram;
-                        window.spectrogramPluginInstance = SpectrogramClass.create({
-                            container: '#spectrogram',
-                            labels: true,
-                            height: 300,
-                            fftSamples: 512,
-                        });
-                        wavesurfer.registerPlugin(window.spectrogramPluginInstance);
-                    } catch (error) {
-                        console.error('[SPECTRO] Error:', error);
-                    }
+                    wavesurfer.registerPlugin(window.spectrogramPluginInstance);
+                    console.log('[SPECTRO] Plugin created and registered');
+                } catch (error) {
+                    console.error('[SPECTRO] Error creating plugin:', error);
                 }
             }
+            
+            // Show/hide spectrogram container
+            if (spectrogramContainer) {
+                spectrogramContainer.style.display = isActive ? 'block' : 'none';
+            }
+            
         });
     }
 
@@ -803,4 +784,5 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('[DEBUG] Error in audio-player.js:', error);
     }
 });
+
 

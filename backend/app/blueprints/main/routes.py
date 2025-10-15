@@ -17,6 +17,12 @@ def pricing():
     plans = Plan.query.filter_by(is_active=True).order_by(Plan.price).all()
     return render_template('pricing.html', user_email=user_email, current_year=current_year, plans=plans)
 
+@bp.route('/help')
+def help():
+    user_email = current_user.email if current_user.is_authenticated else None
+    current_year = datetime.now(UTC).year
+    return render_template('help.html', user_email=user_email, current_year=current_year)
+
 @bp.route('/debug-session')
 def debug_session():
     """Endpoint do debugowania sesji i języka"""
