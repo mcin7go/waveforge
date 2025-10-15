@@ -110,6 +110,20 @@ def upload_and_process_audio():
     if user_id_int is None:
         return jsonify({"error": "User ID not found"}), 401
     if request.method == 'POST':
+        # SPRAWDŹ LIMIT UPLOADÓW
+        user = db.session.get(User, user_id_int)
+        if not user.can_upload():
+            limit = user.get_usage_limit()
+            remaining = user.get_remaining_uploads()
+            return jsonify({
+                "error": f"Osiągnięto miesięczny limit ({user.monthly_upload_count}/{limit} plików). "
+                        f"Ulepsz swój plan lub poczekaj do następnego miesiąca.",
+                "limit_reached": True,
+                "used": user.monthly_upload_count,
+                "limit": limit,
+                "remaining": remaining
+            }), 403
+        
         if 'file' not in request.files:
             return jsonify({"error": "No file part in the request"}), 400
         file = request.files['file']
@@ -160,6 +174,11 @@ def upload_and_process_audio():
         )
         db.session.add(new_processing_task)
         db.session.commit()
+        
+        # ZWIĘKSZ LICZNIK UPLOADÓW po udanym zapisie
+        user = db.session.get(User, user_id_int)
+        user.increment_upload_count()
+        
         task = process_audio_file.delay(
             new_processing_task.id,
             filepath,

@@ -49,6 +49,73 @@ def debug_session():
         'default_locale': current_app.config['BABEL_DEFAULT_LOCALE']
     })
 
+# --- SEO ENDPOINTS ---
+@bp.route('/sitemap.xml')
+def sitemap():
+    """Dynamiczny sitemap.xml dla SEO"""
+    from flask import Response
+    
+    pages = []
+    
+    # Główne strony publiczne
+    pages.append({
+        'loc': url_for('main.index', _external=True),
+        'changefreq': 'daily',
+        'priority': '1.0'
+    })
+    pages.append({
+        'loc': url_for('main.pricing', _external=True),
+        'changefreq': 'weekly',
+        'priority': '0.9'
+    })
+    pages.append({
+        'loc': url_for('main.help', _external=True),
+        'changefreq': 'monthly',
+        'priority': '0.7'
+    })
+    pages.append({
+        'loc': url_for('auth.register', _external=True),
+        'changefreq': 'monthly',
+        'priority': '0.8'
+    })
+    pages.append({
+        'loc': url_for('auth.login', _external=True),
+        'changefreq': 'monthly',
+        'priority': '0.6'
+    })
+    pages.append({
+        'loc': url_for('main.terms', _external=True),
+        'changefreq': 'yearly',
+        'priority': '0.3'
+    })
+    pages.append({
+        'loc': url_for('main.privacy', _external=True),
+        'changefreq': 'yearly',
+        'priority': '0.3'
+    })
+    
+    # Generuj XML sitemap
+    sitemap_xml = render_template('sitemap.xml', pages=pages)
+    
+    return Response(sitemap_xml, mimetype='application/xml')
+
+@bp.route('/robots.txt')
+def robots():
+    """robots.txt dla crawlerów"""
+    from flask import Response
+    
+    robots_txt = f"""User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /audio/
+Disallow: /billing/
+Disallow: /debug-session
+
+Sitemap: {url_for('main.sitemap', _external=True)}
+"""
+    
+    return Response(robots_txt, mimetype='text/plain')
+
 # --- TRASA DO ZMIANY JĘZYKA ---
 @bp.route('/set-language/<lang>')
 def set_language(lang):

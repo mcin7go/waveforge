@@ -14,10 +14,10 @@
     background-color: var(--bg-light);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
     transition: transform var(--transition-base), border-color var(--transition-base);
 }
 
@@ -84,22 +84,25 @@
 
 .stat-content {
     flex: 1;
+    min-width: 0;
 }
 
 .stat-label {
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: var(--font-weight-medium);
+    line-height: 1.4;
 }
 
 .stat-value {
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-extrabold);
-    line-height: 1;
+    line-height: 1.2;
     color: var(--text-primary);
+    margin-top: var(--spacing-xs);
 }
 
 /* Quick Actions */

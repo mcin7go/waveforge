@@ -3,9 +3,9 @@
    ============================================ */
 
 .help-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-2xl);
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header */

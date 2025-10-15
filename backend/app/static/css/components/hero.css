@@ -78,12 +78,15 @@
     gap: var(--spacing-xl);
     width: 100%;
     max-width: 1100px;
+    margin: 0 auto;
 }
 
 /* Pricing Container - Full Width for sidebar pages */
-.main-content.full-width .pricing-container {
+.main-content.full-width .pricing-container,
+.container-full .pricing-container {
     max-width: none;
-    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 /* Responsive */

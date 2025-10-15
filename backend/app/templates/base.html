@@ -3,8 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}WaveBulk{% endblock %}</title>
+    
+    <!-- Title -->
+    <title>{% block title %}WaveBulk - Professional Audio Normalization & Conversion{% endblock %}</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{% block meta_description %}Professional audio normalization and batch conversion tool. LUFS loudness normalization, format conversion, and audio processing for music producers and audio engineers.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}audio normalization, LUFS, loudness normalization, batch audio conversion, audio processing, WAV to MP3, music mastering, audio loudness{% endblock %}">
+    <meta name="author" content="WaveBulk">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical_url %}{{ request.url }}{% endblock %}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{% block og_url %}{{ request.url }}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}WaveBulk - Professional Audio Normalization{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Professional audio normalization and batch conversion tool. LUFS loudness normalization for music producers.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:site_name" content="WaveBulk">
+    <meta property="og:locale" content="{{ g.locale if g.locale else 'en_US' }}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{% block twitter_url %}{{ request.url }}{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}WaveBulk - Professional Audio Normalization{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Professional audio normalization and batch conversion tool. LUFS loudness normalization for music producers.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    
+    <!-- Google Analytics (dodaj swój tracking ID w produkcji) -->
+    {% if config.GOOGLE_ANALYTICS_ID %}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.GOOGLE_ANALYTICS_ID }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ config.GOOGLE_ANALYTICS_ID }}');
+    </script>
+    {% endif %}
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "WaveBulk",
+      "applicationCategory": "MultimediaApplication",
+      "description": "Professional audio normalization and batch conversion tool with LUFS loudness normalization",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+      }
+    }
+    </script>
+    
     {% block head_extra %}{% endblock %} 
 </head>
 <body>

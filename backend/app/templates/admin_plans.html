@@ -4,9 +4,11 @@
 {% block main_content_class %} full-width{% endblock %}
 {% block content %}
 <div class="container-full">
-<section class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="section-title mb-0">{{ _('Panel Administratora') }} - {{ _('Plany Subskrypcji') }}</h2>
-        <a href="{{ url_for('admin.manage_users') }}" class="btn btn-secondary">{{ _('Zarządzaj Użytkownikami') }}</a>
+<section class="section-title mb-4">
+        <div class="d-flex justify-between align-center">
+            <h2 class="mb-0">{{ _('Panel Administratora') }} - {{ _('Plany Subskrypcji') }}</h2>
+            <a href="{{ url_for('admin.manage_users') }}" class="btn btn-secondary">{{ _('Zarządzaj Użytkownikami') }}</a>
+        </div>
     </section>
     <div class="row">
         <div class="col-md-8">

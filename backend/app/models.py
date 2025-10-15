@@ -1,4 +1,5 @@
 from datetime import datetime, UTC
+from dateutil.relativedelta import relativedelta
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
@@ -12,6 +13,11 @@ class User(UserMixin, db.Model):
     stripe_customer_id = db.Column(db.String(120), unique=True, nullable=True)
     is_admin = db.Column(db.Boolean, default=False, nullable=False)
     subscription_status = db.Column(db.String(50), nullable=True, default=None)
+    
+    # Usage tracking fields
+    monthly_upload_count = db.Column(db.Integer, default=0, nullable=False)
+    last_reset_date = db.Column(db.Date, default=lambda: datetime.now(UTC).date(), nullable=False)
+    plan_name = db.Column(db.String(50), default='Free', nullable=False)
 
     audio_files = db.relationship('AudioFile', backref='owner', lazy=True)
     processing_tasks = db.relationship('ProcessingTask', backref='assigned_user', lazy=True)
@@ -23,6 +29,44 @@ class User(UserMixin, db.Model):
         if self.password_hash is None: 
             return False
         return check_password_hash(self.password_hash, password)
+    
+    def get_usage_limit(self):
+        """Zwraca miesięczny limit uploadów na podstawie planu"""
+        limits = {
+            'Free': 10,
+            'Starter': 50,
+            'Pro': 100,
+            'Enterprise': None  # Unlimited
+        }
+        return limits.get(self.plan_name, 10)
+    
+    def check_and_reset_monthly_count(self):
+        """Resetuje licznik jeśli jest nowy miesiąc"""
+        today = datetime.now(UTC).date()
+        if today.month != self.last_reset_date.month or today.year != self.last_reset_date.year:
+            self.monthly_upload_count = 0
+            self.last_reset_date = today
+            db.session.commit()
+    
+    def can_upload(self):
+        """Sprawdza czy użytkownik może uploadować więcej plików"""
+        self.check_and_reset_monthly_count()
+        limit = self.get_usage_limit()
+        if limit is None:  # Unlimited (Enterprise)
+            return True
+        return self.monthly_upload_count < limit
+    
+    def increment_upload_count(self):
+        """Zwiększa licznik uploadów"""
+        self.monthly_upload_count += 1
+        db.session.commit()
+    
+    def get_remaining_uploads(self):
+        """Zwraca liczbę pozostałych uploadów"""
+        limit = self.get_usage_limit()
+        if limit is None:
+            return None  # Unlimited
+        return max(0, limit - self.monthly_upload_count)
 
     def __repr__(self):
         return f'<User {self.email}>'

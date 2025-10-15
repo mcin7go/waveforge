@@ -6,9 +6,11 @@ from itsdangerous import URLSafeTimedSerializer
 from flask import current_app
 from app.oauth import oauth
 from app.services.email_service import send_password_reset_email
+from app import limiter
 from . import bp
 
 @bp.route('/register', methods=['GET', 'POST'])
+@limiter.limit("10 per hour")  # Security: Prevent registration abuse
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('audio_processing.get_processing_history'))
@@ -36,6 +38,7 @@ def register():
     return render_template('register.html')
 
 @bp.route('/login', methods=['GET', 'POST'])
+@limiter.limit("5 per minute")  # Security: Prevent brute force attacks
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('audio_processing.get_processing_history'))
@@ -59,6 +62,7 @@ def logout():
     return redirect(url_for('auth.login'))
 
 @bp.route('/reset_password_request', methods=['GET', 'POST'])
+@limiter.limit("3 per hour")  # Security: Prevent password reset abuse
 def reset_password_request():
     if current_user.is_authenticated:
         return redirect(url_for('audio_processing.get_processing_history'))

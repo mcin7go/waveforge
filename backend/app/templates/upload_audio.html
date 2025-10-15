@@ -8,6 +8,34 @@
             <p>{{ _('Prześlij wiele plików .WAV i przetwórz je jednocześnie') }}</p>
         </section>
         
+        <!-- Usage Limit Info -->
+        {% set remaining = current_user.get_remaining_uploads() %}
+        {% set limit = current_user.get_usage_limit() %}
+        {% if limit %}
+        <div class="alert {% if remaining == 0 %}alert-danger{% elif remaining <= 2 %}alert-warning{% else %}alert-info{% endif %} mb-4">
+            <div class="d-flex justify-between align-center">
+                <div>
+                    <strong>{{ _('Plan') }}: {{ current_user.plan_name }}</strong> - 
+                    {% if remaining > 0 %}
+                        {{ _('Pozostało') }}: <strong>{{ remaining }}/{{ limit }}</strong> {{ _('plików w tym miesiącu') }}
+                    {% else %}
+                        <span class="text-danger"><strong>{{ _('Osiągnięto miesięczny limit!') }}</strong></span>
+                    {% endif %}
+                </div>
+                {% if remaining <= 2 and current_user.plan_name == 'Free' %}
+                <a href="{{ url_for('main.pricing') }}" class="btn btn-primary btn-sm">{{ _('Ulepsz plan') }}</a>
+                {% endif %}
+            </div>
+            {% if limit %}
+            <div class="progress mt-2" style="height: 6px;">
+                {% set usage_percent = (current_user.monthly_upload_count / limit * 100)|round %}
+                <div class="progress-bar {% if usage_percent >= 100 %}bg-danger{% elif usage_percent >= 80 %}bg-warning{% else %}bg-info{% endif %}" 
+                     style="width: {{ [usage_percent, 100]|min }}%"></div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        
         <!-- Upload Stats -->
         <div class="upload-stats mb-4">
             <div class="upload-stat-item">
@@ -190,7 +218,7 @@
                     <div id="file-list-container"></div>
                 </div>
                 <div id="file-error" class="alert alert-danger mt-3" style="display: none;"></div>
-                <button type="submit" id="submit-button" class="btn btn-primary w-100" style="padding: 1rem;" disabled>{{ _('Rozpocznij Przetwarzanie') }}</button>
+                <button type="submit" id="submit-button" class="btn btn-primary w-100" style="padding: 1rem; margin-top: var(--spacing-xl);" disabled>{{ _('Rozpocznij Przetwarzanie') }}</button>
             </form>
         </div>
     </main>

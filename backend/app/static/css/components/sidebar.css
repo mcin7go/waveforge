@@ -293,11 +293,11 @@
 /* Main Content Wrapper */
 .main-wrapper {
     margin-left: 240px;
-    transition: margin-left 0.3s ease;
-    min-height: calc(100vh - 60px);
+    width: calc(100% - 240px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    width: calc(100% - 240px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
     max-width: none;
     box-sizing: border-box;
 }
@@ -388,7 +388,7 @@
 /* Main Content Area */
 .main-content {
     flex: 1;
-    padding: var(--spacing-xl);
+    padding: 0;
     width: 100%;
     max-width: none;
     box-sizing: border-box;
@@ -396,7 +396,7 @@
 
 /* Full width content (for upload page) */
 .main-content.full-width {
-    padding: var(--spacing-lg);
+    padding: 0;
 }
 
 /* Mobile Overlay */
@@ -446,6 +446,10 @@
     }
     
     .main-content {
+        padding: 0;
+    }
+    
+    .container-full {
         padding: var(--spacing-md);
     }
     
@@ -490,6 +494,10 @@
     }
     
     .main-content {
+        padding: 0;
+    }
+    
+    .container-full {
         padding: var(--spacing-sm);
     }
 }

@@ -39,7 +39,7 @@ body {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     box-sizing: border-box;
 }
 

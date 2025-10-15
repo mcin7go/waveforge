@@ -110,8 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     normalizeToggle.addEventListener('change', () => { targetLufsContainer.style.display = normalizeToggle.checked ? 'block' : 'none'; });
     fadeToggle.addEventListener('change', () => { fadeDurationContainer.style.display = fadeToggle.checked ? 'block' : 'none'; });
-    dropArea.addEventListener('click', () => fileInput.click());
-    browseButton.addEventListener('click', () => fileInput.click());
+    dropArea.addEventListener('click', (e) => {
+        if (e.target === browseButton || browseButton.contains(e.target)) return;
+        fileInput.click();
+    });
+    browseButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fileInput.click();
+    });
     fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
     coverArtButton.addEventListener('click', () => coverArtInput.click());
     coverArtInput.addEventListener('change', () => {
@@ -247,8 +253,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.lengthComputable) progressBar.style.width = Math.round((e.loaded / e.total) * 100) + '%';
             });
             xhr.onload = function() {
-                if (xhr.status === 202) resolve(JSON.parse(xhr.responseText).status_url);
-                else reject(new Error(JSON.parse(xhr.responseText)?.error || `Błąd serwera ${xhr.status}`));
+                if (xhr.status === 202) {
+                    resolve(JSON.parse(xhr.responseText).status_url);
+                } else if (xhr.status === 403) {
+                    // Limit reached
+                    const errorData = JSON.parse(xhr.responseText);
+                    if (errorData.limit_reached) {
+                        reject(new Error(`🚫 ${errorData.error}\n\nUżyłeś: ${errorData.used}/${errorData.limit} plików`));
+                    } else {
+                        reject(new Error(errorData.error || 'Brak dostępu'));
+                    }
+                } else {
+                    reject(new Error(JSON.parse(xhr.responseText)?.error || `Błąd serwera ${xhr.status}`));
+                }
             };
             xhr.onerror = () => reject(new Error('Błąd sieciowy.'));
             xhr.send(formData);
