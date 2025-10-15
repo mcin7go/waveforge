@@ -233,7 +233,7 @@ msgstr ""
 
 #: app/templates/admin_users.html:29 app/templates/terms.html:42
 msgid "Użytkownik"
-msgstr ""
+msgstr "User"
 
 #: app/templates/admin_users.html:32
 msgid "Aktywna"
@@ -1236,7 +1236,7 @@ msgstr ""
 
 #: app/templates/index.html:107 app/templates/terms.html:46
 msgid "Przetwarzanie"
-msgstr ""
+msgstr "Processing"
 
 #: app/templates/index.html:108
 msgid "Celery + Redis<br>Background Tasks"
@@ -1433,7 +1433,7 @@ msgstr ""
 #: app/templates/privacy.html:11 app/templates/privacy.html:341
 #: app/templates/terms.html:11
 msgid "Ostatnia aktualizacja: 15 stycznia 2025"
-msgstr ""
+msgstr "Last updated: January 15, 2025"
 
 #: app/templates/privacy.html:13
 msgid "GDPR Compliant"
@@ -1441,7 +1441,7 @@ msgstr ""
 
 #: app/templates/privacy.html:19 app/templates/terms.html:16
 msgid "Spis treści"
-msgstr ""
+msgstr "Table of Contents"
 
 #: app/templates/privacy.html:21 app/templates/privacy.html:39
 msgid "Wprowadzenie"
@@ -2177,7 +2177,7 @@ msgstr ""
 
 #: app/templates/privacy.html:342 app/templates/terms.html:217
 msgid "Skontaktuj się z nami"
-msgstr ""
+msgstr "Contact us"
 
 #: app/templates/register.html:2
 msgid "Register"
@@ -2293,67 +2293,67 @@ msgstr ""
 
 #: app/templates/terms.html:10
 msgid "Regulamin Serwisu (Terms of Service)"
-msgstr ""
+msgstr "Terms of Service"
 
 #: app/templates/terms.html:18 app/templates/terms.html:37
 msgid "Definicje"
-msgstr ""
+msgstr "Definitions"
 
 #: app/templates/terms.html:19 app/templates/terms.html:51
 msgid "Postanowienia ogólne"
-msgstr ""
+msgstr "General Provisions"
 
 #: app/templates/terms.html:20 app/templates/terms.html:59
 msgid "Rejestracja i konto użytkownika"
-msgstr ""
+msgstr "Registration and User Account"
 
 #: app/templates/terms.html:21 app/templates/terms.html:77
 msgid "Plany i płatności"
-msgstr ""
+msgstr "Plans and Payments"
 
 #: app/templates/terms.html:22 app/templates/terms.html:96
 msgid "Korzystanie z serwisu"
-msgstr ""
+msgstr "Using the Service"
 
 #: app/templates/terms.html:23 app/templates/terms.html:110
 msgid "Prawa i obowiązki użytkownika"
-msgstr ""
+msgstr "User Rights and Obligations"
 
 #: app/templates/terms.html:24 app/templates/terms.html:128
 msgid "Przetwarzanie plików audio"
-msgstr ""
+msgstr "Audio File Processing"
 
 #: app/templates/terms.html:25 app/templates/terms.html:142
 msgid "Polityka zwrotów i anulowania"
-msgstr ""
+msgstr "Refund and Cancellation Policy"
 
 #: app/templates/terms.html:26 app/templates/terms.html:155
 msgid "Odpowiedzialność"
-msgstr ""
+msgstr "Liability"
 
 #: app/templates/terms.html:27 app/templates/terms.html:169
 msgid "Własność intelektualna"
-msgstr ""
+msgstr "Intellectual Property"
 
 #: app/templates/terms.html:28 app/templates/terms.html:176
 msgid "Zakaz nadużyć"
-msgstr ""
+msgstr "Prohibited Use"
 
 #: app/templates/terms.html:29 app/templates/terms.html:194
 msgid "Zmiany regulaminu"
-msgstr ""
+msgstr "Terms Changes"
 
 #: app/templates/terms.html:30 app/templates/terms.html:202
 msgid "Postanowienia końcowe"
-msgstr ""
+msgstr "Final Provisions"
 
 #: app/templates/terms.html:38
 msgid "Na potrzeby niniejszego Regulaminu, następujące terminy mają znaczenie:"
-msgstr ""
+msgstr "For the purposes of these Terms, the following terms have the following meanings:"
 
 #: app/templates/terms.html:40
 msgid "Serwis"
-msgstr ""
+msgstr "Service"
 
 #: app/templates/terms.html:40
 msgid ""
@@ -2363,11 +2363,11 @@ msgstr ""
 
 #: app/templates/terms.html:41
 msgid "Usługodawca"
-msgstr ""
+msgstr "Service Provider"
 
 #: app/templates/terms.html:41
 msgid "właściciel i operator serwisu WaveBulk"
-msgstr ""
+msgstr "owner and operator of WaveBulk service"
 
 #: app/templates/terms.html:42
 msgid ""
@@ -2377,31 +2377,31 @@ msgstr ""
 
 #: app/templates/terms.html:43
 msgid "Konto"
-msgstr ""
+msgstr "Account"
 
 #: app/templates/terms.html:43
 msgid "zbiór zasobów i uprawnień przypisanych do Użytkownika w Serwisie"
-msgstr ""
+msgstr "collection of resources and permissions assigned to User in the Service"
 
 #: app/templates/terms.html:44
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #: app/templates/terms.html:44
 msgid "pakiet usług oferowany przez Serwis (Free, Pro, Enterprise)"
-msgstr ""
+msgstr "service package offered by the Service (Free, Pro, Enterprise)"
 
 #: app/templates/terms.html:45
 msgid "Plik Audio"
-msgstr ""
+msgstr "Audio File"
 
 #: app/templates/terms.html:45
 msgid "plik w formacie audio przesłany przez Użytkownika do przetworzenia"
-msgstr ""
+msgstr "audio format file uploaded by User for processing"
 
 #: app/templates/terms.html:46
 msgid "konwersja, analiza lub modyfikacja pliku audio przez Serwis"
-msgstr ""
+msgstr "conversion, analysis or modification of audio file by the Service"
 
 #: app/templates/terms.html:52
 msgid ""
@@ -2429,31 +2429,31 @@ msgstr ""
 
 #: app/templates/terms.html:60
 msgid "3.1. Korzystanie z podstawowych funkcji Serwisu wymaga założenia Konta."
-msgstr ""
+msgstr "3.1. Using basic Service features requires creating an Account."
 
 #: app/templates/terms.html:61
 msgid "3.2. Rejestracja jest bezpłatna i może być dokonana poprzez:"
-msgstr ""
+msgstr "3.2. Registration is free and can be done through:"
 
 #: app/templates/terms.html:63
 msgid "Podanie adresu email i hasła"
-msgstr ""
+msgstr "Providing email address and password"
 
 #: app/templates/terms.html:64
 msgid "Logowanie przez konto Google (OAuth)"
-msgstr ""
+msgstr "Logging in through Google account (OAuth)"
 
 #: app/templates/terms.html:66
 msgid "3.3. Użytkownik jest zobowiązany do:"
-msgstr ""
+msgstr "3.3. User is obligated to:"
 
 #: app/templates/terms.html:68
 msgid "Podania prawdziwych danych podczas rejestracji"
-msgstr ""
+msgstr "Provide truthful information during registration"
 
 #: app/templates/terms.html:69
 msgid "Zachowania poufności danych logowania"
-msgstr ""
+msgstr "Maintain confidentiality of login credentials"
 
 #: app/templates/terms.html:70
 msgid ""
@@ -2479,27 +2479,27 @@ msgstr ""
 
 #: app/templates/terms.html:80
 msgid "Free"
-msgstr ""
+msgstr "Free"
 
 #: app/templates/terms.html:80
 msgid "10 plików miesięcznie, podstawowe funkcje"
-msgstr ""
+msgstr "10 files per month, basic features"
 
 #: app/templates/terms.html:81
 msgid "Pro"
-msgstr ""
+msgstr "Pro"
 
 #: app/templates/terms.html:81
 msgid "100 plików miesięcznie, zaawansowane funkcje"
-msgstr ""
+msgstr "100 files per month, advanced features"
 
 #: app/templates/terms.html:82
 msgid "Enterprise"
-msgstr ""
+msgstr "Enterprise"
 
 #: app/templates/terms.html:82
 msgid "Nieograniczona liczba plików, priorytetowe przetwarzanie"
-msgstr ""
+msgstr "Unlimited files, priority processing"
 
 #: app/templates/terms.html:84
 msgid "Płatności"
@@ -2507,15 +2507,15 @@ msgstr ""
 
 #: app/templates/terms.html:85
 msgid "4.2.1. Płatności są przetwarzane przez Stripe, Inc."
-msgstr ""
+msgstr "4.2.1. Payments are processed by Stripe, Inc."
 
 #: app/templates/terms.html:86
 msgid "4.2.2. Subskrypcja jest rozliczana miesięcznie z góry."
-msgstr ""
+msgstr "4.2.2. Subscription is billed monthly in advance."
 
 #: app/templates/terms.html:87
 msgid "4.2.3. Ceny są podane w EUR/USD i zawierają podatek VAT (jeśli dotyczy)."
-msgstr ""
+msgstr "4.2.3. Prices are shown in EUR/USD and include VAT tax (if applicable)."
 
 #: app/templates/terms.html:88
 msgid ""
@@ -2535,7 +2535,7 @@ msgstr ""
 
 #: app/templates/terms.html:91
 msgid "4.3.2. Niewykorzystane limity nie przechodzą na następny miesiąc."
-msgstr ""
+msgstr "4.3.2. Unused limits do not carry over to the next month."
 
 #: app/templates/terms.html:92
 msgid ""
@@ -2545,7 +2545,7 @@ msgstr ""
 
 #: app/templates/terms.html:97
 msgid "5.1. Serwis umożliwia:"
-msgstr ""
+msgstr "5.1. The Service enables:"
 
 #: app/templates/terms.html:99
 msgid ""
@@ -2555,15 +2555,15 @@ msgstr ""
 
 #: app/templates/terms.html:100
 msgid "Analizę głośności (LUFS, True Peak)"
-msgstr ""
+msgstr "Loudness analysis (LUFS, True Peak)"
 
 #: app/templates/terms.html:101
 msgid "Wizualizację plików audio (waveform, spectrogram)"
-msgstr ""
+msgstr "Audio file visualization (waveform, spectrogram)"
 
 #: app/templates/terms.html:102
 msgid "Pobieranie przetworzonych plików"
-msgstr ""
+msgstr "Downloading processed files"
 
 #: app/templates/terms.html:104
 #, python-format
@@ -2580,7 +2580,7 @@ msgstr ""
 
 #: app/templates/terms.html:106
 msgid "5.4. Obsługiwane formaty: WAV, MP3, M4A, AAC, FLAC, OGG, WMA, AIFF, OPUS."
-msgstr ""
+msgstr "5.4. Supported formats: WAV, MP3, M4A, AAC, FLAC, OGG, WMA, AIFF, OPUS."
 
 #: app/templates/terms.html:111
 msgid "Użytkownik ma prawo do:"
@@ -2588,19 +2588,19 @@ msgstr ""
 
 #: app/templates/terms.html:113
 msgid "Korzystania z Serwisu zgodnie z wybranym Planem"
-msgstr ""
+msgstr "Use the Service according to chosen Plan"
 
 #: app/templates/terms.html:114
 msgid "Pobierania przetworzonych plików"
-msgstr ""
+msgstr "Download processed files"
 
 #: app/templates/terms.html:115
 msgid "Anulowania subskrypcji w dowolnym momencie"
-msgstr ""
+msgstr "Cancel subscription at any time"
 
 #: app/templates/terms.html:116
 msgid "Dostępu do swoich danych osobowych i ich usunięcia (GDPR)"
-msgstr ""
+msgstr "Access to personal data and its deletion (GDPR)"
 
 #: app/templates/terms.html:118
 msgid "Użytkownik zobowiązuje się do:"
@@ -2608,11 +2608,11 @@ msgstr ""
 
 #: app/templates/terms.html:120
 msgid "Korzystania z Serwisu zgodnie z prawem i dobrymi obyczajami"
-msgstr ""
+msgstr "Use the Service in accordance with law and good practices"
 
 #: app/templates/terms.html:121
 msgid "Nieprzesyłania plików naruszających prawa autorskie osób trzecich"
-msgstr ""
+msgstr "Not uploading files violating third-party copyrights"
 
 #: app/templates/terms.html:122
 msgid ""
@@ -2622,7 +2622,7 @@ msgstr ""
 
 #: app/templates/terms.html:123
 msgid "Niepodejmowania działań mogących zakłócić funkcjonowanie Serwisu"
-msgstr ""
+msgstr "Not taking actions that could disrupt Service operation"
 
 #: app/templates/terms.html:129
 msgid ""
@@ -2644,23 +2644,23 @@ msgstr ""
 
 #: app/templates/terms.html:132
 msgid "7.4. Usługodawca nie ponosi odpowiedzialności za:"
-msgstr ""
+msgstr "7.4. Service Provider is not liable for:"
 
 #: app/templates/terms.html:134 app/templates/terms.html:160
 msgid "Utratę danych w wyniku awarii technicznej"
-msgstr ""
+msgstr "Data loss due to technical failure"
 
 #: app/templates/terms.html:135
 msgid "Jakość konwersji plików stratnych (MP3, AAC) na inne formaty stratne"
-msgstr ""
+msgstr "Quality of lossy file conversion (MP3, AAC) to other lossy formats"
 
 #: app/templates/terms.html:136
 msgid "Naruszenie praw autorskich przez Użytkownika"
-msgstr ""
+msgstr "Copyright infringement by User"
 
 #: app/templates/terms.html:138
 msgid "7.5. Zalecamy zachowanie kopii oryginalnych plików."
-msgstr ""
+msgstr "7.5. We recommend keeping copies of original files."
 
 #: app/templates/terms.html:143
 msgid "Anulowanie subskrypcji"
@@ -2680,7 +2680,7 @@ msgstr ""
 
 #: app/templates/terms.html:146
 msgid "8.1.3. Anulowanie nie skutkuje automatycznym zwrotem środków."
-msgstr ""
+msgstr "8.1.3. Cancellation does not result in automatic refund."
 
 #: app/templates/terms.html:147
 msgid "Zwroty"
@@ -2694,7 +2694,7 @@ msgstr ""
 
 #: app/templates/terms.html:149
 msgid "8.2.2. Zwrot wymaga zgłoszenia na adres support@wavebulk.com."
-msgstr ""
+msgstr "8.2.2. Refund requires notification to support@wavebulk.com."
 
 #: app/templates/terms.html:150
 msgid ""
@@ -2718,19 +2718,19 @@ msgstr ""
 
 #: app/templates/terms.html:157
 msgid "9.2. Usługodawca nie ponosi odpowiedzialności za:"
-msgstr ""
+msgstr "9.2. Service Provider is not liable for:"
 
 #: app/templates/terms.html:159
 msgid "Szkody wynikłe z przerw w dostępie do Serwisu"
-msgstr ""
+msgstr "Damages resulting from Service access interruptions"
 
 #: app/templates/terms.html:161
 msgid "Działania osób trzecich (hackerzy, DDoS)"
-msgstr ""
+msgstr "Third-party actions (hackers, DDoS)"
 
 #: app/templates/terms.html:162
 msgid "Nieprawidłowe użytkowanie Serwisu przez Użytkownika"
-msgstr ""
+msgstr "Improper Service use by User"
 
 #: app/templates/terms.html:164
 msgid ""
@@ -2764,47 +2764,47 @@ msgstr ""
 
 #: app/templates/terms.html:177
 msgid "11.1. Zabronione jest:"
-msgstr ""
+msgstr "11.1. Prohibited are:"
 
 #: app/templates/terms.html:179
 msgid "Automatyczne przetwarzanie plików (boty, scraping) bez zgody Usługodawcy"
-msgstr ""
+msgstr "Automatic file processing (bots, scraping) without Service Provider consent"
 
 #: app/templates/terms.html:180
 msgid "Próby obejścia limitów subskrypcji"
-msgstr ""
+msgstr "Attempts to bypass subscription limits"
 
 #: app/templates/terms.html:181
 msgid "Ataki na infrastrukturę Serwisu (DDoS, SQL injection)"
-msgstr ""
+msgstr "Attacks on Service infrastructure (DDoS, SQL injection)"
 
 #: app/templates/terms.html:182
 msgid "Przesyłanie złośliwego oprogramowania"
-msgstr ""
+msgstr "Uploading malicious software"
 
 #: app/templates/terms.html:183
 msgid "Udostępnianie konta osobom trzecim"
-msgstr ""
+msgstr "Sharing account with third parties"
 
 #: app/templates/terms.html:185
 msgid "11.2. W przypadku wykrycia nadużyć, Usługodawca ma prawo do:"
-msgstr ""
+msgstr "11.2. In case of abuse detection, Service Provider has the right to:"
 
 #: app/templates/terms.html:187
 msgid "Zawieszenia lub usunięcia Konta bez zwrotu środków"
-msgstr ""
+msgstr "Suspend or delete Account without refund"
 
 #: app/templates/terms.html:188
 msgid "Zgłoszenia sprawy organom ścigania"
-msgstr ""
+msgstr "Report case to law enforcement"
 
 #: app/templates/terms.html:189
 msgid "Dochodzenia odszkodowania"
-msgstr ""
+msgstr "Seek damages"
 
 #: app/templates/terms.html:195
 msgid "12.1. Usługodawca zastrzega sobie prawo do zmiany Regulaminu."
-msgstr ""
+msgstr "12.1. Service Provider reserves the right to change the Terms."
 
 #: app/templates/terms.html:196
 msgid ""
@@ -2844,23 +2844,23 @@ msgstr ""
 
 #: app/templates/terms.html:206
 msgid "13.4. Kontakt z Usługodawcą:"
-msgstr ""
+msgstr "13.4. Contact with Service Provider:"
 
 #: app/templates/terms.html:208
 msgid "Email: support@wavebulk.com"
-msgstr ""
+msgstr "Email: support@wavebulk.com"
 
 #: app/templates/terms.html:209
 msgid "Adres: [Do uzupełnienia]"
-msgstr ""
+msgstr "Address: [To be completed]"
 
 #: app/templates/terms.html:211
 msgid "13.5. Regulamin wchodzi w życie z dniem 15 stycznia 2025 r."
-msgstr ""
+msgstr "13.5. Terms come into effect on January 15, 2025."
 
 #: app/templates/terms.html:217
 msgid "Masz pytania dotyczące Regulaminu?"
-msgstr ""
+msgstr "Have questions about the Terms?"
 
 #: app/templates/upload_audio.html:2
 msgid "Prześlij i Przetwórz Pliki Audio"
