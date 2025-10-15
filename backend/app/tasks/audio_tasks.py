@@ -334,7 +334,24 @@ def process_audio_file(self, processing_task_id, filepath, original_filename, us
 
             _apply_metadata(output_filepath, options)
             
-            final_data, final_rate = sf.read(output_filepath)
+            # Read final audio for LUFS analysis
+            # soundfile doesn't support M4A/AAC, so convert to WAV first if needed
+            if output_format in ['aac', 'm4a', 'mp3', 'ogg', 'opus', 'wma']:
+                # Decode to WAV for analysis
+                temp_wav = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
+                temp_wav_path = temp_wav.name
+                temp_wav.close()
+                
+                decode_cmd = ['ffmpeg', '-y', '-i', output_filepath, '-acodec', 'pcm_s16le', temp_wav_path]
+                result = subprocess.run(decode_cmd, capture_output=True, text=True, check=False)
+                if result.returncode != 0:
+                    raise RuntimeError(f"Failed to decode {output_format} for LUFS analysis")
+                
+                final_data, final_rate = sf.read(temp_wav_path)
+                os.remove(temp_wav_path)
+            else:
+                final_data, final_rate = sf.read(output_filepath)
+            
             final_meter = pyln.Meter(final_rate)
             final_lufs = final_meter.integrated_loudness(final_data)
             final_peak_linear = np.max(np.abs(final_data))

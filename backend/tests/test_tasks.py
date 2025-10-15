@@ -65,7 +65,7 @@ def test_task_normalization_by_sample_width(db, test_user, app, mocker, sample_w
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], 'sample.wav')
     with open(filepath, 'wb') as f: f.write(b'dummy')
     
-    options = {'normalize': True, 'target_lufs': -14.0, 'lufs_preset': 'custom'}
+    options = {'normalize': True, 'target_lufs': -14.0, 'lufs_preset': 'custom', 'format': 'wav'}
     process_audio_file.s(task_entry.id, filepath, 'sample.wav', test_user.id, options).apply()
     
     db.session.refresh(task_entry)
@@ -81,6 +81,11 @@ def test_task_normalization_by_sample_width(db, test_user, app, mocker, sample_w
 ])
 def test_task_presets_and_bit_depth_logic(db, test_user, app, mocker, options, should_normalize, expected_export_params):
     INITIAL_LUFS = -25.0
+    
+    # Mock subprocess.run for FFmpeg decode (lossy format LUFS analysis)
+    mock_subprocess_result = mocker.MagicMock()
+    mock_subprocess_result.returncode = 0
+    mocker.patch('app.tasks.audio_tasks.subprocess.run', return_value=mock_subprocess_result)
     
     mock_audio_segment = mocker.MagicMock()
     mock_audio_segment.apply_gain.return_value = mock_audio_segment
@@ -131,6 +136,11 @@ def test_task_presets_and_bit_depth_logic(db, test_user, app, mocker, options, s
     ),
 ])
 def test_task_metadata_application(db, test_user, app, mocker, options, audio_format, expected_easy_tags, expect_cover_art):
+    # Mock subprocess.run for FFmpeg decode (lossy format LUFS analysis)
+    mock_subprocess_result = mocker.MagicMock()
+    mock_subprocess_result.returncode = 0
+    mocker.patch('app.tasks.audio_tasks.subprocess.run', return_value=mock_subprocess_result)
+    
     mocker.patch('app.tasks.audio_tasks.AudioSegment.from_wav').return_value.export.return_value = None
     mocker.patch('soundfile.read', return_value=(np.array([0, 0]), 44100))
     mocker.patch('pyloudnorm.Meter').return_value.integrated_loudness.return_value = -20.0
