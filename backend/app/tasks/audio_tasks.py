@@ -128,6 +128,7 @@ def _get_bitrate_param(format_type, bitrate):
     return None
 
 def _run_ffmpeg_loudnorm(input_path, output_path, target_lufs, bit_depth_params, bitrate_param, options):
+    temp_output = None
     try:
         pass1_filter = f"loudnorm=I={target_lufs}:TP=-1.0:LRA=7:print_format=json"
         
@@ -160,10 +161,21 @@ def _run_ffmpeg_loudnorm(input_path, output_path, target_lufs, bit_depth_params,
                         f"measured_thresh={loudnorm_stats['input_thresh']}:"
                         f"offset={target_offset}")
         
+        # Add resampler to filter chain if requested (soxr option deprecated in newer FFmpeg)
+        if options.get('resampler') == 'soxr':
+            pass2_filter = f"{pass2_filter},aresample=resampler=soxr"
+        
+        # Use temp file if input == output (FFmpeg cannot overwrite in-place)
+        use_temp = (input_path == output_path)
+        if use_temp:
+            temp_output = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
+            final_output = temp_output.name
+            temp_output.close()
+        else:
+            final_output = output_path
+        
         pass2_cmd = ['ffmpeg', '-y', '-i', input_path, '-af', pass2_filter]
         
-        if options.get('resampler') == 'soxr':
-            pass2_cmd.extend(['-swr_engine', 'soxr'])
         if options.get('dither_method') and options['dither_method'] != 'none' and options.get('bit_depth') == '16':
             pass2_cmd.extend(['-dither_method', options['dither_method']])
         
@@ -171,17 +183,26 @@ def _run_ffmpeg_loudnorm(input_path, output_path, target_lufs, bit_depth_params,
         if bitrate_param: pass2_cmd.extend(bitrate_param)
         
         pass2_cmd.extend(['-ar', '44100'])
-        pass2_cmd.append(output_path)
+        pass2_cmd.append(final_output)
         
         result = subprocess.run(pass2_cmd, capture_output=True, text=True, check=False)
         if result.returncode != 0:
+            if use_temp and os.path.exists(final_output):
+                os.remove(final_output)
             raise subprocess.CalledProcessError(result.returncode, pass2_cmd, output=result.stdout, stderr=result.stderr)
+        
+        # Move temp file to final location if needed
+        if use_temp:
+            import shutil
+            shutil.move(final_output, output_path)
             
         return True
     except (subprocess.CalledProcessError, json.JSONDecodeError, KeyError, ValueError) as e:
         current_app.logger.error(f"FFmpeg loudnorm failed for {input_path}: {e}")
         if hasattr(e, 'stderr'):
             current_app.logger.error(f"FFmpeg stderr: {e.stderr}")
+        if temp_output and os.path.exists(temp_output):
+            os.remove(temp_output)
         return False
 
 def _apply_metadata(filepath, options):

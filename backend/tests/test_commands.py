@@ -20,5 +20,5 @@ def test_seed_users_command(app, db):
     runner = app.test_cli_runner()
     result = runner.invoke(args=['seed-users'])
 
-    assert f'Added 10 new users' in result.output
+    assert 'Created: 10 users' in result.output
     assert User.query.count() == initial_count + 10
