@@ -270,27 +270,27 @@ msgstr ""
 
 #: app/templates/base.html:47 app/templates/base_sidebar.html:150
 msgid "Wszelkie prawa zastrzeżone."
-msgstr ""
+msgstr "All rights reserved."
 
 #: app/templates/base.html:49 app/templates/base_sidebar.html:152
 msgid "Regulamin"
-msgstr ""
+msgstr "Terms of Service"
 
 #: app/templates/base.html:51 app/templates/base_sidebar.html:154
 #: app/templates/privacy.html:2
 msgid "Polityka Prywatności"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: app/templates/base.html:53 app/templates/base_sidebar.html:77
 #: app/templates/base_sidebar.html:81 app/templates/base_sidebar.html:156
 #: app/templates/help.html:2
 msgid "Pomoc"
-msgstr ""
+msgstr "Help"
 
 #: app/templates/base.html:55 app/templates/base_sidebar.html:158
 #: app/templates/privacy.html:32 app/templates/privacy.html:329
 msgid "Kontakt"
-msgstr ""
+msgstr "Contact"
 
 #: app/templates/base_sidebar.html:37 app/templates/base_sidebar.html:41
 #: app/templates/dashboard.html:2 app/templates/dashboard.html:8
@@ -443,7 +443,7 @@ msgstr ""
 
 #: app/templates/file_details.html:119 app/templates/help.html:50
 msgid "Analiza techniczna"
-msgstr ""
+msgstr "Technical Analysis"
 
 #: app/templates/file_details.html:129
 msgid "Głośność (LUFS)"
@@ -487,7 +487,7 @@ msgstr ""
 
 #: app/templates/file_details.html:199 app/templates/help.html:228
 msgid "Spectrogram"
-msgstr ""
+msgstr "Spectrogram"
 
 #: app/templates/file_details.html:204 app/templates/file_details.html:329
 msgid "Analizer częstotliwości"
@@ -643,35 +643,35 @@ msgstr ""
 
 #: app/templates/help.html:14
 msgid "Centrum Pomocy WaveBulk"
-msgstr ""
+msgstr "WaveBulk Help Center"
 
 #: app/templates/help.html:16
 msgid "Kompleksowy przewodnik po funkcjach profesjonalnej konwersji audio"
-msgstr ""
+msgstr "Comprehensive guide to professional audio conversion features"
 
 #: app/templates/help.html:21
 msgid "Przegląd"
-msgstr ""
+msgstr "Overview"
 
 #: app/templates/help.html:22
 msgid "Formaty"
-msgstr ""
+msgstr "Formats"
 
 #: app/templates/help.html:23
 msgid "Funkcje"
-msgstr ""
+msgstr "Features"
 
 #: app/templates/help.html:24 app/templates/index.html:113
 msgid "Analiza"
-msgstr ""
+msgstr "Analysis"
 
 #: app/templates/help.html:25
 msgid "WaveSurfer"
-msgstr ""
+msgstr "WaveSurfer"
 
 #: app/templates/help.html:32
 msgid "Co to jest WaveBulk?"
-msgstr ""
+msgstr "What is WaveBulk?"
 
 #: app/templates/help.html:35
 msgid ""
@@ -681,7 +681,7 @@ msgstr ""
 
 #: app/templates/help.html:40
 msgid "Szybka konwersja"
-msgstr ""
+msgstr "Fast Conversion"
 
 #: app/templates/help.html:41
 msgid ""
@@ -691,7 +691,7 @@ msgstr ""
 
 #: app/templates/help.html:45
 msgid "Normalizacja LUFS"
-msgstr ""
+msgstr "LUFS Normalization"
 
 #: app/templates/help.html:46
 msgid ""
@@ -701,63 +701,63 @@ msgstr ""
 
 #: app/templates/help.html:51
 msgid "Szczegółowe informacje o bitrate, sample rate, kanałach i jakości audio"
-msgstr ""
+msgstr "Detailed information about bitrate, sample rate, channels and audio quality"
 
 #: app/templates/help.html:55
 msgid "Profesjonalne narzędzia"
-msgstr ""
+msgstr "Professional Tools"
 
 #: app/templates/help.html:56
 msgid "Spectrogram, analiza częstotliwości, korelacja fazy i markery audio"
-msgstr ""
+msgstr "Spectrogram, frequency analysis, phase correlation and audio markers"
 
 #: app/templates/help.html:66
 msgid "Obsługiwane formaty audio"
-msgstr ""
+msgstr "Supported Audio Formats"
 
 #: app/templates/help.html:71
 msgid "Formaty bezstratne (Lossless)"
-msgstr ""
+msgstr "Lossless Formats"
 
 #: app/templates/help.html:75
 msgid "Standardowy format bezstratny, najlepsza jakość"
-msgstr ""
+msgstr "Standard lossless format, best quality"
 
 #: app/templates/help.html:79
 msgid "Kompresja bezstratna, mniejszy rozmiar niż WAV"
-msgstr ""
+msgstr "Lossless compression, smaller size than WAV"
 
 #: app/templates/help.html:83
 msgid "Format Apple bezstratny, wysokiej jakości"
-msgstr ""
+msgstr "Apple lossless format, high quality"
 
 #: app/templates/help.html:89
 msgid "Formaty stratne (Lossy)"
-msgstr ""
+msgstr "Lossy Formats"
 
 #: app/templates/help.html:93
 msgid "Najpopularniejszy format, uniwersalna kompatybilność"
-msgstr ""
+msgstr "Most popular format, universal compatibility"
 
 #: app/templates/help.html:97
 msgid "Format Apple, lepsza jakość niż MP3 przy tym samym bitrate"
-msgstr ""
+msgstr "Apple format, better quality than MP3 at the same bitrate"
 
 #: app/templates/help.html:101
 msgid "Format open-source, dobra jakość przy niskim bitrate"
-msgstr ""
+msgstr "Open-source format, good quality at low bitrate"
 
 #: app/templates/help.html:105
 msgid "Format Microsoft, alternatywa dla MP3"
-msgstr ""
+msgstr "Microsoft format, alternative to MP3"
 
 #: app/templates/help.html:109
 msgid "Nowoczesny format, optymalny dla streaming"
-msgstr ""
+msgstr "Modern format, optimal for streaming"
 
 #: app/templates/help.html:116
 msgid "Ostrzeżenie o jakości"
-msgstr ""
+msgstr "Quality Warning"
 
 #: app/templates/help.html:117
 msgid ""
@@ -767,155 +767,155 @@ msgstr ""
 
 #: app/templates/help.html:126
 msgid "Główne funkcje aplikacji"
-msgstr ""
+msgstr "Main Application Features"
 
 #: app/templates/help.html:132
 msgid "Upload i przetwarzanie"
-msgstr ""
+msgstr "Upload and Processing"
 
 #: app/templates/help.html:133
 msgid "Podstawowe"
-msgstr ""
+msgstr "Basic"
 
 #: app/templates/help.html:136
 msgid "Drag & drop upload plików audio"
-msgstr ""
+msgstr "Drag & drop audio file upload"
 
 #: app/templates/help.html:137
 msgid "Przetwarzanie w tle - możesz opuścić stronę"
-msgstr ""
+msgstr "Background processing - you can leave the page"
 
 #: app/templates/help.html:138
 msgid "Automatyczna detekcja formatu i metadanych"
-msgstr ""
+msgstr "Automatic format and metadata detection"
 
 #: app/templates/help.html:139
 msgid "Historia przetwarzania z statusami"
-msgstr ""
+msgstr "Processing history with statuses"
 
 #: app/templates/help.html:145
 msgid "Analiza głośności (LUFS)"
-msgstr ""
+msgstr "Loudness Analysis (LUFS)"
 
 #: app/templates/help.html:146
 msgid "Zaawansowane"
-msgstr ""
+msgstr "Advanced"
 
 #: app/templates/help.html:149
 msgid "Pomiar zintegrowanej głośności w LUFS"
-msgstr ""
+msgstr "Integrated loudness measurement in LUFS"
 
 #: app/templates/help.html:150
 msgid "Wizualizacja na skali streaming (Spotify, YouTube, Apple Music)"
-msgstr ""
+msgstr "Visualization on streaming scale (Spotify, YouTube, Apple Music)"
 
 #: app/templates/help.html:151
 msgid "Ostrzeżenia o zbyt głośnym lub cichym materiale"
-msgstr ""
+msgstr "Warnings about too loud or quiet material"
 
 #: app/templates/help.html:152
 msgid "True Peak measurement (dBTP)"
-msgstr ""
+msgstr "True Peak measurement (dBTP)"
 
 #: app/templates/help.html:158
 msgid "Profesjonalny odtwarzacz"
-msgstr ""
+msgstr "Professional Player"
 
 #: app/templates/help.html:159
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 #: app/templates/help.html:162
 msgid "Waveform z zoom i nawigacją"
-msgstr ""
+msgstr "Waveform with zoom and navigation"
 
 #: app/templates/help.html:163
 msgid "Kontrola prędkości odtwarzania (0.5x - 2x)"
-msgstr ""
+msgstr "Playback speed control (0.5x - 2x)"
 
 #: app/templates/help.html:164
 msgid "Regulacja głośności i zoom"
-msgstr ""
+msgstr "Volume and zoom control"
 
 #: app/templates/help.html:165
 msgid "Tryb porównania A/B (przed/po)"
-msgstr ""
+msgstr "A/B comparison mode (before/after)"
 
 #: app/templates/help.html:176
 msgid "Analiza techniczna audio"
-msgstr ""
+msgstr "Technical Audio Analysis"
 
 #: app/templates/help.html:181
 msgid "LUFS (Loudness Units Full Scale)"
-msgstr ""
+msgstr "LUFS (Loudness Units Full Scale)"
 
 #: app/templates/help.html:182
 msgid "Standardowy pomiar głośności używany w broadcast i streaming."
-msgstr ""
+msgstr "Standard loudness measurement used in broadcast and streaming."
 
 #: app/templates/help.html:184
 msgid "Broadcast standard (TV, radio)"
-msgstr ""
+msgstr "Broadcast standard (TV, radio)"
 
 #: app/templates/help.html:185
 msgid "Apple Music standard"
-msgstr ""
+msgstr "Apple Music standard"
 
 #: app/templates/help.html:186
 msgid "Spotify, YouTube standard"
-msgstr ""
+msgstr "Spotify, YouTube standard"
 
 #: app/templates/help.html:187
 msgid "Bardzo głośny materiał (może być przesterowany)"
-msgstr ""
+msgstr "Very loud material (may be distorted)"
 
 #: app/templates/help.html:192
 msgid "True Peak (dBTP)"
-msgstr ""
+msgstr "True Peak (dBTP)"
 
 #: app/templates/help.html:193
 msgid "Maksymalny szczyt sygnału audio, ważny dla unikania clipping."
-msgstr ""
+msgstr "Maximum audio signal peak, important for avoiding clipping."
 
 #: app/templates/help.html:195
 msgid "Bezpieczny poziom dla streaming"
-msgstr ""
+msgstr "Safe level for streaming"
 
 #: app/templates/help.html:196
 msgid "Zalecany margines bezpieczeństwa"
-msgstr ""
+msgstr "Recommended safety margin"
 
 #: app/templates/help.html:197
 msgid "Ryzyko clipping i zniekształceń"
-msgstr ""
+msgstr "Risk of clipping and distortion"
 
 #: app/templates/help.html:202
 msgid "Parametry techniczne"
-msgstr ""
+msgstr "Technical Parameters"
 
 #: app/templates/help.html:203
 msgid "Podstawowe informacje o pliku audio."
-msgstr ""
+msgstr "Basic audio file information."
 
 #: app/templates/help.html:205
 msgid "Ilość danych na sekundę (kbps)"
-msgstr ""
+msgstr "Amount of data per second (kbps)"
 
 #: app/templates/help.html:206
 msgid "Częstotliwość próbkowania (Hz)"
-msgstr ""
+msgstr "Sampling rate (Hz)"
 
 #: app/templates/help.html:207
 msgid "Liczba kanałów (mono/stereo)"
-msgstr ""
+msgstr "Number of channels (mono/stereo)"
 
 #: app/templates/help.html:208
 msgid "Czas trwania utworu"
-msgstr ""
+msgstr "Track duration"
 
 #: app/templates/help.html:219
 msgid "Funkcje WaveSurfer v7"
-msgstr ""
+msgstr "WaveSurfer v7 Features"
 
 #: app/templates/help.html:222
 msgid ""
@@ -931,19 +931,19 @@ msgstr ""
 
 #: app/templates/help.html:232
 msgid "Analiza widma częstotliwości"
-msgstr ""
+msgstr "Frequency spectrum analysis"
 
 #: app/templates/help.html:233
 msgid "Identyfikacja instrumentów i tonów"
-msgstr ""
+msgstr "Instrument and tone identification"
 
 #: app/templates/help.html:234
 msgid "Wykrywanie problemów z jakością"
-msgstr ""
+msgstr "Quality issue detection"
 
 #: app/templates/help.html:241
 msgid "Frequency Analyzer"
-msgstr ""
+msgstr "Frequency Analyzer"
 
 #: app/templates/help.html:243
 msgid ""
@@ -953,111 +953,111 @@ msgstr ""
 
 #: app/templates/help.html:245
 msgid "Real-time spectrum analysis"
-msgstr ""
+msgstr "Real-time spectrum analysis"
 
 #: app/templates/help.html:246
 msgid "Wizualizacja EQ w czasie rzeczywistym"
-msgstr ""
+msgstr "Real-time EQ visualization"
 
 #: app/templates/help.html:247
 msgid "Identyfikacja dominantnych częstotliwości"
-msgstr ""
+msgstr "Dominant frequency identification"
 
 #: app/templates/help.html:254
 msgid "Phase Correlation"
-msgstr ""
+msgstr "Phase Correlation"
 
 #: app/templates/help.html:256
 msgid "Analiza fazy sygnału audio - pokazuje zmiany fazy w czasie."
-msgstr ""
+msgstr "Audio signal phase analysis - shows phase changes over time."
 
 #: app/templates/help.html:258
 msgid "Wykrywanie problemów z fazą"
-msgstr ""
+msgstr "Phase problem detection"
 
 #: app/templates/help.html:259
 msgid "Analiza mono/stereo compatibility"
-msgstr ""
+msgstr "Mono/stereo compatibility analysis"
 
 #: app/templates/help.html:260
 msgid "Identyfikacja problemów z miksowaniem"
-msgstr ""
+msgstr "Mixing problem identification"
 
 #: app/templates/help.html:267
 msgid "Smart Markers"
-msgstr ""
+msgstr "Smart Markers"
 
 #: app/templates/help.html:269
 msgid "Inteligentne markery na waveform - oznaczanie fragmentów audio."
-msgstr ""
+msgstr "Smart markers on waveform - marking audio segments."
 
 #: app/templates/help.html:271
 msgid "Automatyczne wykrywanie peaków"
-msgstr ""
+msgstr "Automatic peak detection"
 
 #: app/templates/help.html:272
 msgid "Oznaczanie sekcji ciszy"
-msgstr ""
+msgstr "Silence section marking"
 
 #: app/templates/help.html:273
 msgid "Markery na podstawie LUFS"
-msgstr ""
+msgstr "LUFS-based markers"
 
 #: app/templates/help.html:274
 msgid "Ręczne dodawanie markerów"
-msgstr ""
+msgstr "Manual marker addition"
 
 #: app/templates/help.html:281
 msgid "A/B Comparison"
-msgstr ""
+msgstr "A/B Comparison"
 
 #: app/templates/help.html:283
 msgid "Porównanie przed i po przetwarzaniu - analiza różnic w jakości."
-msgstr ""
+msgstr "Before and after processing comparison - quality difference analysis."
 
 #: app/templates/help.html:285
 msgid "Side-by-side waveform comparison"
-msgstr ""
+msgstr "Side-by-side waveform comparison"
 
 #: app/templates/help.html:286
 msgid "Synchronizowane odtwarzanie"
-msgstr ""
+msgstr "Synchronized playback"
 
 #: app/templates/help.html:287
 msgid "Analiza różnic w spektrum"
-msgstr ""
+msgstr "Spectrum difference analysis"
 
 #: app/templates/help.html:294
 msgid "Timeline & Minimap"
-msgstr ""
+msgstr "Timeline & Minimap"
 
 #: app/templates/help.html:296
 msgid "Zaawansowana nawigacja w pliku audio."
-msgstr ""
+msgstr "Advanced audio file navigation."
 
 #: app/templates/help.html:298
 msgid "Precyzyjna nawigacja w czasie"
-msgstr ""
+msgstr "Precise time navigation"
 
 #: app/templates/help.html:299
 msgid "Minimap dla szybkiego przeglądania"
-msgstr ""
+msgstr "Minimap for quick browsing"
 
 #: app/templates/help.html:300
 msgid "Zoom i scroll controls"
-msgstr ""
+msgstr "Zoom and scroll controls"
 
 #: app/templates/help.html:309
 msgid "Ta strona będzie regularnie aktualizowana o nowe funkcje i ulepszenia."
-msgstr ""
+msgstr "This page will be regularly updated with new features and improvements."
 
 #: app/templates/help.html:310
 msgid "Potrzebujesz pomocy?"
-msgstr ""
+msgstr "Need help?"
 
 #: app/templates/help.html:310
 msgid "Skontaktuj się z nami przez formularz kontaktowy."
-msgstr ""
+msgstr "Contact us through the contact form."
 
 #: app/templates/history.html:2 app/templates/history.html:7
 msgid "Moja Historia Przetwarzania"
