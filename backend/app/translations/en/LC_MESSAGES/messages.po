@@ -1428,7 +1428,7 @@ msgstr ""
 
 #: app/templates/privacy.html:10
 msgid "Polityka Prywatności (Privacy Policy)"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: app/templates/privacy.html:11 app/templates/privacy.html:341
 #: app/templates/terms.html:11
@@ -1437,7 +1437,7 @@ msgstr "Last updated: January 15, 2025"
 
 #: app/templates/privacy.html:13
 msgid "GDPR Compliant"
-msgstr ""
+msgstr "GDPR Compliant"
 
 #: app/templates/privacy.html:19 app/templates/terms.html:16
 msgid "Spis treści"
@@ -1445,47 +1445,47 @@ msgstr "Table of Contents"
 
 #: app/templates/privacy.html:21 app/templates/privacy.html:39
 msgid "Wprowadzenie"
-msgstr ""
+msgstr "Introduction"
 
 #: app/templates/privacy.html:22 app/templates/privacy.html:46
 msgid "Administrator danych"
-msgstr ""
+msgstr "Data Controller"
 
 #: app/templates/privacy.html:23 app/templates/privacy.html:57
 msgid "Jakie dane zbieramy"
-msgstr ""
+msgstr "What Data We Collect"
 
 #: app/templates/privacy.html:24 app/templates/privacy.html:87
 msgid "Jak wykorzystujemy dane"
-msgstr ""
+msgstr "How We Use Data"
 
 #: app/templates/privacy.html:25
 msgid "Podstawa prawna przetwarzania"
-msgstr ""
+msgstr "Legal Basis for Processing"
 
 #: app/templates/privacy.html:26 app/templates/privacy.html:141
 msgid "Udostępnianie danych osobom trzecim"
-msgstr ""
+msgstr "Sharing Data with Third Parties"
 
 #: app/templates/privacy.html:27 app/templates/privacy.html:164
 msgid "Przechowywanie danych"
-msgstr ""
+msgstr "Data Retention"
 
 #: app/templates/privacy.html:28 app/templates/privacy.html:207
 msgid "Bezpieczeństwo danych"
-msgstr ""
+msgstr "Data Security"
 
 #: app/templates/privacy.html:29 app/templates/privacy.html:225
 msgid "Twoje prawa (GDPR)"
-msgstr ""
+msgstr "Your Rights (GDPR)"
 
 #: app/templates/privacy.html:30 app/templates/privacy.html:269
 msgid "Pliki cookies"
-msgstr ""
+msgstr "Cookies"
 
 #: app/templates/privacy.html:31 app/templates/privacy.html:321
 msgid "Zmiany w polityce prywatności"
-msgstr ""
+msgstr "Privacy Policy Changes"
 
 #: app/templates/privacy.html:40
 msgid ""
@@ -1507,20 +1507,20 @@ msgstr ""
 
 #: app/templates/privacy.html:47
 msgid "Administratorem danych osobowych jest:"
-msgstr ""
+msgstr "The Data Controller is:"
 
 #: app/templates/privacy.html:50
 msgid "[Nazwa firmy do uzupełnienia]"
-msgstr ""
+msgstr "[Company name to be completed]"
 
 #: app/templates/privacy.html:51
 msgid "[Adres do uzupełnienia]"
-msgstr ""
+msgstr "[Address to be completed]"
 
 #: app/templates/privacy.html:52 app/templates/privacy.html:253
 #: app/templates/privacy.html:265 app/templates/privacy.html:332
 msgid "Email:"
-msgstr ""
+msgstr "Email:"
 
 #: app/templates/privacy.html:59
 msgid "Dane podane przez Użytkownika"
@@ -1528,15 +1528,15 @@ msgstr ""
 
 #: app/templates/privacy.html:61
 msgid "Dane rejestracyjne:"
-msgstr ""
+msgstr "Registration data:"
 
 #: app/templates/privacy.html:61
 msgid "adres email, hasło (zaszyfrowane), imię i nazwisko (opcjonalnie)"
-msgstr ""
+msgstr "email address, password (encrypted), name (optional)"
 
 #: app/templates/privacy.html:62
 msgid "Dane płatności:"
-msgstr ""
+msgstr "Payment data:"
 
 #: app/templates/privacy.html:62
 msgid ""
@@ -1546,19 +1546,19 @@ msgstr ""
 
 #: app/templates/privacy.html:63
 msgid "Dane kontaktowe:"
-msgstr ""
+msgstr "Contact data:"
 
 #: app/templates/privacy.html:63
 msgid "email do komunikacji"
-msgstr ""
+msgstr "communication email"
 
 #: app/templates/privacy.html:64
 msgid "OAuth:"
-msgstr ""
+msgstr "OAuth:"
 
 #: app/templates/privacy.html:64
 msgid "przy logowaniu przez Google: email, imię, nazwisko, zdjęcie profilowe"
-msgstr ""
+msgstr "when logging in through Google: email, name, profile picture"
 
 #: app/templates/privacy.html:67
 msgid "Dane zbierane automatycznie"
@@ -1566,27 +1566,27 @@ msgstr ""
 
 #: app/templates/privacy.html:69
 msgid "Dane techniczne:"
-msgstr ""
+msgstr "Technical data:"
 
 #: app/templates/privacy.html:69
 msgid "adres IP, typ przeglądarki, system operacyjny, rozdzielczość ekranu"
-msgstr ""
+msgstr "IP address, browser type, operating system, screen resolution"
 
 #: app/templates/privacy.html:70
 msgid "Logi serwera:"
-msgstr ""
+msgstr "Server logs:"
 
 #: app/templates/privacy.html:70
 msgid "data i czas odwiedzin, odwiedzane strony, czas spędzony w serwisie"
-msgstr ""
+msgstr "date and time of visits, visited pages, time spent on service"
 
 #: app/templates/privacy.html:71
 msgid "Cookies:"
-msgstr ""
+msgstr "Cookies:"
 
 #: app/templates/privacy.html:71
 msgid "pliki cookies do utrzymania sesji i analityki (szczegóły w sekcji 10)"
-msgstr ""
+msgstr "cookie files for session management and analytics (details in section 10)"
 
 #: app/templates/privacy.html:74
 msgid "Dane związane z plikami audio"
@@ -1594,31 +1594,31 @@ msgstr ""
 
 #: app/templates/privacy.html:76
 msgid "Metadane plików:"
-msgstr ""
+msgstr "File metadata:"
 
 #: app/templates/privacy.html:76
 msgid "nazwa pliku, rozmiar, format, długość, bitrate, sample rate"
-msgstr ""
+msgstr "file name, size, format, length, bitrate, sample rate"
 
 #: app/templates/privacy.html:77
 msgid "Wyniki analizy:"
-msgstr ""
+msgstr "Analysis results:"
 
 #: app/templates/privacy.html:77
 msgid "LUFS, True Peak, informacje o jakości"
-msgstr ""
+msgstr "LUFS, True Peak, quality information"
 
 #: app/templates/privacy.html:78
 msgid "Historia przetwarzania:"
-msgstr ""
+msgstr "Processing history:"
 
 #: app/templates/privacy.html:78
 msgid "data i czas przetworzenia, parametry konwersji"
-msgstr ""
+msgstr "processing date and time, conversion parameters"
 
 #: app/templates/privacy.html:82 app/templates/privacy.html:220
 msgid "Ważne:"
-msgstr ""
+msgstr "Important:"
 
 #: app/templates/privacy.html:82
 msgid ""
@@ -1628,7 +1628,7 @@ msgstr ""
 
 #: app/templates/privacy.html:88
 msgid "Wykorzystujemy zebrane dane wyłącznie w następujących celach:"
-msgstr ""
+msgstr "We use collected data exclusively for the following purposes:"
 
 #: app/templates/privacy.html:90
 msgid "Świadczenie usług"
@@ -1636,19 +1636,19 @@ msgstr ""
 
 #: app/templates/privacy.html:92
 msgid "Przetwarzanie i konwersja plików audio"
-msgstr ""
+msgstr "Audio file processing and conversion"
 
 #: app/templates/privacy.html:93
 msgid "Analiza głośności (LUFS, True Peak)"
-msgstr ""
+msgstr "Loudness analysis (LUFS, True Peak)"
 
 #: app/templates/privacy.html:94
 msgid "Przechowywanie historii przetwarzania"
-msgstr ""
+msgstr "Storage of processing history"
 
 #: app/templates/privacy.html:95
 msgid "Umożliwienie pobierania przetworzonych plików"
-msgstr ""
+msgstr "Enabling download of processed files"
 
 #: app/templates/privacy.html:98
 msgid "Zarządzanie kontem"
@@ -1656,19 +1656,19 @@ msgstr ""
 
 #: app/templates/privacy.html:100
 msgid "Rejestracja i logowanie"
-msgstr ""
+msgstr "Registration and login"
 
 #: app/templates/privacy.html:101
 msgid "Zarządzanie subskrypcją"
-msgstr ""
+msgstr "Subscription management"
 
 #: app/templates/privacy.html:102
 msgid "Resetowanie hasła"
-msgstr ""
+msgstr "Password reset"
 
 #: app/templates/privacy.html:103
 msgid "Komunikacja z użytkownikiem (email)"
-msgstr ""
+msgstr "User communication (email)"
 
 #: app/templates/privacy.html:106
 msgid "Płatności i rozliczenia"
@@ -1676,15 +1676,15 @@ msgstr ""
 
 #: app/templates/privacy.html:108
 msgid "Przetwarzanie płatności (przez Stripe)"
-msgstr ""
+msgstr "Payment processing (through Stripe)"
 
 #: app/templates/privacy.html:109
 msgid "Generowanie faktur"
-msgstr ""
+msgstr "Invoice generation"
 
 #: app/templates/privacy.html:110
 msgid "Obsługa zwrotów"
-msgstr ""
+msgstr "Refund handling"
 
 #: app/templates/privacy.html:113
 msgid "Analityka i ulepszanie"
@@ -1692,19 +1692,19 @@ msgstr ""
 
 #: app/templates/privacy.html:115
 msgid "Analiza użytkowania serwisu (Google Analytics)"
-msgstr ""
+msgstr "Service usage analysis (Google Analytics)"
 
 #: app/templates/privacy.html:116
 msgid "Wykrywanie i naprawianie błędów (Sentry)"
-msgstr ""
+msgstr "Error detection and fixing (Sentry)"
 
 #: app/templates/privacy.html:117
 msgid "Optymalizacja wydajności"
-msgstr ""
+msgstr "Performance optimization"
 
 #: app/templates/privacy.html:118
 msgid "Rozwój nowych funkcji"
-msgstr ""
+msgstr "New feature development"
 
 #: app/templates/privacy.html:121
 msgid "Bezpieczeństwo"
@@ -1712,15 +1712,15 @@ msgstr ""
 
 #: app/templates/privacy.html:123
 msgid "Wykrywanie nadużyć i oszustw"
-msgstr ""
+msgstr "Abuse and fraud detection"
 
 #: app/templates/privacy.html:124
 msgid "Zapobieganie atakom (DDoS, brute force)"
-msgstr ""
+msgstr "Attack prevention (DDoS, brute force)"
 
 #: app/templates/privacy.html:125
 msgid "Zapewnienie zgodności z prawem"
-msgstr ""
+msgstr "Ensuring legal compliance"
 
 #: app/templates/privacy.html:130
 msgid "Podstawa prawna przetwarzania (GDPR)"
@@ -1728,47 +1728,47 @@ msgstr ""
 
 #: app/templates/privacy.html:131
 msgid "Przetwarzamy Twoje dane osobowe na podstawie:"
-msgstr ""
+msgstr "We process your personal data based on:"
 
 #: app/templates/privacy.html:133
 msgid "Art. 6 ust. 1 lit. b GDPR"
-msgstr ""
+msgstr "Art. 6(1)(b) GDPR"
 
 #: app/templates/privacy.html:133
 msgid "wykonanie umowy (świadczenie usług)"
-msgstr ""
+msgstr "contract performance (service provision)"
 
 #: app/templates/privacy.html:134
 msgid "Art. 6 ust. 1 lit. c GDPR"
-msgstr ""
+msgstr "Art. 6(1)(c) GDPR"
 
 #: app/templates/privacy.html:134
 msgid "obowiązek prawny (rachunkowość, podatki)"
-msgstr ""
+msgstr "legal obligation (accounting, taxes)"
 
 #: app/templates/privacy.html:135
 msgid "Art. 6 ust. 1 lit. f GDPR"
-msgstr ""
+msgstr "Art. 6(1)(f) GDPR"
 
 #: app/templates/privacy.html:135
 msgid "prawnie uzasadniony interes (bezpieczeństwo, analityka)"
-msgstr ""
+msgstr "legitimate interest (security, analytics)"
 
 #: app/templates/privacy.html:136
 msgid "Art. 6 ust. 1 lit. a GDPR"
-msgstr ""
+msgstr "Art. 6(1)(a) GDPR"
 
 #: app/templates/privacy.html:136
 msgid "zgoda (newsletter, marketing)"
-msgstr ""
+msgstr "consent (newsletter, marketing)"
 
 #: app/templates/privacy.html:142
 msgid "Nie sprzedajemy ani nie wynajmujemy Twoich danych osobowych."
-msgstr ""
+msgstr "We do not sell or rent your personal data."
 
 #: app/templates/privacy.html:143
 msgid "Udostępniamy dane wyłącznie następującym zaufanym partnerom:"
-msgstr ""
+msgstr "We share data only with the following trusted partners:"
 
 #: app/templates/privacy.html:145
 msgid "Usługodawcy technologiczni"
@@ -1776,23 +1776,23 @@ msgstr ""
 
 #: app/templates/privacy.html:147
 msgid "przetwarzanie płatności (USA, Privacy Shield)"
-msgstr ""
+msgstr "payment processing (USA, Privacy Shield)"
 
 #: app/templates/privacy.html:148
 msgid "wysyłka emaili (USA, GDPR compliant)"
-msgstr ""
+msgstr "email sending (USA, GDPR compliant)"
 
 #: app/templates/privacy.html:149
 msgid "hosting i storage (EU/USA)"
-msgstr ""
+msgstr "hosting and storage (EU/USA)"
 
 #: app/templates/privacy.html:150
 msgid "monitoring błędów (USA, GDPR compliant)"
-msgstr ""
+msgstr "error monitoring (USA, GDPR compliant)"
 
 #: app/templates/privacy.html:151
 msgid "analityka (anonimizowane IP)"
-msgstr ""
+msgstr "analytics (anonymized IP)"
 
 #: app/templates/privacy.html:154
 msgid "Wymogi prawne"
@@ -1800,75 +1800,75 @@ msgstr ""
 
 #: app/templates/privacy.html:155
 msgid "Możemy ujawnić dane, jeśli jest to wymagane prawem lub w odpowiedzi na:"
-msgstr ""
+msgstr "We may disclose data if required by law or in response to:"
 
 #: app/templates/privacy.html:157
 msgid "Nakaz sądowy lub żądanie organów ścigania"
-msgstr ""
+msgstr "Court order or law enforcement request"
 
 #: app/templates/privacy.html:158
 msgid "Ochronę praw i bezpieczeństwa WaveBulk i użytkowników"
-msgstr ""
+msgstr "Protection of WaveBulk and user rights and security"
 
 #: app/templates/privacy.html:159
 msgid "Zapobieganie oszustwom i nadużyciom"
-msgstr ""
+msgstr "Fraud and abuse prevention"
 
 #: app/templates/privacy.html:166 app/templates/privacy.html:171
 msgid "Okres przechowywania"
-msgstr ""
+msgstr "Retention Period"
 
 #: app/templates/privacy.html:170
 msgid "Rodzaj danych"
-msgstr ""
+msgstr "Data Type"
 
 #: app/templates/privacy.html:176
 msgid "Dane konta"
-msgstr ""
+msgstr "Account data"
 
 #: app/templates/privacy.html:177
 msgid "Do czasu usunięcia konta + 30 dni"
-msgstr ""
+msgstr "Until account deletion + 30 days"
 
 #: app/templates/privacy.html:180
 msgid "Pliki audio (oryginalne i przetworzone)"
-msgstr ""
+msgstr "Audio files (original and processed)"
 
 #: app/templates/privacy.html:181
 msgid "Maksymalnie 30 dni od przetworzenia"
-msgstr ""
+msgstr "Maximum 30 days from processing"
 
 #: app/templates/privacy.html:184
 msgid "Historia przetwarzania (metadane)"
-msgstr ""
+msgstr "Processing history (metadata)"
 
 #: app/templates/privacy.html:185
 msgid "Do czasu usunięcia konta"
-msgstr ""
+msgstr "Until account deletion"
 
 #: app/templates/privacy.html:188
 msgid "Dane płatności"
-msgstr ""
+msgstr "Payment data"
 
 #: app/templates/privacy.html:189
 msgid "Zgodnie z przepisami podatkowymi (5 lat)"
-msgstr ""
+msgstr "According to tax regulations (5 years)"
 
 #: app/templates/privacy.html:192
 msgid "Logi serwera"
-msgstr ""
+msgstr "Server logs"
 
 #: app/templates/privacy.html:193
 msgid "90 dni"
-msgstr ""
+msgstr "90 days"
 
 #: app/templates/privacy.html:196
 msgid "Dane analityczne"
-msgstr ""
+msgstr "Analytics data"
 
 #: app/templates/privacy.html:197
 msgid "26 miesięcy (Google Analytics)"
-msgstr ""
+msgstr "26 months (Google Analytics)"
 
 #: app/templates/privacy.html:202
 msgid "Lokalizacja danych"
@@ -1888,35 +1888,35 @@ msgstr ""
 
 #: app/templates/privacy.html:210
 msgid "Szyfrowanie SSL/TLS (HTTPS) dla całej komunikacji"
-msgstr ""
+msgstr "SSL/TLS encryption (HTTPS) for all communication"
 
 #: app/templates/privacy.html:211
 msgid "Hashowanie haseł (bcrypt)"
-msgstr ""
+msgstr "Password hashing (bcrypt)"
 
 #: app/templates/privacy.html:212
 msgid "Szyfrowanie danych w bazie danych"
-msgstr ""
+msgstr "Database data encryption"
 
 #: app/templates/privacy.html:213
 msgid "Regularne kopie zapasowe (backups)"
-msgstr ""
+msgstr "Regular backups"
 
 #: app/templates/privacy.html:214
 msgid "Monitoring bezpieczeństwa (firewall, intrusion detection)"
-msgstr ""
+msgstr "Security monitoring (firewall, intrusion detection)"
 
 #: app/templates/privacy.html:215
 msgid "Ograniczony dostęp do danych (role-based access control)"
-msgstr ""
+msgstr "Limited data access (role-based access control)"
 
 #: app/templates/privacy.html:216
 msgid "Regularne audyty bezpieczeństwa"
-msgstr ""
+msgstr "Regular security audits"
 
 #: app/templates/privacy.html:217
 msgid "Automatyczne usuwanie starych plików"
-msgstr ""
+msgstr "Automatic old file deletion"
 
 #: app/templates/privacy.html:220
 #, python-format
@@ -1928,7 +1928,7 @@ msgstr ""
 
 #: app/templates/privacy.html:226
 msgid "Zgodnie z GDPR, masz następujące prawa:"
-msgstr ""
+msgstr "Under GDPR, you have the following rights:"
 
 #: app/templates/privacy.html:228
 msgid "Prawo dostępu (Art. 15 GDPR)"
@@ -1936,7 +1936,7 @@ msgstr ""
 
 #: app/templates/privacy.html:229
 msgid "Możesz uzyskać kopię swoich danych osobowych w czytelnym formacie."
-msgstr ""
+msgstr "You can obtain a copy of your personal data in a readable format."
 
 #: app/templates/privacy.html:231
 msgid "Prawo do sprostowania (Art. 16 GDPR)"
@@ -1944,7 +1944,7 @@ msgstr ""
 
 #: app/templates/privacy.html:232
 msgid "Możesz poprawić nieprawidłowe lub niekompletne dane."
-msgstr ""
+msgstr "You can correct inaccurate or incomplete data."
 
 #: app/templates/privacy.html:234
 msgid "Prawo do usunięcia \"prawo do bycia zapomnianym\" (Art. 17 GDPR)"
@@ -1952,7 +1952,7 @@ msgstr ""
 
 #: app/templates/privacy.html:235
 msgid "Możesz zażądać usunięcia swoich danych osobowych."
-msgstr ""
+msgstr "You can request deletion of your personal data."
 
 #: app/templates/privacy.html:237
 msgid "Prawo do ograniczenia przetwarzania (Art. 18 GDPR)"
@@ -1960,7 +1960,7 @@ msgstr ""
 
 #: app/templates/privacy.html:238
 msgid "Możesz ograniczyć przetwarzanie danych w określonych przypadkach."
-msgstr ""
+msgstr "You can restrict data processing in specific cases."
 
 #: app/templates/privacy.html:240
 msgid "Prawo do przenoszenia danych (Art. 20 GDPR)"
@@ -1978,7 +1978,7 @@ msgstr ""
 
 #: app/templates/privacy.html:244
 msgid "Możesz sprzeciwić się przetwarzaniu danych w celach marketingowych."
-msgstr ""
+msgstr "You can object to data processing for marketing purposes."
 
 #: app/templates/privacy.html:246
 msgid "Prawo do wycofania zgody"
@@ -1986,7 +1986,7 @@ msgstr ""
 
 #: app/templates/privacy.html:247
 msgid "Możesz w każdej chwili wycofać zgodę na przetwarzanie danych."
-msgstr ""
+msgstr "You can withdraw consent to data processing at any time."
 
 #: app/templates/privacy.html:249
 msgid "Jak skorzystać z praw?"
@@ -1994,19 +1994,19 @@ msgstr ""
 
 #: app/templates/privacy.html:251
 msgid "Aby skorzystać z powyższych praw, skontaktuj się z nami:"
-msgstr ""
+msgstr "To exercise the above rights, contact us:"
 
 #: app/templates/privacy.html:254
 msgid "Panel konta:"
-msgstr ""
+msgstr "Account panel:"
 
 #: app/templates/privacy.html:254
 msgid "Ustawienia → Prywatność"
-msgstr ""
+msgstr "Settings → Privacy"
 
 #: app/templates/privacy.html:256
 msgid "Odpowiemy w ciągu 30 dni od otrzymania wniosku."
-msgstr ""
+msgstr "We will respond within 30 days of receiving the request."
 
 #: app/templates/privacy.html:259
 msgid "Prawo do skargi"
@@ -2014,15 +2014,15 @@ msgstr ""
 
 #: app/templates/privacy.html:260
 msgid "Masz prawo złożyć skargę do organu nadzorczego (UODO w Polsce):"
-msgstr ""
+msgstr "You have the right to lodge a complaint with a supervisory authority (UODO in Poland):"
 
 #: app/templates/privacy.html:261
 msgid "Urząd Ochrony Danych Osobowych (UODO)"
-msgstr ""
+msgstr "Personal Data Protection Office (UODO)"
 
 #: app/templates/privacy.html:264
 msgid "Tel:"
-msgstr ""
+msgstr "Tel:"
 
 #: app/templates/privacy.html:271
 msgid "Czym są cookies?"
@@ -2041,51 +2041,51 @@ msgstr ""
 
 #: app/templates/privacy.html:278
 msgid "Rodzaj"
-msgstr ""
+msgstr "Type"
 
 #: app/templates/privacy.html:279
 msgid "Cel"
-msgstr ""
+msgstr "Purpose"
 
 #: app/templates/privacy.html:280
 msgid "Ważność"
-msgstr ""
+msgstr "Validity"
 
 #: app/templates/privacy.html:285 app/templates/privacy.html:302
 msgid "Sesja"
-msgstr ""
+msgstr "Session"
 
 #: app/templates/privacy.html:286
 msgid "Utrzymanie logowania"
-msgstr ""
+msgstr "Maintain login"
 
 #: app/templates/privacy.html:287
 msgid "30 dni"
-msgstr ""
+msgstr "30 days"
 
 #: app/templates/privacy.html:290
 msgid "Język"
-msgstr ""
+msgstr "Language"
 
 #: app/templates/privacy.html:291
 msgid "Zapamiętanie wybranego języka"
-msgstr ""
+msgstr "Remember selected language"
 
 #: app/templates/privacy.html:292
 msgid "1 rok"
-msgstr ""
+msgstr "1 year"
 
 #: app/templates/privacy.html:295
 msgid "Analityka (Google Analytics)"
-msgstr ""
+msgstr "Analytics (Google Analytics)"
 
 #: app/templates/privacy.html:296
 msgid "Analiza ruchu i zachowań"
-msgstr ""
+msgstr "Traffic and behavior analysis"
 
 #: app/templates/privacy.html:297
 msgid "26 miesięcy"
-msgstr ""
+msgstr "26 months"
 
 #: app/templates/privacy.html:300
 msgid "Stripe"
@@ -2093,7 +2093,7 @@ msgstr ""
 
 #: app/templates/privacy.html:301
 msgid "Wykrywanie oszustw"
-msgstr ""
+msgstr "Fraud detection"
 
 #: app/templates/privacy.html:307
 msgid "Zarządzanie cookies"
@@ -2101,27 +2101,27 @@ msgstr ""
 
 #: app/templates/privacy.html:308
 msgid "Możesz zarządzać cookies w ustawieniach przeglądarki:"
-msgstr ""
+msgstr "You can manage cookies in browser settings:"
 
 #: app/templates/privacy.html:310
 msgid "Chrome"
-msgstr ""
+msgstr "Chrome"
 
 #: app/templates/privacy.html:311
 msgid "Firefox"
-msgstr ""
+msgstr "Firefox"
 
 #: app/templates/privacy.html:312
 msgid "Safari"
-msgstr ""
+msgstr "Safari"
 
 #: app/templates/privacy.html:313
 msgid "Edge"
-msgstr ""
+msgstr "Edge"
 
 #: app/templates/privacy.html:316
 msgid "Uwaga:"
-msgstr ""
+msgstr "Note:"
 
 #: app/templates/privacy.html:316
 msgid ""
@@ -2161,19 +2161,19 @@ msgstr ""
 
 #: app/templates/privacy.html:333
 msgid "Email ogólny:"
-msgstr ""
+msgstr "General email:"
 
 #: app/templates/privacy.html:334
 msgid "Adres:"
-msgstr ""
+msgstr "Address:"
 
 #: app/templates/privacy.html:334
 msgid "[Do uzupełnienia]"
-msgstr ""
+msgstr "[To be completed]"
 
 #: app/templates/privacy.html:342
 msgid "Masz pytania dotyczące prywatności?"
-msgstr ""
+msgstr "Have questions about privacy?"
 
 #: app/templates/privacy.html:342 app/templates/terms.html:217
 msgid "Skontaktuj się z nami"
