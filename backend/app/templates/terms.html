@@ -1,0 +1,222 @@
+{% extends "base_sidebar.html" %}
+{% block title %}{{ _('Regulamin Serwisu') }} - WaveBulk{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
+
+{% block content %}
+<div class="container-full">
+    <div class="legal-container">
+        <!-- Header -->
+        <div class="legal-header">
+            <h1 class="legal-title">{{ _('Regulamin Serwisu (Terms of Service)') }}</h1>
+            <p class="legal-subtitle">{{ _('Ostatnia aktualizacja: 15 stycznia 2025') }}</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="legal-toc">
+            <h2>{{ _('Spis treści') }}</h2>
+            <ul>
+                <li><a href="#section-1">1. {{ _('Definicje') }}</a></li>
+                <li><a href="#section-2">2. {{ _('Postanowienia ogólne') }}</a></li>
+                <li><a href="#section-3">3. {{ _('Rejestracja i konto użytkownika') }}</a></li>
+                <li><a href="#section-4">4. {{ _('Plany i płatności') }}</a></li>
+                <li><a href="#section-5">5. {{ _('Korzystanie z serwisu') }}</a></li>
+                <li><a href="#section-6">6. {{ _('Prawa i obowiązki użytkownika') }}</a></li>
+                <li><a href="#section-7">7. {{ _('Przetwarzanie plików audio') }}</a></li>
+                <li><a href="#section-8">8. {{ _('Polityka zwrotów i anulowania') }}</a></li>
+                <li><a href="#section-9">9. {{ _('Odpowiedzialność') }}</a></li>
+                <li><a href="#section-10">10. {{ _('Własność intelektualna') }}</a></li>
+                <li><a href="#section-11">11. {{ _('Zakaz nadużyć') }}</a></li>
+                <li><a href="#section-12">12. {{ _('Zmiany regulaminu') }}</a></li>
+                <li><a href="#section-13">13. {{ _('Postanowienia końcowe') }}</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="legal-content">
+            <section id="section-1" class="legal-section">
+                <h2>1. {{ _('Definicje') }}</h2>
+                <p>{{ _('Na potrzeby niniejszego Regulaminu, następujące terminy mają znaczenie:') }}</p>
+                <ul>
+                    <li><strong>{{ _('Serwis') }}</strong> - {{ _('aplikacja webowa WaveBulk dostępna pod adresem wavebulk.com, służąca do konwersji i analizy plików audio') }}</li>
+                    <li><strong>{{ _('Usługodawca') }}</strong> - {{ _('właściciel i operator serwisu WaveBulk') }}</li>
+                    <li><strong>{{ _('Użytkownik') }}</strong> - {{ _('osoba fizyczna, prawna lub jednostka organizacyjna nieposiadająca osobowości prawnej, korzystająca z Serwisu') }}</li>
+                    <li><strong>{{ _('Konto') }}</strong> - {{ _('zbiór zasobów i uprawnień przypisanych do Użytkownika w Serwisie') }}</li>
+                    <li><strong>{{ _('Plan') }}</strong> - {{ _('pakiet usług oferowany przez Serwis (Free, Pro, Enterprise)') }}</li>
+                    <li><strong>{{ _('Plik Audio') }}</strong> - {{ _('plik w formacie audio przesłany przez Użytkownika do przetworzenia') }}</li>
+                    <li><strong>{{ _('Przetwarzanie') }}</strong> - {{ _('konwersja, analiza lub modyfikacja pliku audio przez Serwis') }}</li>
+                </ul>
+            </section>
+
+            <section id="section-2" class="legal-section">
+                <h2>2. {{ _('Postanowienia ogólne') }}</h2>
+                <p>{{ _('2.1. Niniejszy Regulamin określa zasady korzystania z Serwisu WaveBulk oraz prawa i obowiązki Użytkowników i Usługodawcy.') }}</p>
+                <p>{{ _('2.2. Korzystanie z Serwisu jest równoznaczne z akceptacją niniejszego Regulaminu.') }}</p>
+                <p>{{ _('2.3. Użytkownik jest zobowiązany do zapoznania się z Regulaminem przed rozpoczęciem korzystania z Serwisu.') }}</p>
+                <p>{{ _('2.4. Regulamin jest dostępny nieodpłatnie w Serwisie w formie umożliwiającej jego pobranie, utrwalenie i wydrukowanie.') }}</p>
+            </section>
+
+            <section id="section-3" class="legal-section">
+                <h2>3. {{ _('Rejestracja i konto użytkownika') }}</h2>
+                <p>{{ _('3.1. Korzystanie z podstawowych funkcji Serwisu wymaga założenia Konta.') }}</p>
+                <p>{{ _('3.2. Rejestracja jest bezpłatna i może być dokonana poprzez:') }}</p>
+                <ul>
+                    <li>{{ _('Podanie adresu email i hasła') }}</li>
+                    <li>{{ _('Logowanie przez konto Google (OAuth)') }}</li>
+                </ul>
+                <p>{{ _('3.3. Użytkownik jest zobowiązany do:') }}</p>
+                <ul>
+                    <li>{{ _('Podania prawdziwych danych podczas rejestracji') }}</li>
+                    <li>{{ _('Zachowania poufności danych logowania') }}</li>
+                    <li>{{ _('Niezwłocznego powiadomienia Usługodawcy o nieautoryzowanym dostępie do Konta') }}</li>
+                </ul>
+                <p>{{ _('3.4. Użytkownik ponosi pełną odpowiedzialność za działania podejmowane przy użyciu swojego Konta.') }}</p>
+                <p>{{ _('3.5. Użytkownik może w każdej chwili usunąć swoje Konto, kontaktując się z Usługodawcą.') }}</p>
+            </section>
+
+            <section id="section-4" class="legal-section">
+                <h2>4. {{ _('Plany i płatności') }}</h2>
+                <h3>4.1. {{ _('Rodzaje planów') }}</h3>
+                <ul>
+                    <li><strong>{{ _('Free') }}</strong> - {{ _('10 plików miesięcznie, podstawowe funkcje') }}</li>
+                    <li><strong>{{ _('Pro') }}</strong> - {{ _('100 plików miesięcznie, zaawansowane funkcje') }}</li>
+                    <li><strong>{{ _('Enterprise') }}</strong> - {{ _('Nieograniczona liczba plików, priorytetowe przetwarzanie') }}</li>
+                </ul>
+                <h3>4.2. {{ _('Płatności') }}</h3>
+                <p>{{ _('4.2.1. Płatności są przetwarzane przez Stripe, Inc.') }}</p>
+                <p>{{ _('4.2.2. Subskrypcja jest rozliczana miesięcznie z góry.') }}</p>
+                <p>{{ _('4.2.3. Ceny są podane w EUR/USD i zawierają podatek VAT (jeśli dotyczy).') }}</p>
+                <p>{{ _('4.2.4. Automatyczne odnowienie subskrypcji następuje w dniu rocznicy zakupu.') }}</p>
+                <h3>4.3. {{ _('Limity użytkowania') }}</h3>
+                <p>{{ _('4.3.1. Limity są resetowane pierwszego dnia każdego miesiąca kalendarzowego.') }}</p>
+                <p>{{ _('4.3.2. Niewykorzystane limity nie przechodzą na następny miesiąc.') }}</p>
+                <p>{{ _('4.3.3. Przekroczenie limitów skutkuje zablokowaniem możliwości przetwarzania do początku następnego miesiąca lub upgrade planu.') }}</p>
+            </section>
+
+            <section id="section-5" class="legal-section">
+                <h2>5. {{ _('Korzystanie z serwisu') }}</h2>
+                <p>{{ _('5.1. Serwis umożliwia:') }}</p>
+                <ul>
+                    <li>{{ _('Konwersję plików audio między różnymi formatami (WAV, MP3, FLAC, AAC, OGG, etc.)') }}</li>
+                    <li>{{ _('Analizę głośności (LUFS, True Peak)') }}</li>
+                    <li>{{ _('Wizualizację plików audio (waveform, spectrogram)') }}</li>
+                    <li>{{ _('Pobieranie przetworzonych plików') }}</li>
+                </ul>
+                <p>{{ _('5.2. Serwis działa w trybie "best effort" - Usługodawca dąży do zapewnienia wysokiej jakości usług, ale nie gwarantuje 100% dostępności.') }}</p>
+                <p>{{ _('5.3. Maksymalny rozmiar pojedynczego pliku: 100MB dla planu Free, 500MB dla Pro, 2GB dla Enterprise.') }}</p>
+                <p>{{ _('5.4. Obsługiwane formaty: WAV, MP3, M4A, AAC, FLAC, OGG, WMA, AIFF, OPUS.') }}</p>
+            </section>
+
+            <section id="section-6" class="legal-section">
+                <h2>6. {{ _('Prawa i obowiązki użytkownika') }}</h2>
+                <h3>6.1. {{ _('Użytkownik ma prawo do:') }}</h3>
+                <ul>
+                    <li>{{ _('Korzystania z Serwisu zgodnie z wybranym Planem') }}</li>
+                    <li>{{ _('Pobierania przetworzonych plików') }}</li>
+                    <li>{{ _('Anulowania subskrypcji w dowolnym momencie') }}</li>
+                    <li>{{ _('Dostępu do swoich danych osobowych i ich usunięcia (GDPR)') }}</li>
+                </ul>
+                <h3>6.2. {{ _('Użytkownik zobowiązuje się do:') }}</h3>
+                <ul>
+                    <li>{{ _('Korzystania z Serwisu zgodnie z prawem i dobrymi obyczajami') }}</li>
+                    <li>{{ _('Nieprzesyłania plików naruszających prawa autorskie osób trzecich') }}</li>
+                    <li>{{ _('Nieprzesyłania plików zawierających treści nielegalne, pornograficzne, obraźliwe lub szkodliwe') }}</li>
+                    <li>{{ _('Niepodejmowania działań mogących zakłócić funkcjonowanie Serwisu') }}</li>
+                </ul>
+            </section>
+
+            <section id="section-7" class="legal-section">
+                <h2>7. {{ _('Przetwarzanie plików audio') }}</h2>
+                <p>{{ _('7.1. Pliki przesłane przez Użytkownika są przechowywane przez maksymalnie 30 dni, po czym są automatycznie usuwane.') }}</p>
+                <p>{{ _('7.2. Użytkownik zachowuje pełne prawa autorskie do przesłanych i przetworzonych plików.') }}</p>
+                <p>{{ _('7.3. Usługodawca nie wykorzystuje przesłanych plików w żadnym celu poza świadczeniem usługi.') }}</p>
+                <p>{{ _('7.4. Usługodawca nie ponosi odpowiedzialności za:') }}</p>
+                <ul>
+                    <li>{{ _('Utratę danych w wyniku awarii technicznej') }}</li>
+                    <li>{{ _('Jakość konwersji plików stratnych (MP3, AAC) na inne formaty stratne') }}</li>
+                    <li>{{ _('Naruszenie praw autorskich przez Użytkownika') }}</li>
+                </ul>
+                <p>{{ _('7.5. Zalecamy zachowanie kopii oryginalnych plików.') }}</p>
+            </section>
+
+            <section id="section-8" class="legal-section">
+                <h2>8. {{ _('Polityka zwrotów i anulowania') }}</h2>
+                <h3>8.1. {{ _('Anulowanie subskrypcji') }}</h3>
+                <p>{{ _('8.1.1. Użytkownik może anulować subskrypcję w dowolnym momencie przez panel konta.') }}</p>
+                <p>{{ _('8.1.2. Po anulowaniu dostęp do płatnych funkcji trwa do końca opłaconego okresu.') }}</p>
+                <p>{{ _('8.1.3. Anulowanie nie skutkuje automatycznym zwrotem środków.') }}</p>
+                <h3>8.2. {{ _('Zwroty') }}</h3>
+                <p>{{ _('8.2.1. Zwrot środków jest możliwy w ciągu 14 dni od zakupu (prawo odstąpienia od umowy).') }}</p>
+                <p>{{ _('8.2.2. Zwrot wymaga zgłoszenia na adres support@wavebulk.com.') }}</p>
+                <p>{{ _('8.2.3. Zwrot następuje na metodę płatności użytą przy zakupie w ciągu 14 dni roboczych.') }}</p>
+                <p>{{ _('8.2.4. W przypadku znacznego wykorzystania usług (>50% limitu), zwrot może zostać proporcjonalnie pomniejszony.') }}</p>
+            </section>
+
+            <section id="section-9" class="legal-section">
+                <h2>9. {{ _('Odpowiedzialność') }}</h2>
+                <p>{{ _('9.1. Usługodawca dołoży wszelkich starań, aby Serwis działał nieprzerwanie i bez błędów, jednak nie gwarantuje 100% dostępności.') }}</p>
+                <p>{{ _('9.2. Usługodawca nie ponosi odpowiedzialności za:') }}</p>
+                <ul>
+                    <li>{{ _('Szkody wynikłe z przerw w dostępie do Serwisu') }}</li>
+                    <li>{{ _('Utratę danych w wyniku awarii technicznej') }}</li>
+                    <li>{{ _('Działania osób trzecich (hackerzy, DDoS)') }}</li>
+                    <li>{{ _('Nieprawidłowe użytkowanie Serwisu przez Użytkownika') }}</li>
+                </ul>
+                <p>{{ _('9.3. Odpowiedzialność Usługodawcy jest ograniczona do wysokości opłat uiszczonych przez Użytkownika w ciągu ostatnich 12 miesięcy.') }}</p>
+                <p>{{ _('9.4. Usługodawca nie ponosi odpowiedzialności za treść plików przesyłanych przez Użytkowników.') }}</p>
+            </section>
+
+            <section id="section-10" class="legal-section">
+                <h2>10. {{ _('Własność intelektualna') }}</h2>
+                <p>{{ _('10.1. Wszystkie prawa własności intelektualnej do Serwisu (kod, design, logo, nazwa) należą do Usługodawcy.') }}</p>
+                <p>{{ _('10.2. Użytkownik zachowuje pełne prawa autorskie do przesłanych i przetworzonych plików.') }}</p>
+                <p>{{ _('10.3. Zabronione jest kopiowanie, modyfikowanie, reverse engineering lub dystrybucja kodu Serwisu bez zgody Usługodawcy.') }}</p>
+            </section>
+
+            <section id="section-11" class="legal-section">
+                <h2>11. {{ _('Zakaz nadużyć') }}</h2>
+                <p>{{ _('11.1. Zabronione jest:') }}</p>
+                <ul>
+                    <li>{{ _('Automatyczne przetwarzanie plików (boty, scraping) bez zgody Usługodawcy') }}</li>
+                    <li>{{ _('Próby obejścia limitów subskrypcji') }}</li>
+                    <li>{{ _('Ataki na infrastrukturę Serwisu (DDoS, SQL injection)') }}</li>
+                    <li>{{ _('Przesyłanie złośliwego oprogramowania') }}</li>
+                    <li>{{ _('Udostępnianie konta osobom trzecim') }}</li>
+                </ul>
+                <p>{{ _('11.2. W przypadku wykrycia nadużyć, Usługodawca ma prawo do:') }}</p>
+                <ul>
+                    <li>{{ _('Zawieszenia lub usunięcia Konta bez zwrotu środków') }}</li>
+                    <li>{{ _('Zgłoszenia sprawy organom ścigania') }}</li>
+                    <li>{{ _('Dochodzenia odszkodowania') }}</li>
+                </ul>
+            </section>
+
+            <section id="section-12" class="legal-section">
+                <h2>12. {{ _('Zmiany regulaminu') }}</h2>
+                <p>{{ _('12.1. Usługodawca zastrzega sobie prawo do zmiany Regulaminu.') }}</p>
+                <p>{{ _('12.2. Użytkownicy zostaną powiadomieni o zmianach emailem na 14 dni przed ich wejściem w życie.') }}</p>
+                <p>{{ _('12.3. Kontynuowanie korzystania z Serwisu po wejściu w życie zmian oznacza akceptację nowego Regulaminu.') }}</p>
+                <p>{{ _('12.4. W przypadku braku akceptacji zmian, Użytkownik ma prawo do anulowania subskrypcji i zwrotu proporcjonalnej części opłaty.') }}</p>
+            </section>
+
+            <section id="section-13" class="legal-section">
+                <h2>13. {{ _('Postanowienia końcowe') }}</h2>
+                <p>{{ _('13.1. W sprawach nieuregulowanych w Regulaminie zastosowanie mają przepisy prawa polskiego.') }}</p>
+                <p>{{ _('13.2. Sądem właściwym dla rozstrzygania sporów jest sąd właściwy dla siedziby Usługodawcy.') }}</p>
+                <p>{{ _('13.3. Konsumenci mogą skorzystać z pozasądowych sposobów rozpatrywania reklamacji (ODR).') }}</p>
+                <p>{{ _('13.4. Kontakt z Usługodawcą:') }}</p>
+                <ul>
+                    <li>{{ _('Email: support@wavebulk.com') }}</li>
+                    <li>{{ _('Adres: [Do uzupełnienia]') }}</li>
+                </ul>
+                <p>{{ _('13.5. Regulamin wchodzi w życie z dniem 15 stycznia 2025 r.') }}</p>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="legal-footer">
+            <p>{{ _('Masz pytania dotyczące Regulaminu?') }} <a href="mailto:support@wavebulk.com">{{ _('Skontaktuj się z nami') }}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -146,7 +146,18 @@
         </div>
         
         <footer class="main-footer">
-            <p>&copy; {{ current_year or '2025' }} WaveBulk. {{ _('Wszelkie prawa zastrzeżone.') }}</p>
+            <div class="footer-content">
+                <p>&copy; {{ current_year or '2025' }} WaveBulk. {{ _('Wszelkie prawa zastrzeżone.') }}</p>
+                <div class="footer-links">
+                    <a href="{{ url_for('main.terms') }}">{{ _('Regulamin') }}</a>
+                    <span>•</span>
+                    <a href="{{ url_for('main.privacy') }}">{{ _('Polityka Prywatności') }}</a>
+                    <span>•</span>
+                    <a href="{{ url_for('main.help') }}">{{ _('Pomoc') }}</a>
+                    <span>•</span>
+                    <a href="mailto:support@wavebulk.com">{{ _('Kontakt') }}</a>
+                </div>
+            </div>
         </footer>
     </div>
     

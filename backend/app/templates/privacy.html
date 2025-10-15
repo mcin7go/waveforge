@@ -1,0 +1,347 @@
+{% extends "base_sidebar.html" %}
+{% block title %}{{ _('Polityka Prywatności') }} - WaveBulk{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
+
+{% block content %}
+<div class="container-full">
+    <div class="legal-container">
+        <!-- Header -->
+        <div class="legal-header">
+            <h1 class="legal-title">{{ _('Polityka Prywatności (Privacy Policy)') }}</h1>
+            <p class="legal-subtitle">{{ _('Ostatnia aktualizacja: 15 stycznia 2025') }}</p>
+            <div class="gdpr-badge">
+                <span class="badge">🇪🇺 {{ _('GDPR Compliant') }}</span>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="legal-toc">
+            <h2>{{ _('Spis treści') }}</h2>
+            <ul>
+                <li><a href="#section-1">1. {{ _('Wprowadzenie') }}</a></li>
+                <li><a href="#section-2">2. {{ _('Administrator danych') }}</a></li>
+                <li><a href="#section-3">3. {{ _('Jakie dane zbieramy') }}</a></li>
+                <li><a href="#section-4">4. {{ _('Jak wykorzystujemy dane') }}</a></li>
+                <li><a href="#section-5">5. {{ _('Podstawa prawna przetwarzania') }}</a></li>
+                <li><a href="#section-6">6. {{ _('Udostępnianie danych osobom trzecim') }}</a></li>
+                <li><a href="#section-7">7. {{ _('Przechowywanie danych') }}</a></li>
+                <li><a href="#section-8">8. {{ _('Bezpieczeństwo danych') }}</a></li>
+                <li><a href="#section-9">9. {{ _('Twoje prawa (GDPR)') }}</a></li>
+                <li><a href="#section-10">10. {{ _('Pliki cookies') }}</a></li>
+                <li><a href="#section-11">11. {{ _('Zmiany w polityce prywatności') }}</a></li>
+                <li><a href="#section-12">12. {{ _('Kontakt') }}</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="legal-content">
+            <section id="section-1" class="legal-section">
+                <h2>1. {{ _('Wprowadzenie') }}</h2>
+                <p>{{ _('WaveBulk ("my", "nas", "nasz") szanuje Twoją prywatność i zobowiązuje się do ochrony Twoich danych osobowych.') }}</p>
+                <p>{{ _('Niniejsza Polityka Prywatności wyjaśnia, jakie dane zbieramy, jak je wykorzystujemy i jakie masz prawa w związku z ich przetwarzaniem.') }}</p>
+                <p>{{ _('Korzystając z WaveBulk, wyrażasz zgodę na praktyki opisane w tym dokumencie.') }}</p>
+            </section>
+
+            <section id="section-2" class="legal-section">
+                <h2>2. {{ _('Administrator danych') }}</h2>
+                <p><strong>{{ _('Administratorem danych osobowych jest:') }}</strong></p>
+                <div class="info-box">
+                    <p><strong>WaveBulk</strong><br>
+                    {{ _('[Nazwa firmy do uzupełnienia]') }}<br>
+                    {{ _('[Adres do uzupełnienia]') }}<br>
+                    {{ _('Email:') }} <a href="mailto:privacy@wavebulk.com">privacy@wavebulk.com</a></p>
+                </div>
+            </section>
+
+            <section id="section-3" class="legal-section">
+                <h2>3. {{ _('Jakie dane zbieramy') }}</h2>
+                
+                <h3>3.1. {{ _('Dane podane przez Użytkownika') }}</h3>
+                <ul>
+                    <li><strong>{{ _('Dane rejestracyjne:') }}</strong> {{ _('adres email, hasło (zaszyfrowane), imię i nazwisko (opcjonalnie)') }}</li>
+                    <li><strong>{{ _('Dane płatności:') }}</strong> {{ _('informacje o karcie kredytowej przetwarzane przez Stripe (nie przechowujemy pełnych danych karty)') }}</li>
+                    <li><strong>{{ _('Dane kontaktowe:') }}</strong> {{ _('email do komunikacji') }}</li>
+                    <li><strong>{{ _('OAuth:') }}</strong> {{ _('przy logowaniu przez Google: email, imię, nazwisko, zdjęcie profilowe') }}</li>
+                </ul>
+
+                <h3>3.2. {{ _('Dane zbierane automatycznie') }}</h3>
+                <ul>
+                    <li><strong>{{ _('Dane techniczne:') }}</strong> {{ _('adres IP, typ przeglądarki, system operacyjny, rozdzielczość ekranu') }}</li>
+                    <li><strong>{{ _('Logi serwera:') }}</strong> {{ _('data i czas odwiedzin, odwiedzane strony, czas spędzony w serwisie') }}</li>
+                    <li><strong>{{ _('Cookies:') }}</strong> {{ _('pliki cookies do utrzymania sesji i analityki (szczegóły w sekcji 10)') }}</li>
+                </ul>
+
+                <h3>3.3. {{ _('Dane związane z plikami audio') }}</h3>
+                <ul>
+                    <li><strong>{{ _('Metadane plików:') }}</strong> {{ _('nazwa pliku, rozmiar, format, długość, bitrate, sample rate') }}</li>
+                    <li><strong>{{ _('Wyniki analizy:') }}</strong> {{ _('LUFS, True Peak, informacje o jakości') }}</li>
+                    <li><strong>{{ _('Historia przetwarzania:') }}</strong> {{ _('data i czas przetworzenia, parametry konwersji') }}</li>
+                </ul>
+
+                <p class="important-note">
+                    <strong>⚠️ {{ _('Ważne:') }}</strong> {{ _('NIE analizujemy treści audio, NIE wykorzystujemy plików do celów innych niż świadczenie usługi, NIE udostępniamy plików osobom trzecim.') }}
+                </p>
+            </section>
+
+            <section id="section-4" class="legal-section">
+                <h2>4. {{ _('Jak wykorzystujemy dane') }}</h2>
+                <p>{{ _('Wykorzystujemy zebrane dane wyłącznie w następujących celach:') }}</p>
+                
+                <h3>4.1. {{ _('Świadczenie usług') }}</h3>
+                <ul>
+                    <li>{{ _('Przetwarzanie i konwersja plików audio') }}</li>
+                    <li>{{ _('Analiza głośności (LUFS, True Peak)') }}</li>
+                    <li>{{ _('Przechowywanie historii przetwarzania') }}</li>
+                    <li>{{ _('Umożliwienie pobierania przetworzonych plików') }}</li>
+                </ul>
+
+                <h3>4.2. {{ _('Zarządzanie kontem') }}</h3>
+                <ul>
+                    <li>{{ _('Rejestracja i logowanie') }}</li>
+                    <li>{{ _('Zarządzanie subskrypcją') }}</li>
+                    <li>{{ _('Resetowanie hasła') }}</li>
+                    <li>{{ _('Komunikacja z użytkownikiem (email)') }}</li>
+                </ul>
+
+                <h3>4.3. {{ _('Płatności i rozliczenia') }}</h3>
+                <ul>
+                    <li>{{ _('Przetwarzanie płatności (przez Stripe)') }}</li>
+                    <li>{{ _('Generowanie faktur') }}</li>
+                    <li>{{ _('Obsługa zwrotów') }}</li>
+                </ul>
+
+                <h3>4.4. {{ _('Analityka i ulepszanie') }}</h3>
+                <ul>
+                    <li>{{ _('Analiza użytkowania serwisu (Google Analytics)') }}</li>
+                    <li>{{ _('Wykrywanie i naprawianie błędów (Sentry)') }}</li>
+                    <li>{{ _('Optymalizacja wydajności') }}</li>
+                    <li>{{ _('Rozwój nowych funkcji') }}</li>
+                </ul>
+
+                <h3>4.5. {{ _('Bezpieczeństwo') }}</h3>
+                <ul>
+                    <li>{{ _('Wykrywanie nadużyć i oszustw') }}</li>
+                    <li>{{ _('Zapobieganie atakom (DDoS, brute force)') }}</li>
+                    <li>{{ _('Zapewnienie zgodności z prawem') }}</li>
+                </ul>
+            </section>
+
+            <section id="section-5" class="legal-section">
+                <h2>5. {{ _('Podstawa prawna przetwarzania (GDPR)') }}</h2>
+                <p>{{ _('Przetwarzamy Twoje dane osobowe na podstawie:') }}</p>
+                <ul>
+                    <li><strong>{{ _('Art. 6 ust. 1 lit. b GDPR') }}</strong> - {{ _('wykonanie umowy (świadczenie usług)') }}</li>
+                    <li><strong>{{ _('Art. 6 ust. 1 lit. c GDPR') }}</strong> - {{ _('obowiązek prawny (rachunkowość, podatki)') }}</li>
+                    <li><strong>{{ _('Art. 6 ust. 1 lit. f GDPR') }}</strong> - {{ _('prawnie uzasadniony interes (bezpieczeństwo, analityka)') }}</li>
+                    <li><strong>{{ _('Art. 6 ust. 1 lit. a GDPR') }}</strong> - {{ _('zgoda (newsletter, marketing)') }}</li>
+                </ul>
+            </section>
+
+            <section id="section-6" class="legal-section">
+                <h2>6. {{ _('Udostępnianie danych osobom trzecim') }}</h2>
+                <p>{{ _('Nie sprzedajemy ani nie wynajmujemy Twoich danych osobowych.') }}</p>
+                <p>{{ _('Udostępniamy dane wyłącznie następującym zaufanym partnerom:') }}</p>
+
+                <h3>6.1. {{ _('Usługodawcy technologiczni') }}</h3>
+                <ul>
+                    <li><strong>Stripe</strong> - {{ _('przetwarzanie płatności (USA, Privacy Shield)') }}</li>
+                    <li><strong>SendGrid</strong> - {{ _('wysyłka emaili (USA, GDPR compliant)') }}</li>
+                    <li><strong>Google Cloud / AWS</strong> - {{ _('hosting i storage (EU/USA)') }}</li>
+                    <li><strong>Sentry</strong> - {{ _('monitoring błędów (USA, GDPR compliant)') }}</li>
+                    <li><strong>Google Analytics</strong> - {{ _('analityka (anonimizowane IP)') }}</li>
+                </ul>
+
+                <h3>6.2. {{ _('Wymogi prawne') }}</h3>
+                <p>{{ _('Możemy ujawnić dane, jeśli jest to wymagane prawem lub w odpowiedzi na:') }}</p>
+                <ul>
+                    <li>{{ _('Nakaz sądowy lub żądanie organów ścigania') }}</li>
+                    <li>{{ _('Ochronę praw i bezpieczeństwa WaveBulk i użytkowników') }}</li>
+                    <li>{{ _('Zapobieganie oszustwom i nadużyciom') }}</li>
+                </ul>
+            </section>
+
+            <section id="section-7" class="legal-section">
+                <h2>7. {{ _('Przechowywanie danych') }}</h2>
+                
+                <h3>7.1. {{ _('Okres przechowywania') }}</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>{{ _('Rodzaj danych') }}</th>
+                            <th>{{ _('Okres przechowywania') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ _('Dane konta') }}</td>
+                            <td>{{ _('Do czasu usunięcia konta + 30 dni') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ _('Pliki audio (oryginalne i przetworzone)') }}</td>
+                            <td>{{ _('Maksymalnie 30 dni od przetworzenia') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ _('Historia przetwarzania (metadane)') }}</td>
+                            <td>{{ _('Do czasu usunięcia konta') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ _('Dane płatności') }}</td>
+                            <td>{{ _('Zgodnie z przepisami podatkowymi (5 lat)') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ _('Logi serwera') }}</td>
+                            <td>{{ _('90 dni') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ _('Dane analityczne') }}</td>
+                            <td>{{ _('26 miesięcy (Google Analytics)') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>7.2. {{ _('Lokalizacja danych') }}</h3>
+                <p>{{ _('Dane są przechowywane na serwerach w Unii Europejskiej (preferowane) lub USA (z odpowiednimi zabezpieczeniami zgodnie z GDPR).') }}</p>
+            </section>
+
+            <section id="section-8" class="legal-section">
+                <h2>8. {{ _('Bezpieczeństwo danych') }}</h2>
+                <p>{{ _('Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony Twoich danych:') }}</p>
+                <ul>
+                    <li>✅ {{ _('Szyfrowanie SSL/TLS (HTTPS) dla całej komunikacji') }}</li>
+                    <li>✅ {{ _('Hashowanie haseł (bcrypt)') }}</li>
+                    <li>✅ {{ _('Szyfrowanie danych w bazie danych') }}</li>
+                    <li>✅ {{ _('Regularne kopie zapasowe (backups)') }}</li>
+                    <li>✅ {{ _('Monitoring bezpieczeństwa (firewall, intrusion detection)') }}</li>
+                    <li>✅ {{ _('Ograniczony dostęp do danych (role-based access control)') }}</li>
+                    <li>✅ {{ _('Regularne audyty bezpieczeństwa') }}</li>
+                    <li>✅ {{ _('Automatyczne usuwanie starych plików') }}</li>
+                </ul>
+                <p class="important-note">
+                    <strong>⚠️ {{ _('Ważne:') }}</strong> {{ _('Żadna metoda transmisji przez Internet nie jest w 100% bezpieczna. Dołożymy wszelkich starań, aby chronić Twoje dane, ale nie możemy zagwarantować absolutnego bezpieczeństwa.') }}
+                </p>
+            </section>
+
+            <section id="section-9" class="legal-section">
+                <h2>9. {{ _('Twoje prawa (GDPR)') }}</h2>
+                <p>{{ _('Zgodnie z GDPR, masz następujące prawa:') }}</p>
+
+                <h3>9.1. {{ _('Prawo dostępu (Art. 15 GDPR)') }}</h3>
+                <p>{{ _('Możesz uzyskać kopię swoich danych osobowych w czytelnym formacie.') }}</p>
+
+                <h3>9.2. {{ _('Prawo do sprostowania (Art. 16 GDPR)') }}</h3>
+                <p>{{ _('Możesz poprawić nieprawidłowe lub niekompletne dane.') }}</p>
+
+                <h3>9.3. {{ _('Prawo do usunięcia "prawo do bycia zapomnianym" (Art. 17 GDPR)') }}</h3>
+                <p>{{ _('Możesz zażądać usunięcia swoich danych osobowych.') }}</p>
+
+                <h3>9.4. {{ _('Prawo do ograniczenia przetwarzania (Art. 18 GDPR)') }}</h3>
+                <p>{{ _('Możesz ograniczyć przetwarzanie danych w określonych przypadkach.') }}</p>
+
+                <h3>9.5. {{ _('Prawo do przenoszenia danych (Art. 20 GDPR)') }}</h3>
+                <p>{{ _('Możesz otrzymać swoje dane w formacie umożliwiającym ich przeniesienie do innego usługodawcy.') }}</p>
+
+                <h3>9.6. {{ _('Prawo do sprzeciwu (Art. 21 GDPR)') }}</h3>
+                <p>{{ _('Możesz sprzeciwić się przetwarzaniu danych w celach marketingowych.') }}</p>
+
+                <h3>9.7. {{ _('Prawo do wycofania zgody') }}</h3>
+                <p>{{ _('Możesz w każdej chwili wycofać zgodę na przetwarzanie danych.') }}</p>
+
+                <h3>9.8. {{ _('Jak skorzystać z praw?') }}</h3>
+                <div class="info-box">
+                    <p>{{ _('Aby skorzystać z powyższych praw, skontaktuj się z nami:') }}</p>
+                    <ul>
+                        <li>{{ _('Email:') }} <a href="mailto:privacy@wavebulk.com">privacy@wavebulk.com</a></li>
+                        <li>{{ _('Panel konta:') }} <a href="{{ url_for('audio_processing.dashboard') }}">{{ _('Ustawienia → Prywatność') }}</a></li>
+                    </ul>
+                    <p>{{ _('Odpowiemy w ciągu 30 dni od otrzymania wniosku.') }}</p>
+                </div>
+
+                <h3>9.9. {{ _('Prawo do skargi') }}</h3>
+                <p>{{ _('Masz prawo złożyć skargę do organu nadzorczego (UODO w Polsce):') }}</p>
+                <p><strong>{{ _('Urząd Ochrony Danych Osobowych (UODO)') }}</strong><br>
+                ul. Stawki 2<br>
+                00-193 Warszawa<br>
+                {{ _('Tel:') }} +48 22 531 03 00<br>
+                {{ _('Email:') }} kancelaria@uodo.gov.pl</p>
+            </section>
+
+            <section id="section-10" class="legal-section">
+                <h2>10. {{ _('Pliki cookies') }}</h2>
+                
+                <h3>10.1. {{ _('Czym są cookies?') }}</h3>
+                <p>{{ _('Cookies to małe pliki tekstowe przechowywane w przeglądarce, które pomagają nam zapamiętać Twoje preferencje i analizować użytkowanie serwisu.') }}</p>
+
+                <h3>10.2. {{ _('Jakie cookies używamy?') }}</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>{{ _('Rodzaj') }}</th>
+                            <th>{{ _('Cel') }}</th>
+                            <th>{{ _('Ważność') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>{{ _('Sesja') }}</strong></td>
+                            <td>{{ _('Utrzymanie logowania') }}</td>
+                            <td>{{ _('30 dni') }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{{ _('Język') }}</strong></td>
+                            <td>{{ _('Zapamiętanie wybranego języka') }}</td>
+                            <td>{{ _('1 rok') }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{{ _('Analityka (Google Analytics)') }}</strong></td>
+                            <td>{{ _('Analiza ruchu i zachowań') }}</td>
+                            <td>{{ _('26 miesięcy') }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{{ _('Stripe') }}</strong></td>
+                            <td>{{ _('Wykrywanie oszustw') }}</td>
+                            <td>{{ _('Sesja') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>10.3. {{ _('Zarządzanie cookies') }}</h3>
+                <p>{{ _('Możesz zarządzać cookies w ustawieniach przeglądarki:') }}</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">{{ _('Chrome') }}</a></li>
+                    <li><a href="https://support.mozilla.org/kb/cookies-information-websites-store-on-your-computer" target="_blank">{{ _('Firefox') }}</a></li>
+                    <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank">{{ _('Safari') }}</a></li>
+                    <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">{{ _('Edge') }}</a></li>
+                </ul>
+                <p class="important-note">
+                    <strong>⚠️ {{ _('Uwaga:') }}</strong> {{ _('Wyłączenie cookies może ograniczyć funkcjonalność serwisu (np. brak automatycznego logowania).') }}
+                </p>
+            </section>
+
+            <section id="section-11" class="legal-section">
+                <h2>11. {{ _('Zmiany w polityce prywatności') }}</h2>
+                <p>{{ _('11.1. Możemy aktualizować Politykę Prywatności w celu odzwierciedlenia zmian w naszych praktykach lub wymogach prawnych.') }}</p>
+                <p>{{ _('11.2. O istotnych zmianach poinformujemy Cię emailem na 30 dni przed ich wejściem w życie.') }}</p>
+                <p>{{ _('11.3. Zalecamy regularne sprawdzanie tej strony w celu zapoznania się z aktualnymi praktykami dotyczącymi prywatności.') }}</p>
+                <p>{{ _('11.4. Kontynuowanie korzystania z serwisu po wejściu w życie zmian oznacza akceptację zaktualizowanej Polityki Prywatności.') }}</p>
+            </section>
+
+            <section id="section-12" class="legal-section">
+                <h2>12. {{ _('Kontakt') }}</h2>
+                <p>{{ _('W przypadku pytań dotyczących Polityki Prywatności lub przetwarzania danych osobowych, skontaktuj się z nami:') }}</p>
+                <div class="contact-box">
+                    <p><strong>{{ _('Email:') }}</strong> <a href="mailto:privacy@wavebulk.com">privacy@wavebulk.com</a></p>
+                    <p><strong>{{ _('Email ogólny:') }}</strong> <a href="mailto:support@wavebulk.com">support@wavebulk.com</a></p>
+                    <p><strong>{{ _('Adres:') }}</strong> {{ _('[Do uzupełnienia]') }}</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="legal-footer">
+            <p>{{ _('Ostatnia aktualizacja: 15 stycznia 2025') }}</p>
+            <p>{{ _('Masz pytania dotyczące prywatności?') }} <a href="mailto:privacy@wavebulk.com">{{ _('Skontaktuj się z nami') }}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

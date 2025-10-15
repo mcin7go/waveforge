@@ -23,6 +23,18 @@ def help():
     current_year = datetime.now(UTC).year
     return render_template('help.html', user_email=user_email, current_year=current_year)
 
+@bp.route('/terms')
+def terms():
+    user_email = current_user.email if current_user.is_authenticated else None
+    current_year = datetime.now(UTC).year
+    return render_template('terms.html', user_email=user_email, current_year=current_year)
+
+@bp.route('/privacy')
+def privacy():
+    user_email = current_user.email if current_user.is_authenticated else None
+    current_year = datetime.now(UTC).year
+    return render_template('privacy.html', user_email=user_email, current_year=current_year)
+
 @bp.route('/debug-session')
 def debug_session():
     """Endpoint do debugowania sesji i języka"""
