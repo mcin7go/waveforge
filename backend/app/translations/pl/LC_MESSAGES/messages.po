@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-14 11:41+0200\n"
+"POT-Creation-Date: 2025-10-15 14:35+0000\n"
 "PO-Revision-Date: 2025-09-22 12:20+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl\n"
@@ -13,16 +13,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.15.0\n"
 
 #: app/blueprints/admin/routes.py:22
 msgid "Nowy plan został pomyślnie utworzony."
-msgstr "Nowy plan został pomyślnie utworzony."
+msgstr ""
 
 #: app/blueprints/admin/routes.py:24
 #, python-format
 msgid "Wystąpił błąd: %(error)s"
-msgstr "Wystąpił błąd: %(error)s"
+msgstr ""
 
 #: app/blueprints/admin/routes.py:39
 #, python-format
@@ -32,317 +32,1097 @@ msgstr ""
 #: app/blueprints/admin/routes.py:41
 #, python-format
 msgid "Błąd podczas archiwizacji w Stripe: %(error)s"
-msgstr "Błąd podczas archiwizacji w Stripe: %(error)s"
+msgstr ""
 
 #: app/blueprints/admin/routes.py:43
 msgid "Nie znaleziono aktywnego planu o podanym ID."
-msgstr "Nie znaleziono aktywnego planu o podanym ID."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:21 app/blueprints/auth/routes.py:97
 msgid "Hasła nie pasują do siebie."
-msgstr "Hasła nie pasują do siebie."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:24
 msgid "Musisz zaakceptować regulamin i politykę prywatności."
-msgstr "Musisz zaakceptować regulamin i politykę prywatności."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:28
 msgid "Ten adres e-mail jest już zajęty."
-msgstr "Ten adres e-mail jest już zajęty."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:34
 msgid "Konto zostało utworzone pomyślnie! Możesz się teraz zalogować."
-msgstr "Konto zostało utworzone pomyślnie! Możesz się teraz zalogować."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:48
 msgid "Błędny email lub hasło. Spróbuj ponownie."
-msgstr "Błędny email lub hasło. Spróbuj ponownie."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:58
 msgid "Zostałeś wylogowany."
-msgstr "Zostałeś wylogowany."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:73
 msgid "Na Twój adres e-mail został wysłany link do zresetowania hasła."
-msgstr "Na Twój adres e-mail został wysłany link do zresetowania hasła."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:75
 msgid "Podany adres e-mail nie istnieje."
-msgstr "Podany adres e-mail nie istnieje."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:87
 msgid "Link do zresetowania hasła jest nieprawidłowy lub wygasł."
-msgstr "Link do zresetowania hasła jest nieprawidłowy lub wygasł."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:91
 msgid "Użytkownik nie znaleziony."
-msgstr "Użytkownik nie znaleziony."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:101
 msgid "Twoje hasło zostało zresetowane! Możesz się teraz zalogować."
-msgstr "Twoje hasło zostało zresetowane! Możesz się teraz zalogować."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:116
 #, python-format
 msgid "Wystąpił błąd podczas autoryzacji przez Google: %(error)s"
-msgstr "Wystąpił błąd podczas autoryzacji przez Google: %(error)s"
+msgstr ""
 
 #: app/blueprints/auth/routes.py:120
 msgid "Nie udało się uzyskać identyfikatora użytkownika od Google."
-msgstr "Nie udało się uzyskać identyfikatora użytkownika od Google."
+msgstr ""
 
 #: app/blueprints/auth/routes.py:125
 msgid "Zalogowano pomyślnie przez Google!"
-msgstr "Zalogowano pomyślnie przez Google!"
+msgstr ""
 
 #: app/blueprints/auth/routes.py:132
 msgid "Twoje istniejące konto zostało połączone z kontem Google!"
-msgstr "Twoje istniejące konto zostało połączone z kontem Google!"
+msgstr ""
 
 #: app/blueprints/auth/routes.py:138
 msgid "Konto zostało utworzone i zalogowano pomyślnie przez Google!"
-msgstr "Konto zostało utworzone i zalogowano pomyślnie przez Google!"
+msgstr ""
 
 #: app/blueprints/billing/routes.py:13
 msgid "Nie znaleziono aktywnej subskrypcji."
-msgstr "Nie znaleziono aktywnej subskrypcji."
+msgstr ""
 
-#: app/templates/admin_plans.html:2 app/templates/admin_users.html:7
+#: app/templates/admin_plans.html:2 app/templates/admin_users.html:9
 msgid "Zarządzaj Planami"
-msgstr "Zarządzaj Planami"
+msgstr ""
 
 #: app/templates/admin_plans.html:2 app/templates/admin_users.html:2
-#: app/templates/admin_users.html:26
+#: app/templates/admin_users.html:28
 msgid "Admin"
-msgstr "Admin"
+msgstr ""
 
-#: app/templates/admin_plans.html:6 app/templates/admin_users.html:6
+#: app/templates/admin_plans.html:3
+msgid "Panel Admina - Plany"
+msgstr ""
+
+#: app/templates/admin_plans.html:8 app/templates/admin_users.html:8
 msgid "Panel Administratora"
-msgstr "Panel Administratora"
+msgstr ""
 
-#: app/templates/admin_plans.html:6
+#: app/templates/admin_plans.html:8
 msgid "Plany Subskrypcji"
-msgstr "Plany Subskrypcji"
+msgstr ""
 
-#: app/templates/admin_plans.html:7 app/templates/admin_users.html:2
+#: app/templates/admin_plans.html:9 app/templates/admin_users.html:2
 msgid "Zarządzaj Użytkownikami"
-msgstr "Zarządzaj Użytkownikami"
+msgstr ""
 
-#: app/templates/admin_plans.html:11
+#: app/templates/admin_plans.html:13
 msgid "Istniejące Plany"
-msgstr "Istniejące Plany"
+msgstr ""
 
-#: app/templates/admin_plans.html:14
+#: app/templates/admin_plans.html:16
 msgid "Nazwa"
-msgstr "Nazwa"
+msgstr ""
 
-#: app/templates/admin_plans.html:14
+#: app/templates/admin_plans.html:16
 msgid "Cena"
-msgstr "Cena"
+msgstr ""
 
-#: app/templates/admin_plans.html:14
+#: app/templates/admin_plans.html:16
 msgid "Okres"
-msgstr "Okres"
+msgstr ""
 
-#: app/templates/admin_plans.html:14 app/templates/history.html:17
+#: app/templates/admin_plans.html:16 app/templates/history.html:36
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
-#: app/templates/admin_plans.html:14 app/templates/history.html:21
+#: app/templates/admin_plans.html:16 app/templates/history.html:41
 msgid "Akcje"
-msgstr "Akcje"
+msgstr ""
 
-#: app/templates/admin_plans.html:22
+#: app/templates/admin_plans.html:24
 msgid "Aktywny"
-msgstr "Aktywny"
+msgstr ""
 
-#: app/templates/admin_plans.html:23
+#: app/templates/admin_plans.html:25
 msgid "Zarchiwizowany"
-msgstr "Zarchiwizowany"
+msgstr ""
 
-#: app/templates/admin_plans.html:27
+#: app/templates/admin_plans.html:29
 msgid "Czy na pewno chcesz zarchiwizować ten plan?"
-msgstr "Czy na pewno chcesz zarchiwizować ten plan?"
+msgstr ""
 
-#: app/templates/admin_plans.html:28
+#: app/templates/admin_plans.html:30
 msgid "Archiwizuj"
-msgstr "Archiwizuj"
+msgstr ""
 
-#: app/templates/admin_plans.html:36
+#: app/templates/admin_plans.html:38
 msgid "Brak zdefiniowanych planów."
-msgstr "Brak zdefiniowanych planów."
-
-#: app/templates/admin_plans.html:39
-msgid "Stwórz Nowy Plan w Stripe"
-msgstr "Stwórz Nowy Plan w Stripe"
+msgstr ""
 
 #: app/templates/admin_plans.html:41
-msgid "Nazwa Planu (np. PRO)"
-msgstr "Nazwa Planu (np. PRO)"
-
-#: app/templates/admin_plans.html:42
-msgid "Cena (np. 49.00)"
-msgstr "Cena (np. 49.00)"
+msgid "Stwórz Nowy Plan w Stripe"
+msgstr ""
 
 #: app/templates/admin_plans.html:43
-msgid "Waluta"
-msgstr "Waluta"
+msgid "Nazwa Planu (np. PRO)"
+msgstr ""
 
 #: app/templates/admin_plans.html:44
-msgid "Okres Rozliczeniowy"
-msgstr "Okres Rozliczeniowy"
-
-#: app/templates/admin_plans.html:44
-msgid "Miesiąc"
-msgstr "Miesiąc"
-
-#: app/templates/admin_plans.html:44
-msgid "Rok"
-msgstr "Rok"
+msgid "Cena (np. 49.00)"
+msgstr ""
 
 #: app/templates/admin_plans.html:45
+msgid "Waluta"
+msgstr ""
+
+#: app/templates/admin_plans.html:46
+msgid "Okres Rozliczeniowy"
+msgstr ""
+
+#: app/templates/admin_plans.html:46
+msgid "Miesiąc"
+msgstr ""
+
+#: app/templates/admin_plans.html:46
+msgid "Rok"
+msgstr ""
+
+#: app/templates/admin_plans.html:47
 msgid "Stwórz Plan"
-msgstr "Stwórz Plan"
+msgstr ""
 
-#: app/templates/admin_users.html:6
+#: app/templates/admin_users.html:3
+msgid "Panel Admina - Użytkownicy"
+msgstr ""
+
+#: app/templates/admin_users.html:8
 msgid "Użytkownicy"
-msgstr "Użytkownicy"
-
-#: app/templates/admin_users.html:14
-msgid "Data Rejestracji"
-msgstr "Data Rejestracji"
-
-#: app/templates/admin_users.html:15
-msgid "Rola"
-msgstr "Rola"
+msgstr ""
 
 #: app/templates/admin_users.html:16
+msgid "Data Rejestracji"
+msgstr ""
+
+#: app/templates/admin_users.html:17
+msgid "Rola"
+msgstr ""
+
+#: app/templates/admin_users.html:18
 msgid "Status Subskrypcji"
-msgstr "Status Subskrypcji"
+msgstr ""
 
-#: app/templates/admin_users.html:27
+#: app/templates/admin_users.html:29 app/templates/terms.html:42
 msgid "Użytkownik"
-msgstr "Użytkownik"
-
-#: app/templates/admin_users.html:30
-msgid "Aktywna"
-msgstr "Aktywna"
-
-#: app/templates/admin_users.html:31
-msgid "Zaległa"
-msgstr "Zaległa"
+msgstr ""
 
 #: app/templates/admin_users.html:32
-msgid "Anulowana"
-msgstr "Anulowana"
+msgid "Aktywna"
+msgstr ""
 
-#: app/templates/admin_users.html:33 app/templates/upload_audio.html:52
+#: app/templates/admin_users.html:33
+msgid "Zaległa"
+msgstr ""
+
+#: app/templates/admin_users.html:34
+msgid "Anulowana"
+msgstr ""
+
+#: app/templates/admin_users.html:35 app/templates/upload_audio.html:119
 msgid "Brak"
-msgstr "Brak"
+msgstr ""
 
 #: app/templates/base.html:16
 msgid "Home"
-msgstr "Home"
+msgstr ""
 
-#: app/templates/base.html:18
-msgid "Historia"
-msgstr "Historia"
-
-#: app/templates/base.html:20
+#: app/templates/base.html:17 app/templates/base_sidebar.html:67
+#: app/templates/base_sidebar.html:71
 msgid "Cennik"
-msgstr "Cennik"
+msgstr ""
 
-#: app/templates/base.html:33
-msgid "Panel Admina"
-msgstr "Panel Admina"
-
-#: app/templates/base.html:35
-msgid "Zarządzaj Subskrypcją"
-msgstr "Zarządzaj Subskrypcją"
-
-#: app/templates/base.html:37
-msgid "Prześlij pliki"
-msgstr "Prześlij pliki"
-
-#: app/templates/base.html:38
-msgid "Wyloguj"
-msgstr "Wyloguj"
-
-#: app/templates/base.html:40
+#: app/templates/base.html:26
 msgid "Zaloguj się"
-msgstr "Zaloguj się"
+msgstr ""
 
-#: app/templates/base.html:41
+#: app/templates/base.html:27
 msgid "Zarejestruj się"
-msgstr "Zarejestruj się"
+msgstr ""
 
-#: app/templates/base.html:58
+#: app/templates/base.html:47 app/templates/base_sidebar.html:150
 msgid "Wszelkie prawa zastrzeżone."
-msgstr "Wszelkie prawa zastrzeżone."
+msgstr ""
 
-#: app/templates/history.html:2 app/templates/history.html:6
-msgid "Moja Historia Przetwarzania"
-msgstr "Moja Historia Przetwarzania"
+#: app/templates/base.html:49 app/templates/base_sidebar.html:152
+msgid "Regulamin"
+msgstr ""
 
-#: app/templates/history.html:7
-msgid "Lista wszystkich Twoich przetworzonych plików audio."
-msgstr "Lista wszystkich Twoich przetworzonych plików audio."
+#: app/templates/base.html:51 app/templates/base_sidebar.html:154
+#: app/templates/privacy.html:2
+msgid "Polityka Prywatności"
+msgstr ""
 
-#: app/templates/history.html:16
-msgid "Nazwa pliku"
-msgstr "Nazwa pliku"
+#: app/templates/base.html:53 app/templates/base_sidebar.html:77
+#: app/templates/base_sidebar.html:81 app/templates/base_sidebar.html:156
+#: app/templates/help.html:2
+msgid "Pomoc"
+msgstr ""
 
-#: app/templates/history.html:18
-msgid "Głośność LUFS"
-msgstr "Głośność LUFS"
+#: app/templates/base.html:55 app/templates/base_sidebar.html:158
+#: app/templates/privacy.html:32 app/templates/privacy.html:329
+msgid "Kontakt"
+msgstr ""
 
-#: app/templates/history.html:20
-msgid "Data"
-msgstr "Data"
+#: app/templates/base_sidebar.html:37 app/templates/base_sidebar.html:41
+#: app/templates/dashboard.html:2 app/templates/dashboard.html:8
+#: app/templates/file_details.html:7 app/templates/pricing.html:14
+msgid "Dashboard"
+msgstr ""
 
-#: app/templates/history.html:30
-msgid "Ukończono"
-msgstr "Ukończono"
+#: app/templates/base_sidebar.html:47 app/templates/base_sidebar.html:51
+#: app/templates/index.html:101
+msgid "Upload"
+msgstr ""
 
-#: app/templates/history.html:31
-msgid "W trakcie..."
-msgstr "W trakcie..."
+#: app/templates/base_sidebar.html:57 app/templates/base_sidebar.html:61
+#: app/templates/file_details.html:8
+msgid "Historia"
+msgstr ""
 
-#: app/templates/history.html:32
-msgid "Błąd"
-msgstr "Błąd"
+#: app/templates/base_sidebar.html:88 app/templates/base_sidebar.html:93
+msgid "Panel Admina"
+msgstr ""
 
-#: app/templates/history.html:33
-msgid "Brak statusu"
-msgstr "Brak statusu"
+#: app/templates/base_sidebar.html:129
+msgid "Wyloguj"
+msgstr ""
 
-#: app/templates/history.html:39
+#: app/templates/dashboard.html:9
+msgid "Twoje podsumowanie i statystyki"
+msgstr ""
+
+#: app/templates/dashboard.html:21
+msgid "Wszystkie pliki"
+msgstr ""
+
+#: app/templates/dashboard.html:33 app/templates/history.html:22
+msgid "Ukończone"
+msgstr ""
+
+#: app/templates/dashboard.html:45 app/templates/history.html:23
+msgid "W trakcie"
+msgstr ""
+
+#: app/templates/dashboard.html:57
+msgid "Średnia LUFS"
+msgstr ""
+
+#: app/templates/dashboard.html:69
+msgid "Zużyta przestrzeń"
+msgstr ""
+
+#: app/templates/dashboard.html:77
+msgid "Szybkie akcje"
+msgstr ""
+
+#: app/templates/dashboard.html:86
+msgid "Prześlij nowe pliki"
+msgstr ""
+
+#: app/templates/dashboard.html:87
+msgid "Rozpocznij nową konwersję"
+msgstr ""
+
+#: app/templates/dashboard.html:98
+msgid "Zobacz historię"
+msgstr ""
+
+#: app/templates/dashboard.html:99
+msgid "Wszystkie Twoje konwersje"
+msgstr ""
+
+#: app/templates/dashboard.html:111
+msgid "Ulepsz do PRO"
+msgstr ""
+
+#: app/templates/dashboard.html:112
+msgid "Odblokuj wszystkie funkcje"
+msgstr ""
+
+#: app/templates/dashboard.html:122
+msgid "Ostatnie pliki"
+msgstr ""
+
+#: app/templates/dashboard.html:123
+msgid "Zobacz wszystkie"
+msgstr ""
+
+#: app/templates/dashboard.html:161 app/templates/file_details.html:2
+#: app/templates/history.html:71
+msgid "Szczegóły"
+msgstr ""
+
+#: app/templates/dashboard.html:163 app/templates/history.html:73
 msgid "Pobierz"
-msgstr "Pobierz"
+msgstr ""
 
-#: app/templates/history.html:46
+#: app/templates/dashboard.html:174
+msgid "Nie masz jeszcze żadnych plików"
+msgstr ""
+
+#: app/templates/dashboard.html:175
+msgid "Rozpocznij konwersję, aby zobaczyć swoje pliki tutaj"
+msgstr ""
+
+#: app/templates/dashboard.html:176
+msgid "Prześlij pierwszy plik"
+msgstr ""
+
+#: app/templates/file_details.html:29 app/templates/history.html:55
+msgid "Ukończono"
+msgstr ""
+
+#: app/templates/file_details.html:31 app/templates/history.html:56
+msgid "W trakcie..."
+msgstr ""
+
+#: app/templates/file_details.html:33 app/templates/history.html:57
+msgid "Błąd"
+msgstr ""
+
+#: app/templates/file_details.html:46
+msgid "Pobierz plik"
+msgstr ""
+
+#: app/templates/file_details.html:55
+msgid "Format wejściowy"
+msgstr ""
+
+#: app/templates/file_details.html:60
+msgid "Codec"
+msgstr ""
+
+#: app/templates/file_details.html:70 app/templates/upload_audio.html:60
+msgid "Bitrate"
+msgstr ""
+
+#: app/templates/file_details.html:72
+msgid "Oryginalny bitrate"
+msgstr ""
+
+#: app/templates/file_details.html:83
+msgid "Częstotliwość próbkowania"
+msgstr ""
+
+#: app/templates/file_details.html:93
+msgid "Typ"
+msgstr ""
+
+#: app/templates/file_details.html:101
+msgid "Kompresja"
+msgstr ""
+
+#: app/templates/file_details.html:119 app/templates/help.html:50
+msgid "Analiza techniczna"
+msgstr ""
+
+#: app/templates/file_details.html:129
+msgid "Głośność (LUFS)"
+msgstr ""
+
+#: app/templates/file_details.html:131
+msgid "Zintegrowana głośność"
+msgstr ""
+
+#: app/templates/file_details.html:146
+msgid "Maksymalny szczyt"
+msgstr ""
+
+#: app/templates/file_details.html:159 app/templates/history.html:39
+msgid "Czas trwania"
+msgstr ""
+
+#: app/templates/file_details.html:161
+msgid "Długość utworu"
+msgstr ""
+
+#: app/templates/file_details.html:174
+msgid "Zakres dynamiki (LRA)"
+msgstr ""
+
+#: app/templates/file_details.html:176
+msgid "Loudness Range"
+msgstr ""
+
+#: app/templates/file_details.html:188
+msgid "Profesjonalny Odtwarzacz Audio"
+msgstr ""
+
+#: app/templates/file_details.html:190
+msgid "Pojedynczy"
+msgstr ""
+
+#: app/templates/file_details.html:191
+msgid "Porównanie A/B"
+msgstr ""
+
+#: app/templates/file_details.html:199 app/templates/help.html:228
+msgid "Spectrogram"
+msgstr ""
+
+#: app/templates/file_details.html:204 app/templates/file_details.html:329
+msgid "Analizer częstotliwości"
+msgstr ""
+
+#: app/templates/file_details.html:209 app/templates/file_details.html:345
+msgid "Korelacja fazy"
+msgstr ""
+
+#: app/templates/file_details.html:214
+msgid "Markery"
+msgstr ""
+
+#: app/templates/file_details.html:228 app/templates/file_details.html:300
+msgid "Przetworzony"
+msgstr ""
+
+#: app/templates/file_details.html:255
+msgid "Prędkość"
+msgstr ""
+
+#: app/templates/file_details.html:267
+msgid "Zoom"
+msgstr ""
+
+#: app/templates/file_details.html:285
+msgid "Przed"
+msgstr ""
+
+#: app/templates/file_details.html:286
+msgid "Oryginalny"
+msgstr ""
+
+#: app/templates/file_details.html:299
+msgid "Po"
+msgstr ""
+
+#: app/templates/file_details.html:316
+msgid "Przełącz A/B"
+msgstr ""
+
+#: app/templates/file_details.html:350
+msgid "Mono"
+msgstr ""
+
+#: app/templates/file_details.html:352
+msgid "Stereo"
+msgstr ""
+
+#: app/templates/file_details.html:361
+msgid "True Peaks > -1dB"
+msgstr ""
+
+#: app/templates/file_details.html:365
+msgid "Clipping Detected"
+msgstr ""
+
+#: app/templates/file_details.html:369
+msgid "Silence Sections"
+msgstr ""
+
+#: app/templates/file_details.html:373
+msgid "LUFS OK (-23 do -14)"
+msgstr ""
+
+#: app/templates/file_details.html:377
+msgid "LUFS Border (-14 do -10)"
+msgstr ""
+
+#: app/templates/file_details.html:381
+msgid "LUFS High (> -10)"
+msgstr ""
+
+#: app/templates/file_details.html:389
+msgid "Informacje o pliku"
+msgstr ""
+
+#: app/templates/file_details.html:392
+msgid "Nazwa oryginalna"
+msgstr ""
+
+#: app/templates/file_details.html:397
+msgid "Nazwa przetworzona"
+msgstr ""
+
+#: app/templates/file_details.html:402
+msgid "Rozmiar pliku"
+msgstr ""
+
+#: app/templates/file_details.html:406
+msgid "Data przesłania"
+msgstr ""
+
+#: app/templates/file_details.html:411
+msgid "Status przetwarzania"
+msgstr ""
+
+#: app/templates/file_details.html:416
+msgid "Data ukończenia"
+msgstr ""
+
+#: app/templates/file_details.html:427
+msgid "Wizualizacja głośności"
+msgstr ""
+
+#: app/templates/file_details.html:446
+msgid "Interpretacja wyniku"
+msgstr ""
+
+#: app/templates/file_details.html:448
+msgid "Bardzo głośny materiał - może być przesterowany"
+msgstr ""
+
+#: app/templates/file_details.html:450
+msgid "Dobry poziom dla muzyki pop/rock"
+msgstr ""
+
+#: app/templates/file_details.html:452
+msgid "Optymalny dla platform streamingowych"
+msgstr ""
+
+#: app/templates/file_details.html:454
+msgid "Cichy materiał - rozważ normalizację"
+msgstr ""
+
+#: app/templates/file_details.html:466
+msgid "Ostrzeżenie jakości"
+msgstr ""
+
+#: app/templates/file_details.html:468
+msgid "Uwaga jakości"
+msgstr ""
+
+#: app/templates/file_details.html:470
+msgid "Informacja o jakości"
+msgstr ""
+
+#: app/templates/file_details.html:477
+msgid "Zalecenie:"
+msgstr ""
+
+#: app/templates/file_details.html:479
+msgid "Rozważ konwersję do FLAC lub WAV aby zachować jakość bezstratną."
+msgstr ""
+
+#: app/templates/file_details.html:481
+msgid "Sprawdź ustawienia konwersji aby zoptymalizować jakość."
+msgstr ""
+
+#: app/templates/file_details.html:492
+msgid "Szczegóły przetwarzania"
+msgstr ""
+
+#: app/templates/help.html:14
+msgid "Centrum Pomocy WaveBulk"
+msgstr ""
+
+#: app/templates/help.html:16
+msgid "Kompleksowy przewodnik po funkcjach profesjonalnej konwersji audio"
+msgstr ""
+
+#: app/templates/help.html:21
+msgid "Przegląd"
+msgstr ""
+
+#: app/templates/help.html:22
+msgid "Formaty"
+msgstr ""
+
+#: app/templates/help.html:23
+msgid "Funkcje"
+msgstr ""
+
+#: app/templates/help.html:24 app/templates/index.html:113
+msgid "Analiza"
+msgstr ""
+
+#: app/templates/help.html:25
+msgid "WaveSurfer"
+msgstr ""
+
+#: app/templates/help.html:32
+msgid "Co to jest WaveBulk?"
+msgstr ""
+
+#: app/templates/help.html:35
+msgid ""
+"WaveBulk to profesjonalna aplikacja do konwersji i analizy plików audio, "
+"zaprojektowana dla muzyków, producentów i audiofilów."
+msgstr ""
+
+#: app/templates/help.html:40
+msgid "Szybka konwersja"
+msgstr ""
+
+#: app/templates/help.html:41
+msgid ""
+"Przetwarzanie w tle za pomocą Celery - możesz opuścić stronę podczas "
+"konwersji"
+msgstr ""
+
+#: app/templates/help.html:45
+msgid "Normalizacja LUFS"
+msgstr ""
+
+#: app/templates/help.html:46
+msgid ""
+"Automatyczna analiza głośności zgodna ze standardami streaming (Spotify, "
+"YouTube, Apple Music)"
+msgstr ""
+
+#: app/templates/help.html:51
+msgid "Szczegółowe informacje o bitrate, sample rate, kanałach i jakości audio"
+msgstr ""
+
+#: app/templates/help.html:55
+msgid "Profesjonalne narzędzia"
+msgstr ""
+
+#: app/templates/help.html:56
+msgid "Spectrogram, analiza częstotliwości, korelacja fazy i markery audio"
+msgstr ""
+
+#: app/templates/help.html:66
+msgid "Obsługiwane formaty audio"
+msgstr ""
+
+#: app/templates/help.html:71
+msgid "Formaty bezstratne (Lossless)"
+msgstr ""
+
+#: app/templates/help.html:75
+msgid "Standardowy format bezstratny, najlepsza jakość"
+msgstr ""
+
+#: app/templates/help.html:79
+msgid "Kompresja bezstratna, mniejszy rozmiar niż WAV"
+msgstr ""
+
+#: app/templates/help.html:83
+msgid "Format Apple bezstratny, wysokiej jakości"
+msgstr ""
+
+#: app/templates/help.html:89
+msgid "Formaty stratne (Lossy)"
+msgstr ""
+
+#: app/templates/help.html:93
+msgid "Najpopularniejszy format, uniwersalna kompatybilność"
+msgstr ""
+
+#: app/templates/help.html:97
+msgid "Format Apple, lepsza jakość niż MP3 przy tym samym bitrate"
+msgstr ""
+
+#: app/templates/help.html:101
+msgid "Format open-source, dobra jakość przy niskim bitrate"
+msgstr ""
+
+#: app/templates/help.html:105
+msgid "Format Microsoft, alternatywa dla MP3"
+msgstr ""
+
+#: app/templates/help.html:109
+msgid "Nowoczesny format, optymalny dla streaming"
+msgstr ""
+
+#: app/templates/help.html:116
+msgid "Ostrzeżenie o jakości"
+msgstr ""
+
+#: app/templates/help.html:117
+msgid ""
+"Konwersja z formatu stratnego na stratny może pogorszyć jakość audio. "
+"Zalecamy używanie formatów bezstratnych jako źródła."
+msgstr ""
+
+#: app/templates/help.html:126
+msgid "Główne funkcje aplikacji"
+msgstr ""
+
+#: app/templates/help.html:132
+msgid "Upload i przetwarzanie"
+msgstr ""
+
+#: app/templates/help.html:133
+msgid "Podstawowe"
+msgstr ""
+
+#: app/templates/help.html:136
+msgid "Drag & drop upload plików audio"
+msgstr ""
+
+#: app/templates/help.html:137
+msgid "Przetwarzanie w tle - możesz opuścić stronę"
+msgstr ""
+
+#: app/templates/help.html:138
+msgid "Automatyczna detekcja formatu i metadanych"
+msgstr ""
+
+#: app/templates/help.html:139
+msgid "Historia przetwarzania z statusami"
+msgstr ""
+
+#: app/templates/help.html:145
+msgid "Analiza głośności (LUFS)"
+msgstr ""
+
+#: app/templates/help.html:146
+msgid "Zaawansowane"
+msgstr ""
+
+#: app/templates/help.html:149
+msgid "Pomiar zintegrowanej głośności w LUFS"
+msgstr ""
+
+#: app/templates/help.html:150
+msgid "Wizualizacja na skali streaming (Spotify, YouTube, Apple Music)"
+msgstr ""
+
+#: app/templates/help.html:151
+msgid "Ostrzeżenia o zbyt głośnym lub cichym materiale"
+msgstr ""
+
+#: app/templates/help.html:152
+msgid "True Peak measurement (dBTP)"
+msgstr ""
+
+#: app/templates/help.html:158
+msgid "Profesjonalny odtwarzacz"
+msgstr ""
+
+#: app/templates/help.html:159
+msgid "Premium"
+msgstr ""
+
+#: app/templates/help.html:162
+msgid "Waveform z zoom i nawigacją"
+msgstr ""
+
+#: app/templates/help.html:163
+msgid "Kontrola prędkości odtwarzania (0.5x - 2x)"
+msgstr ""
+
+#: app/templates/help.html:164
+msgid "Regulacja głośności i zoom"
+msgstr ""
+
+#: app/templates/help.html:165
+msgid "Tryb porównania A/B (przed/po)"
+msgstr ""
+
+#: app/templates/help.html:176
+msgid "Analiza techniczna audio"
+msgstr ""
+
+#: app/templates/help.html:181
+msgid "LUFS (Loudness Units Full Scale)"
+msgstr ""
+
+#: app/templates/help.html:182
+msgid "Standardowy pomiar głośności używany w broadcast i streaming."
+msgstr ""
+
+#: app/templates/help.html:184
+msgid "Broadcast standard (TV, radio)"
+msgstr ""
+
+#: app/templates/help.html:185
+msgid "Apple Music standard"
+msgstr ""
+
+#: app/templates/help.html:186
+msgid "Spotify, YouTube standard"
+msgstr ""
+
+#: app/templates/help.html:187
+msgid "Bardzo głośny materiał (może być przesterowany)"
+msgstr ""
+
+#: app/templates/help.html:192
+msgid "True Peak (dBTP)"
+msgstr ""
+
+#: app/templates/help.html:193
+msgid "Maksymalny szczyt sygnału audio, ważny dla unikania clipping."
+msgstr ""
+
+#: app/templates/help.html:195
+msgid "Bezpieczny poziom dla streaming"
+msgstr ""
+
+#: app/templates/help.html:196
+msgid "Zalecany margines bezpieczeństwa"
+msgstr ""
+
+#: app/templates/help.html:197
+msgid "Ryzyko clipping i zniekształceń"
+msgstr ""
+
+#: app/templates/help.html:202
+msgid "Parametry techniczne"
+msgstr ""
+
+#: app/templates/help.html:203
+msgid "Podstawowe informacje o pliku audio."
+msgstr ""
+
+#: app/templates/help.html:205
+msgid "Ilość danych na sekundę (kbps)"
+msgstr ""
+
+#: app/templates/help.html:206
+msgid "Częstotliwość próbkowania (Hz)"
+msgstr ""
+
+#: app/templates/help.html:207
+msgid "Liczba kanałów (mono/stereo)"
+msgstr ""
+
+#: app/templates/help.html:208
+msgid "Czas trwania utworu"
+msgstr ""
+
+#: app/templates/help.html:219
+msgid "Funkcje WaveSurfer v7"
+msgstr ""
+
+#: app/templates/help.html:222
+msgid ""
+"WaveBulk wykorzystuje najnowszą wersję WaveSurfer.js v7 - zaawansowanej "
+"biblioteki do wizualizacji i analizy audio."
+msgstr ""
+
+#: app/templates/help.html:230
+msgid ""
+"Wizualizacja częstotliwości w czasie - pokazuje spektrum audio jako "
+"kolorową mapę."
+msgstr ""
+
+#: app/templates/help.html:232
+msgid "Analiza widma częstotliwości"
+msgstr ""
+
+#: app/templates/help.html:233
+msgid "Identyfikacja instrumentów i tonów"
+msgstr ""
+
+#: app/templates/help.html:234
+msgid "Wykrywanie problemów z jakością"
+msgstr ""
+
+#: app/templates/help.html:241
+msgid "Frequency Analyzer"
+msgstr ""
+
+#: app/templates/help.html:243
+msgid ""
+"Analiza częstotliwości w czasie rzeczywistym - pokazuje intensywność "
+"różnych częstotliwości."
+msgstr ""
+
+#: app/templates/help.html:245
+msgid "Real-time spectrum analysis"
+msgstr ""
+
+#: app/templates/help.html:246
+msgid "Wizualizacja EQ w czasie rzeczywistym"
+msgstr ""
+
+#: app/templates/help.html:247
+msgid "Identyfikacja dominantnych częstotliwości"
+msgstr ""
+
+#: app/templates/help.html:254
+msgid "Phase Correlation"
+msgstr ""
+
+#: app/templates/help.html:256
+msgid "Analiza fazy sygnału audio - pokazuje zmiany fazy w czasie."
+msgstr ""
+
+#: app/templates/help.html:258
+msgid "Wykrywanie problemów z fazą"
+msgstr ""
+
+#: app/templates/help.html:259
+msgid "Analiza mono/stereo compatibility"
+msgstr ""
+
+#: app/templates/help.html:260
+msgid "Identyfikacja problemów z miksowaniem"
+msgstr ""
+
+#: app/templates/help.html:267
+msgid "Smart Markers"
+msgstr ""
+
+#: app/templates/help.html:269
+msgid "Inteligentne markery na waveform - oznaczanie fragmentów audio."
+msgstr ""
+
+#: app/templates/help.html:271
+msgid "Automatyczne wykrywanie peaków"
+msgstr ""
+
+#: app/templates/help.html:272
+msgid "Oznaczanie sekcji ciszy"
+msgstr ""
+
+#: app/templates/help.html:273
+msgid "Markery na podstawie LUFS"
+msgstr ""
+
+#: app/templates/help.html:274
+msgid "Ręczne dodawanie markerów"
+msgstr ""
+
+#: app/templates/help.html:281
+msgid "A/B Comparison"
+msgstr ""
+
+#: app/templates/help.html:283
+msgid "Porównanie przed i po przetwarzaniu - analiza różnic w jakości."
+msgstr ""
+
+#: app/templates/help.html:285
+msgid "Side-by-side waveform comparison"
+msgstr ""
+
+#: app/templates/help.html:286
+msgid "Synchronizowane odtwarzanie"
+msgstr ""
+
+#: app/templates/help.html:287
+msgid "Analiza różnic w spektrum"
+msgstr ""
+
+#: app/templates/help.html:294
+msgid "Timeline & Minimap"
+msgstr ""
+
+#: app/templates/help.html:296
+msgid "Zaawansowana nawigacja w pliku audio."
+msgstr ""
+
+#: app/templates/help.html:298
+msgid "Precyzyjna nawigacja w czasie"
+msgstr ""
+
+#: app/templates/help.html:299
+msgid "Minimap dla szybkiego przeglądania"
+msgstr ""
+
+#: app/templates/help.html:300
+msgid "Zoom i scroll controls"
+msgstr ""
+
+#: app/templates/help.html:309
+msgid "Ta strona będzie regularnie aktualizowana o nowe funkcje i ulepszenia."
+msgstr ""
+
+#: app/templates/help.html:310
+msgid "Potrzebujesz pomocy?"
+msgstr ""
+
+#: app/templates/help.html:310
+msgid "Skontaktuj się z nami przez formularz kontaktowy."
+msgstr ""
+
+#: app/templates/history.html:2 app/templates/history.html:7
+msgid "Moja Historia Przetwarzania"
+msgstr ""
+
+#: app/templates/history.html:8
+msgid "Lista wszystkich Twoich przetworzonych plików audio."
+msgstr ""
+
+#: app/templates/history.html:17
+msgid "Szukaj po nazwie pliku..."
+msgstr ""
+
+#: app/templates/history.html:21
+msgid "Wszystkie"
+msgstr ""
+
+#: app/templates/history.html:24
+msgid "Błędy"
+msgstr ""
+
+#: app/templates/history.html:34
+msgid "Nazwa pliku"
+msgstr ""
+
+#: app/templates/history.html:35
+msgid "Rozmiar"
+msgstr ""
+
+#: app/templates/history.html:37
+msgid "Głośność LUFS"
+msgstr ""
+
+#: app/templates/history.html:40
+msgid "Data"
+msgstr ""
+
+#: app/templates/history.html:58
+msgid "Brak statusu"
+msgstr ""
+
+#: app/templates/history.html:82
+msgid "Pobierz zaznaczone (ZIP)"
+msgstr ""
+
+#: app/templates/history.html:83
 msgid "Usuń zaznaczone"
-msgstr "Usuń zaznaczone"
+msgstr ""
 
-#: app/templates/history.html:49
+#: app/templates/history.html:87
 msgid "Nie masz jeszcze żadnych przetworzonych plików."
-msgstr "Nie masz jeszcze żadnych przetworzonych plików."
+msgstr ""
 
 #: app/templates/index.html:2
 msgid "Analiza i Konwersja Audio"
-msgstr "Analiza i Konwersja Audio"
+msgstr ""
 
 #: app/templates/index.html:7
 msgid "Studyjna Jakość Konwersji i"
-msgstr "Studyjna Jakość Konwersji i"
+msgstr ""
 
 #: app/templates/index.html:7
 msgid "Analizy"
-msgstr "Analizy"
+msgstr ""
 
 #: app/templates/index.html:7
 msgid "W Twojej Przeglądarce."
-msgstr "W Twojej Przeglądarce."
+msgstr ""
 
 #: app/templates/index.html:8
 msgid ""
@@ -353,23 +1133,23 @@ msgstr ""
 
 #: app/templates/index.html:9
 msgid "Rozpocznij darmowy projekt"
-msgstr "Rozpocznij darmowy projekt"
+msgstr ""
 
 #: app/templates/index.html:10
 msgid "Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej."
-msgstr "Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej."
+msgstr ""
 
 #: app/templates/index.html:16
 msgid "Wszystko, Czego Potrzebujesz w Jednym Miejscu"
-msgstr "Wszystko, Czego Potrzebujesz w Jednym Miejscu"
+msgstr ""
 
 #: app/templates/index.html:17
 msgid "Od prostej konwersji po zaawansowaną analizę techniczną."
-msgstr "Od prostej konwersji po zaawansowaną analizę techniczną."
+msgstr ""
 
 #: app/templates/index.html:22
 msgid "Profesjonalna Analiza Audio"
-msgstr "Profesjonalna Analiza Audio"
+msgstr ""
 
 #: app/templates/index.html:23
 msgid ""
@@ -379,7 +1159,7 @@ msgstr ""
 
 #: app/templates/index.html:27
 msgid "Wysokiej Jakości Konwersja"
-msgstr "Wysokiej Jakości Konwersja"
+msgstr ""
 
 #: app/templates/index.html:28
 msgid ""
@@ -390,7 +1170,7 @@ msgstr ""
 
 #: app/templates/index.html:32
 msgid "Wsadowe Przetwarzanie"
-msgstr "Wsadowe Przetwarzanie"
+msgstr ""
 
 #: app/templates/index.html:33
 msgid ""
@@ -398,595 +1178,2947 @@ msgid ""
 "ustaw parametry raz i pozwól naszej aplikacji zająć się resztą."
 msgstr ""
 
-#: app/templates/index.html:41
-msgid "Prosty i Przejrzysty Cennik"
-msgstr "Prosty i Przejrzysty Cennik"
-
-#: app/templates/index.html:42
-msgid "Wybierz plan, który rośnie razem z Tobą."
-msgstr "Wybierz plan, który rośnie razem z Tobą."
+#: app/templates/index.html:43
+msgid "Zaufali Nam Profesjonaliści"
+msgstr ""
 
 #: app/templates/index.html:44
+msgid "Poznaj opinie producentów, muzyków i inżynierów dźwięku"
+msgstr ""
+
+#: app/templates/index.html:50
+msgid ""
+"WaveBulk zrewolucjonizował mój workflow. Wcześniej spędzałem godziny na "
+"konwersji albumów - teraz robię to w kilka minut. Analiza LUFS pomogła mi"
+" zoptymalizować głośność dla wszystkich platform streamingowych."
+msgstr ""
+
+#: app/templates/index.html:56
+msgid "Producent muzyczny, Studio SoundWave"
+msgstr ""
+
+#: app/templates/index.html:63
+msgid ""
+"Jako inżynier dźwięku potrzebuję precyzyjnych narzędzi. WaveSurfer v7 w "
+"WaveBulk daje mi wszystko czego potrzebuję - od spectrogramu po analizę "
+"fazy. To jak mieć studio w przeglądarce!"
+msgstr ""
+
+#: app/templates/index.html:69
+msgid "Inżynier dźwięku, Radio Polskie"
+msgstr ""
+
+#: app/templates/index.html:76
+msgid ""
+"Przetwarzanie w tle to game-changer! Mogę wrzucić cały album, przejść do "
+"innych zadań, a WaveBulk zrobi resztę. True Peak analysis uratował mnie "
+"przed clippingiem na wielu projektach."
+msgstr ""
+
+#: app/templates/index.html:82
+msgid "Muzyk, zespół Echo Valley"
+msgstr ""
+
+#: app/templates/index.html:94
+msgid "Zaawansowana Technologia"
+msgstr ""
+
+#: app/templates/index.html:95
+msgid "Zbudowane na najnowszych standardach audio i web technologies"
+msgstr ""
+
+#: app/templates/index.html:102
+msgid "Drag & Drop<br>Wszystkie formaty"
+msgstr ""
+
+#: app/templates/index.html:107 app/templates/terms.html:46
+msgid "Przetwarzanie"
+msgstr ""
+
+#: app/templates/index.html:108
+msgid "Celery + Redis<br>Background Tasks"
+msgstr ""
+
+#: app/templates/index.html:114
+msgid "WaveSurfer v7<br>Web Audio API"
+msgstr ""
+
+#: app/templates/index.html:119
+msgid "Wyniki"
+msgstr ""
+
+#: app/templates/index.html:120
+msgid "LUFS, True Peak<br>Spectrogram"
+msgstr ""
+
+#: app/templates/index.html:126
+msgid "Audio Processing"
+msgstr ""
+
+#: app/templates/index.html:135
+msgid "Web Technologies"
+msgstr ""
+
+#: app/templates/index.html:144
+msgid "Infrastructure"
+msgstr ""
+
+#: app/templates/index.html:160
+msgid "Liczby, Które Mówią Same Za Siebie"
+msgstr ""
+
+#: app/templates/index.html:161
+msgid "WaveBulk w liczbach - sprawdź nasze osiągnięcia"
+msgstr ""
+
+#: app/templates/index.html:166
+msgid "Plików Przetworzonych"
+msgstr ""
+
+#: app/templates/index.html:167
+msgid "Każdego miesiąca"
+msgstr ""
+
+#: app/templates/index.html:171
+msgid "Uptime"
+msgstr ""
+
+#: app/templates/index.html:172
+msgid "Dostępność serwisu"
+msgstr ""
+
+#: app/templates/index.html:176
+msgid "Formatów Audio"
+msgstr ""
+
+#: app/templates/index.html:177
+msgid "Obsługiwanych"
+msgstr ""
+
+#: app/templates/index.html:181
+msgid "Średni Czas"
+msgstr ""
+
+#: app/templates/index.html:182
+msgid "Przetwarzania pliku"
+msgstr ""
+
+#: app/templates/index.html:186
+msgid "Wydajność Przetwarzania"
+msgstr ""
+
+#: app/templates/index.html:189
+msgid "WAV → MP3"
+msgstr ""
+
+#: app/templates/index.html:195
+msgid "FLAC → AAC"
+msgstr ""
+
+#: app/templates/index.html:201
+msgid "M4A → WAV"
+msgstr ""
+
+#: app/templates/index.html:207
+msgid "OGG → FLAC"
+msgstr ""
+
+#: app/templates/index.html:220
+msgid "Prosty i Przejrzysty Cennik"
+msgstr ""
+
+#: app/templates/index.html:221
+msgid "Wybierz plan, który rośnie razem z Tobą."
+msgstr ""
+
+#: app/templates/index.html:223
 msgid "Zobacz Pełne Porównanie Planów"
-msgstr "Zobacz Pełne Porównanie Planów"
+msgstr ""
 
-#: app/templates/language_test.html:85 app/templates/login.html:5
-msgid "Welcome back!"
-msgstr "Welcome back!"
-
-#: app/templates/language_test.html:86 app/templates/login.html:2
+#: app/templates/login.html:2
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
-#: app/templates/language_test.html:87 app/templates/login.html:7
-#: app/templates/register.html:7
+#: app/templates/login.html:5
+msgid "Welcome back!"
+msgstr ""
+
+#: app/templates/login.html:7 app/templates/register.html:7
 msgid "Email address"
-msgstr "Email address"
+msgstr ""
 
-#: app/templates/language_test.html:88 app/templates/login.html:8
-#: app/templates/register.html:8
+#: app/templates/login.html:8 app/templates/register.html:8
 msgid "Password"
-msgstr "Password"
-
-#: app/templates/language_test.html:89 app/templates/login.html:10
-#: app/templates/register.html:15
-msgid "Sign In"
-msgstr "Sign In"
+msgstr ""
 
 #: app/templates/login.html:9
 msgid "Remember me"
-msgstr "Remember me"
+msgstr ""
 
 #: app/templates/login.html:9
 msgid "Forgot your password?"
-msgstr "Forgot your password?"
+msgstr ""
+
+#: app/templates/login.html:10 app/templates/register.html:15
+msgid "Sign In"
+msgstr ""
 
 #: app/templates/login.html:12 app/templates/register.html:13
 msgid "OR"
-msgstr "OR"
+msgstr ""
 
 #: app/templates/login.html:13 app/templates/register.html:14
 msgid "Sign in with Google"
-msgstr "Sign in with Google"
+msgstr ""
 
 #: app/templates/login.html:14
 msgid "Don't have an account?"
-msgstr "Don't have an account?"
+msgstr ""
 
 #: app/templates/login.html:14
 msgid "Sign up"
-msgstr "Sign up"
+msgstr ""
 
-#: app/templates/pricing.html:2
+#: app/templates/pricing.html:8 app/templates/pricing.html:15
 msgid "Plany i Cennik"
-msgstr "Plany i Cennik"
+msgstr ""
 
-#: app/templates/pricing.html:6
+#: app/templates/pricing.html:19 app/templates/pricing.html:47
 msgid "Wybierz plan dopasowany do Ciebie"
-msgstr "Wybierz plan dopasowany do Ciebie"
+msgstr ""
 
-#: app/templates/pricing.html:7
+#: app/templates/pricing.html:20 app/templates/pricing.html:48
 msgid "Zacznij za darmo i przejdź na wyższy plan, gdy potrzebujesz więcej mocy."
-msgstr "Zacznij za darmo i przejdź na wyższy plan, gdy potrzebujesz więcej mocy."
+msgstr ""
 
-#: app/templates/pricing.html:12
+#: app/templates/pricing.html:25 app/templates/pricing.html:52
 msgid "Darmowy"
-msgstr "Darmowy"
+msgstr ""
 
-#: app/templates/pricing.html:13
+#: app/templates/pricing.html:26 app/templates/pricing.html:53
 msgid "miesiąc"
-msgstr "miesiąc"
+msgstr ""
 
-#: app/templates/pricing.html:14
+#: app/templates/pricing.html:27 app/templates/pricing.html:54
 msgid "Idealny do testowania aplikacji i sporadycznych konwersji."
-msgstr "Idealny do testowania aplikacji i sporadycznych konwersji."
+msgstr ""
 
-#: app/templates/pricing.html:15
+#: app/templates/pricing.html:28 app/templates/pricing.html:55
 msgid "Zacznij za darmo"
-msgstr "Zacznij za darmo"
+msgstr ""
 
-#: app/templates/pricing.html:22
+#: app/templates/pricing.html:35 app/templates/pricing.html:62
 msgid "Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi."
-msgstr "Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi."
+msgstr ""
 
-#: app/templates/pricing.html:23
+#: app/templates/pricing.html:36 app/templates/pricing.html:63
 msgid "Dla małych studiów i profesjonalistów z dużymi potrzebami."
-msgstr "Dla małych studiów i profesjonalistów z dużymi potrzebami."
+msgstr ""
 
-#: app/templates/pricing.html:24
+#: app/templates/pricing.html:37 app/templates/pricing.html:64
 msgid "Niestandardowy plan dostosowany do Twoich potrzeb."
-msgstr "Niestandardowy plan dostosowany do Twoich potrzeb."
+msgstr ""
 
-#: app/templates/pricing.html:26
+#: app/templates/pricing.html:39 app/templates/pricing.html:66
 msgid "Wybierz plan"
-msgstr "Wybierz plan"
+msgstr ""
+
+#: app/templates/privacy.html:10
+msgid "Polityka Prywatności (Privacy Policy)"
+msgstr ""
+
+#: app/templates/privacy.html:11 app/templates/privacy.html:341
+#: app/templates/terms.html:11
+msgid "Ostatnia aktualizacja: 15 stycznia 2025"
+msgstr ""
+
+#: app/templates/privacy.html:13
+msgid "GDPR Compliant"
+msgstr ""
+
+#: app/templates/privacy.html:19 app/templates/terms.html:16
+msgid "Spis treści"
+msgstr ""
+
+#: app/templates/privacy.html:21 app/templates/privacy.html:39
+msgid "Wprowadzenie"
+msgstr ""
+
+#: app/templates/privacy.html:22 app/templates/privacy.html:46
+msgid "Administrator danych"
+msgstr ""
+
+#: app/templates/privacy.html:23 app/templates/privacy.html:57
+msgid "Jakie dane zbieramy"
+msgstr ""
+
+#: app/templates/privacy.html:24 app/templates/privacy.html:87
+msgid "Jak wykorzystujemy dane"
+msgstr ""
+
+#: app/templates/privacy.html:25
+msgid "Podstawa prawna przetwarzania"
+msgstr ""
+
+#: app/templates/privacy.html:26 app/templates/privacy.html:141
+msgid "Udostępnianie danych osobom trzecim"
+msgstr ""
+
+#: app/templates/privacy.html:27 app/templates/privacy.html:164
+msgid "Przechowywanie danych"
+msgstr ""
+
+#: app/templates/privacy.html:28 app/templates/privacy.html:207
+msgid "Bezpieczeństwo danych"
+msgstr ""
+
+#: app/templates/privacy.html:29 app/templates/privacy.html:225
+msgid "Twoje prawa (GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:30 app/templates/privacy.html:269
+msgid "Pliki cookies"
+msgstr ""
+
+#: app/templates/privacy.html:31 app/templates/privacy.html:321
+msgid "Zmiany w polityce prywatności"
+msgstr ""
+
+#: app/templates/privacy.html:40
+msgid ""
+"WaveBulk (\"my\", \"nas\", \"nasz\") szanuje Twoją prywatność i "
+"zobowiązuje się do ochrony Twoich danych osobowych."
+msgstr ""
+
+#: app/templates/privacy.html:41
+msgid ""
+"Niniejsza Polityka Prywatności wyjaśnia, jakie dane zbieramy, jak je "
+"wykorzystujemy i jakie masz prawa w związku z ich przetwarzaniem."
+msgstr ""
+
+#: app/templates/privacy.html:42
+msgid ""
+"Korzystając z WaveBulk, wyrażasz zgodę na praktyki opisane w tym "
+"dokumencie."
+msgstr ""
+
+#: app/templates/privacy.html:47
+msgid "Administratorem danych osobowych jest:"
+msgstr ""
+
+#: app/templates/privacy.html:50
+msgid "[Nazwa firmy do uzupełnienia]"
+msgstr ""
+
+#: app/templates/privacy.html:51
+msgid "[Adres do uzupełnienia]"
+msgstr ""
+
+#: app/templates/privacy.html:52 app/templates/privacy.html:253
+#: app/templates/privacy.html:265 app/templates/privacy.html:332
+msgid "Email:"
+msgstr ""
+
+#: app/templates/privacy.html:59
+msgid "Dane podane przez Użytkownika"
+msgstr ""
+
+#: app/templates/privacy.html:61
+msgid "Dane rejestracyjne:"
+msgstr ""
+
+#: app/templates/privacy.html:61
+msgid "adres email, hasło (zaszyfrowane), imię i nazwisko (opcjonalnie)"
+msgstr ""
+
+#: app/templates/privacy.html:62
+msgid "Dane płatności:"
+msgstr ""
+
+#: app/templates/privacy.html:62
+msgid ""
+"informacje o karcie kredytowej przetwarzane przez Stripe (nie "
+"przechowujemy pełnych danych karty)"
+msgstr ""
+
+#: app/templates/privacy.html:63
+msgid "Dane kontaktowe:"
+msgstr ""
+
+#: app/templates/privacy.html:63
+msgid "email do komunikacji"
+msgstr ""
+
+#: app/templates/privacy.html:64
+msgid "OAuth:"
+msgstr ""
+
+#: app/templates/privacy.html:64
+msgid "przy logowaniu przez Google: email, imię, nazwisko, zdjęcie profilowe"
+msgstr ""
+
+#: app/templates/privacy.html:67
+msgid "Dane zbierane automatycznie"
+msgstr ""
+
+#: app/templates/privacy.html:69
+msgid "Dane techniczne:"
+msgstr ""
+
+#: app/templates/privacy.html:69
+msgid "adres IP, typ przeglądarki, system operacyjny, rozdzielczość ekranu"
+msgstr ""
+
+#: app/templates/privacy.html:70
+msgid "Logi serwera:"
+msgstr ""
+
+#: app/templates/privacy.html:70
+msgid "data i czas odwiedzin, odwiedzane strony, czas spędzony w serwisie"
+msgstr ""
+
+#: app/templates/privacy.html:71
+msgid "Cookies:"
+msgstr ""
+
+#: app/templates/privacy.html:71
+msgid "pliki cookies do utrzymania sesji i analityki (szczegóły w sekcji 10)"
+msgstr ""
+
+#: app/templates/privacy.html:74
+msgid "Dane związane z plikami audio"
+msgstr ""
+
+#: app/templates/privacy.html:76
+msgid "Metadane plików:"
+msgstr ""
+
+#: app/templates/privacy.html:76
+msgid "nazwa pliku, rozmiar, format, długość, bitrate, sample rate"
+msgstr ""
+
+#: app/templates/privacy.html:77
+msgid "Wyniki analizy:"
+msgstr ""
+
+#: app/templates/privacy.html:77
+msgid "LUFS, True Peak, informacje o jakości"
+msgstr ""
+
+#: app/templates/privacy.html:78
+msgid "Historia przetwarzania:"
+msgstr ""
+
+#: app/templates/privacy.html:78
+msgid "data i czas przetworzenia, parametry konwersji"
+msgstr ""
+
+#: app/templates/privacy.html:82 app/templates/privacy.html:220
+msgid "Ważne:"
+msgstr ""
+
+#: app/templates/privacy.html:82
+msgid ""
+"NIE analizujemy treści audio, NIE wykorzystujemy plików do celów innych "
+"niż świadczenie usługi, NIE udostępniamy plików osobom trzecim."
+msgstr ""
+
+#: app/templates/privacy.html:88
+msgid "Wykorzystujemy zebrane dane wyłącznie w następujących celach:"
+msgstr ""
+
+#: app/templates/privacy.html:90
+msgid "Świadczenie usług"
+msgstr ""
+
+#: app/templates/privacy.html:92
+msgid "Przetwarzanie i konwersja plików audio"
+msgstr ""
+
+#: app/templates/privacy.html:93
+msgid "Analiza głośności (LUFS, True Peak)"
+msgstr ""
+
+#: app/templates/privacy.html:94
+msgid "Przechowywanie historii przetwarzania"
+msgstr ""
+
+#: app/templates/privacy.html:95
+msgid "Umożliwienie pobierania przetworzonych plików"
+msgstr ""
+
+#: app/templates/privacy.html:98
+msgid "Zarządzanie kontem"
+msgstr ""
+
+#: app/templates/privacy.html:100
+msgid "Rejestracja i logowanie"
+msgstr ""
+
+#: app/templates/privacy.html:101
+msgid "Zarządzanie subskrypcją"
+msgstr ""
+
+#: app/templates/privacy.html:102
+msgid "Resetowanie hasła"
+msgstr ""
+
+#: app/templates/privacy.html:103
+msgid "Komunikacja z użytkownikiem (email)"
+msgstr ""
+
+#: app/templates/privacy.html:106
+msgid "Płatności i rozliczenia"
+msgstr ""
+
+#: app/templates/privacy.html:108
+msgid "Przetwarzanie płatności (przez Stripe)"
+msgstr ""
+
+#: app/templates/privacy.html:109
+msgid "Generowanie faktur"
+msgstr ""
+
+#: app/templates/privacy.html:110
+msgid "Obsługa zwrotów"
+msgstr ""
+
+#: app/templates/privacy.html:113
+msgid "Analityka i ulepszanie"
+msgstr ""
+
+#: app/templates/privacy.html:115
+msgid "Analiza użytkowania serwisu (Google Analytics)"
+msgstr ""
+
+#: app/templates/privacy.html:116
+msgid "Wykrywanie i naprawianie błędów (Sentry)"
+msgstr ""
+
+#: app/templates/privacy.html:117
+msgid "Optymalizacja wydajności"
+msgstr ""
+
+#: app/templates/privacy.html:118
+msgid "Rozwój nowych funkcji"
+msgstr ""
+
+#: app/templates/privacy.html:121
+msgid "Bezpieczeństwo"
+msgstr ""
+
+#: app/templates/privacy.html:123
+msgid "Wykrywanie nadużyć i oszustw"
+msgstr ""
+
+#: app/templates/privacy.html:124
+msgid "Zapobieganie atakom (DDoS, brute force)"
+msgstr ""
+
+#: app/templates/privacy.html:125
+msgid "Zapewnienie zgodności z prawem"
+msgstr ""
+
+#: app/templates/privacy.html:130
+msgid "Podstawa prawna przetwarzania (GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:131
+msgid "Przetwarzamy Twoje dane osobowe na podstawie:"
+msgstr ""
+
+#: app/templates/privacy.html:133
+msgid "Art. 6 ust. 1 lit. b GDPR"
+msgstr ""
+
+#: app/templates/privacy.html:133
+msgid "wykonanie umowy (świadczenie usług)"
+msgstr ""
+
+#: app/templates/privacy.html:134
+msgid "Art. 6 ust. 1 lit. c GDPR"
+msgstr ""
+
+#: app/templates/privacy.html:134
+msgid "obowiązek prawny (rachunkowość, podatki)"
+msgstr ""
+
+#: app/templates/privacy.html:135
+msgid "Art. 6 ust. 1 lit. f GDPR"
+msgstr ""
+
+#: app/templates/privacy.html:135
+msgid "prawnie uzasadniony interes (bezpieczeństwo, analityka)"
+msgstr ""
+
+#: app/templates/privacy.html:136
+msgid "Art. 6 ust. 1 lit. a GDPR"
+msgstr ""
+
+#: app/templates/privacy.html:136
+msgid "zgoda (newsletter, marketing)"
+msgstr ""
+
+#: app/templates/privacy.html:142
+msgid "Nie sprzedajemy ani nie wynajmujemy Twoich danych osobowych."
+msgstr ""
+
+#: app/templates/privacy.html:143
+msgid "Udostępniamy dane wyłącznie następującym zaufanym partnerom:"
+msgstr ""
+
+#: app/templates/privacy.html:145
+msgid "Usługodawcy technologiczni"
+msgstr ""
+
+#: app/templates/privacy.html:147
+msgid "przetwarzanie płatności (USA, Privacy Shield)"
+msgstr ""
+
+#: app/templates/privacy.html:148
+msgid "wysyłka emaili (USA, GDPR compliant)"
+msgstr ""
+
+#: app/templates/privacy.html:149
+msgid "hosting i storage (EU/USA)"
+msgstr ""
+
+#: app/templates/privacy.html:150
+msgid "monitoring błędów (USA, GDPR compliant)"
+msgstr ""
+
+#: app/templates/privacy.html:151
+msgid "analityka (anonimizowane IP)"
+msgstr ""
+
+#: app/templates/privacy.html:154
+msgid "Wymogi prawne"
+msgstr ""
+
+#: app/templates/privacy.html:155
+msgid "Możemy ujawnić dane, jeśli jest to wymagane prawem lub w odpowiedzi na:"
+msgstr ""
+
+#: app/templates/privacy.html:157
+msgid "Nakaz sądowy lub żądanie organów ścigania"
+msgstr ""
+
+#: app/templates/privacy.html:158
+msgid "Ochronę praw i bezpieczeństwa WaveBulk i użytkowników"
+msgstr ""
+
+#: app/templates/privacy.html:159
+msgid "Zapobieganie oszustwom i nadużyciom"
+msgstr ""
+
+#: app/templates/privacy.html:166 app/templates/privacy.html:171
+msgid "Okres przechowywania"
+msgstr ""
+
+#: app/templates/privacy.html:170
+msgid "Rodzaj danych"
+msgstr ""
+
+#: app/templates/privacy.html:176
+msgid "Dane konta"
+msgstr ""
+
+#: app/templates/privacy.html:177
+msgid "Do czasu usunięcia konta + 30 dni"
+msgstr ""
+
+#: app/templates/privacy.html:180
+msgid "Pliki audio (oryginalne i przetworzone)"
+msgstr ""
+
+#: app/templates/privacy.html:181
+msgid "Maksymalnie 30 dni od przetworzenia"
+msgstr ""
+
+#: app/templates/privacy.html:184
+msgid "Historia przetwarzania (metadane)"
+msgstr ""
+
+#: app/templates/privacy.html:185
+msgid "Do czasu usunięcia konta"
+msgstr ""
+
+#: app/templates/privacy.html:188
+msgid "Dane płatności"
+msgstr ""
+
+#: app/templates/privacy.html:189
+msgid "Zgodnie z przepisami podatkowymi (5 lat)"
+msgstr ""
+
+#: app/templates/privacy.html:192
+msgid "Logi serwera"
+msgstr ""
+
+#: app/templates/privacy.html:193
+msgid "90 dni"
+msgstr ""
+
+#: app/templates/privacy.html:196
+msgid "Dane analityczne"
+msgstr ""
+
+#: app/templates/privacy.html:197
+msgid "26 miesięcy (Google Analytics)"
+msgstr ""
+
+#: app/templates/privacy.html:202
+msgid "Lokalizacja danych"
+msgstr ""
+
+#: app/templates/privacy.html:203
+msgid ""
+"Dane są przechowywane na serwerach w Unii Europejskiej (preferowane) lub "
+"USA (z odpowiednimi zabezpieczeniami zgodnie z GDPR)."
+msgstr ""
+
+#: app/templates/privacy.html:208
+msgid ""
+"Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony "
+"Twoich danych:"
+msgstr ""
+
+#: app/templates/privacy.html:210
+msgid "Szyfrowanie SSL/TLS (HTTPS) dla całej komunikacji"
+msgstr ""
+
+#: app/templates/privacy.html:211
+msgid "Hashowanie haseł (bcrypt)"
+msgstr ""
+
+#: app/templates/privacy.html:212
+msgid "Szyfrowanie danych w bazie danych"
+msgstr ""
+
+#: app/templates/privacy.html:213
+msgid "Regularne kopie zapasowe (backups)"
+msgstr ""
+
+#: app/templates/privacy.html:214
+msgid "Monitoring bezpieczeństwa (firewall, intrusion detection)"
+msgstr ""
+
+#: app/templates/privacy.html:215
+msgid "Ograniczony dostęp do danych (role-based access control)"
+msgstr ""
+
+#: app/templates/privacy.html:216
+msgid "Regularne audyty bezpieczeństwa"
+msgstr ""
+
+#: app/templates/privacy.html:217
+msgid "Automatyczne usuwanie starych plików"
+msgstr ""
+
+#: app/templates/privacy.html:220
+#, python-format
+msgid ""
+"Żadna metoda transmisji przez Internet nie jest w 100%% bezpieczna. "
+"Dołożymy wszelkich starań, aby chronić Twoje dane, ale nie możemy "
+"zagwarantować absolutnego bezpieczeństwa."
+msgstr ""
+
+#: app/templates/privacy.html:226
+msgid "Zgodnie z GDPR, masz następujące prawa:"
+msgstr ""
+
+#: app/templates/privacy.html:228
+msgid "Prawo dostępu (Art. 15 GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:229
+msgid "Możesz uzyskać kopię swoich danych osobowych w czytelnym formacie."
+msgstr ""
+
+#: app/templates/privacy.html:231
+msgid "Prawo do sprostowania (Art. 16 GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:232
+msgid "Możesz poprawić nieprawidłowe lub niekompletne dane."
+msgstr ""
+
+#: app/templates/privacy.html:234
+msgid "Prawo do usunięcia \"prawo do bycia zapomnianym\" (Art. 17 GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:235
+msgid "Możesz zażądać usunięcia swoich danych osobowych."
+msgstr ""
+
+#: app/templates/privacy.html:237
+msgid "Prawo do ograniczenia przetwarzania (Art. 18 GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:238
+msgid "Możesz ograniczyć przetwarzanie danych w określonych przypadkach."
+msgstr ""
+
+#: app/templates/privacy.html:240
+msgid "Prawo do przenoszenia danych (Art. 20 GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:241
+msgid ""
+"Możesz otrzymać swoje dane w formacie umożliwiającym ich przeniesienie do"
+" innego usługodawcy."
+msgstr ""
+
+#: app/templates/privacy.html:243
+msgid "Prawo do sprzeciwu (Art. 21 GDPR)"
+msgstr ""
+
+#: app/templates/privacy.html:244
+msgid "Możesz sprzeciwić się przetwarzaniu danych w celach marketingowych."
+msgstr ""
+
+#: app/templates/privacy.html:246
+msgid "Prawo do wycofania zgody"
+msgstr ""
+
+#: app/templates/privacy.html:247
+msgid "Możesz w każdej chwili wycofać zgodę na przetwarzanie danych."
+msgstr ""
+
+#: app/templates/privacy.html:249
+msgid "Jak skorzystać z praw?"
+msgstr ""
+
+#: app/templates/privacy.html:251
+msgid "Aby skorzystać z powyższych praw, skontaktuj się z nami:"
+msgstr ""
+
+#: app/templates/privacy.html:254
+msgid "Panel konta:"
+msgstr ""
+
+#: app/templates/privacy.html:254
+msgid "Ustawienia → Prywatność"
+msgstr ""
+
+#: app/templates/privacy.html:256
+msgid "Odpowiemy w ciągu 30 dni od otrzymania wniosku."
+msgstr ""
+
+#: app/templates/privacy.html:259
+msgid "Prawo do skargi"
+msgstr ""
+
+#: app/templates/privacy.html:260
+msgid "Masz prawo złożyć skargę do organu nadzorczego (UODO w Polsce):"
+msgstr ""
+
+#: app/templates/privacy.html:261
+msgid "Urząd Ochrony Danych Osobowych (UODO)"
+msgstr ""
+
+#: app/templates/privacy.html:264
+msgid "Tel:"
+msgstr ""
+
+#: app/templates/privacy.html:271
+msgid "Czym są cookies?"
+msgstr ""
+
+#: app/templates/privacy.html:272
+msgid ""
+"Cookies to małe pliki tekstowe przechowywane w przeglądarce, które "
+"pomagają nam zapamiętać Twoje preferencje i analizować użytkowanie "
+"serwisu."
+msgstr ""
+
+#: app/templates/privacy.html:274
+msgid "Jakie cookies używamy?"
+msgstr ""
+
+#: app/templates/privacy.html:278
+msgid "Rodzaj"
+msgstr ""
+
+#: app/templates/privacy.html:279
+msgid "Cel"
+msgstr ""
+
+#: app/templates/privacy.html:280
+msgid "Ważność"
+msgstr ""
+
+#: app/templates/privacy.html:285 app/templates/privacy.html:302
+msgid "Sesja"
+msgstr ""
+
+#: app/templates/privacy.html:286
+msgid "Utrzymanie logowania"
+msgstr ""
+
+#: app/templates/privacy.html:287
+msgid "30 dni"
+msgstr ""
+
+#: app/templates/privacy.html:290
+msgid "Język"
+msgstr ""
+
+#: app/templates/privacy.html:291
+msgid "Zapamiętanie wybranego języka"
+msgstr ""
+
+#: app/templates/privacy.html:292
+msgid "1 rok"
+msgstr ""
+
+#: app/templates/privacy.html:295
+msgid "Analityka (Google Analytics)"
+msgstr ""
+
+#: app/templates/privacy.html:296
+msgid "Analiza ruchu i zachowań"
+msgstr ""
+
+#: app/templates/privacy.html:297
+msgid "26 miesięcy"
+msgstr ""
+
+#: app/templates/privacy.html:300
+msgid "Stripe"
+msgstr ""
+
+#: app/templates/privacy.html:301
+msgid "Wykrywanie oszustw"
+msgstr ""
+
+#: app/templates/privacy.html:307
+msgid "Zarządzanie cookies"
+msgstr ""
+
+#: app/templates/privacy.html:308
+msgid "Możesz zarządzać cookies w ustawieniach przeglądarki:"
+msgstr ""
+
+#: app/templates/privacy.html:310
+msgid "Chrome"
+msgstr ""
+
+#: app/templates/privacy.html:311
+msgid "Firefox"
+msgstr ""
+
+#: app/templates/privacy.html:312
+msgid "Safari"
+msgstr ""
+
+#: app/templates/privacy.html:313
+msgid "Edge"
+msgstr ""
+
+#: app/templates/privacy.html:316
+msgid "Uwaga:"
+msgstr ""
+
+#: app/templates/privacy.html:316
+msgid ""
+"Wyłączenie cookies może ograniczyć funkcjonalność serwisu (np. brak "
+"automatycznego logowania)."
+msgstr ""
+
+#: app/templates/privacy.html:322
+msgid ""
+"11.1. Możemy aktualizować Politykę Prywatności w celu odzwierciedlenia "
+"zmian w naszych praktykach lub wymogach prawnych."
+msgstr ""
+
+#: app/templates/privacy.html:323
+msgid ""
+"11.2. O istotnych zmianach poinformujemy Cię emailem na 30 dni przed ich "
+"wejściem w życie."
+msgstr ""
+
+#: app/templates/privacy.html:324
+msgid ""
+"11.3. Zalecamy regularne sprawdzanie tej strony w celu zapoznania się z "
+"aktualnymi praktykami dotyczącymi prywatności."
+msgstr ""
+
+#: app/templates/privacy.html:325
+msgid ""
+"11.4. Kontynuowanie korzystania z serwisu po wejściu w życie zmian "
+"oznacza akceptację zaktualizowanej Polityki Prywatności."
+msgstr ""
+
+#: app/templates/privacy.html:330
+msgid ""
+"W przypadku pytań dotyczących Polityki Prywatności lub przetwarzania "
+"danych osobowych, skontaktuj się z nami:"
+msgstr ""
+
+#: app/templates/privacy.html:333
+msgid "Email ogólny:"
+msgstr ""
+
+#: app/templates/privacy.html:334
+msgid "Adres:"
+msgstr ""
+
+#: app/templates/privacy.html:334
+msgid "[Do uzupełnienia]"
+msgstr ""
+
+#: app/templates/privacy.html:342
+msgid "Masz pytania dotyczące prywatności?"
+msgstr ""
+
+#: app/templates/privacy.html:342 app/templates/terms.html:217
+msgid "Skontaktuj się z nami"
+msgstr ""
 
 #: app/templates/register.html:2
 msgid "Register"
-msgstr "Register"
+msgstr ""
 
 #: app/templates/register.html:5
 msgid "Create a free account"
-msgstr "Create a free account"
+msgstr ""
 
 #: app/templates/register.html:9
 msgid "Confirm password"
-msgstr "Confirm password"
+msgstr ""
 
 #: app/templates/register.html:10
 msgid "I accept the"
-msgstr "I accept the"
+msgstr ""
 
 #: app/templates/register.html:10
 msgid "terms of service"
-msgstr "terms of service"
+msgstr ""
 
 #: app/templates/register.html:10
 msgid "and"
-msgstr "and"
+msgstr ""
 
 #: app/templates/register.html:10
 msgid "privacy policy"
-msgstr "privacy policy"
+msgstr ""
 
 #: app/templates/register.html:11
 msgid "Create account"
-msgstr "Create account"
+msgstr ""
 
 #: app/templates/register.html:15
 msgid "Already have an account?"
-msgstr "Already have an account?"
+msgstr ""
 
 #: app/templates/reset_password.html:2
 msgid "Ustaw Nowe Hasło"
-msgstr "Ustaw Nowe Hasło"
+msgstr ""
 
 #: app/templates/reset_password.html:6
 msgid "Ustaw nowe hasło"
-msgstr "Ustaw nowe hasło"
+msgstr ""
 
 #: app/templates/reset_password.html:6
 msgid "Twoje nowe hasło musi być inne niż poprzednie."
-msgstr "Twoje nowe hasło musi być inne niż poprzednie."
+msgstr ""
 
 #: app/templates/reset_password.html:8
 msgid "Nowe hasło"
-msgstr "Nowe hasło"
+msgstr ""
 
 #: app/templates/reset_password.html:9
 msgid "Powtórz nowe hasło"
-msgstr "Powtórz nowe hasło"
+msgstr ""
 
 #: app/templates/reset_password.html:10
 msgid "Zapisz i zaloguj się"
-msgstr "Zapisz i zaloguj się"
+msgstr ""
 
 #: app/templates/reset_password_request.html:2
 msgid "Zresetuj Hasło"
-msgstr "Zresetuj Hasło"
+msgstr ""
 
 #: app/templates/reset_password_request.html:5
 msgid "Zresetuj hasło"
-msgstr "Zresetuj hasło"
+msgstr ""
 
 #: app/templates/reset_password_request.html:5
 msgid "Podaj swój adres e-mail, a wyślemy Ci link do ustawienia nowego hasła."
-msgstr "Podaj swój adres e-mail, a wyślemy Ci link do ustawienia nowego hasła."
+msgstr ""
 
 #: app/templates/reset_password_request.html:7
 msgid "Adres e-mail"
-msgstr "Adres e-mail"
+msgstr ""
 
 #: app/templates/reset_password_request.html:8
 msgid "Wyślij link"
-msgstr "Wyślij link"
+msgstr ""
 
 #: app/templates/reset_password_request.html:10
 msgid "Wróć do logowania"
-msgstr "Wróć do logowania"
+msgstr ""
 
-#: app/templates/subscribe.html:2
+#: app/templates/subscribe.html:2 app/templates/subscribe.html:3
 msgid "Subskrypcja"
-msgstr "Subskrypcja"
+msgstr ""
 
-#: app/templates/subscribe.html:6
+#: app/templates/subscribe.html:8
 msgid "Dokonaj Subskrypcji"
-msgstr "Dokonaj Subskrypcji"
+msgstr ""
 
-#: app/templates/subscribe.html:7
+#: app/templates/subscribe.html:9
 msgid "Wprowadź dane płatności, aby uzyskać dostęp do planu"
-msgstr "Wprowadź dane płatności, aby uzyskać dostęp do planu"
+msgstr ""
 
-#: app/templates/subscribe.html:11
+#: app/templates/subscribe.html:13
 msgid "Karta Kredytowa lub Debetowa"
-msgstr "Karta Kredytowa lub Debetowa"
+msgstr ""
 
-#: app/templates/subscribe.html:15
+#: app/templates/subscribe.html:17
 msgid "Zasubskrybuj Teraz"
-msgstr "Zasubskrybuj Teraz"
+msgstr ""
 
-#: app/templates/subscribe.html:27
+#: app/templates/subscribe.html:28
 msgid "Błąd konfiguracji płatności."
-msgstr "Błąd konfiguracji płatności."
+msgstr ""
+
+#: app/templates/terms.html:2
+msgid "Regulamin Serwisu"
+msgstr ""
+
+#: app/templates/terms.html:10
+msgid "Regulamin Serwisu (Terms of Service)"
+msgstr ""
+
+#: app/templates/terms.html:18 app/templates/terms.html:37
+msgid "Definicje"
+msgstr ""
+
+#: app/templates/terms.html:19 app/templates/terms.html:51
+msgid "Postanowienia ogólne"
+msgstr ""
+
+#: app/templates/terms.html:20 app/templates/terms.html:59
+msgid "Rejestracja i konto użytkownika"
+msgstr ""
+
+#: app/templates/terms.html:21 app/templates/terms.html:77
+msgid "Plany i płatności"
+msgstr ""
+
+#: app/templates/terms.html:22 app/templates/terms.html:96
+msgid "Korzystanie z serwisu"
+msgstr ""
+
+#: app/templates/terms.html:23 app/templates/terms.html:110
+msgid "Prawa i obowiązki użytkownika"
+msgstr ""
+
+#: app/templates/terms.html:24 app/templates/terms.html:128
+msgid "Przetwarzanie plików audio"
+msgstr ""
+
+#: app/templates/terms.html:25 app/templates/terms.html:142
+msgid "Polityka zwrotów i anulowania"
+msgstr ""
+
+#: app/templates/terms.html:26 app/templates/terms.html:155
+msgid "Odpowiedzialność"
+msgstr ""
+
+#: app/templates/terms.html:27 app/templates/terms.html:169
+msgid "Własność intelektualna"
+msgstr ""
+
+#: app/templates/terms.html:28 app/templates/terms.html:176
+msgid "Zakaz nadużyć"
+msgstr ""
+
+#: app/templates/terms.html:29 app/templates/terms.html:194
+msgid "Zmiany regulaminu"
+msgstr ""
+
+#: app/templates/terms.html:30 app/templates/terms.html:202
+msgid "Postanowienia końcowe"
+msgstr ""
+
+#: app/templates/terms.html:38
+msgid "Na potrzeby niniejszego Regulaminu, następujące terminy mają znaczenie:"
+msgstr ""
+
+#: app/templates/terms.html:40
+msgid "Serwis"
+msgstr ""
+
+#: app/templates/terms.html:40
+msgid ""
+"aplikacja webowa WaveBulk dostępna pod adresem wavebulk.com, służąca do "
+"konwersji i analizy plików audio"
+msgstr ""
+
+#: app/templates/terms.html:41
+msgid "Usługodawca"
+msgstr ""
+
+#: app/templates/terms.html:41
+msgid "właściciel i operator serwisu WaveBulk"
+msgstr ""
+
+#: app/templates/terms.html:42
+msgid ""
+"osoba fizyczna, prawna lub jednostka organizacyjna nieposiadająca "
+"osobowości prawnej, korzystająca z Serwisu"
+msgstr ""
+
+#: app/templates/terms.html:43
+msgid "Konto"
+msgstr ""
+
+#: app/templates/terms.html:43
+msgid "zbiór zasobów i uprawnień przypisanych do Użytkownika w Serwisie"
+msgstr ""
+
+#: app/templates/terms.html:44
+msgid "Plan"
+msgstr ""
+
+#: app/templates/terms.html:44
+msgid "pakiet usług oferowany przez Serwis (Free, Pro, Enterprise)"
+msgstr ""
+
+#: app/templates/terms.html:45
+msgid "Plik Audio"
+msgstr ""
+
+#: app/templates/terms.html:45
+msgid "plik w formacie audio przesłany przez Użytkownika do przetworzenia"
+msgstr ""
+
+#: app/templates/terms.html:46
+msgid "konwersja, analiza lub modyfikacja pliku audio przez Serwis"
+msgstr ""
+
+#: app/templates/terms.html:52
+msgid ""
+"2.1. Niniejszy Regulamin określa zasady korzystania z Serwisu WaveBulk "
+"oraz prawa i obowiązki Użytkowników i Usługodawcy."
+msgstr ""
+
+#: app/templates/terms.html:53
+msgid ""
+"2.2. Korzystanie z Serwisu jest równoznaczne z akceptacją niniejszego "
+"Regulaminu."
+msgstr ""
+
+#: app/templates/terms.html:54
+msgid ""
+"2.3. Użytkownik jest zobowiązany do zapoznania się z Regulaminem przed "
+"rozpoczęciem korzystania z Serwisu."
+msgstr ""
+
+#: app/templates/terms.html:55
+msgid ""
+"2.4. Regulamin jest dostępny nieodpłatnie w Serwisie w formie "
+"umożliwiającej jego pobranie, utrwalenie i wydrukowanie."
+msgstr ""
+
+#: app/templates/terms.html:60
+msgid "3.1. Korzystanie z podstawowych funkcji Serwisu wymaga założenia Konta."
+msgstr ""
+
+#: app/templates/terms.html:61
+msgid "3.2. Rejestracja jest bezpłatna i może być dokonana poprzez:"
+msgstr ""
+
+#: app/templates/terms.html:63
+msgid "Podanie adresu email i hasła"
+msgstr ""
+
+#: app/templates/terms.html:64
+msgid "Logowanie przez konto Google (OAuth)"
+msgstr ""
+
+#: app/templates/terms.html:66
+msgid "3.3. Użytkownik jest zobowiązany do:"
+msgstr ""
+
+#: app/templates/terms.html:68
+msgid "Podania prawdziwych danych podczas rejestracji"
+msgstr ""
+
+#: app/templates/terms.html:69
+msgid "Zachowania poufności danych logowania"
+msgstr ""
+
+#: app/templates/terms.html:70
+msgid ""
+"Niezwłocznego powiadomienia Usługodawcy o nieautoryzowanym dostępie do "
+"Konta"
+msgstr ""
+
+#: app/templates/terms.html:72
+msgid ""
+"3.4. Użytkownik ponosi pełną odpowiedzialność za działania podejmowane "
+"przy użyciu swojego Konta."
+msgstr ""
+
+#: app/templates/terms.html:73
+msgid ""
+"3.5. Użytkownik może w każdej chwili usunąć swoje Konto, kontaktując się "
+"z Usługodawcą."
+msgstr ""
+
+#: app/templates/terms.html:78
+msgid "Rodzaje planów"
+msgstr ""
+
+#: app/templates/terms.html:80
+msgid "Free"
+msgstr ""
+
+#: app/templates/terms.html:80
+msgid "10 plików miesięcznie, podstawowe funkcje"
+msgstr ""
+
+#: app/templates/terms.html:81
+msgid "Pro"
+msgstr ""
+
+#: app/templates/terms.html:81
+msgid "100 plików miesięcznie, zaawansowane funkcje"
+msgstr ""
+
+#: app/templates/terms.html:82
+msgid "Enterprise"
+msgstr ""
+
+#: app/templates/terms.html:82
+msgid "Nieograniczona liczba plików, priorytetowe przetwarzanie"
+msgstr ""
+
+#: app/templates/terms.html:84
+msgid "Płatności"
+msgstr ""
+
+#: app/templates/terms.html:85
+msgid "4.2.1. Płatności są przetwarzane przez Stripe, Inc."
+msgstr ""
+
+#: app/templates/terms.html:86
+msgid "4.2.2. Subskrypcja jest rozliczana miesięcznie z góry."
+msgstr ""
+
+#: app/templates/terms.html:87
+msgid "4.2.3. Ceny są podane w EUR/USD i zawierają podatek VAT (jeśli dotyczy)."
+msgstr ""
+
+#: app/templates/terms.html:88
+msgid ""
+"4.2.4. Automatyczne odnowienie subskrypcji następuje w dniu rocznicy "
+"zakupu."
+msgstr ""
+
+#: app/templates/terms.html:89
+msgid "Limity użytkowania"
+msgstr ""
+
+#: app/templates/terms.html:90
+msgid ""
+"4.3.1. Limity są resetowane pierwszego dnia każdego miesiąca "
+"kalendarzowego."
+msgstr ""
+
+#: app/templates/terms.html:91
+msgid "4.3.2. Niewykorzystane limity nie przechodzą na następny miesiąc."
+msgstr ""
+
+#: app/templates/terms.html:92
+msgid ""
+"4.3.3. Przekroczenie limitów skutkuje zablokowaniem możliwości "
+"przetwarzania do początku następnego miesiąca lub upgrade planu."
+msgstr ""
+
+#: app/templates/terms.html:97
+msgid "5.1. Serwis umożliwia:"
+msgstr ""
+
+#: app/templates/terms.html:99
+msgid ""
+"Konwersję plików audio między różnymi formatami (WAV, MP3, FLAC, AAC, "
+"OGG, etc.)"
+msgstr ""
+
+#: app/templates/terms.html:100
+msgid "Analizę głośności (LUFS, True Peak)"
+msgstr ""
+
+#: app/templates/terms.html:101
+msgid "Wizualizację plików audio (waveform, spectrogram)"
+msgstr ""
+
+#: app/templates/terms.html:102
+msgid "Pobieranie przetworzonych plików"
+msgstr ""
+
+#: app/templates/terms.html:104
+#, python-format
+msgid ""
+"5.2. Serwis działa w trybie \"best effort\" - Usługodawca dąży do "
+"zapewnienia wysokiej jakości usług, ale nie gwarantuje 100%% dostępności."
+msgstr ""
+
+#: app/templates/terms.html:105
+msgid ""
+"5.3. Maksymalny rozmiar pojedynczego pliku: 100MB dla planu Free, 500MB "
+"dla Pro, 2GB dla Enterprise."
+msgstr ""
+
+#: app/templates/terms.html:106
+msgid "5.4. Obsługiwane formaty: WAV, MP3, M4A, AAC, FLAC, OGG, WMA, AIFF, OPUS."
+msgstr ""
+
+#: app/templates/terms.html:111
+msgid "Użytkownik ma prawo do:"
+msgstr ""
+
+#: app/templates/terms.html:113
+msgid "Korzystania z Serwisu zgodnie z wybranym Planem"
+msgstr ""
+
+#: app/templates/terms.html:114
+msgid "Pobierania przetworzonych plików"
+msgstr ""
+
+#: app/templates/terms.html:115
+msgid "Anulowania subskrypcji w dowolnym momencie"
+msgstr ""
+
+#: app/templates/terms.html:116
+msgid "Dostępu do swoich danych osobowych i ich usunięcia (GDPR)"
+msgstr ""
+
+#: app/templates/terms.html:118
+msgid "Użytkownik zobowiązuje się do:"
+msgstr ""
+
+#: app/templates/terms.html:120
+msgid "Korzystania z Serwisu zgodnie z prawem i dobrymi obyczajami"
+msgstr ""
+
+#: app/templates/terms.html:121
+msgid "Nieprzesyłania plików naruszających prawa autorskie osób trzecich"
+msgstr ""
+
+#: app/templates/terms.html:122
+msgid ""
+"Nieprzesyłania plików zawierających treści nielegalne, pornograficzne, "
+"obraźliwe lub szkodliwe"
+msgstr ""
+
+#: app/templates/terms.html:123
+msgid "Niepodejmowania działań mogących zakłócić funkcjonowanie Serwisu"
+msgstr ""
+
+#: app/templates/terms.html:129
+msgid ""
+"7.1. Pliki przesłane przez Użytkownika są przechowywane przez maksymalnie"
+" 30 dni, po czym są automatycznie usuwane."
+msgstr ""
+
+#: app/templates/terms.html:130
+msgid ""
+"7.2. Użytkownik zachowuje pełne prawa autorskie do przesłanych i "
+"przetworzonych plików."
+msgstr ""
+
+#: app/templates/terms.html:131
+msgid ""
+"7.3. Usługodawca nie wykorzystuje przesłanych plików w żadnym celu poza "
+"świadczeniem usługi."
+msgstr ""
+
+#: app/templates/terms.html:132
+msgid "7.4. Usługodawca nie ponosi odpowiedzialności za:"
+msgstr ""
+
+#: app/templates/terms.html:134 app/templates/terms.html:160
+msgid "Utratę danych w wyniku awarii technicznej"
+msgstr ""
+
+#: app/templates/terms.html:135
+msgid "Jakość konwersji plików stratnych (MP3, AAC) na inne formaty stratne"
+msgstr ""
+
+#: app/templates/terms.html:136
+msgid "Naruszenie praw autorskich przez Użytkownika"
+msgstr ""
+
+#: app/templates/terms.html:138
+msgid "7.5. Zalecamy zachowanie kopii oryginalnych plików."
+msgstr ""
+
+#: app/templates/terms.html:143
+msgid "Anulowanie subskrypcji"
+msgstr ""
+
+#: app/templates/terms.html:144
+msgid ""
+"8.1.1. Użytkownik może anulować subskrypcję w dowolnym momencie przez "
+"panel konta."
+msgstr ""
+
+#: app/templates/terms.html:145
+msgid ""
+"8.1.2. Po anulowaniu dostęp do płatnych funkcji trwa do końca opłaconego "
+"okresu."
+msgstr ""
+
+#: app/templates/terms.html:146
+msgid "8.1.3. Anulowanie nie skutkuje automatycznym zwrotem środków."
+msgstr ""
+
+#: app/templates/terms.html:147
+msgid "Zwroty"
+msgstr ""
+
+#: app/templates/terms.html:148
+msgid ""
+"8.2.1. Zwrot środków jest możliwy w ciągu 14 dni od zakupu (prawo "
+"odstąpienia od umowy)."
+msgstr ""
+
+#: app/templates/terms.html:149
+msgid "8.2.2. Zwrot wymaga zgłoszenia na adres support@wavebulk.com."
+msgstr ""
+
+#: app/templates/terms.html:150
+msgid ""
+"8.2.3. Zwrot następuje na metodę płatności użytą przy zakupie w ciągu 14 "
+"dni roboczych."
+msgstr ""
+
+#: app/templates/terms.html:151
+#, python-format
+msgid ""
+"8.2.4. W przypadku znacznego wykorzystania usług (>50%% limitu), zwrot "
+"może zostać proporcjonalnie pomniejszony."
+msgstr ""
+
+#: app/templates/terms.html:156
+#, python-format
+msgid ""
+"9.1. Usługodawca dołoży wszelkich starań, aby Serwis działał "
+"nieprzerwanie i bez błędów, jednak nie gwarantuje 100%% dostępności."
+msgstr ""
+
+#: app/templates/terms.html:157
+msgid "9.2. Usługodawca nie ponosi odpowiedzialności za:"
+msgstr ""
+
+#: app/templates/terms.html:159
+msgid "Szkody wynikłe z przerw w dostępie do Serwisu"
+msgstr ""
+
+#: app/templates/terms.html:161
+msgid "Działania osób trzecich (hackerzy, DDoS)"
+msgstr ""
+
+#: app/templates/terms.html:162
+msgid "Nieprawidłowe użytkowanie Serwisu przez Użytkownika"
+msgstr ""
+
+#: app/templates/terms.html:164
+msgid ""
+"9.3. Odpowiedzialność Usługodawcy jest ograniczona do wysokości opłat "
+"uiszczonych przez Użytkownika w ciągu ostatnich 12 miesięcy."
+msgstr ""
+
+#: app/templates/terms.html:165
+msgid ""
+"9.4. Usługodawca nie ponosi odpowiedzialności za treść plików "
+"przesyłanych przez Użytkowników."
+msgstr ""
+
+#: app/templates/terms.html:170
+msgid ""
+"10.1. Wszystkie prawa własności intelektualnej do Serwisu (kod, design, "
+"logo, nazwa) należą do Usługodawcy."
+msgstr ""
+
+#: app/templates/terms.html:171
+msgid ""
+"10.2. Użytkownik zachowuje pełne prawa autorskie do przesłanych i "
+"przetworzonych plików."
+msgstr ""
+
+#: app/templates/terms.html:172
+msgid ""
+"10.3. Zabronione jest kopiowanie, modyfikowanie, reverse engineering lub "
+"dystrybucja kodu Serwisu bez zgody Usługodawcy."
+msgstr ""
+
+#: app/templates/terms.html:177
+msgid "11.1. Zabronione jest:"
+msgstr ""
+
+#: app/templates/terms.html:179
+msgid "Automatyczne przetwarzanie plików (boty, scraping) bez zgody Usługodawcy"
+msgstr ""
+
+#: app/templates/terms.html:180
+msgid "Próby obejścia limitów subskrypcji"
+msgstr ""
+
+#: app/templates/terms.html:181
+msgid "Ataki na infrastrukturę Serwisu (DDoS, SQL injection)"
+msgstr ""
+
+#: app/templates/terms.html:182
+msgid "Przesyłanie złośliwego oprogramowania"
+msgstr ""
+
+#: app/templates/terms.html:183
+msgid "Udostępnianie konta osobom trzecim"
+msgstr ""
+
+#: app/templates/terms.html:185
+msgid "11.2. W przypadku wykrycia nadużyć, Usługodawca ma prawo do:"
+msgstr ""
+
+#: app/templates/terms.html:187
+msgid "Zawieszenia lub usunięcia Konta bez zwrotu środków"
+msgstr ""
+
+#: app/templates/terms.html:188
+msgid "Zgłoszenia sprawy organom ścigania"
+msgstr ""
+
+#: app/templates/terms.html:189
+msgid "Dochodzenia odszkodowania"
+msgstr ""
+
+#: app/templates/terms.html:195
+msgid "12.1. Usługodawca zastrzega sobie prawo do zmiany Regulaminu."
+msgstr ""
+
+#: app/templates/terms.html:196
+msgid ""
+"12.2. Użytkownicy zostaną powiadomieni o zmianach emailem na 14 dni przed"
+" ich wejściem w życie."
+msgstr ""
+
+#: app/templates/terms.html:197
+msgid ""
+"12.3. Kontynuowanie korzystania z Serwisu po wejściu w życie zmian "
+"oznacza akceptację nowego Regulaminu."
+msgstr ""
+
+#: app/templates/terms.html:198
+msgid ""
+"12.4. W przypadku braku akceptacji zmian, Użytkownik ma prawo do "
+"anulowania subskrypcji i zwrotu proporcjonalnej części opłaty."
+msgstr ""
+
+#: app/templates/terms.html:203
+msgid ""
+"13.1. W sprawach nieuregulowanych w Regulaminie zastosowanie mają "
+"przepisy prawa polskiego."
+msgstr ""
+
+#: app/templates/terms.html:204
+msgid ""
+"13.2. Sądem właściwym dla rozstrzygania sporów jest sąd właściwy dla "
+"siedziby Usługodawcy."
+msgstr ""
+
+#: app/templates/terms.html:205
+msgid ""
+"13.3. Konsumenci mogą skorzystać z pozasądowych sposobów rozpatrywania "
+"reklamacji (ODR)."
+msgstr ""
+
+#: app/templates/terms.html:206
+msgid "13.4. Kontakt z Usługodawcą:"
+msgstr ""
+
+#: app/templates/terms.html:208
+msgid "Email: support@wavebulk.com"
+msgstr ""
+
+#: app/templates/terms.html:209
+msgid "Adres: [Do uzupełnienia]"
+msgstr ""
+
+#: app/templates/terms.html:211
+msgid "13.5. Regulamin wchodzi w życie z dniem 15 stycznia 2025 r."
+msgstr ""
+
+#: app/templates/terms.html:217
+msgid "Masz pytania dotyczące Regulaminu?"
+msgstr ""
 
 #: app/templates/upload_audio.html:2
 msgid "Prześlij i Przetwórz Pliki Audio"
-msgstr "Prześlij i Przetwórz Pliki Audio"
-
-#: app/templates/upload_audio.html:6
-msgid "Przetwarzanie Wsadowe"
-msgstr "Przetwarzanie Wsadowe"
+msgstr ""
 
 #: app/templates/upload_audio.html:7
-msgid "WYBIERZ LUB UPUŚĆ WIELE PLIKÓW .WAV NARAZ."
-msgstr "WYBIERZ LUB UPUŚĆ WIELE PLIKÓW .WAV NARAZ."
+msgid "Przetwarzanie Wsadowe"
+msgstr ""
+
+#: app/templates/upload_audio.html:8
+msgid "Prześlij wiele plików .WAV i przetwórz je jednocześnie"
+msgstr ""
 
 #: app/templates/upload_audio.html:15
-msgid "Przeciągnij i upuść pliki tutaj"
-msgstr "Przeciągnij i upuść pliki tutaj"
+msgid "Obsługiwane formaty"
+msgstr ""
 
-#: app/templates/upload_audio.html:16
-msgid "lub"
-msgstr "lub"
-
-#: app/templates/upload_audio.html:17
-msgid "Wybierz pliki"
-msgstr "Wybierz pliki"
-
-#: app/templates/upload_audio.html:20
-msgid "Opcje Przetwarzania"
-msgstr "Opcje Przetwarzania"
+#: app/templates/upload_audio.html:19
+msgid "Maksymalny rozmiar"
+msgstr ""
 
 #: app/templates/upload_audio.html:23
+msgid "Równoległe przetwarzanie"
+msgstr ""
+
+#: app/templates/upload_audio.html:32
+msgid "Przeciągnij i upuść pliki tutaj"
+msgstr ""
+
+#: app/templates/upload_audio.html:33
+msgid "lub"
+msgstr ""
+
+#: app/templates/upload_audio.html:34
+msgid "Wybierz pliki"
+msgstr ""
+
+#: app/templates/upload_audio.html:38
+msgid "Opcje Przetwarzania"
+msgstr ""
+
+#: app/templates/upload_audio.html:45
 msgid "Format wyjściowy"
-msgstr "Format wyjściowy"
+msgstr ""
 
-#: app/templates/upload_audio.html:24
-msgid "Bitrate MP3"
-msgstr "Bitrate MP3"
+#: app/templates/upload_audio.html:56
+msgid "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
+msgstr ""
 
-#: app/templates/upload_audio.html:24
-msgid "320 kbps (Najwyższa jakość)"
-msgstr "320 kbps (Najwyższa jakość)"
+#: app/templates/upload_audio.html:63
+msgid "320 kbps (Najwyższa)"
+msgstr ""
 
-#: app/templates/upload_audio.html:24
-msgid "192 kbps (Dobra jakość)"
-msgstr "192 kbps (Dobra jakość)"
+#: app/templates/upload_audio.html:64
+msgid "256 kbps (Bardzo dobra)"
+msgstr ""
 
-#: app/templates/upload_audio.html:26
-msgid "Głębia bitowa (WAV/FLAC)"
-msgstr "Głębia bitowa (WAV/FLAC)"
+#: app/templates/upload_audio.html:65
+msgid "192 kbps (Dobra)"
+msgstr ""
 
-#: app/templates/upload_audio.html:29
-msgid "24-bit (Domyślnie)"
-msgstr "24-bit (Domyślnie)"
+#: app/templates/upload_audio.html:66
+msgid "128 kbps (Streaming)"
+msgstr ""
 
-#: app/templates/upload_audio.html:30
-msgid "16-bit (Jakość CD)"
-msgstr "16-bit (Jakość CD)"
+#: app/templates/upload_audio.html:67
+msgid "VBR V0 (Variable, najlepsza)"
+msgstr ""
 
-#: app/templates/upload_audio.html:31
-msgid "32-bit float (Maksymalna)"
-msgstr "32-bit float (Maksymalna)"
-
-#: app/templates/upload_audio.html:36
-msgid "Platforma docelowa (Preset LUFS)"
-msgstr "Platforma docelowa (Preset LUFS)"
-
-#: app/templates/upload_audio.html:39
-msgid "Nie normalizuj"
-msgstr "Nie normalizuj"
-
-#: app/templates/upload_audio.html:40
-msgid "Własne ustawienia"
-msgstr "Własne ustawienia"
-
-#: app/templates/upload_audio.html:41
-msgid "Spotify (-14 LUFS)"
-msgstr "Spotify (-14 LUFS)"
-
-#: app/templates/upload_audio.html:42
-msgid "Apple Music (-16 LUFS)"
-msgstr "Apple Music (-16 LUFS)"
-
-#: app/templates/upload_audio.html:43
-msgid "YouTube (-14 LUFS)"
-msgstr "YouTube (-14 LUFS)"
-
-#: app/templates/upload_audio.html:48
-msgid "Dithering (dla 16-bit)"
-msgstr "Dithering (dla 16-bit)"
-
-#: app/templates/upload_audio.html:51
-msgid "Shibata (Zalecany)"
-msgstr "Shibata (Zalecany)"
-
-#: app/templates/upload_audio.html:58
-msgid "Jakość resamplingu"
-msgstr "Jakość resamplingu"
-
-#: app/templates/upload_audio.html:61
-msgid "Standardowa (Szybka)"
-msgstr "Standardowa (Szybka)"
-
-#: app/templates/upload_audio.html:62
-msgid "Wysoka - SoX (Wolniejsza)"
-msgstr "Wysoka - SoX (Wolniejsza)"
-
-#: app/templates/upload_audio.html:70
-msgid "Normalizuj głośność (prosta)"
-msgstr "Normalizuj głośność (prosta)"
+#: app/templates/upload_audio.html:68
+msgid "VBR V2 (Variable, dobra)"
+msgstr ""
 
 #: app/templates/upload_audio.html:73
-msgid "Docelowa głośność (LUFS)"
-msgstr "Docelowa głośność (LUFS)"
+msgid "VBR = zmienny bitrate, lepsza jakość/rozmiar"
+msgstr ""
 
-#: app/templates/upload_audio.html:79
-msgid "Aktywuj True Peak Limiter (Zalecane)"
-msgstr "Aktywuj True Peak Limiter (Zalecane)"
+#: app/templates/upload_audio.html:77
+msgid "Głębia bitowa (WAV/FLAC)"
+msgstr ""
+
+#: app/templates/upload_audio.html:80
+msgid "24-bit (Domyślnie)"
+msgstr ""
+
+#: app/templates/upload_audio.html:81
+msgid "16-bit (Jakość CD)"
+msgstr ""
 
 #: app/templates/upload_audio.html:82
-msgid "Metadane Plików (Opcjonalnie)"
-msgstr "Metadane Plików (Opcjonalnie)"
-
-#: app/templates/upload_audio.html:85
-msgid "Wykonawca"
-msgstr "Wykonawca"
-
-#: app/templates/upload_audio.html:86
-msgid "Album"
-msgstr "Album"
+msgid "32-bit float (Maksymalna)"
+msgstr ""
 
 #: app/templates/upload_audio.html:87
-msgid "Tytuł Utworu"
-msgstr "Tytuł Utworu"
-
-#: app/templates/upload_audio.html:88
-msgid "Numer Utworu"
-msgstr "Numer Utworu"
+msgid "Sample Rate"
+msgstr ""
 
 #: app/templates/upload_audio.html:90
-msgid "Okładka Albumu"
-msgstr "Okładka Albumu"
+msgid "Oryginalna"
+msgstr ""
 
-#: app/templates/upload_audio.html:90
-msgid "Wybierz obraz"
-msgstr "Wybierz obraz"
+#: app/templates/upload_audio.html:91
+msgid "44.1 kHz (CD)"
+msgstr ""
 
-#: app/templates/upload_audio.html:95
-msgid "Kolejka Plików"
-msgstr "Kolejka Plików"
+#: app/templates/upload_audio.html:92
+msgid "48 kHz (Video)"
+msgstr ""
+
+#: app/templates/upload_audio.html:93
+msgid "88.2 kHz (Hi-Res)"
+msgstr ""
+
+#: app/templates/upload_audio.html:94
+msgid "96 kHz (Studio)"
+msgstr ""
 
 #: app/templates/upload_audio.html:99
+msgid "48 kHz dla video, 44.1 kHz dla muzyki"
+msgstr ""
+
+#: app/templates/upload_audio.html:103
+msgid "Platforma docelowa (Preset LUFS)"
+msgstr ""
+
+#: app/templates/upload_audio.html:106
+msgid "Nie normalizuj"
+msgstr ""
+
+#: app/templates/upload_audio.html:107
+msgid "Własne ustawienia"
+msgstr ""
+
+#: app/templates/upload_audio.html:108
+msgid "Spotify (-14 LUFS)"
+msgstr ""
+
+#: app/templates/upload_audio.html:109
+msgid "Apple Music (-16 LUFS)"
+msgstr ""
+
+#: app/templates/upload_audio.html:110
+msgid "YouTube (-14 LUFS)"
+msgstr ""
+
+#: app/templates/upload_audio.html:115
+msgid "Dithering (dla 16-bit)"
+msgstr ""
+
+#: app/templates/upload_audio.html:118
+msgid "Shibata (Zalecany)"
+msgstr ""
+
+#: app/templates/upload_audio.html:125
+msgid "Jakość resamplingu"
+msgstr ""
+
+#: app/templates/upload_audio.html:128
+msgid "Standardowa (Szybka)"
+msgstr ""
+
+#: app/templates/upload_audio.html:129
+msgid "Wysoka - SoX (Wolniejsza)"
+msgstr ""
+
+#: app/templates/upload_audio.html:137
+msgid "Normalizuj głośność (prosta)"
+msgstr ""
+
+#: app/templates/upload_audio.html:140
+msgid "Docelowa głośność (LUFS)"
+msgstr ""
+
+#: app/templates/upload_audio.html:146
+msgid "Aktywuj True Peak Limiter (Zalecane)"
+msgstr ""
+
+#: app/templates/upload_audio.html:150
+msgid "Auto-trim ciszy (początek/koniec)"
+msgstr ""
+
+#: app/templates/upload_audio.html:154
+msgid "Fade In/Out"
+msgstr ""
+
+#: app/templates/upload_audio.html:159
+msgid "Fade In (sekundy)"
+msgstr ""
+
+#: app/templates/upload_audio.html:163
+msgid "Fade Out (sekundy)"
+msgstr ""
+
+#: app/templates/upload_audio.html:172
+msgid "Metadane Plików (Opcjonalnie)"
+msgstr ""
+
+#: app/templates/upload_audio.html:178
+msgid "Wykonawca"
+msgstr ""
+
+#: app/templates/upload_audio.html:179
+msgid "Album"
+msgstr ""
+
+#: app/templates/upload_audio.html:180
+msgid "Tytuł Utworu"
+msgstr ""
+
+#: app/templates/upload_audio.html:181
+msgid "Numer Utworu"
+msgstr ""
+
+#: app/templates/upload_audio.html:183
+msgid "Okładka Albumu"
+msgstr ""
+
+#: app/templates/upload_audio.html:183
+msgid "Wybierz obraz"
+msgstr ""
+
+#: app/templates/upload_audio.html:189
+msgid "Kolejka Plików"
+msgstr ""
+
+#: app/templates/upload_audio.html:193
 msgid "Rozpocznij Przetwarzanie"
-msgstr "Rozpocznij Przetwarzanie"
+msgstr ""
 
 #: app/utils/decorators.py:21
 msgid "Ta funkcja wymaga aktywnej subskrypcji."
-msgstr "Ta funkcja wymaga aktywnej subskrypcji."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/_termui_impl.py:600
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/_termui_impl.py:604
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1084
+#: venv/lib/python3.12/site-packages/click/core.py:1121
+msgid "{text} {deprecated_message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1140
+msgid "Options"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1204
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1220
+msgid "DeprecationWarning: The command {name!r} is deprecated.{extra_message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1405
+msgid "Aborted!"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1779
+msgid "Commands"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1810
+msgid "Missing command."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1888
+msgid "No such command {name!r}."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2303
+msgid "Value must be an iterable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2326
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2403
+msgid ""
+"DeprecationWarning: The {param_type} {name!r} is "
+"deprecated.{extra_message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2807
+msgid "env var: {var}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2810
+msgid "default: {default}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2814
+msgid "required"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2870
+msgid "(dynamic)"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/decorators.py:522
+msgid "Show the version and exit."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/decorators.py:548
+msgid "Show this message and exit."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:50
+#: venv/lib/python3.12/site-packages/click/exceptions.py:89
+msgid "Error: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:81
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:130
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:132
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:190
+msgid "Missing argument"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:192
+msgid "Missing option"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:194
+msgid "Missing parameter"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:196
+msgid "Missing {param_type}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:203
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:223
+msgid "No such option: {name}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:237
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:282
+msgid "unknown error"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:289
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/formatting.py:156
+msgid "Usage:"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/parser.py:200
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/parser.py:383
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/parser.py:443
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/click/shell_completion.py:325
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:162
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:178
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:180
+msgid "Error: {e.message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:191
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:247
+msgid "Error: invalid input"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:866
+msgid "Press any key to continue..."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:332
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:371
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:462
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:482
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:538
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:679
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:703
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:893
+msgid "file"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:895
+msgid "directory"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:897
+msgid "path"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:944
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:953
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:961
+msgid "{name} {filename!r} is a directory."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:970
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:979
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:988
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:1054
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.12/site-packages/kombu/transport/qpid.py:1311
+#, python-format
+msgid "Attempting to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/kombu/transport/qpid.py:1316
+#, python-format
+msgid "Connected to qpid with SASL mechanism %s"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/kombu/transport/qpid.py:1334
+#, python-format
+msgid "Unable to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/test/integ/test_sendgrid.py:333
+#: venv/lib/python3.12/site-packages/test/integ/test_sendgrid.py:340
+#: venv/lib/python3.12/site-packages/test/integ/test_sendgrid.py:347
+msgid "global"
+msgstr ""
 
 #~ msgid "Welcome back!"
-#~ msgstr "Witaj z powrotem!"
+#~ msgstr "Welcome back!"
 
 #~ msgid "Login"
-#~ msgstr "Logowanie"
+#~ msgstr "Login"
 
 #~ msgid "Email address"
-#~ msgstr "Adres e-mail"
+#~ msgstr "Email address"
 
 #~ msgid "Password"
-#~ msgstr "Hasło"
+#~ msgstr "Password"
 
 #~ msgid "Remember me"
-#~ msgstr "Zapamiętaj mnie"
+#~ msgstr "Remember me"
 
 #~ msgid "Forgot your password?"
-#~ msgstr "Nie pamiętasz hasła?"
+#~ msgstr "Forgot your password?"
 
 #~ msgid "Sign In"
-#~ msgstr "Zaloguj się"
+#~ msgstr "Sign In"
 
 #~ msgid "OR"
-#~ msgstr "LUB"
+#~ msgstr "OR"
 
 #~ msgid "Sign in with Google"
-#~ msgstr "Zaloguj się przez Google"
+#~ msgstr "Sign in with Google"
 
 #~ msgid "Don't have an account?"
-#~ msgstr "Nie masz konta?"
+#~ msgstr "Don't have an account?"
 
 #~ msgid "Sign up"
-#~ msgstr "Zarejestruj się"
+#~ msgstr "Sign up"
 
 #~ msgid "Register"
-#~ msgstr "Rejestracja"
+#~ msgstr "Register"
 
 #~ msgid "Create a free account"
-#~ msgstr "Stwórz darmowe konto"
+#~ msgstr "Create a free account"
 
 #~ msgid "Confirm password"
-#~ msgstr "Powtórz hasło"
+#~ msgstr "Confirm password"
 
 #~ msgid "I accept the"
-#~ msgstr "Akceptuję"
+#~ msgstr "I accept the"
 
 #~ msgid "terms of service"
-#~ msgstr "regulamin"
+#~ msgstr "terms of service"
 
 #~ msgid "and"
-#~ msgstr "i"
+#~ msgstr "and"
 
 #~ msgid "privacy policy"
-#~ msgstr "politykę prywatności"
+#~ msgstr "privacy policy"
 
 #~ msgid "Create account"
-#~ msgstr "Stwórz konto"
+#~ msgstr "Create account"
 
 #~ msgid "Already have an account?"
-#~ msgstr "Masz już konto?"
+#~ msgstr "Already have an account?"
 
+#~ msgid "Nowy plan został pomyślnie utworzony."
+#~ msgstr "Nowy plan został pomyślnie utworzony."
+
+#~ msgid "Wystąpił błąd: %(error)s"
+#~ msgstr "Wystąpił błąd: %(error)s"
+
+#~ msgid "Plan \"%(plan_name)s\" został zarchiwizowany."
+#~ msgstr ""
+
+#~ msgid "Błąd podczas archiwizacji w Stripe: %(error)s"
+#~ msgstr "Błąd podczas archiwizacji w Stripe: %(error)s"
+
+#~ msgid "Nie znaleziono aktywnego planu o podanym ID."
+#~ msgstr "Nie znaleziono aktywnego planu o podanym ID."
+
+#~ msgid "Hasła nie pasują do siebie."
+#~ msgstr "Hasła nie pasują do siebie."
+
+#~ msgid "Musisz zaakceptować regulamin i politykę prywatności."
+#~ msgstr "Musisz zaakceptować regulamin i politykę prywatności."
+
+#~ msgid "Ten adres e-mail jest już zajęty."
+#~ msgstr "Ten adres e-mail jest już zajęty."
+
+#~ msgid "Konto zostało utworzone pomyślnie! Możesz się teraz zalogować."
+#~ msgstr "Konto zostało utworzone pomyślnie! Możesz się teraz zalogować."
+
+#~ msgid "Błędny email lub hasło. Spróbuj ponownie."
+#~ msgstr "Błędny email lub hasło. Spróbuj ponownie."
+
+#~ msgid "Zostałeś wylogowany."
+#~ msgstr "Zostałeś wylogowany."
+
+#~ msgid "Na Twój adres e-mail został wysłany link do zresetowania hasła."
+#~ msgstr "Na Twój adres e-mail został wysłany link do zresetowania hasła."
+
+#~ msgid "Podany adres e-mail nie istnieje."
+#~ msgstr "Podany adres e-mail nie istnieje."
+
+#~ msgid "Link do zresetowania hasła jest nieprawidłowy lub wygasł."
+#~ msgstr "Link do zresetowania hasła jest nieprawidłowy lub wygasł."
+
+#~ msgid "Użytkownik nie znaleziony."
+#~ msgstr "Użytkownik nie znaleziony."
+
+#~ msgid "Twoje hasło zostało zresetowane! Możesz się teraz zalogować."
+#~ msgstr "Twoje hasło zostało zresetowane! Możesz się teraz zalogować."
+
+#~ msgid "Wystąpił błąd podczas autoryzacji przez Google: %(error)s"
+#~ msgstr "Wystąpił błąd podczas autoryzacji przez Google: %(error)s"
+
+#~ msgid "Nie udało się uzyskać identyfikatora użytkownika od Google."
+#~ msgstr "Nie udało się uzyskać identyfikatora użytkownika od Google."
+
+#~ msgid "Zalogowano pomyślnie przez Google!"
+#~ msgstr "Zalogowano pomyślnie przez Google!"
+
+#~ msgid "Twoje istniejące konto zostało połączone z kontem Google!"
+#~ msgstr "Twoje istniejące konto zostało połączone z kontem Google!"
+
+#~ msgid "Konto zostało utworzone i zalogowano pomyślnie przez Google!"
+#~ msgstr "Konto zostało utworzone i zalogowano pomyślnie przez Google!"
+
+#~ msgid "Nie znaleziono aktywnej subskrypcji."
+#~ msgstr "Nie znaleziono aktywnej subskrypcji."
+
+#~ msgid "Zarządzaj Planami"
+#~ msgstr "Zarządzaj Planami"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "Panel Administratora"
+#~ msgstr "Panel Administratora"
+
+#~ msgid "Plany Subskrypcji"
+#~ msgstr "Plany Subskrypcji"
+
+#~ msgid "Zarządzaj Użytkownikami"
+#~ msgstr "Zarządzaj Użytkownikami"
+
+#~ msgid "Istniejące Plany"
+#~ msgstr "Istniejące Plany"
+
+#~ msgid "Nazwa"
+#~ msgstr "Nazwa"
+
+#~ msgid "Cena"
+#~ msgstr "Cena"
+
+#~ msgid "Okres"
+#~ msgstr "Okres"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Akcje"
+#~ msgstr "Akcje"
+
+#~ msgid "Aktywny"
+#~ msgstr "Aktywny"
+
+#~ msgid "Zarchiwizowany"
+#~ msgstr "Zarchiwizowany"
+
+#~ msgid "Czy na pewno chcesz zarchiwizować ten plan?"
+#~ msgstr "Czy na pewno chcesz zarchiwizować ten plan?"
+
+#~ msgid "Archiwizuj"
+#~ msgstr "Archiwizuj"
+
+#~ msgid "Brak zdefiniowanych planów."
+#~ msgstr "Brak zdefiniowanych planów."
+
+#~ msgid "Stwórz Nowy Plan w Stripe"
+#~ msgstr "Stwórz Nowy Plan w Stripe"
+
+#~ msgid "Nazwa Planu (np. PRO)"
+#~ msgstr "Nazwa Planu (np. PRO)"
+
+#~ msgid "Cena (np. 49.00)"
+#~ msgstr "Cena (np. 49.00)"
+
+#~ msgid "Waluta"
+#~ msgstr "Waluta"
+
+#~ msgid "Okres Rozliczeniowy"
+#~ msgstr "Okres Rozliczeniowy"
+
+#~ msgid "Miesiąc"
+#~ msgstr "Miesiąc"
+
+#~ msgid "Rok"
+#~ msgstr "Rok"
+
+#~ msgid "Stwórz Plan"
+#~ msgstr "Stwórz Plan"
+
+#~ msgid "Użytkownicy"
+#~ msgstr "Użytkownicy"
+
+#~ msgid "Data Rejestracji"
+#~ msgstr "Data Rejestracji"
+
+#~ msgid "Rola"
+#~ msgstr "Rola"
+
+#~ msgid "Status Subskrypcji"
+#~ msgstr "Status Subskrypcji"
+
+#~ msgid "Użytkownik"
+#~ msgstr "Użytkownik"
+
+#~ msgid "Aktywna"
+#~ msgstr "Aktywna"
+
+#~ msgid "Zaległa"
+#~ msgstr "Zaległa"
+
+#~ msgid "Anulowana"
+#~ msgstr "Anulowana"
+
+#~ msgid "Brak"
+#~ msgstr "Brak"
+
+#~ msgid "Home"
+#~ msgstr "Home"
+
+#~ msgid "Historia"
+#~ msgstr "Historia"
+
+#~ msgid "Cennik"
+#~ msgstr "Cennik"
+
+#~ msgid "Panel Admina"
+#~ msgstr "Panel Admina"
+
+#~ msgid "Zarządzaj Subskrypcją"
+#~ msgstr "Zarządzaj Subskrypcją"
+
+#~ msgid "Prześlij pliki"
+#~ msgstr "Prześlij pliki"
+
+#~ msgid "Wyloguj"
+#~ msgstr "Wyloguj"
+
+#~ msgid "Zaloguj się"
+#~ msgstr "Zaloguj się"
+
+#~ msgid "Zarejestruj się"
+#~ msgstr "Zarejestruj się"
+
+#~ msgid "Wszelkie prawa zastrzeżone."
+#~ msgstr "Wszelkie prawa zastrzeżone."
+
+#~ msgid "Moja Historia Przetwarzania"
+#~ msgstr "Moja Historia Przetwarzania"
+
+#~ msgid "Lista wszystkich Twoich przetworzonych plików audio."
+#~ msgstr "Lista wszystkich Twoich przetworzonych plików audio."
+
+#~ msgid "Nazwa pliku"
+#~ msgstr "Nazwa pliku"
+
+#~ msgid "Głośność LUFS"
+#~ msgstr "Głośność LUFS"
+
+#~ msgid "Data"
+#~ msgstr "Data"
+
+#~ msgid "Ukończono"
+#~ msgstr "Ukończono"
+
+#~ msgid "W trakcie..."
+#~ msgstr "W trakcie..."
+
+#~ msgid "Błąd"
+#~ msgstr "Błąd"
+
+#~ msgid "Brak statusu"
+#~ msgstr "Brak statusu"
+
+#~ msgid "Pobierz"
+#~ msgstr "Pobierz"
+
+#~ msgid "Usuń zaznaczone"
+#~ msgstr "Usuń zaznaczone"
+
+#~ msgid "Nie masz jeszcze żadnych przetworzonych plików."
+#~ msgstr "Nie masz jeszcze żadnych przetworzonych plików."
+
+#~ msgid "Analiza i Konwersja Audio"
+#~ msgstr "Analiza i Konwersja Audio"
+
+#~ msgid "Studyjna Jakość Konwersji i"
+#~ msgstr "Studyjna Jakość Konwersji i"
+
+#~ msgid "Analizy"
+#~ msgstr "Analizy"
+
+#~ msgid "W Twojej Przeglądarce."
+#~ msgstr "W Twojej Przeglądarce."
+
+#~ msgid ""
+#~ "Przetwarzaj, analizuj i konwertuj pliki "
+#~ "audio jak profesjonalista. Bez instalacji, "
+#~ "z dowolnego miejsca. Uzyskaj wgląd w "
+#~ "swoją muzykę, jakiego nie da Ci "
+#~ "żadne inne narzędzie online."
+#~ msgstr ""
+
+#~ msgid "Rozpocznij darmowy projekt"
+#~ msgstr "Rozpocznij darmowy projekt"
+
+#~ msgid "Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej."
+#~ msgstr "Dołącz do setek producentów i muzyków. Nie wymagamy karty kredytowej."
+
+#~ msgid "Wszystko, Czego Potrzebujesz w Jednym Miejscu"
+#~ msgstr "Wszystko, Czego Potrzebujesz w Jednym Miejscu"
+
+#~ msgid "Od prostej konwersji po zaawansowaną analizę techniczną."
+#~ msgstr "Od prostej konwersji po zaawansowaną analizę techniczną."
+
+#~ msgid "Profesjonalna Analiza Audio"
+#~ msgstr "Profesjonalna Analiza Audio"
+
+#~ msgid ""
+#~ "Sprawdź głośność LUFS, True Peak, zakres"
+#~ " dynamiki i zgodność mono, aby Twoja"
+#~ " muzyka brzmiała perfekcyjnie na każdej "
+#~ "platformie streamingowej."
+#~ msgstr ""
+
+#~ msgid "Wysokiej Jakości Konwersja"
+#~ msgstr "Wysokiej Jakości Konwersja"
+
+#~ msgid ""
+#~ "Konwertuj pliki do formatów bezstratnych "
+#~ "jak FLAC czy stratnych jak MP3 "
+#~ "320kbps z użyciem najlepszych dostępnych "
+#~ "kodeków, zachowując maksymalną jakość."
+#~ msgstr ""
+
+#~ msgid "Wsadowe Przetwarzanie"
+#~ msgstr "Wsadowe Przetwarzanie"
+
+#~ msgid ""
+#~ "Oszczędzaj godziny pracy. Przeciągnij cały "
+#~ "album lub folder z plikami, ustaw "
+#~ "parametry raz i pozwól naszej aplikacji"
+#~ " zająć się resztą."
+#~ msgstr ""
+
+#~ msgid "Prosty i Przejrzysty Cennik"
+#~ msgstr "Prosty i Przejrzysty Cennik"
+
+#~ msgid "Wybierz plan, który rośnie razem z Tobą."
+#~ msgstr "Wybierz plan, który rośnie razem z Tobą."
+
+#~ msgid "Zobacz Pełne Porównanie Planów"
+#~ msgstr "Zobacz Pełne Porównanie Planów"
+
+#~ msgid "Plany i Cennik"
+#~ msgstr "Plany i Cennik"
+
+#~ msgid "Wybierz plan dopasowany do Ciebie"
+#~ msgstr "Wybierz plan dopasowany do Ciebie"
+
+#~ msgid ""
+#~ "Zacznij za darmo i przejdź na "
+#~ "wyższy plan, gdy potrzebujesz więcej "
+#~ "mocy."
+#~ msgstr ""
+#~ "Zacznij za darmo i przejdź na "
+#~ "wyższy plan, gdy potrzebujesz więcej "
+#~ "mocy."
+
+#~ msgid "Darmowy"
+#~ msgstr "Darmowy"
+
+#~ msgid "miesiąc"
+#~ msgstr "miesiąc"
+
+#~ msgid "Idealny do testowania aplikacji i sporadycznych konwersji."
+#~ msgstr "Idealny do testowania aplikacji i sporadycznych konwersji."
+
+#~ msgid "Zacznij za darmo"
+#~ msgstr "Zacznij za darmo"
+
+#~ msgid "Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi."
+#~ msgstr "Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi."
+
+#~ msgid "Dla małych studiów i profesjonalistów z dużymi potrzebami."
+#~ msgstr "Dla małych studiów i profesjonalistów z dużymi potrzebami."
+
+#~ msgid "Niestandardowy plan dostosowany do Twoich potrzeb."
+#~ msgstr "Niestandardowy plan dostosowany do Twoich potrzeb."
+
+#~ msgid "Wybierz plan"
+#~ msgstr "Wybierz plan"
+
+#~ msgid "Ustaw Nowe Hasło"
+#~ msgstr "Ustaw Nowe Hasło"
+
+#~ msgid "Ustaw nowe hasło"
+#~ msgstr "Ustaw nowe hasło"
+
+#~ msgid "Twoje nowe hasło musi być inne niż poprzednie."
+#~ msgstr "Twoje nowe hasło musi być inne niż poprzednie."
+
+#~ msgid "Nowe hasło"
+#~ msgstr "Nowe hasło"
+
+#~ msgid "Powtórz nowe hasło"
+#~ msgstr "Powtórz nowe hasło"
+
+#~ msgid "Zapisz i zaloguj się"
+#~ msgstr "Zapisz i zaloguj się"
+
+#~ msgid "Zresetuj Hasło"
+#~ msgstr "Zresetuj Hasło"
+
+#~ msgid "Zresetuj hasło"
+#~ msgstr "Zresetuj hasło"
+
+#~ msgid "Podaj swój adres e-mail, a wyślemy Ci link do ustawienia nowego hasła."
+#~ msgstr "Podaj swój adres e-mail, a wyślemy Ci link do ustawienia nowego hasła."
+
+#~ msgid "Adres e-mail"
+#~ msgstr "Adres e-mail"
+
+#~ msgid "Wyślij link"
+#~ msgstr "Wyślij link"
+
+#~ msgid "Wróć do logowania"
+#~ msgstr "Wróć do logowania"
+
+#~ msgid "Subskrypcja"
+#~ msgstr "Subskrypcja"
+
+#~ msgid "Dokonaj Subskrypcji"
+#~ msgstr "Dokonaj Subskrypcji"
+
+#~ msgid "Wprowadź dane płatności, aby uzyskać dostęp do planu"
+#~ msgstr "Wprowadź dane płatności, aby uzyskać dostęp do planu"
+
+#~ msgid "Karta Kredytowa lub Debetowa"
+#~ msgstr "Karta Kredytowa lub Debetowa"
+
+#~ msgid "Zasubskrybuj Teraz"
+#~ msgstr "Zasubskrybuj Teraz"
+
+#~ msgid "Błąd konfiguracji płatności."
+#~ msgstr "Błąd konfiguracji płatności."
+
+#~ msgid "Prześlij i Przetwórz Pliki Audio"
+#~ msgstr "Prześlij i Przetwórz Pliki Audio"
+
+#~ msgid "Przetwarzanie Wsadowe"
+#~ msgstr "Przetwarzanie Wsadowe"
+
+#~ msgid "WYBIERZ LUB UPUŚĆ WIELE PLIKÓW .WAV NARAZ."
+#~ msgstr "WYBIERZ LUB UPUŚĆ WIELE PLIKÓW .WAV NARAZ."
+
+#~ msgid "Przeciągnij i upuść pliki tutaj"
+#~ msgstr "Przeciągnij i upuść pliki tutaj"
+
+#~ msgid "lub"
+#~ msgstr "lub"
+
+#~ msgid "Wybierz pliki"
+#~ msgstr "Wybierz pliki"
+
+#~ msgid "Opcje Przetwarzania"
+#~ msgstr "Opcje Przetwarzania"
+
+#~ msgid "Format wyjściowy"
+#~ msgstr "Format wyjściowy"
+
+#~ msgid "Bitrate MP3"
+#~ msgstr "Bitrate MP3"
+
+#~ msgid "320 kbps (Najwyższa jakość)"
+#~ msgstr "320 kbps (Najwyższa jakość)"
+
+#~ msgid "192 kbps (Dobra jakość)"
+#~ msgstr "192 kbps (Dobra jakość)"
+
+#~ msgid "Głębia bitowa (WAV/FLAC)"
+#~ msgstr "Głębia bitowa (WAV/FLAC)"
+
+#~ msgid "24-bit (Domyślnie)"
+#~ msgstr "24-bit (Domyślnie)"
+
+#~ msgid "16-bit (Jakość CD)"
+#~ msgstr "16-bit (Jakość CD)"
+
+#~ msgid "32-bit float (Maksymalna)"
+#~ msgstr "32-bit float (Maksymalna)"
+
+#~ msgid "Platforma docelowa (Preset LUFS)"
+#~ msgstr "Platforma docelowa (Preset LUFS)"
+
+#~ msgid "Nie normalizuj"
+#~ msgstr "Nie normalizuj"
+
+#~ msgid "Własne ustawienia"
+#~ msgstr "Własne ustawienia"
+
+#~ msgid "Spotify (-14 LUFS)"
+#~ msgstr "Spotify (-14 LUFS)"
+
+#~ msgid "Apple Music (-16 LUFS)"
+#~ msgstr "Apple Music (-16 LUFS)"
+
+#~ msgid "YouTube (-14 LUFS)"
+#~ msgstr "YouTube (-14 LUFS)"
+
+#~ msgid "Dithering (dla 16-bit)"
+#~ msgstr "Dithering (dla 16-bit)"
+
+#~ msgid "Shibata (Zalecany)"
+#~ msgstr "Shibata (Zalecany)"
+
+#~ msgid "Jakość resamplingu"
+#~ msgstr "Jakość resamplingu"
+
+#~ msgid "Standardowa (Szybka)"
+#~ msgstr "Standardowa (Szybka)"
+
+#~ msgid "Wysoka - SoX (Wolniejsza)"
+#~ msgstr "Wysoka - SoX (Wolniejsza)"
+
+#~ msgid "Normalizuj głośność (prosta)"
+#~ msgstr "Normalizuj głośność (prosta)"
+
+#~ msgid "Docelowa głośność (LUFS)"
+#~ msgstr "Docelowa głośność (LUFS)"
+
+#~ msgid "Aktywuj True Peak Limiter (Zalecane)"
+#~ msgstr "Aktywuj True Peak Limiter (Zalecane)"
+
+#~ msgid "Metadane Plików (Opcjonalnie)"
+#~ msgstr "Metadane Plików (Opcjonalnie)"
+
+#~ msgid "Wykonawca"
+#~ msgstr "Wykonawca"
+
+#~ msgid "Album"
+#~ msgstr "Album"
+
+#~ msgid "Tytuł Utworu"
+#~ msgstr "Tytuł Utworu"
+
+#~ msgid "Numer Utworu"
+#~ msgstr "Numer Utworu"
+
+#~ msgid "Okładka Albumu"
+#~ msgstr "Okładka Albumu"
+
+#~ msgid "Wybierz obraz"
+#~ msgstr "Wybierz obraz"
+
+#~ msgid "Kolejka Plików"
+#~ msgstr "Kolejka Plików"
+
+#~ msgid "Rozpocznij Przetwarzanie"
+#~ msgstr "Rozpocznij Przetwarzanie"
+
+#~ msgid "Ta funkcja wymaga aktywnej subskrypcji."
+#~ msgstr "Ta funkcja wymaga aktywnej subskrypcji."
 
 # New Quick Wins translations (PL base)
-msgid "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
-msgstr "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
+#~ msgid "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
+#~ msgstr "MP3: uniwersalny. AAC: lepszy od MP3. WAV/FLAC: bezstratne"
 
-msgid "Bitrate"
-msgstr "Bitrate"
+#~ msgid "Bitrate"
+#~ msgstr "Bitrate"
 
-msgid "320 kbps (Najwyższa)"
-msgstr "320 kbps (Najwyższa)"
+#~ msgid "320 kbps (Najwyższa)"
+#~ msgstr "320 kbps (Najwyższa)"
 
-msgid "256 kbps (Bardzo dobra)"
-msgstr "256 kbps (Bardzo dobra)"
+#~ msgid "256 kbps (Bardzo dobra)"
+#~ msgstr "256 kbps (Bardzo dobra)"
 
-msgid "192 kbps (Dobra)"
-msgstr "192 kbps (Dobra)"
+#~ msgid "192 kbps (Dobra)"
+#~ msgstr "192 kbps (Dobra)"
 
-msgid "128 kbps (Streaming)"
-msgstr "128 kbps (Streaming)"
+#~ msgid "128 kbps (Streaming)"
+#~ msgstr "128 kbps (Streaming)"
 
-msgid "VBR V0 (Variable, najlepsza)"
-msgstr "VBR V0 (Variable, najlepsza)"
+#~ msgid "VBR V0 (Variable, najlepsza)"
+#~ msgstr "VBR V0 (Variable, najlepsza)"
 
-msgid "VBR V2 (Variable, dobra)"
-msgstr "VBR V2 (Variable, dobra)"
+#~ msgid "VBR V2 (Variable, dobra)"
+#~ msgstr "VBR V2 (Variable, dobra)"
 
-msgid "VBR = zmienny bitrate, lepsza jakość/rozmiar"
-msgstr "VBR = zmienny bitrate, lepsza jakość/rozmiar"
+#~ msgid "VBR = zmienny bitrate, lepsza jakość/rozmiar"
+#~ msgstr "VBR = zmienny bitrate, lepsza jakość/rozmiar"
 
-msgid "Sample Rate"
-msgstr "Sample Rate"
+#~ msgid "Sample Rate"
+#~ msgstr "Sample Rate"
 
-msgid "Oryginalna"
-msgstr "Oryginalna"
+#~ msgid "Oryginalna"
+#~ msgstr "Oryginalna"
 
-msgid "44.1 kHz (CD)"
-msgstr "44.1 kHz (CD)"
+#~ msgid "44.1 kHz (CD)"
+#~ msgstr "44.1 kHz (CD)"
 
-msgid "48 kHz (Video)"
-msgstr "48 kHz (Video)"
+#~ msgid "48 kHz (Video)"
+#~ msgstr "48 kHz (Video)"
 
-msgid "88.2 kHz (Hi-Res)"
-msgstr "88.2 kHz (Hi-Res)"
+#~ msgid "88.2 kHz (Hi-Res)"
+#~ msgstr "88.2 kHz (Hi-Res)"
 
-msgid "96 kHz (Studio)"
-msgstr "96 kHz (Studio)"
+#~ msgid "96 kHz (Studio)"
+#~ msgstr "96 kHz (Studio)"
 
-msgid "48 kHz dla video, 44.1 kHz dla muzyki"
-msgstr "48 kHz dla video, 44.1 kHz dla muzyki"
+#~ msgid "48 kHz dla video, 44.1 kHz dla muzyki"
+#~ msgstr "48 kHz dla video, 44.1 kHz dla muzyki"
 
-msgid "Auto-trim ciszy (początek/koniec)"
-msgstr "Auto-trim ciszy (początek/koniec)"
+#~ msgid "Auto-trim ciszy (początek/koniec)"
+#~ msgstr "Auto-trim ciszy (początek/koniec)"
 
-msgid "Fade In/Out"
-msgstr "Fade In/Out"
+#~ msgid "Fade In/Out"
+#~ msgstr "Fade In/Out"
 
-msgid "Fade In (sekundy)"
-msgstr "Fade In (sekundy)"
+#~ msgid "Fade In (sekundy)"
+#~ msgstr "Fade In (sekundy)"
 
-msgid "Fade Out (sekundy)"
-msgstr "Fade Out (sekundy)"
-
+#~ msgid "Fade Out (sekundy)"
+#~ msgstr "Fade Out (sekundy)"
 
 # Professional Audio Player translations (PL)
-msgid "Profesjonalny Odtwarzacz Audio"
-msgstr "Profesjonalny Odtwarzacz Audio"
+#~ msgid "Profesjonalny Odtwarzacz Audio"
+#~ msgstr "Profesjonalny Odtwarzacz Audio"
 
-msgid "Pojedynczy"
-msgstr "Pojedynczy"
+#~ msgid "Pojedynczy"
+#~ msgstr "Pojedynczy"
 
-msgid "Porównanie A/B"
-msgstr "Porównanie A/B"
+#~ msgid "Porównanie A/B"
+#~ msgstr "Porównanie A/B"
 
-msgid "Spectrogram"
-msgstr "Spectrogram"
+#~ msgid "Spectrogram"
+#~ msgstr "Spectrogram"
 
-msgid "Analizer częstotliwości"
-msgstr "Analizer częstotliwości"
+#~ msgid "Analizer częstotliwości"
+#~ msgstr "Analizer częstotliwości"
 
-msgid "Korelacja fazy"
-msgstr "Korelacja fazy"
+#~ msgid "Korelacja fazy"
+#~ msgstr "Korelacja fazy"
 
-msgid "Markery"
-msgstr "Markery"
+#~ msgid "Markery"
+#~ msgstr "Markery"
 
-msgid "Przetworzony"
-msgstr "Przetworzony"
+#~ msgid "Przetworzony"
+#~ msgstr "Przetworzony"
 
-msgid "Przed"
-msgstr "Przed"
+#~ msgid "Przed"
+#~ msgstr "Przed"
 
-msgid "Po"
-msgstr "Po"
+#~ msgid "Po"
+#~ msgstr "Po"
 
-msgid "Oryginalny"
-msgstr "Oryginalny"
+#~ msgid "Oryginalny"
+#~ msgstr "Oryginalny"
 
-msgid "Przełącz A/B"
-msgstr "Przełącz A/B"
+#~ msgid "Przełącz A/B"
+#~ msgstr "Przełącz A/B"
 
-msgid "Prędkość"
-msgstr "Prędkość"
+#~ msgid "Prędkość"
+#~ msgstr "Prędkość"
 
-msgid "Zoom"
-msgstr "Zoom"
+#~ msgid "Zoom"
+#~ msgstr "Zoom"
 
-msgid "True Peaks > -1dB"
-msgstr "True Peaks > -1dB"
+#~ msgid "True Peaks > -1dB"
+#~ msgstr "True Peaks > -1dB"
 
-msgid "Clipping Detected"
-msgstr "Wykryto clipping"
+#~ msgid "Clipping Detected"
+#~ msgstr "Wykryto clipping"
 
-msgid "Silence Sections"
-msgstr "Sekcje ciszy"
+#~ msgid "Silence Sections"
+#~ msgstr "Sekcje ciszy"
 
-msgid "LUFS OK (-23 do -14)"
-msgstr "LUFS OK (-23 do -14)"
+#~ msgid "LUFS OK (-23 do -14)"
+#~ msgstr "LUFS OK (-23 do -14)"
 
-msgid "LUFS Border (-14 do -10)"
-msgstr "LUFS Border (-14 do -10)"
+#~ msgid "LUFS Border (-14 do -10)"
+#~ msgstr "LUFS Border (-14 do -10)"
 
-msgid "LUFS High (> -10)"
-msgstr "LUFS High (> -10)"
+#~ msgid "LUFS High (> -10)"
+#~ msgstr "LUFS High (> -10)"
 
-msgid "Mono"
-msgstr "Mono"
+#~ msgid "Mono"
+#~ msgstr "Mono"
 
-msgid "Stereo"
-msgstr "Stereo"
-
+#~ msgid "Stereo"
+#~ msgstr "Stereo"
 
 # Universal Audio Converter translations (PL)
-msgid "Obsługiwane formaty"
-msgstr "Obsługiwane formaty"
+#~ msgid "Obsługiwane formaty"
+#~ msgstr "Obsługiwane formaty"
 
-msgid "Format wejściowy"
-msgstr "Format wejściowy"
+#~ msgid "Format wejściowy"
+#~ msgstr "Format wejściowy"
 
-msgid "Codec"
-msgstr "Codec"
+#~ msgid "Codec"
+#~ msgstr "Codec"
 
-msgid "Oryginalny bitrate"
-msgstr "Oryginalny bitrate"
+#~ msgid "Oryginalny bitrate"
+#~ msgstr "Oryginalny bitrate"
 
-msgid "Częstotliwość próbkowania"
-msgstr "Częstotliwość próbkowania"
+#~ msgid "Częstotliwość próbkowania"
+#~ msgstr "Częstotliwość próbkowania"
 
-msgid "Typ"
-msgstr "Typ"
+#~ msgid "Typ"
+#~ msgstr "Typ"
 
-msgid "Kompresja"
-msgstr "Kompresja"
+#~ msgid "Kompresja"
+#~ msgstr "Kompresja"
 
-msgid "Converting lossy to lossy format - quality may degrade"
-msgstr "Konwersja stratny → stratny - jakość może się pogorszyć"
+#~ msgid "Converting lossy to lossy format - quality may degrade"
+#~ msgstr "Konwersja stratny → stratny - jakość może się pogorszyć"
 
-msgid "Converting lossy to lossless - no quality improvement"
-msgstr "Konwersja stratny → bezstratny - brak poprawy jakości"
+#~ msgid "Converting lossy to lossless - no quality improvement"
+#~ msgstr "Konwersja stratny → bezstratny - brak poprawy jakości"
 
-msgid "Converting lossless to lossy - quality will be reduced"
-msgstr "Konwersja bezstratny → stratny - jakość zostanie obniżona"
+#~ msgid "Converting lossless to lossy - quality will be reduced"
+#~ msgstr "Konwersja bezstratny → stratny - jakość zostanie obniżona"
 
-msgid "Lossless to lossless conversion - quality preserved"
-msgstr "Konwersja bezstratny → bezstratny - jakość zachowana"
+#~ msgid "Lossless to lossless conversion - quality preserved"
+#~ msgstr "Konwersja bezstratny → bezstratny - jakość zachowana"
 
