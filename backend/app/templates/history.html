@@ -1,6 +1,8 @@
 {% extends "base_sidebar.html" %}
 {% block title %}{{ _('Moja Historia Przetwarzania') }} - WaveBulk{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
 {% block content %}
+<div class="container-full">
         <section class="section-title">
             <h2>{{ _('Moja Historia Przetwarzania') }}</h2>
             <p>{{ _('Lista wszystkich Twoich przetworzonych plików audio.') }}</p>
@@ -85,5 +87,6 @@
         <p class="text-center text-secondary mt-4">{{ _('Nie masz jeszcze żadnych przetworzonych plików.') }}</p>
         {% endif %}
     </main>
+</div>
 {% endblock %}
 {% block scripts %}{{ super() }}<script src="{{ url_for('static', filename='js/history.js') }}" defer></script>{% endblock %}

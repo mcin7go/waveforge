@@ -28,6 +28,8 @@
     --color-warning: #ffc107;
     --color-danger: #dc3545;
     --color-info: #17a2b8;
+    --warning-color: #f59e0b;
+    --warning-color-rgb: 245, 158, 11;
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -97,5 +99,6 @@
     /* Container */
     --container-max-width: 1200px;
     --container-padding: 1.5rem;
+    --container-full-width: none;
 }
 

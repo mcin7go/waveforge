@@ -1,6 +1,8 @@
 {% extends "base_sidebar.html" %}
 {% block title %}{{ _('Dashboard') }} - WaveBulk{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
 {% block content %}
+<div class="container-full">
 <div data-pending-count="{{ stats.pending_tasks }}"></div>
 <section class="section-title mb-4">
         <h1>{{ _('Dashboard') }}</h1>
@@ -175,6 +177,7 @@
         </div>
         {% endif %}
     </div>
+</div>
 {% endblock %}
 {% block scripts %}
     {{ super() }}

@@ -131,10 +131,16 @@ def upload_and_process_audio():
             options['cover_art_path'] = cover_art_path
 
         filename = secure_filename(file.filename)
-        if not filename.lower().endswith('.wav'):
+        # Supported audio formats (both lossless and lossy)
+        SUPPORTED_FORMATS = ['.wav', '.mp3', '.m4a', '.aac', '.flac', '.ogg', '.wma', '.aiff', '.opus']
+        file_extension = os.path.splitext(filename)[1].lower()
+        
+        if file_extension not in SUPPORTED_FORMATS:
             if cover_art_path and os.path.exists(cover_art_path):
                 os.remove(cover_art_path)
-            return jsonify({"error": "Only WAV files are supported"}), 400
+            return jsonify({
+                "error": f"Unsupported file format: {file_extension}. Supported formats: {', '.join(SUPPORTED_FORMATS)}"
+            }), 400
 
         unique_filename = f"{user_id_int}_{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}_{filename}"
         filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], unique_filename)
@@ -336,8 +342,3 @@ def delete_files():
         db.session.commit()
         return jsonify({"message": f"Completed with errors. Deleted {deleted_count} files.", "errors": errors}), 207
 
-@bp.route('/pricing')
-def pricing():
-    user_email = current_user.email if current_user.is_authenticated else None
-    current_year = datetime.now(UTC).year
-    return render_template('pricing.html', user_email=user_email, current_year=current_year)

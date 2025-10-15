@@ -4,8 +4,17 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if we're on file details page
-    if (!document.getElementById('waveform')) return;
+    try {
+        // Check if we're on file details page
+        if (!document.getElementById('waveform')) {
+            return;
+        }
+
+    // Check if WaveSurfer is loaded
+    if (typeof WaveSurfer === 'undefined') {
+        console.error('WaveSurfer library not loaded');
+        return;
+    }
 
     // Get audio file URL from template
     const audioUrl = document.querySelector('.file-actions a[download]')?.href;
@@ -34,6 +43,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     function initSinglePlayer() {
+        if (typeof WaveSurfer === 'undefined') {
+            console.error('WaveSurfer not loaded');
+            return null;
+        }
+        
+        const plugins = [];
+        
+        // Add plugins if available
+        if (window.TimelinePlugin) {
+            plugins.push(TimelinePlugin.create({
+                container: '#waveform',
+                height: 20,
+                primaryLabelInterval: 5,
+                secondaryLabelInterval: 1,
+            }));
+        }
+        
+        if (window.MinimapPlugin) {
+            plugins.push(MinimapPlugin.create({
+                container: '#waveform-minimap',
+                waveColor: '#777',
+                progressColor: '#999',
+                height: 60,
+            }));
+        }
+        
+        // Check for regions plugin (different names in different versions)
+        if (window.RegionsPlugin) {
+            window.regionsPlugin = RegionsPlugin.create();
+            plugins.push(window.regionsPlugin);
+            console.log('[SETUP] RegionsPlugin created');
+        } else if (window.WaveSurfer && window.WaveSurfer.Regions) {
+            window.regionsPlugin = window.WaveSurfer.Regions.create();
+            plugins.push(window.regionsPlugin);
+            console.log('[SETUP] WaveSurfer.Regions created');
+        } else {
+            console.log('[SETUP] RegionsPlugin not available');
+            console.log('[SETUP] Available plugins:', Object.keys(window).filter(k => k.includes('Plugin') || k.includes('Regions')));
+        }
+        
         wavesurfer = WaveSurfer.create({
             container: '#waveform',
             waveColor: '#4a9eff',
@@ -45,33 +94,48 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 120,
             normalize: true,
             backend: 'WebAudio',
-            plugins: [
-                WaveSurfer.timeline.create({
-                    container: '#waveform',
-                    height: 20,
-                    primaryLabelInterval: 5,
-                    secondaryLabelInterval: 1,
-                }),
-                WaveSurfer.minimap.create({
-                    container: '#waveform-minimap',
-                    waveColor: '#777',
-                    progressColor: '#999',
-                    height: 60,
-                }),
-                WaveSurfer.regions.create(),
-            ]
+            plugins: plugins,
         });
 
         wavesurfer.load(audioUrl);
         
-        // Setup Web Audio API analyzers
-        wavesurfer.on('ready', function() {
+        // Setup Web Audio API analyzers when audio starts playing
+        // Re-setup on each play because bufferNode changes
+        wavesurfer.on('play', function() {
             setupAudioAnalyzers(wavesurfer);
+            
+            // Auto-connect analyzer when audio starts playing (if analyzer was requested)
+            if (analyser && !window.audioSourceConnected && wavesurfer.media && wavesurfer.media.bufferNode) {
+                try {
+                    console.log('[SETUP] AUTO-CONNECTING analyzer on play...');
+                    wavesurfer.media.bufferNode.connect(analyser);
+                    analyser.connect(wavesurfer.media.bufferNode.context.destination);
+                    
+                    if (phaseAnalyser) {
+                        wavesurfer.media.bufferNode.connect(phaseAnalyser);
+                        phaseAnalyser.connect(wavesurfer.media.bufferNode.context.destination);
+                    }
+                    
+                    window.audioSourceConnected = true;
+                    console.log('[SETUP] ✓✓✓ AUTO-CONNECTED to bufferNode!');
+                } catch (error) {
+                    console.error('[SETUP] ERROR auto-connecting:', error);
+                }
+            }
         });
 
         // Time update
         wavesurfer.on('audioprocess', updateTimeDisplay);
         wavesurfer.on('seek', updateTimeDisplay);
+        
+        // Reset audio connection when audio stops
+        wavesurfer.on('pause', function() {
+            window.audioSourceConnected = false;
+        });
+        
+        wavesurfer.on('finish', function() {
+            window.audioSourceConnected = false;
+        });
         
         return wavesurfer;
     }
@@ -81,33 +145,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     function initComparisonPlayers() {
+        if (typeof WaveSurfer === 'undefined') {
+            console.error('WaveSurfer not loaded');
+            return;
+        }
+        
+        const pluginsAfter = [];
+        const pluginsBefore = [];
+        
+        if (window.TimelinePlugin) {
+            pluginsAfter.push(TimelinePlugin.create({
+                container: '#waveform-after',
+                height: 20,
+            }));
+            pluginsBefore.push(TimelinePlugin.create({
+                container: '#waveform-before',
+                height: 20,
+            }));
+        }
+        
         // For now, load same file for both (in real app, you'd load original + processed)
         wavesurferAfter = WaveSurfer.create({
             container: '#waveform-after',
             waveColor: '#4ecdc4',
             progressColor: '#2aa198',
-            height: 120,
+            height: 80,
             normalize: true,
-            plugins: [
-                WaveSurfer.timeline.create({
-                    container: '#waveform-after',
-                    height: 20,
-                }),
-            ]
+            plugins: pluginsAfter
         });
 
         wavesurferBefore = WaveSurfer.create({
             container: '#waveform-before',
             waveColor: '#f39c12',
             progressColor: '#e67e22',
-            height: 120,
+            height: 80,
             normalize: true,
-            plugins: [
-                WaveSurfer.timeline.create({
-                    container: '#waveform-before',
-                    height: 20,
-                }),
-            ]
+            plugins: pluginsBefore
         });
 
         // Load files (in production, load different files)
@@ -128,26 +201,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     function setupAudioAnalyzers(ws) {
-        if (!audioContext) {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        }
-
-        const backend = ws.backend;
-        if (!backend.ac) return;
-
-        // Frequency Analyzer
-        analyser = backend.ac.createAnalyser();
-        analyser.fftSize = 2048;
-        analyser.smoothingTimeConstant = 0.8;
+        console.log('[SETUP] Setting up audio analyzers');
         
-        // Phase Analyzer (for stereo correlation)
-        phaseAnalyser = backend.ac.createAnalyser();
-        phaseAnalyser.fftSize = 2048;
-        
-        // Connect to audio graph
-        if (backend.gainNode) {
-            backend.gainNode.connect(analyser);
-            backend.gainNode.connect(phaseAnalyser);
+        try {
+            // CRITICAL: Must use WaveSurfer's AudioContext, not create a new one!
+            if (ws.media && ws.media.audioContext) {
+                console.log('[SETUP] ✓ Using ws.media.audioContext (WaveSurfer internal)');
+                audioContext = ws.media.audioContext;
+            } else if (ws.media && ws.media.bufferNode && ws.media.bufferNode.context) {
+                console.log('[SETUP] ✓ Using ws.media.bufferNode.context');
+                audioContext = ws.media.bufferNode.context;
+            } else {
+                console.error('[SETUP] ERROR: Cannot find WaveSurfer AudioContext!');
+                return;
+            }
+            
+            console.log('[SETUP] AudioContext:', audioContext);
+            
+            // Create analyzers only once
+            if (!analyser) {
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 2048;
+                analyser.smoothingTimeConstant = 0.8;
+                
+                phaseAnalyser = audioContext.createAnalyser();
+                phaseAnalyser.fftSize = 2048;
+                
+                console.log('[SETUP] Analyzers created');
+            }
+            
+            // bufferNode only exists when audio is playing
+            if (!window.audioSourceConnected) {
+                if (ws.media && ws.media.bufferNode) {
+                    console.log('[SETUP] Connecting to bufferNode (audio is playing)');
+                    ws.media.bufferNode.connect(analyser);
+                    ws.media.bufferNode.connect(phaseAnalyser);
+                    analyser.connect(audioContext.destination);
+                    phaseAnalyser.connect(audioContext.destination);
+                    window.audioSourceConnected = true;
+                    console.log('[SETUP] ✓✓✓ Connected to bufferNode!');
+                } else {
+                    console.log('[SETUP] ⚠ bufferNode not available yet. Will auto-connect on play.');
+                    // Connection will happen when audio starts playing
+                }
+            }
+        } catch (error) {
+            console.error('[SETUP] Error:', error);
         }
     }
 
@@ -157,7 +256,61 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function drawFrequencyAnalyzer() {
         const canvas = document.getElementById('frequency-canvas');
-        if (!canvas || !analyser) return;
+        if (!canvas) {
+            console.error('[FREQ] Canvas not found');
+            return;
+        }
+        
+        // Setup analyzer on first call
+        if (!analyser) {
+            console.log('[FREQ] Setting up analyzer for first time');
+            
+            if (!wavesurfer) {
+                console.error('[FREQ] WaveSurfer instance not available');
+                return;
+            }
+            
+            try {
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    console.log('[FREQ] Created AudioContext');
+                }
+                
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 2048;
+                analyser.smoothingTimeConstant = 0.8;
+                console.log('[FREQ] Analyzer created');
+                
+                // Try to find and connect audio element
+                const tryConnect = () => {
+                    const audio = document.querySelector('#waveform audio') || document.querySelector('audio');
+                    console.log('[FREQ] Looking for audio element:', !!audio);
+                    
+                    if (audio && !window.audioSourceConnected) {
+                        try {
+                            const source = audioContext.createMediaElementSource(audio);
+                            source.connect(analyser);
+                            analyser.connect(audioContext.destination);
+                            window.audioSourceConnected = true;
+                            console.log('[FREQ] ✓ Analyzer connected to audio successfully');
+                        } catch (e) {
+                            console.warn('[FREQ] Connection error:', e.message);
+                        }
+                    } else if (audio && window.audioSourceConnected) {
+                        console.log('[FREQ] Audio already connected');
+                    } else {
+                        console.warn('[FREQ] Audio element not found yet');
+                    }
+                };
+                
+                tryConnect();
+                setTimeout(tryConnect, 500);
+                setTimeout(tryConnect, 1000);
+            } catch (error) {
+                console.error('[FREQ] Error creating analyzer:', error);
+                return;
+            }
+        }
 
         const ctx = canvas.getContext('2d');
         const width = canvas.width = canvas.offsetWidth;
@@ -233,20 +386,17 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.lineTo(width, height / 2);
             ctx.stroke();
 
-            // Draw Lissajous figure
+            // Draw phase correlation line
             ctx.beginPath();
             ctx.strokeStyle = '#4ecdc4';
             ctx.lineWidth = 2;
 
-            let correlation = 0;
-            let count = 0;
+            const sliceWidth = width * 1.0 / bufferLength;
+            let x = 0;
 
-            for (let i = 0; i < bufferLength; i += 2) {
-                const left = dataArray[i];
-                const right = dataArray[i + 1] || left;
-
-                const x = ((left + 1) / 2) * width;
-                const y = ((right + 1) / 2) * height;
+            for (let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i];
+                const y = (v + 1) * height / 2;
 
                 if (i === 0) {
                     ctx.moveTo(x, y);
@@ -254,15 +404,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     ctx.lineTo(x, y);
                 }
 
-                // Calculate correlation
-                correlation += left * right;
-                count++;
+                x += sliceWidth;
             }
 
             ctx.stroke();
 
-            // Update correlation value
-            const correlationValue = count > 0 ? (correlation / count).toFixed(2) : 0;
+            // Draw phase info
+            ctx.fillStyle = '#4ecdc4';
+            ctx.font = '14px monospace';
+            ctx.fillText('Phase Correlation', 10, 20);
             const phaseValueEl = document.getElementById('phase-value');
             if (phaseValueEl) {
                 phaseValueEl.textContent = correlationValue;
@@ -451,28 +601,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const togglePhase = document.getElementById('toggle-phase');
     const toggleMarkers = document.getElementById('toggle-markers');
     
+    const spectrogramSection = document.getElementById('spectrogram-section');
     const spectrogramContainer = document.getElementById('spectrogram');
     const analyzersContainer = document.getElementById('analyzers-container');
     const markersLegend = document.getElementById('markers-legend');
+    
 
     if (toggleSpectrogram) {
         toggleSpectrogram.addEventListener('click', function() {
             this.classList.toggle('active');
             const isActive = this.classList.contains('active');
             
-            if (isActive && wavesurfer && !wavesurfer.params.plugins.find(p => p.name === 'spectrogram')) {
-                // Add spectrogram plugin dynamically
-                const spectrogramPlugin = WaveSurfer.spectrogram.create({
-                    container: '#spectrogram',
-                    labels: true,
-                    height: 200,
-                    fftSamples: 512,
-                });
-                wavesurfer.registerPlugin(spectrogramPlugin);
-            }
+            console.log('[SPECTRO] Toggle clicked, active:', isActive);
             
-            if (spectrogramContainer) {
-                spectrogramContainer.style.display = isActive ? 'block' : 'none';
+            // Use existing spectrogram container if spectrogram-section doesn't exist
+            const targetContainer = spectrogramSection || spectrogramContainer;
+            console.log('[SPECTRO] Target container:', targetContainer?.id);
+            
+            if (targetContainer) {
+                // Show/hide container
+                if (isActive) {
+                    targetContainer.style.display = 'block';
+                    console.log('[SPECTRO] Showing spectrogram');
+                } else {
+                    targetContainer.style.display = 'none';
+                    targetContainer.style.visibility = 'hidden';
+                    targetContainer.style.height = '0px';
+                    targetContainer.style.overflow = 'hidden';
+                    console.log('[SPECTRO] Hiding spectrogram');
+                    console.log('[SPECTRO] Container styles:', {
+                        display: targetContainer.style.display,
+                        visibility: targetContainer.style.visibility,
+                        height: targetContainer.style.height
+                    });
+                }
+                
+                // Create plugin if needed (only on first activation)
+                if (isActive && wavesurfer && (window.SpectrogramPlugin || WaveSurfer.Spectrogram) && !window.spectrogramPluginInstance) {
+                    try {
+                        const SpectrogramClass = window.SpectrogramPlugin || WaveSurfer.Spectrogram;
+                        window.spectrogramPluginInstance = SpectrogramClass.create({
+                            container: '#spectrogram',
+                            labels: true,
+                            height: 300,
+                            fftSamples: 512,
+                        });
+                        wavesurfer.registerPlugin(window.spectrogramPluginInstance);
+                    } catch (error) {
+                        console.error('[SPECTRO] Error:', error);
+                    }
+                }
             }
         });
     }
@@ -487,9 +665,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (isActive) {
+                // Setup analyzers if not done yet
+                if (!analyser && wavesurfer) {
+                    setupAudioAnalyzers(wavesurfer);
+                }
                 drawFrequencyAnalyzer();
             } else {
-                if (animationId) cancelAnimationFrame(animationId);
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
             }
         });
     }
@@ -501,6 +686,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (analyzersContainer) {
                 analyzersContainer.style.display = isActive || toggleAnalyzer?.classList.contains('active') ? 'grid' : 'none';
+                console.log('[PHASE] Container display set to:', analyzersContainer.style.display);
             }
             
             if (isActive) {
@@ -516,8 +702,13 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
             const isActive = this.classList.contains('active');
             
+            console.log('[MARKERS] Toggle clicked, active:', isActive);
+            console.log('[MARKERS] markersLegend exists:', !!markersLegend);
+            console.log('[MARKERS] window.regionsPlugin exists:', !!window.regionsPlugin);
+            
             if (markersLegend) {
                 markersLegend.style.display = isActive ? 'flex' : 'none';
+                console.log('[MARKERS] Legend display set to:', markersLegend.style.display);
             }
             
             if (isActive) {
@@ -533,58 +724,63 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     function addSmartMarkers() {
-        if (!wavesurfer) return;
+        console.log('[MARKERS] addSmartMarkers called');
+        console.log('[MARKERS] wavesurfer exists:', !!wavesurfer);
+        console.log('[MARKERS] regionsPlugin exists:', !!window.regionsPlugin);
+        
+        if (!wavesurfer || !window.regionsPlugin) {
+            console.error('WaveSurfer or Regions plugin not available');
+            return;
+        }
 
-        // Get LUFS value from page
-        const lufsElement = document.querySelector('.analysis-value');
-        const lufsValue = lufsElement ? parseFloat(lufsElement.textContent) : null;
-        
-        const duration = wavesurfer.getDuration();
-        
-        // Example: Add regions based on LUFS threshold
-        if (lufsValue) {
-            if (lufsValue > -10) {
-                // High LUFS - mark entire file as warning
-                wavesurfer.addRegion({
+        try {
+            // Get LUFS value from page
+            const lufsElement = document.querySelector('.analysis-value');
+            const lufsValue = lufsElement ? parseFloat(lufsElement.textContent) : null;
+            
+            const duration = wavesurfer.getDuration();
+            
+            // Clear existing regions
+            window.regionsPlugin.clearRegions();
+            
+            // Example: Add regions based on LUFS threshold
+            if (lufsValue) {
+                let color;
+                if (lufsValue > -10) {
+                    color = 'rgba(220, 53, 69, 0.1)';
+                } else if (lufsValue > -14) {
+                    color = 'rgba(255, 193, 7, 0.1)';
+                } else {
+                    color = 'rgba(25, 135, 84, 0.1)';
+                }
+                
+                window.regionsPlugin.addRegion({
                     start: 0,
                     end: duration,
-                    color: 'rgba(220, 53, 69, 0.1)',
-                    drag: false,
-                    resize: false,
-                });
-            } else if (lufsValue > -14) {
-                wavesurfer.addRegion({
-                    start: 0,
-                    end: duration,
-                    color: 'rgba(255, 193, 7, 0.1)',
-                    drag: false,
-                    resize: false,
-                });
-            } else {
-                wavesurfer.addRegion({
-                    start: 0,
-                    end: duration,
-                    color: 'rgba(25, 135, 84, 0.1)',
+                    color: color,
                     drag: false,
                     resize: false,
                 });
             }
-        }
 
-        // Simulate peak markers (in production, get from backend analysis)
-        // Add marker at 2s (example peak)
-        wavesurfer.addRegion({
-            start: 2,
-            end: 2.1,
-            color: 'rgba(220, 53, 69, 0.5)',
-            drag: false,
-            resize: false,
-        });
+            // Simulate peak markers (in production, get from backend analysis)
+            window.regionsPlugin.addRegion({
+                start: 2,
+                end: 2.1,
+                color: 'rgba(220, 53, 69, 0.5)',
+                drag: false,
+                resize: false,
+            });
+            
+            console.log('Markers added successfully');
+        } catch (error) {
+            console.error('Error adding markers:', error);
+        }
     }
 
     function clearMarkers() {
-        if (wavesurfer) {
-            wavesurfer.clearRegions();
+        if (window.regionsPlugin) {
+            window.regionsPlugin.clearRegions();
         }
     }
 
@@ -602,5 +798,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (wavesurferAfter) wavesurferAfter.destroy();
         if (animationId) cancelAnimationFrame(animationId);
     });
+    
+    } catch (error) {
+        console.error('[DEBUG] Error in audio-player.js:', error);
+    }
 });
 

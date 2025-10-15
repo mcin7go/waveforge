@@ -28,18 +28,38 @@ def test_upload_structure_failures(active_subscriber_client, data, expected_erro
     assert response.status_code == 400
     assert response.get_json()['error'] == expected_error
 
-@pytest.mark.parametrize("file_tuple, options, expected_error", [
-    ((io.BytesIO(b'mp3 data'), 'test.mp3'), '{}', 'Only WAV files are supported'),
+@pytest.mark.parametrize("file_tuple, options, expected_error_contains", [
+    ((io.BytesIO(b'txt data'), 'test.txt'), '{}', 'Unsupported file format'),
     ((io.BytesIO(b'wav data'), 'test.wav'), 'invalid-json', 'Invalid options format'),
 ])
-def test_upload_content_failures(active_subscriber_client, file_tuple, options, expected_error):
+def test_upload_content_failures(active_subscriber_client, file_tuple, options, expected_error_contains):
     response = active_subscriber_client.post(
         url_for('audio_processing.upload_and_process_audio'),
         data={'file': file_tuple, 'options': options},
         content_type='multipart/form-data'
     )
     assert response.status_code == 400
-    assert response.get_json()['error'] == expected_error
+    assert expected_error_contains in response.get_json()['error']
+
+@pytest.mark.parametrize("filename", [
+    'test.wav', 'test.mp3', 'test.m4a', 'test.aac', 'test.flac', 'test.ogg', 'test.wma', 'test.aiff', 'test.opus'
+])
+def test_upload_accepts_multiple_formats(active_subscriber_client, mocker, filename):
+    """Test that various audio formats are accepted"""
+    mock_delay = mocker.patch('app.blueprints.audio.routes.process_audio_file.delay')
+    mock_delay.return_value.id = 'mock_celery_id_123'
+    
+    dummy_file = (io.BytesIO(b'dummy audio data'), filename)
+    
+    response = active_subscriber_client.post(
+        url_for('audio_processing.upload_and_process_audio'),
+        data={'file': dummy_file, 'options': '{}'},
+        content_type='multipart/form-data'
+    )
+    
+    assert response.status_code == 202
+    assert 'File uploaded and queued for processing' in response.get_json()['message']
+    mock_delay.assert_called_once()
 
 def test_upload_and_process_with_cover_art(active_subscriber_client, dummy_wav_file, mocker, app):
     mock_delay = mocker.patch('app.blueprints.audio.routes.process_audio_file.delay')

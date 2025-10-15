@@ -130,14 +130,14 @@
                 {% endif %}
             {% endwith %}
 
-            <main class="main-content">
+            <main class="main-content{% block main_content_class %}{% endblock %}">
                 {% block content %}{% endblock %}
             </main>
-
-            <footer class="main-footer" style="text-align: center; padding: var(--spacing-lg);">
-                <p style="color: var(--text-secondary); font-size: var(--font-size-sm);">&copy; {{ current_year or '2025' }} WaveBulk. {{ _('Wszelkie prawa zastrzeżone.') }}</p>
-            </footer>
         </div>
+        
+        <footer class="main-footer">
+            <p>&copy; {{ current_year or '2025' }} WaveBulk. {{ _('Wszelkie prawa zastrzeżone.') }}</p>
+        </footer>
     </div>
     
     <script src="https://unpkg.com/wavesurfer.js@7"></script>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 20px; font-family: monospace; }
+        .log { border-bottom: 1px solid #eee; padding: 5px 0; }
+        #waveform { border: 1px solid #ccc; height: 120px; margin-bottom: 10px; }
+        #freq-canvas { border: 1px solid #ccc; background-color: #1a1a1a; margin-top: 10px; }
+        #spectrogram { border: 1px solid #ccc; margin-top: 10px; }
+        #phase-canvas { border: 1px solid #ccc; background-color: #1a1a1a; margin-top: 10px; display: none; }
+        .controls { position: sticky; top: 0; background: white; padding: 10px; z-index: 1000; border-bottom: 2px solid #ccc; }
+        button { margin: 5px; padding: 10px 15px; font-size: 14px; }
+        #logs { max-height: 300px; overflow-y: auto; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>WaveSurfer v7 Analyzer Test</h1>
+    
+    <div class="controls">
+        <button id="play">PLAY</button>
+        <button id="pause">PAUSE</button>
+        <br><br>
+        <button id="analyze">Frequency Analyzer</button>
+        <button id="spectro">Spectrogram</button>
+        <button id="phase">Phase Correlation</button>
+        <button id="markers">Markers</button>
+    </div>
+    
+    <div id="waveform"></div>
+    
+    <div id="spectrogram" style="display:none; margin: 20px 0;"></div>
+    <canvas id="freq-canvas" width="800" height="300"></canvas>
+    <canvas id="phase-canvas" width="400" height="400"></canvas>
+    
+    <div id="logs"></div>
+    
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/spectrogram.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/regions.min.js"></script>
+    <script>
+        const log = (msg) => {
+            console.log(msg);
+            const div = document.createElement('div');
+            div.className = 'log';
+            div.textContent = msg;
+            document.getElementById('logs').prepend(div);
+        };
+        
+        log('Initializing WaveSurfer...');
+        log('WaveSurfer loaded:', typeof WaveSurfer);
+        log('WaveSurfer.Spectrogram:', typeof WaveSurfer.Spectrogram);
+        log('WaveSurfer.Regions:', typeof WaveSurfer.Regions);
+        
+        let wavesurfer;
+        let audioContext;
+        let analyser;
+        let phaseAnalyser;
+        let animationId;
+        let phaseAnimationId;
+        
+        wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: '#4a9eff',
+            progressColor: '#007bff',
+            cursorColor: '#fff',
+            barWidth: 2,
+            barGap: 1,
+            barRadius: 2,
+            height: 120,
+            normalize: true,
+            backend: 'WebAudio',
+        });
+        
+        // Use your actual audio file URL
+        const audioUrl = 'http://localhost:5000/uploads/Nagranie_6.mp3';
+        wavesurfer.load(audioUrl);
+        
+        wavesurfer.on('ready', () => {
+            log('✓ WaveSurfer ready');
+            log('ws object keys: ' + Object.keys(wavesurfer).join(', '));
+            log('ws.media type: ' + typeof wavesurfer.media);
+            if (wavesurfer.media) {
+                log('ws.media keys: ' + Object.keys(wavesurfer.media).slice(0, 20).join(', '));
+                log('ws.media.tagName: ' + wavesurfer.media.tagName);
+                log('ws.media.context: ' + (wavesurfer.media.context ? 'EXISTS' : 'NULL'));
+                log('ws.media.bufferNode: ' + (wavesurfer.media.bufferNode ? 'EXISTS' : 'NULL'));
+            }
+            
+            // Check for getAudioContext method
+            log('ws.getAudioContext: ' + typeof wavesurfer.getAudioContext);
+        });
+        
+        wavesurfer.on('play', () => {
+            log('▶ Play event fired');
+            if (wavesurfer.media && wavesurfer.media.bufferNode) {
+                log('bufferNode EXISTS on play');
+                log('bufferNode.context: ' + (wavesurfer.media.bufferNode.context ? 'EXISTS' : 'NULL'));
+                
+                // Auto-connect analyzer when audio starts playing (if analyzer was requested)
+                if (analyser && !window.audioSourceConnected) {
+                    try {
+                        log('AUTO-CONNECTING analyzer on play...');
+                        wavesurfer.media.bufferNode.connect(analyser);
+                        analyser.connect(wavesurfer.media.bufferNode.context.destination);
+                        
+                        if (phaseAnalyser) {
+                            wavesurfer.media.bufferNode.connect(phaseAnalyser);
+                            phaseAnalyser.connect(wavesurfer.media.bufferNode.context.destination);
+                        }
+                        
+                        window.audioSourceConnected = true;
+                        log('✓✓✓ AUTO-CONNECTED to bufferNode!');
+                    } catch (error) {
+                        log('ERROR auto-connecting: ' + error.message);
+                    }
+                }
+            }
+        });
+        
+        document.getElementById('play').onclick = () => wavesurfer.play();
+        document.getElementById('pause').onclick = () => wavesurfer.pause();
+        
+        // FREQUENCY ANALYZER
+        document.getElementById('analyze').onclick = () => {
+            log('=== FREQUENCY ANALYZER CLICKED ===');
+            
+            try {
+                // Try different approaches to get audio context
+                log('ws object keys: ' + Object.keys(wavesurfer).join(', '));
+                log('ws.media type: ' + typeof wavesurfer.media);
+                
+                if (wavesurfer.media) {
+                    log('ws.media keys: ' + Object.keys(wavesurfer.media).slice(0, 20).join(', '));
+                    log('ws.media.tagName: ' + wavesurfer.media.tagName);
+                    log('ws.media.audioContext: ' + (wavesurfer.media.audioContext ? 'EXISTS' : 'NULL'));
+                }
+                
+                // CRITICAL: Must use WaveSurfer's AudioContext, not create a new one!
+                if (wavesurfer.media && wavesurfer.media.audioContext) {
+                    log('✓ Using ws.media.audioContext (WaveSurfer internal)');
+                    audioContext = wavesurfer.media.audioContext;
+                } else if (wavesurfer.media && wavesurfer.media.bufferNode && wavesurfer.media.bufferNode.context) {
+                    log('✓ Using ws.media.bufferNode.context');
+                    audioContext = wavesurfer.media.bufferNode.context;
+                } else if (typeof wavesurfer.getAudioContext === 'function') {
+                    log('✓ Using ws.getAudioContext()');
+                    audioContext = wavesurfer.getAudioContext();
+                } else {
+                    log('ERROR: Cannot find WaveSurfer AudioContext!');
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    log('Created new AudioContext (may not work)');
+                }
+                
+                log('✓ AudioContext: ' + audioContext);
+                
+                // Create analyzers only once
+                if (!analyser) {
+                    analyser = audioContext.createAnalyser();
+                    analyser.fftSize = 2048;
+                    analyser.smoothingTimeConstant = 0.8;
+                    log('✓ Analyzer created');
+                }
+                
+                // Create phaseAnalyser only once
+                if (!phaseAnalyser) {
+                    phaseAnalyser = audioContext.createAnalyser();
+                    phaseAnalyser.fftSize = 2048;
+                    log('✓ Phase Analyzer created');
+                }
+                
+                // Try to connect to audio source
+                if (!window.audioSourceConnected) {
+                    // bufferNode only exists when audio is playing
+                    if (wavesurfer.media && wavesurfer.media.bufferNode) {
+                        log('Connecting to bufferNode (audio is playing)');
+                        wavesurfer.media.bufferNode.connect(analyser);
+                        analyser.connect(audioContext.destination);
+                        
+                        wavesurfer.media.bufferNode.connect(phaseAnalyser);
+                        phaseAnalyser.connect(audioContext.destination);
+                        
+                        window.audioSourceConnected = true;
+                        log('✓✓✓ Connected to bufferNode!');
+                    } else {
+                        log('⚠ bufferNode not available yet. Start playing audio first!');
+                        log('Will auto-connect when you press PLAY');
+                        // Connection will happen in the 'play' event handler
+                    }
+                }
+                
+                startDrawing();
+            } catch (error) {
+                log('ERROR: ' + error.message);
+            }
+        };
+        
+        function startDrawing() {
+            // Start drawing
+            const canvas = document.getElementById('freq-canvas');
+            const ctx = canvas.getContext('2d');
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+            
+            let frameCount = 0;
+            function draw() {
+                frameCount++;
+                
+                analyser.getByteFrequencyData(dataArray);
+                
+                // Check if we're getting data
+                const sum = dataArray.reduce((a, b) => a + b, 0);
+                const max = Math.max(...dataArray);
+                
+                if (frameCount % 30 === 0) { // Log every 30 frames
+                    log(`Frame ${frameCount}: sum=${sum}, max=${max}, first10=[${Array.from(dataArray.slice(0,10)).join(',')}]`);
+                }
+                
+                // Clear canvas
+                ctx.fillStyle = '#1a1a1a';
+                ctx.fillRect(0, 0, 800, 300);
+                
+                // Draw bars
+                const barWidth = 800 / analyser.frequencyBinCount * 2.5;
+                let x = 0;
+                
+                for (let i = 0; i < analyser.frequencyBinCount; i++) {
+                    const barHeight = (dataArray[i] / 255) * 300;
+                    const hue = (i / analyser.frequencyBinCount) * 120 + 200;
+                    ctx.fillStyle = `hsl(${hue}, 80%, 50%)`;
+                    ctx.fillRect(x, 300 - barHeight, barWidth, barHeight);
+                    x += barWidth + 1;
+                }
+                
+                animationId = requestAnimationFrame(draw);
+            }
+            
+            draw();
+            log('✓ Drawing loop started');
+        }
+        
+        // SPECTROGRAM
+        document.getElementById('spectro').onclick = () => {
+            log('[SPECTRO] Button clicked');
+            log('[SPECTRO] WaveSurfer.Spectrogram exists:', !!WaveSurfer.Spectrogram);
+            
+            if (!WaveSurfer.Spectrogram) {
+                log('[SPECTRO] ERROR: Plugin not loaded!');
+                return;
+            }
+            
+            try {
+                const spectroDiv = document.getElementById('spectrogram');
+                const isVisible = spectroDiv.style.display !== 'none';
+                
+                if (!isVisible && !window.spectrogramInstance) {
+                    log('[SPECTRO] Creating plugin...');
+                    window.spectrogramInstance = WaveSurfer.Spectrogram.create({
+                        container: '#spectrogram',
+                        labels: true,
+                        height: 200,
+                    });
+                    wavesurfer.registerPlugin(window.spectrogramInstance);
+                    log('[SPECTRO] ✓ Plugin created and registered');
+                }
+                
+                spectroDiv.style.display = isVisible ? 'none' : 'block';
+                log('[SPECTRO] Display toggled to: ' + (isVisible ? 'none' : 'block'));
+            } catch (error) {
+                log('[SPECTRO] ERROR: ' + error.message);
+            }
+        };
+        
+        // PHASE CORRELATION
+        document.getElementById('phase').onclick = () => {
+            log('[PHASE] Button clicked');
+            const canvas = document.getElementById('phase-canvas');
+            const isVisible = canvas.style.display !== 'none';
+            canvas.style.display = isVisible ? 'none' : 'block';
+            log('[PHASE] Display: ' + canvas.style.display);
+
+            if (!isVisible) { // If becoming visible, start drawing
+                if (analyser && phaseAnalyser && audioContext && wavesurfer.media && wavesurfer.media.bufferNode) {
+                    drawPhaseCorrelation();
+                } else {
+                    log('[PHASE] Analyzers not ready for phase correlation. Play audio first!');
+                }
+            } else {
+                if (phaseAnimationId) {
+                    cancelAnimationFrame(phaseAnimationId);
+                    phaseAnimationId = null;
+                    log('[PHASE] Stopped drawing phase correlation.');
+                }
+            }
+        };
+        
+        // MARKERS
+        document.getElementById('markers').onclick = () => {
+            log('[MARKERS] Button clicked');
+            log('[MARKERS] WaveSurfer.Regions exists:', !!WaveSurfer.Regions);
+            
+            if (!WaveSurfer.Regions) {
+                log('[MARKERS] ERROR: Regions plugin not loaded!');
+                return;
+            }
+            
+            try {
+                if (!window.regionsInstance) {
+                    log('[MARKERS] Creating regions plugin...');
+                    window.regionsInstance = WaveSurfer.Regions.create();
+                    wavesurfer.registerPlugin(window.regionsInstance);
+                    log('[MARKERS] ✓ Regions plugin registered');
+                }
+                
+                // Add a test region
+                window.regionsInstance.clearRegions();
+                window.regionsInstance.addRegion({
+                    start: 1,
+                    end: 3,
+                    color: 'rgba(255, 0, 0, 0.3)',
+                    drag: false,
+                    resize: false,
+                });
+                log('[MARKERS] ✓ Test region added (1s - 3s)');
+            } catch (error) {
+                log('[MARKERS] ERROR: ' + error.message);
+            }
+        };
+
+        function drawPhaseCorrelation() {
+            // Stop previous animation if running
+            if (phaseAnimationId) {
+                cancelAnimationFrame(phaseAnimationId);
+            }
+
+            const canvas = document.getElementById('phase-canvas');
+            const ctx = canvas.getContext('2d');
+            const bufferLength = phaseAnalyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            function draw() {
+                phaseAnimationId = requestAnimationFrame(draw);
+
+                phaseAnalyser.getByteTimeDomainData(dataArray); // Use time domain data for phase
+
+                ctx.fillStyle = '#1a1a1a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'rgb(0, 255, 0)'; // Green for phase correlation
+
+                ctx.beginPath();
+
+                const sliceWidth = canvas.width * 1.0 / bufferLength;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    const v = dataArray[i] / 128.0;
+                    const y = v * canvas.height / 2;
+
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+
+                    x += sliceWidth;
+                }
+
+                ctx.lineTo(canvas.width, canvas.height / 2);
+                ctx.stroke();
+            }
+
+            draw();
+            log('✓ Phase Correlation drawing loop started');
+        }
+    </script>
+</body>
+</html>

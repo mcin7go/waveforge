@@ -6,13 +6,17 @@
     overflow-x: auto;
     margin-top: var(--spacing-xl);
     border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: none;
 }
 
 .table {
     width: 100%;
+    min-width: 100%;
     border-collapse: collapse;
     margin-bottom: var(--spacing-md);
     color: var(--text-primary);
+    table-layout: auto;
 }
 
 .table th,

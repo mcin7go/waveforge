@@ -1,32 +1,72 @@
+{% if current_user.is_authenticated %}
+{% extends "base_sidebar.html" %}
+{% block main_content_class %} full-width{% endblock %}
+{% else %}
 {% extends "base.html" %}
+{% endif %}
+
 {% block title %}{{ _('Plany i Cennik') }} - WaveBulk{% endblock %}
+
 {% block content %}
+{% if current_user.is_authenticated %}
+<div class="container-full">
+    <div class="breadcrumb mb-4">
+        <a href="{{ url_for('audio_processing.dashboard') }}">{{ _('Dashboard') }}</a> / 
+        <span>{{ _('Plany i Cennik') }}</span>
+    </div>
+    
+    <section class="section-title">
+        <h1>{{ _('Wybierz plan dopasowany do Ciebie') }}</h1>
+        <p>{{ _('Zacznij za darmo i przejdź na wyższy plan, gdy potrzebujesz więcej mocy.') }}</p>
+    </section>
+    
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h2 class="plan-name">{{ _('Darmowy') }}</h2>
+            <div class="plan-price">0 zł <span>/ {{ _('miesiąc') }}</span></div>
+            <p class="plan-description">{{ _('Idealny do testowania aplikacji i sporadycznych konwersji.') }}</p>
+            <a href="{{ url_for('auth.register') }}" class="btn btn-secondary btn-cta">{{ _('Zacznij za darmo') }}</a>
+        </div>
+        {% for plan in plans %}
+        <div class="pricing-card">
+            <h2 class="plan-name">{{ plan.name }}</h2>
+            <div class="plan-price">{{ "%.0f"|format(plan.price / 100) }} zł <span>/ {{ _(plan.interval) }}</span></div>
+            <p class="plan-description">
+                {% if plan.name.lower() == 'pro' %}{{ _('Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi.') }}
+                {% elif plan.name.lower() == 'studio' %}{{ _('Dla małych studiów i profesjonalistów z dużymi potrzebami.') }}
+                {% else %}{{ _('Niestandardowy plan dostosowany do Twoich potrzeb.') }}{% endif %}
+            </p>
+            <a href="{{ url_for('billing.subscribe_page', price_id=plan.stripe_price_id) }}" class="btn btn-primary btn-cta">{{ _('Wybierz plan') }} {{ plan.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
 <main class="container" style="padding-top: 2rem;">
     <header class="page-header mb-5">
         <h1>{{ _('Wybierz plan dopasowany do Ciebie') }}</h1>
         <p>{{ _('Zacznij za darmo i przejdź na wyższy plan, gdy potrzebujesz więcej mocy.') }}</p>
     </header>
-    <div class="d-flex justify-center">
-        <div class="pricing-container">
-            <div class="pricing-card">
-                <h2 class="plan-name">{{ _('Darmowy') }}</h2>
-                <div class="plan-price">0 zł <span>/ {{ _('miesiąc') }}</span></div>
-                <p class="plan-description">{{ _('Idealny do testowania aplikacji i sporadycznych konwersji.') }}</p>
-                <a href="{{ url_for('auth.register') }}" class="btn btn-secondary btn-cta">{{ _('Zacznij za darmo') }}</a>
-            </div>
-            {% for plan in plans %}
-            <div class="pricing-card">
-                <h2 class="plan-name">{{ plan.name }}</h2>
-                <div class="plan-price">{{ "%.0f"|format(plan.price / 100) }} zł <span>/ {{ _(plan.interval) }}</span></div>
-                <p class="plan-description">
-                    {% if plan.name.lower() == 'pro' %}{{ _('Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi.') }}
-                    {% elif plan.name.lower() == 'studio' %}{{ _('Dla małych studiów i profesjonalistów z dużymi potrzebami.') }}
-                    {% else %}{{ _('Niestandardowy plan dostosowany do Twoich potrzeb.') }}{% endif %}
-                </p>
-                <a href="{{ url_for('billing.subscribe_page', price_id=plan.stripe_price_id) }}" class="btn btn-primary btn-cta">{{ _('Wybierz plan') }} {{ plan.name }}</a>
-            </div>
-            {% endfor %}
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h2 class="plan-name">{{ _('Darmowy') }}</h2>
+            <div class="plan-price">0 zł <span>/ {{ _('miesiąc') }}</span></div>
+            <p class="plan-description">{{ _('Idealny do testowania aplikacji i sporadycznych konwersji.') }}</p>
+            <a href="{{ url_for('auth.register') }}" class="btn btn-secondary btn-cta">{{ _('Zacznij za darmo') }}</a>
         </div>
+        {% for plan in plans %}
+        <div class="pricing-card">
+            <h2 class="plan-name">{{ plan.name }}</h2>
+            <div class="plan-price">{{ "%.0f"|format(plan.price / 100) }} zł <span>/ {{ _(plan.interval) }}</span></div>
+            <p class="plan-description">
+                {% if plan.name.lower() == 'pro' %}{{ _('Dla freelancerów i artystów, którzy potrzebują niezawodnych narzędzi.') }}
+                {% elif plan.name.lower() == 'studio' %}{{ _('Dla małych studiów i profesjonalistów z dużymi potrzebami.') }}
+                {% else %}{{ _('Niestandardowy plan dostosowany do Twoich potrzeb.') }}{% endif %}
+            </p>
+            <a href="{{ url_for('billing.subscribe_page', price_id=plan.stripe_price_id) }}" class="btn btn-primary btn-cta">{{ _('Wybierz plan') }} {{ plan.name }}</a>
+        </div>
+        {% endfor %}
     </div>
 </main>
+{% endif %}
 {% endblock %}

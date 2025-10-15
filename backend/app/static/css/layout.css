@@ -34,10 +34,13 @@ body {
     padding: 0 var(--container-padding);
 }
 
-/* Full Width Container (for sidebar layout) */
+/* Full Width Container (for sidebar pages) */
 .container-full {
     width: 100%;
-    padding: 0;
+    max-width: none;
+    margin: 0;
+    padding: var(--spacing-lg);
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -148,20 +151,27 @@ main {
     display: none;
 }
 
-/* Hide old footer in sidebar pages (optional) */
+/* Footer in sidebar pages */
 .has-sidebar .main-footer {
-    margin-top: 0;
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
 /* Footer */
 .main-footer {
     width: 100%;
     background-color: var(--bg-light);
-    padding: var(--spacing-3xl) 0;
-    margin-top: var(--spacing-3xl);
-    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-2xl) 0;
+    margin-top: var(--spacing-xl);
+    border-top: 3px solid var(--primary-color);
     text-align: center;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1000;
+    flex-shrink: 0;
+    min-height: 80px;
+    display: block !important;
 }
 
 /* Page Header */

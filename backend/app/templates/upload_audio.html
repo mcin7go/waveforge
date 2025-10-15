@@ -1,6 +1,8 @@
 {% extends "base_sidebar.html" %}
 {% block title %}{{ _('Prześlij i Przetwórz Pliki Audio') }}{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
 {% block content %}
+<div class="container-full">
         <section class="section-title">
             <h1>{{ _('Przetwarzanie Wsadowe') }}</h1>
             <p>{{ _('Prześlij wiele plików .WAV i przetwórz je jednocześnie') }}</p>
@@ -192,6 +194,7 @@
             </form>
         </div>
     </main>
+</div>
 {% endblock %}
 {% block scripts %}{{ super() }}<script src="{{ url_for('static', filename='js/upload.js') }}" defer></script>{% endblock %}
 

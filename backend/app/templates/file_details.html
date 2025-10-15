@@ -1,6 +1,8 @@
 {% extends "base_sidebar.html" %}
 {% block title %}{{ file.original_filename }} - {{ _('Szczegóły') }} - WaveBulk{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
 {% block content %}
+<div class="container-full">
     <div class="breadcrumb mb-4">
         <a href="{{ url_for('audio_processing.dashboard') }}">{{ _('Dashboard') }}</a> / 
         <a href="{{ url_for('audio_processing.get_processing_history') }}">{{ _('Historia') }}</a> / 
@@ -192,21 +194,25 @@
 
             <!-- Feature Toggles -->
             <div class="feature-toggles">
-                <button class="toggle-btn" id="toggle-spectrogram">
+                <button class="toggle-btn" id="toggle-spectrogram" title="Wizualizacja częstotliwości w czasie - pokazuje spektrum audio jako kolorową mapę">
                     <span class="toggle-icon">📊</span>
                     {{ _('Spectrogram') }}
+                    <small class="feature-desc">Mapa częstotliwości</small>
                 </button>
-                <button class="toggle-btn" id="toggle-analyzer">
+                <button class="toggle-btn" id="toggle-analyzer" title="Analiza częstotliwości w czasie rzeczywistym - pokazuje intensywność różnych częstotliwości">
                     <span class="toggle-icon">📈</span>
                     {{ _('Analizer częstotliwości') }}
+                    <small class="feature-desc">Widmo w czasie rzeczywistym</small>
                 </button>
-                <button class="toggle-btn" id="toggle-phase">
+                <button class="toggle-btn" id="toggle-phase" title="Analiza fazy sygnału audio - pokazuje zmiany fazy w czasie">
                     <span class="toggle-icon">🎯</span>
                     {{ _('Korelacja fazy') }}
+                    <small class="feature-desc">Analiza fazy</small>
                 </button>
-                <button class="toggle-btn" id="toggle-markers">
+                <button class="toggle-btn" id="toggle-markers" title="Dodawanie i zarządzanie markerami na waveform - oznaczanie fragmentów audio">
                     <span class="toggle-icon">📍</span>
                     {{ _('Markery') }}
+                    <small class="feature-desc">Oznaczanie fragmentów</small>
                 </button>
             </div>
 
@@ -227,7 +233,6 @@
                     <div class="waveform-container">
                         <div id="waveform"></div>
                         <div id="waveform-minimap"></div>
-                        <div id="spectrogram"></div>
                     </div>
 
                     <!-- Controls -->
@@ -263,6 +268,12 @@
                             <input type="range" class="zoom-slider" id="zoom" min="1" max="500" value="1">
                             <span id="zoom-value">1x</span>
                         </div>
+                    </div>
+                    
+                    <!-- Spectrogram Section -->
+                    <div id="spectrogram-section" class="spectrogram-section" style="display: none;">
+                        <h3 class="section-title">{{ _('Spectrogram') }}</h3>
+                        <div id="spectrogram"></div>
                     </div>
                 </div>
             </div>
@@ -429,7 +440,7 @@
                         <span class="scale-mark" data-value="-23">-23 (Broadcast)</span>
                     </div>
                     <div class="lufs-bar-container">
-                        <div class="lufs-bar" style="height: {{ ((file.loudness_lufs + 30) / 30 * 100)|round|int }}%;">
+                        <div class="lufs-bar" style="height: {{ ((file.loudness_lufs + 40) / 40 * 100)|round|int }}%;">
                             <span class="lufs-label">{{ "%.1f"|format(file.loudness_lufs) }} LUFS</span>
                         </div>
                     </div>
@@ -450,16 +461,45 @@
         </div>
         {% endif %}
 
+        <!-- Quality Warning -->
+        {% if result_data and result_data.get('quality_warning') %}
+        <div class="quality-warning-section">
+            <h2 class="quality-warning-title">
+                {% if result_data.quality_warning.level == 'warning' %}
+                    ⚠️ {{ _('Ostrzeżenie jakości') }}
+                {% elif result_data.quality_warning.level == 'caution' %}
+                    ⚡ {{ _('Uwaga jakości') }}
+                {% else %}
+                    ℹ️ {{ _('Informacja o jakości') }}
+                {% endif %}
+            </h2>
+            <div class="quality-warning-content">
+                <p class="quality-warning-message">{{ result_data.quality_warning.message }}</p>
+                {% if result_data.quality_warning.level in ['warning', 'caution'] %}
+                <div class="quality-warning-advice">
+                    <strong>{{ _('Zalecenie:') }}</strong> 
+                    {% if result_data.input_format.is_lossless and result_data.processed_filename.endswith('.mp3') %}
+                        {{ _('Rozważ konwersję do FLAC lub WAV aby zachować jakość bezstratną.') }}
+                    {% else %}
+                        {{ _('Sprawdź ustawienia konwersji aby zoptymalizować jakość.') }}
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
         <!-- Processing Details -->
         {% if result_data %}
         <div class="processing-section">
             <h2 class="processing-title">{{ _('Szczegóły przetwarzania') }}</h2>
             <div class="processing-details">
-                <pre>{{ result_data|tojson(indent=2) }}</pre>
+                <pre><code>{{ result_data|tojson(indent=2) }}</code></pre>
             </div>
         </div>
         {% endif %}
     </section>
+</div>
 {% endblock %}
 
 {% block scripts %}

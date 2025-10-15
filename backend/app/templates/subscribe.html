@@ -1,7 +1,9 @@
 {% extends "base_sidebar.html" %}
 {% block title %}{{ _('Subskrypcja') }} - WaveBulk{% endblock %}
 {% block page_title %}{{ _('Subskrypcja') }}{% endblock %}
+{% block main_content_class %} full-width{% endblock %}
 {% block content %}
+<div class="container-full">
   <section class="section-title text-center">
     <h2>{{ _('Dokonaj Subskrypcji') }}</h2>
     <p>{{ _('Wprowadź dane płatności, aby uzyskać dostęp do planu') }} <strong>{{ plan.name }}</strong> ({{ "%.2f"|format(plan.price / 100) }} PLN / {{ _(plan.interval) }}).</p>
@@ -49,4 +51,5 @@
       });
     });
   </script>
+</div>
 {% endblock %}

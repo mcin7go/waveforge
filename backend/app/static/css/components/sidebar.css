@@ -4,9 +4,10 @@
 
 /* App Container - New Layout Structure */
 .app-container {
-    display: flex;
     min-height: 100vh;
     background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Sidebar */
@@ -86,22 +87,23 @@
 
 /* Fix toggle button in collapsed state */
 .sidebar.collapsed .sidebar-header {
-    padding: var(--spacing-sm) var(--spacing-xs);
+    padding: var(--spacing-sm);
+    justify-content: center;
 }
 
 .sidebar.collapsed .sidebar-toggle {
-    padding: 0.25rem;
+    padding: 0.5rem;
+    margin: 0 auto;
 }
 
 /* Collapsed Toggle Button (Always Visible) */
 .collapsed-toggle-container {
     display: none;
     position: fixed;
-    left: 0;
+    left: 70px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1000;
-    width: 100vw;
     pointer-events: none;
 }
 
@@ -124,7 +126,6 @@
     align-items: center;
     justify-content: center;
     pointer-events: auto;
-    margin: 0 auto;
 }
 
 .collapsed-toggle-btn:hover {
@@ -216,12 +217,23 @@
     border-top: 1px solid var(--border-color);
 }
 
+.sidebar.collapsed .sidebar-footer {
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+}
+
 .sidebar-user {
     display: flex;
     align-items: center;
     padding: var(--spacing-sm);
     border-radius: var(--radius-md);
     transition: background-color var(--transition-base);
+}
+
+.sidebar.collapsed .sidebar-user {
+    justify-content: center;
+    padding: var(--spacing-md);
 }
 
 .sidebar-user:hover {
@@ -245,6 +257,8 @@
 
 .sidebar.collapsed .sidebar-user-avatar {
     margin-right: 0;
+    margin-left: 0;
+    margin: 0 auto;
 }
 
 .sidebar-user-info {
@@ -278,37 +292,50 @@
 
 /* Main Content Wrapper */
 .main-wrapper {
-    flex: 1;
     margin-left: 240px;
     transition: margin-left 0.3s ease;
-    min-height: 100vh;
+    min-height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    width: calc(100% - 240px);
+    max-width: none;
+    box-sizing: border-box;
 }
 
-.sidebar.collapsed + .main-wrapper {
+.sidebar.collapsed ~ .main-wrapper {
     margin-left: 70px !important;
+    width: calc(100% - 70px);
+}
+
+.has-sidebar .sidebar.collapsed ~ * .main-footer,
+.sidebar.collapsed ~ .main-footer {
+    margin-left: 70px;
+    width: calc(100% - 70px);
 }
 
 /* Top Bar (new minimal header) */
 .top-bar {
     height: 60px;
+    width: 100%;
     background-color: rgba(18, 18, 18, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 var(--spacing-xl);
     position: sticky;
     top: 0;
     z-index: calc(var(--z-modal) - 1);
+    box-sizing: border-box;
 }
 
 .top-bar-left {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
+    position: absolute;
+    left: var(--spacing-xl);
 }
 
 .mobile-menu-toggle {
@@ -335,6 +362,8 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
+    position: absolute;
+    right: var(--spacing-xl);
 }
 
 /* Language Switcher in Top Bar */
@@ -348,7 +377,14 @@
 .main-content {
     flex: 1;
     padding: var(--spacing-xl);
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+/* Full width content (for upload page) */
+.main-content.full-width {
+    padding: var(--spacing-lg);
 }
 
 /* Mobile Overlay */
@@ -389,7 +425,7 @@
         margin-left: 0;
     }
     
-    .sidebar.collapsed + .main-wrapper {
+    .sidebar.collapsed ~ .main-wrapper {
         margin-left: 0 !important;
     }
     
@@ -422,6 +458,14 @@
     
     .top-bar {
         padding: 0 var(--spacing-md);
+    }
+    
+    .top-bar-left {
+        left: var(--spacing-md);
+    }
+    
+    .top-bar-right {
+        right: var(--spacing-md);
     }
     
     .top-bar-title {

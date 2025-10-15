@@ -123,12 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (fileQueue.length > 0) processQueue();
     });
 
-    window.addEventListener('beforeunload', function (e) {
-        if (isProcessingQueue) {
-            e.preventDefault(); 
-            e.returnValue = ''; 
-        }
-    });
+    // Removed beforeunload blocker - tasks run in background via Celery
+    // Users can safely leave the page and check results in History
 
     function handleFiles(files) {
         fileErrorDiv.style.display = 'none';
@@ -182,6 +178,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#options-section select, #options-section input, #options-section button').forEach(el => el.disabled = true);
         submitButton.disabled = true;
         dropArea.style.display = 'none';
+        
+        // Show info banner about background processing
+        showBackgroundProcessingInfo();
+        
         let completedCount = 0;
 
         const processingOptions = {
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 updateCardStatus(cardElement, 'processing', 'Wysyłanie...');
                 const taskStatusUrl = await uploadFile(item.file, processingOptions, cardElement);
-                updateCardStatus(cardElement, 'processing', 'Przetwarzanie...');
+                updateCardStatus(cardElement, 'processing', 'Przetwarzanie w tle...');
                 const finalData = await pollForTaskResult(taskStatusUrl);
                 updateCardStatus(cardElement, 'completed', 'Ukończono');
                 displayResult(finalData.result, cardElement);
@@ -339,5 +339,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function showError(message) {
         fileErrorDiv.textContent = message;
         fileErrorDiv.style.display = 'block';
+    }
+    
+    function showBackgroundProcessingInfo() {
+        // Create and show info banner about background processing
+        const existingBanner = document.getElementById('background-processing-banner');
+        if (existingBanner) return; // Already shown
+        
+        const banner = document.createElement('div');
+        banner.id = 'background-processing-banner';
+        banner.className = 'alert alert-info';
+        banner.style.cssText = 'position: sticky; top: 0; z-index: 1000; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;';
+        banner.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg style="width: 24px; height: 24px; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                </svg>
+                <div>
+                    <strong>Zadania przetwarzają się w tle</strong>
+                    <p style="margin: 0; font-size: 0.9em;">Możesz bezpiecznie opuścić tę stronę. Wyniki znajdziesz w Historii.</p>
+                </div>
+            </div>
+            <a href="/audio/history" class="btn btn-sm btn-primary" style="white-space: nowrap;">Zobacz Historię</a>
+        `;
+        
+        // Insert at the top of the container
+        const container = document.querySelector('.container-full');
+        if (container && container.firstChild) {
+            container.insertBefore(banner, container.firstChild);
+        }
     }
 });

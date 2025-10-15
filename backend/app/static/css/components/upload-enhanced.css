@@ -5,7 +5,7 @@
 /* Upload Stats */
 .upload-stats {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--spacing-xl);
     flex-wrap: wrap;
     padding: var(--spacing-lg);
